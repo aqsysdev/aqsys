@@ -1,0 +1,25 @@
+<!--
+
+wave 登録テンプレート
+
+-->
+
+<body class="A5 landscape">
+<script type="text/javascript" src="/js/jquery-barcode.js"></script>
+
+{{#each numbercards}}
+<section class="sheet padding-10mm" align="center" valign="middle">
+  <h2>
+    {{numbercardheader}}
+  </h2>
+  <h3>
+    {{parsedRacenum}}
+  </h3>
+  <h5>
+    {{numbercardfooter}}
+  </h5>
+  <div class="bcTarget" id="bcTarget{{racenum}}" name="{{racenum}}" style="position:absolute; bottom:120px; right:50px;"></div>
+</section>
+{{/each}}
+<script type="text/javascript" src="/js/numbercards.js"></script>
+</body>

@@ -1,0 +1,214 @@
+<!--
+
+   表彰リストテンプレート
+
+-->
+
+<script src="/js/prize.js"></script>
+<script type="text/javascript" src="/js/printcard.js"></script>
+
+<h2 class="page-header">prize List</h2>
+<hr>
+
+<div class="well table-responsive" width="100%">
+  <table class="table table-condensed" id="prizelist">
+    <thead>
+      <tr>
+        <th>#<br></th>
+        <th>cate</th>
+        <th><div class="hidden-xs">wave</div><div class="hidden-sm hidden-md hidden-lg">w</div></th>
+        <th><div class="hidden">みょうじ","</div>氏</th>
+        <th><div class="hidden">なまえ","</div>名</th>
+        <th class="hidden-xs">性別</th>
+        <th aligin="center">年齢学年:G</th>
+        <th class="hidden-xs" aligin="center">〒</th>
+        <th class="hidden hidden-xs hidden-sm col-lg-3">住所<div class="hidden">1","住所2</div></th>
+        <th><div class="hidden">子のみょうじ","</div>子の氏</th>
+        <th><div class="hidden">子のなまえ","</div>子の名</th>
+        <th class="hidden-xs">子の性別</th>
+        <th aligin="center">タイム:T</th>
+        <th aligin="center">カテゴリー順位:P</th>
+        <th aligin="center">学年年代順位:Q</th>
+        <th aligin="center">大田区賞:R</th>
+        <th class="hidden-xs hidden-sm hidden">id</th>
+      </tr>
+    </thead>
+    <tbody id="prize-list-tbody">
+      {{#each prizelist}}
+        <tr valign="middle">
+          <td>
+             <div class="hidden"><div class="no-csv-output">#</div>{{racenum}}</div>
+             <input class="prize-race-num" type="text" id="prize-racenum-{{id}}" name="racenum-{{id}}" value="{{racenum}}" size="4" disabled/>
+          </td>
+          <td align="center">
+            <div class="hidden no-csv-output">c{{cate}}</div>
+            <div class="dropdown">
+              <button class="btn btn-default btn-xs dropdown-toggle prize-cate" type="button" id="prize-cate-{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
+              {{#if cate}}
+                {{cate}}
+              {{else}}
+                <span class="caret"></span>
+              {{/if}}
+              </button>
+              <ul class="dropdown-menu no-csv-output" aria-labelledby="prize-cate-{{id}}">
+                <li name=0><a><span class="caret"></span></a></li>
+                <li name=1><a>1:低学年男</a></li>
+                <li name=2><a>2:低学年女</a></li>
+                <li name=3><a>3:高学年男</a></li>
+                <li name=4><a>4:高学年女</a></li>
+                <li name=5><a>5:中学男</a></li>
+                <li name=6><a>6:中学女</a></li>
+                <li name=7><a>7:39才以下男</a></li>
+                <li name=8><a>8:39才以下女</a></li>
+                <li name=9><a>9:40才以上男</a></li>
+                <li name=10><a>A:40才以上女</a></li>
+                <li name=11><a>B:低学リレー</a></li>
+                <li name=12><a>C:高学リレー</a></li>
+              </ul>
+            </div>
+          </td>
+          <td align="center">
+            <div class="hidden" id="prize-wave-{{id}}"><div class="no-csv-output">W</div>{{wave}}</div>
+            <input class="prize-wave" type="text" name="wave-{{id}}" value="{{wave}}" size="2" disabled/>
+          </td>
+          <td align="center">
+            <div id="prize-lname-{{id}}">{{lname}}</div><div class="hidden">","</div><div id="prize-myouji-{{id}}">{{myouji}}</div>
+          </td>
+          <td align="center">
+            <div id="prize-fname-{{id}}">{{fname}}</div><div class="hidden">","</div><div id="prize-namae-{{id}}">{{namae}}</div>
+          </td>
+          <td class="hidden-xs prize-sex" align="center">
+            <div id="prize-sex-{{id}}">{{sex}}</div>
+          </td>
+          <td align="center">
+            <div id="prize-grade-{{id}}"><div class="hidden">g</div>{{grade}}</div>
+          </td>
+          <td class="hidden-xs">
+            <div id="prize-zip-{{id}}"><div class="no-csv-output">〒</div>{{zip1}}</div>
+          </td>
+          <td class="hidden hidden-xs hidden-sm">
+            <div id="prize-address1-{{id}}">{{address1}}</div><div class="hidden">","</div><div id="prize-address2-{{id}}">{{address2}}</div>
+          </td>
+          <td align="center">
+            <div id="prize-lname2-{{id}}">{{lname2}}</div><div class="hidden">","</div><div id="prize-myouji2-{{id}}">{{myouji2}}</div>
+          </td>
+          <td align="center">
+            <div id="prize-fname2-{{id}}">{{fname2}}</div><div class="hidden">","</div><div id="prize-namae2-{{id}}">{{namae2}}</div>
+          </td>
+          <td class="hidden-xs prize-sex2" align="center">
+            <div id="prize-sex2-{{id}}">{{sex2}}</div>
+          </td>
+          <td align="center">
+            <div class="hidden" id="ttime-{{id}}"><div class="no-csv-output">t</div>{{ttime}}</div>
+            <input class="prize-ttime" type="text" id="prize-ttime-{{id}}" name="ttime-{{id}}" value="{{ttime}}" size="11" disabled/>
+          </td>
+          <td align="center">
+            <div class="hidden" id="prize-1-{{id}}"><div class="no-csv-output">p</div>{{prize1}}</div>
+            <input class="prize-1" type="text" name="prize-1-{{id}}" value="{{prize1}}" size="2" disabled/>
+          </td>
+          <td align="center">
+            <div class="hidden" id="prize-2-{{id}}"><div class="no-csv-output">q</div>{{prize2}}</div>
+            <input class="prize-2" type="text" name="prize-2-{{id}}" value="{{prize2}}" size="2" disabled/>
+          </td>
+          <td align="center">
+            <div class="hidden" id="prize-3-{{id}}"><div class="no-csv-output">r</div>{{prize3}}</div>
+            <input class="prize-3" type="text" name="prize-3-{{id}}" value="{{prize3}}" size="2" disabled/>
+          </td>
+          <td class="hidden-xs hidden-sm hidden" align="center">
+            <div id="prize-id-{{id}}">{{id}}<div>
+          </td>
+        </tr>
+      {{/each }}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs"></td>
+        <td align="center"></td>
+        <td class="hidden-xs" align="center"></td>
+        <td class="hidden-xs hidden-sm hidden"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs"></th>
+        <td class="hidden-xs hidden-sm hidden"></th>
+        <td align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="prize-ttime-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a id="prize-ttime-caret"><span class="caret"></span></a></li>
+              <li><a id="prize-ttime-editable">編集</a></li>
+              <li><a id="prize-ttime-autofill">自動評価</a></li>
+              <li><a id="prize-ttime-remove">消去</a></li>
+            </ul>
+          </div>
+        </td>
+        <td align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="prize-1-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a id="prize-1-caret"><span class="caret"></span></a></li>
+              <li><a id="prize-1-editable">編集</a></li>
+              <li><a id="prize-1-autofill">自動評価</a></li>
+              <li><a id="prize-1-remove">消去</a></li>
+            </ul>
+          </div>
+        </td>
+        <td align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="prize-2-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a id="prize-2-caret"><span class="caret"></span></a></li>
+              <li><a id="prize-2-editable">編集</a></li>
+              <li><a id="prize-2-autofill">自動評価</a></li>
+              <li><a id="prize-2-remove">消去</a></li>
+            </ul>
+          </div>
+        </td>
+        <td align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="prize-3-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a id="prize-3-caret"><span class="caret"></span></a></li>
+              <li><a id="prize-3-editable">編集</a></li>
+              <li><a id="prize-3-autofill">自動評価</a></li>
+              <li><a id="prize-3-remove">消去</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<p>
+  <button id="dl" class="btn btn-primary">Download CSV</button>
+  <button id="printCard" class="btn btn-primary">Print Prize Card</button>
+</p>
+
+<script>
+	$("#dl").click(function(){
+    var noCSV=$(".no-csv-output").detach();
+	  $("#prizelist").table2csv({
+      filename:'prizelist.csv',
+      separator: ',',
+  		newline: '\n',
+  		quoteFields: true,
+  		excludeColumns: '',
+  		excludeRows: ''
+    });
+    noCSV=null;
+    location.reload();
+	});
+</script>

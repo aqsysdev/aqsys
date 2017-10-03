@@ -1,0 +1,351 @@
+<!--
+
+   エントリーリストテンプレート
+
+-->
+
+<script src="/js/entry.js"></script>
+<script type="text/javascript" src="/js/printcard.js"></script>
+
+<h2 class="page-header">Entry List</h2>
+<hr>
+
+<div class="well table-responsive" width="100%">
+  <table class="table table-condensed" id="entrylist">
+    <thead>
+      <tr>
+        <th class="hidden-xs">編集</th>
+        <th >#<br></th>
+        <th>cate</th>
+        <th><div class="hidden-xs">wave</div><div class="hidden-sm hidden-md hidden-lg">w</div></th>
+        <th data-toggle="false">誓約書</th>
+        <th data-toggle="false">受付</th>
+        <th data-toggle="false">召集</th>
+        <th><div class="hidden">みょうじ","</div>氏</th>
+        <th><div class="hidden">なまえ","</div>名</th>
+        <th class="hidden-xs hidden-sm">誕生日</th>
+        <th class="center">年齢<br>学年</th>
+        <th class="hidden-xs">性別</th>
+        <th class="hidden-xs">〒</th>
+        <th class="hidden-xs hidden-sm col-lg-3">住所<div class="hidden">1","住所2</div></th>
+        <th class="hidden-xs hidden-sm hidden-md">e-mail</th>
+        <th><div class="hidden">子のみょうじ","</div>子の氏</th>
+        <th><div class="hidden">子のなまえ","</div>子の名</th>
+        <th class="hidden-xs hidden-sm">子の誕生日</th>
+        <th class="hidden-xs">子の性別</th>
+        <th class="hidden-xs hidden-sm">id</th>
+      </tr>
+    </thead>
+    <tbody id="entry-list-tbody">
+    {{#each entrylist}}
+      <tr valign="middle">
+      <!-- Button trigger modal -->
+
+        <td align="center" class="hidden-xs">
+          <button type="button" class="btn btn-default btn-xs edit-entrylist" data-toggle="modal" data-target="#formEditEntryModal" data-id="{{id}}" id="edit-entry-modal-{{id}}">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td>
+           <div class="hidden"><div class="no-csv-output">#</div>{{racenum}}</div>
+           <input class="entry-race-num" type="text" id="entry-racenum-{{id}}" name="racenum-{{id}}" value="{{racenum}}" size="4" disabled/>
+        </td>
+        <td align="center">
+          <div class="hidden no-csv-output">c{{cate}}</div>
+          <div class="dropdown">
+            <button class="btn btn-default btn-xs dropdown-toggle entry-cate" type="button" id="entry-cate-{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
+            {{#if cate}}
+              {{cate}}
+            {{else}}
+              <span class="caret"></span>
+            {{/if}}
+            </button>
+            <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-{{id}}">
+              <li name=0><a><span class="caret"></span></a></li>
+              <li name=1><a>1:低学年男</a></li>
+              <li name=2><a>2:低学年女</a></li>
+              <li name=3><a>3:高学年男</a></li>
+              <li name=4><a>4:高学年女</a></li>
+              <li name=5><a>5:中学男</a></li>
+              <li name=6><a>6:中学女</a></li>
+              <li name=7><a>7:39才以下男</a></li>
+              <li name=8><a>8:39才以下女</a></li>
+              <li name=9><a>9:40才以上男</a></li>
+              <li name=10><a>A:40才以上女</a></li>
+              <li name=11><a>B:低学リレー</a></li>
+              <li name=12><a>C:高学リレー</a></li>
+            </ul>
+          </div>
+        </td>
+        <td align="center">
+          <div class="hidden" id="entry-wave-{{id}}"><div class="no-csv-output">W</div>{{wave}}</div>
+          <input class="entry-wave" type="text" name="wave-{{id}}" value="{{wave}}" size="2" disabled/>
+        </td>
+        <td align="center">
+          <div class="hidden"><div class="no-csv-output">f</div>{{confirmation}}</div>
+          <label>
+            <input type="checkbox" name="confirmation-{{id}}" id="entry-confirmation-{{id}}" class="checkbox01-input entry-confirmation confirmed" {{confirmation}} disabled>
+            <span class="checkbox01-parts"></span>
+          </label>
+        </td>
+        <td align="center" valign="middle">
+          <div class="hidden"><div class="no-csv-output">r</div>{{regist}}</div>
+          <label>
+            <input type="checkbox" name="regist-{{id}}" id="entry-regist-{{id}}" class="checkbox01-input entry-regist confirmed" {{regist}} disabled>
+            <span class="checkbox01-parts"></span>
+          </label>
+        </td>
+        <td align="center">
+          <div class="hidden"><div class="no-csv-output">s</div>{{start}}</div>
+          <label>
+            <input type="checkbox" name="start-{{id}}" id="entry-start-{{id}}" class="checkbox01-input entry-start confirmed" {{start}} disabled>
+            <span class="checkbox01-parts"></span>
+          </label>
+        </td>
+        <td align="center">
+          <div id="entry-lname-{{id}}">{{lname}}</div><div class="hidden">","</div><div id="entry-myouji-{{id}}">{{myouji}}</div>
+        </td>
+        <td align="center">
+          <div id="entry-fname-{{id}}">{{fname}}</div><div class="hidden">","</div><div id="entry-namae-{{id}}">{{namae}}</div>
+        </td>
+        <td class="hidden-xs hidden-sm">
+          <div id="entry-birthday-{{id}}">{{birthday}}</div>
+        </td>
+        <td align="center">
+          <div id="entry-grade-{{id}}">{{grade}}</div>
+        </td>
+        <td class="hidden-xs entry-sex" align="center">
+          <div id="entry-sex-{{id}}">{{sex}}</div>
+        </td>
+        <td class="hidden-xs">
+          <div id="entry-zip-{{id}}"><div class="no-csv-output">〒</div>{{zip1}}-{{zip2}}</div>
+        </td>
+        <td class="hidden-xs hidden-sm">
+          <div id="entry-address1-{{id}}">{{address1}}</div><div class="hidden">","</div><div id="entry-address2-{{id}}">{{address2}}</div>
+        </td>
+        <td class="hidden-xs hidden-sm hidden-md">
+          <div id="entry-email-{{id}}">{{email}}</div>
+        </td>
+        <td align="center">
+          <div id="entry-lname2-{{id}}">{{lname2}}</div><div class="hidden">","</div><div id="entry-myouji2-{{id}}">{{myouji2}}</div>
+        </td>
+        <td align="center">
+          <div id="entry-fname2-{{id}}">{{fname2}}</div><div class="hidden">","</div><div id="entry-namae2-{{id}}">{{namae2}}</div>
+        </td>
+        <td class="hidden-xs hidden-sm">
+          <div id="entry-birthday2-{{id}}">{{birthday2}}</div>
+        </td>
+        <td class="hidden-xs entry-sex2" align="center">
+          <div id="entry-sex2-{{id}}">{{sex2}}</div>
+        </td>
+        <td class="hidden-xs hidden-sm" align="center">
+          <div id="entry-id-{{id}}">{{id}}<div>
+        </td>
+      </tr>
+    {{/each }}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td align="center" class="hidden-xs">
+          <button type="button" class="btn btn-default btn-xs edit-entrylist" data-toggle="modal" data-target="#formEditEntryModal" data-id="0" id="edit-entry-modal-0">
+          <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryRaceNumEditable" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryCateEditable">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryWaveEditable">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryConfirmationEditable">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button" autocomplete="on" id="btnEntryRegistEditable">
+            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryStartEditable">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs hidden-sm"></td>
+        <td align="center"></td>
+        <td class="hidden-xs" align="center"></td>
+        <td class="hidden-xs hidden-sm"></td>
+        <td class="visible-lg"></td>
+        <td class="hidden-xs hidden-sm hidden-mid"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs hidden-sm"></td>
+        <td class="hidden-xs" align="center"></td>
+        <td class="hidden-xs hidden-sm" align="center"></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<p>
+  <button id="dl" class="btn btn-primary">Download CSV</button>
+  <button id="printCard" class="btn btn-primary">Print Number Card</button>
+</p>
+
+<script>
+	$("#dl").click(function(){
+    var noCSV=$(".no-csv-output").detach();
+	  $("#entrylist").table2csv({
+      filename:'entrylist.csv',
+      separator: ',',
+  		newline: '\n',
+  		quoteFields: true,
+  		excludeColumns: '',
+  		excludeRows: ''
+    });
+    noCSV=null;
+    location.reload();
+	});
+</script>
+
+
+<!-- Modal -->
+
+<div class="container modal fade" id="formEditEntryModal" tabindex="-1" role="dialog" aria-labelledby="formAddEntryModalLabel">
+
+
+  <div class="row modal-dialog" role="document">
+    <div class="modal-content">
+      <form id="entry-modal-form" action="javascript:postEntryByModalForm()">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="formAddEntryModalLabel">Add Entry</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="input-group">
+            <label>氏　　名</label><br>
+            <textarea type="text" class="col-lg-6" placeholder="氏" name="modal-myouji" id="modal-myouji"></textarea>
+            <textarea type="text" class="col-lg-6" placeholder="名" name="modal-namae" id="modal-namae"></textarea>
+          </div>
+          <div class="input-group">
+            <label>ふりがな</label><br>
+            <textarea type="text" class="col-lg-6" placeholder="みょうじ" name="modal-lname" id="modal-lname"></textarea>
+            <textarea type="text" class="col-lg-6" placeholder="なまえ" name="modal-fname" id="modal-fname"></textarea>
+          </div>
+
+          <div class="form-inline">
+            <div class="input-group">
+              <label>誕生日</label><br>
+              <textarea type="tex" id="modal-birthday" placeholder="YYYY/MM/DD" name="modal-birthday"></textarea>
+            </div>
+            <div class="form-group">
+              <label>性別</label>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  男
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="modal-sex">
+                  <li><a>男</a></li>
+                  <li><a>女</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>学年（親子リレーも含む）</label>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="modal-grade" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="modal-grade">
+                  <li><a>-</a></li>
+                  <li><a>小学１</a></li>
+                  <li><a>小学２</a></li>
+                  <li><a>小学３</a></li>
+                  <li><a>小学４</a></li>
+                  <li><a>小学５</a></li>
+                  <li><a>小学６</a></li>
+                  <li><a>中学１</a></li>
+                  <li><a>中学２</a></li>
+                  <li><a>中学３</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-input">
+            <label>郵便番号</label><br>
+            <textarea type="text" placeholder="123-4567" name="zip" id="modal-zip"></textarea>
+          </div>
+          <div class="form-group">
+            <label>住所</label><br>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <button class="btn btn-default" type="button" id="modal-zip-button">〒→</button>
+              </span>
+              <textarea type="text" class="form-control" placeholder="東京都大田区萩中３−２６−４６" name="address1" id="modal-address1"></textarea>
+              <textarea type="text" class="form-control" placeholder="萩中荘２号室" name="address2" id="modal-address2"></textarea>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>e-mail</label><br>
+            <textarea type="ename" class="form-contol" placeholder="name@domain.com" name="modal-" id="modal-email"></textarea>
+          </div>
+
+          <hr />
+
+          <div class="input-group">
+            <label>お子さんの氏名</label><br>
+            <textarea type="text" class="col-lg-6" placeholder="氏" name="myouji2" id="modal-myouji2"></textarea>
+            <textarea type="text" class="col-lg-6" placeholder="名" name="namae2" id="modal-namae2"></textarea>
+          </div>
+
+          <div class="input-group">
+            <label>お子さんのふりがな</label><br>
+            <textarea type="text" class="col-lg-6" placeholder="みょうじ" name="lname2" id="modal-lname2"></textarea>
+            <textarea type="text" class="col-lg-6" placeholder="なまえ" name="fname2" id="modal-fname2"></textarea>
+          </div>
+
+          <div class="form-inline">
+            <div class="input-group">
+              <label>お子さんの誕生日</label><br>
+              <textarea type="text" class="form-control" placeholder="YYYY/MM/DD" name="birthday2" id="modal-birthday2"></textarea>
+            </div>
+            <div class="form-group">
+              <div class="dropdown">
+                <label>性別</label><br>
+                <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex2"   data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" name="sex2">
+                男
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="modal-sex2">
+                <li><a>-</a></li>
+                <li><a>男</a></li>
+                <li><a>女</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="delete" class="btn btn-denger col-lg-2 col-md-3" data-dismiss="modal" id="modal-delete">削除</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">取り消し</button>
+          <input type="submit" class="btn btn-primary" value="登録" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

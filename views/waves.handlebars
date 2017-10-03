@@ -1,0 +1,63 @@
+<!--
+
+wave 登録テンプレート
+
+-->
+
+<script src="/js/waves.js"></script>
+<h2 class="page-header">Wave Time</h2>
+<hr>
+  <table class="table table-condensed" id="waveTable">
+    <thead>
+      <tr>
+        <th>wid</th>
+        <th>時刻</th>
+        <th>間隔</th>
+      <tr/>
+    </thead>
+    <tbody id="waves-tbody">
+    {{#each wavesList}}
+      <tr valign="middle">
+        <td class="waves-wid" id="waves-wid-{{wid}}">{{wid}}</td>
+        <td>
+           <input class="waves-stime" type="text" id="waves-stime-{{wid}}" name="number" value="{{stime}}" size="11" disabled/>
+        </td>
+        <td>
+           <input class="waves-dtime" type="text" id="waves-dtime-{{wid}}" name="number" value="{{dtime}}" size="11" disabled/>
+        </td>
+      </tr>
+    {{/each}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td> </td>
+        <td align="center" colspan="2">
+          <button type="button" class="btn btn-default btn-xs btn-block btnWavesEditable" data-toggle="button"  autocomplete="on" id="btnWavesEditable" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+
+<p>
+  <button id="dl" class="btn btn-primary">Download CSV</button>
+</p>
+
+<script>
+  /* global $ */
+	$("#dl").click(function(){
+    var noCSV=$(".no-csv-output").detach();
+	  $("#waveTable").table2csv({
+      filename:'waveTable.csv',
+      separator: ',',
+  		newline: '\n',
+  		quoteFields: true,
+  		excludeColumns: '',
+  		excludeRows: ''
+    });
+    noCSV=null;
+    location.reload();
+	});
+</script>

@@ -1,0 +1,21 @@
+<!--
+
+  メニューテンプレート
+
+-->
+
+
+<h2 class="page-header">Main Menu</h2>
+<hr>
+<div class="container" align="center">
+  {{#unless useradmin}}
+    <div class="well" style="width:400px" align="left">
+      <lu>
+        <li><a href="/waves">Waves: ウェーブ設定</a></li>
+        <li><a href="/entry">Entry: エントリーリスト</a></li>
+        <li><a href="/record">Record: 計時リスト</a></li>
+        <li><a href="/prize">Prize: 表彰リスト</a></li>
+      </lu>
+    </div>
+  {{/unless}}
+</div>

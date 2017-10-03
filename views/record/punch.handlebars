@@ -1,0 +1,18 @@
+<!--
+
+打刻テンプレート
+
+-->
+<script type="text/javascript">
+  var tnum={{tnum}};
+  var seqnum={{seqnum}};
+</script>
+<h2 class="page-header">Record Time {{tnum}}</h2>
+<div id="msg_list" style="height:140px; overflow:scroll;"></div>
+ <form action="" method="put" onsubmit="return false;">
+   <input type="number" class="text" style="width:72px; padding:10px"
+   id="message"/>
+   <input type="submit" class="button" style="padding:10px" onclick="punchTime({{tnum}});" value="送信" />
+ </form>
+</div>
+<script type="text/javascript" src="/js/punch.js"></script>

@@ -1,0 +1,291 @@
+<!--
+
+レース記録テンプレート
+
+-->
+
+<script src="/js/record.js"></script>
+<h2 class="page-header">Record Time</h2>
+<hr>
+  <table class="table table-condensed" id="recordTable">
+    <thead>
+      <tr>
+        <th>着順</th>
+        <th class="hiddenn">rid0</th>
+        <th>num0</th>
+        <th class="show-ftime">time0</th>
+        <th class="show-dtime">time0</th>
+        <th class="hiddenn">rid1</th>
+        <th><button class="btn btn-xs btn-primary record-num-radio" id="record-num-radio-1">
+          num1
+        </button></th>
+        <th class="show-ftime"><button class="btn btn-xs btn-primary record-ftime-radio active" id="record-ftime-radio-1">
+          ftime1
+        </button></th>
+        <th class="show-dtime"><button class="btn btn-xs btn-primary record-dtime-radio active" id="record-dtime-radio-1">
+          dtime1
+        </button></th>
+        <th class="hiddenn">rid2</th>
+        <th><button class="btn btn-xs btn-primary record-num-radio active" id="record-num-radio-2">
+          num2
+        </button></th>
+        <th class="show-ftime"><button class="btn btn-xs btn-primary record-ftime-radio" id="record-ftime-radio-2">
+          ftime2
+        </button></th>
+        <th class="show-dtime"><button class="btn btn-xs btn-primary record-dtime-radio" id="record-dtime-radio-2">
+          dtime2
+        </button></th>
+        <th class="hiddenn">rid3</th>
+        <th><button class="btn btn-xs btn-primary record-num-radio" id="record-num-radio-3">
+          num3
+        </button></th>
+        <th class="show-ftime"><button class="btn btn-xs btn-primary record-ftime-radio" id="record-ftime-radio-3">
+          ftime3
+        </button></th>
+        <th class="show-dtime"><button class="btn btn-xs btn-primary record-dtime-radio" id="record-dtime-radio-3">
+          dtime3
+        </button></th>
+        <th class="hiddenn">rid4</th>
+        <th><button class="btn btn-xs btn-primary record-num-radio" id="record-num-radio-4">
+          num4
+        </button></th>
+        <th class="show-ftime"><button class="btn btn-xs btn-primary record-ftime-radio" id="record-ftime-radio-4">
+          ftime4
+        </button></th>
+        <th class="show-dtime"><button class="btn btn-xs btn-primary record-dtime-radio" id="record-dtime-radio-4">
+          dtime4
+        </button></th>
+      </tr>
+    </thead>
+    <tbody id="record-time-tbody">
+    {{#each recordTable}}
+      <tr valign="middle">
+        <td class="record-seqnum" id="record-seqnum-{{seqnum}}">
+           {{seqnum}}
+        </td>
+        <td class="hiddenn record-rid-0" id="record-rid-0-{{seqnum}}">{{rid0}}</td>
+        <td>
+           <input class="record-num-0" type="text" id="record-num-0-{{seqnum}}" name="number" value="{{racenum0}}" size="4" disabled/>
+        </td>
+        <td class="show-ftime">
+           <input class="record-ftime-0" type="text" id="record-ftime-0-{{seqnum}}" name="number" value="{{ftime0}}" size="11" disabled/>
+        </td>
+        <td class="show-dtime">
+           <input class="record-dtime-0" type="text" id="record-dtime-0-{{seqnum}}" name="number" value="{{dtime0}}" size="11" disabled/>
+        </td>
+        <td class="hiddenn record-rid-1" id="record-rid-1-{{seqnum}}">{{rid1}}</td>
+        <td>
+           <input class="record-num-1" type="text" id="record-num-1-{{seqnum}}" name="number" value="{{racenum1}}" size="4" disabled/>
+        </td>
+        <td class="show-ftime">
+           <input class="record-ftime-1" type="text" id="record-ftime-1-{{seqnum}}" name="number" value="{{ftime1}}" size="11" disabled/>
+        </td>
+        <td class="show-dtime">
+           <input class="record-dtime-1" type="text" id="record-dtime-1-{{seqnum}}" name="number" value="{{dtime1}}" size="11" disabled/>
+        </td>
+        <td class="hiddenn record-rid-2" id="record-rid-2-{{seqnum}}">{{rid2}}</td>
+        <td>
+           <input class="record-num-2" type="text" id="record-num-2-{{seqnum}}" name="number" value="{{racenum2}}" size="4" disabled/>
+        </td>
+        <td class="show-ftime">
+           <input class="record-ftime-2" type="text" id="record-ftime-2-{{seqnum}}" name="number" value="{{ftime2}}" size="11" disabled/>
+        </td>
+        <td class="show-dtime">
+           <input class="record-dtime-2" type="text" id="record-dtime-2-{{seqnum}}" name="number" value="{{dtime2}}" size="11" disabled/>
+        </td>
+        <td class="hiddenn record-rid-3" id="record-rid-3-{{seqnum}}">{{rid3}}</td>
+        <td>
+           <input class="record-num-3" type="text" id="record-num-3-{{seqnum}}" name="number" value="{{racenum3}}" size="4" disabled/>
+        </td>
+        <td class="show-ftime">
+           <input class="record-ftime-3" type="text" id="record-ftime-3-{{seqnum}}" name="number" value="{{ftime3}}" size="11" disabled/>
+        </td>
+        <td class="show-dtime">
+           <input class="record-dtime-3" type="text" id="record-dtime-3-{{seqnum}}" name="number" value="{{dtime3}}" size="11" disabled/>
+        </td>
+        <td class="hiddenn record-rid-4" id="record-rid-4-{{seqnum}}">{{rid4}}</td>
+        <td>
+           <input class="record-num-4" type="text" id="record-num-4-{{seqnum}}" name="number" value="{{racenum4}}" size="4" disabled/>
+        </td>
+        <td class="show-ftime">
+           <input class="record-ftime-4" type="text" id="record-ftime-4-{{seqnum}}" name="number" value="{{ftime4}}" size="11" disabled/>
+        </td>
+        <td class="show-dtime">
+           <input class="record-dtime-4" type="text" id="record-dtime-4-{{seqnum}}" name="number" value="{{dtime4}}" size="11" disabled/>
+        </td>
+      </tr>
+
+    {{/each}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td> </td>
+        <td class="hiddenn"></td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-0" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-ftime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordFTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordFTimeEditable-0" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-dtime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordDTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordDTimeEditable-0" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+
+        <td class="hiddenn"></td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-1" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-ftime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordFTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordFTimeEditable-1" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-dtime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordDTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordDTimeEditable-1" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+
+        <td class="hiddenn"></td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-2" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-ftime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordFTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordFTimeEditable-2" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-dtime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordDTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordDTimeEditable-2" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+
+        <td class="hiddenn"></td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-3" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-ftime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordFTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordFTimeEditable-3" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-dtime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordDTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordDTimeEditable-3" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+
+        <td class="hiddenn"></td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-4" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-ftime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordFTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordFTimeEditable-4" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td class="show-dtime" align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block btnRecordDTimeEditable" data-toggle="button"  autocomplete="on" id="btnRecordDTimeEditable-4" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="hiddenn"></td>
+        <td colspan="2"></td>
+        <td align="center" colspan="2">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="room1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a><span class="caret"></span></a></li>
+              <li><a href="/record/punch/1">打刻</a></li>
+              <li><a>カメラ入力</a></li>
+            </ul>
+          </div>
+        </td>
+
+        <td class="hiddenn"></td>
+        <td align="center" colspan="2">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="room2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a><span class="caret"></span></a></li>
+              <li><a href="/record/punch/2">打刻</a></li>
+              <li><a>カメラ入力</a></li>
+            </ul>
+          </div>
+        </td>
+
+        <td class="hiddenn"></td>
+        <td align="center" colspan="2">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="room3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a><span class="caret"></span></a></li>
+              <li><a href="/record/punch/3">打刻</a></li>
+              <li><a>カメラ入力</a></li>
+            </ul>
+          </div>
+        </td>
+
+        <td class="hiddenn"></td>
+        <td align="center" colspan="2">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="room4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a><span class="caret"></span></a></li>
+              <li><a href="/record/punch/4">打刻</a></li>
+              <li><a>カメラ入力</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+
+<p>
+  <button id="diffTime" class="btn btn-primary" data-toggle="button">時間表示</button>
+  <button id="dl" class="btn btn-primary">Download CSV</button>
+</p>
+
+<script>
+  /* global $ */
+	$("#dl").click(function(){
+    var noCSV=$(".no-csv-output").detach();
+	  $("#recordTable").table2csv({
+      filename:'recordTable.csv',
+      separator: ',',
+  		newline: '\n',
+  		quoteFields: true,
+  		excludeColumns: '',
+  		excludeRows: ''
+    });
+    noCSV=null;
+    location.reload();
+	});
+</script>
