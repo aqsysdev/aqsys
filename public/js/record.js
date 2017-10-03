@@ -171,13 +171,14 @@ $(function(){
     //
     //  追加
     //
+    var data = {
+      racenum: value,
+      disabeled: false
+    };
+    if(recordNum!=0) {
+        data.ftime = encodeTime( new Date() );
+    }
     if(!rid || isNaN(rid)) {
-      var data = {
-        racenum: value
-      };
-      if(recordNum!=0) {
-          data.ftime = encodeTime( new Date() );
-      }
       $.post("/api/record/"+recordNum, data,
       function(data,stat){
         //alert(JSON.stringify(data));
@@ -205,10 +206,6 @@ $(function(){
     //
     }else{
       $.put("/api/record/"+recordNum+"_"+rid,
-      {
-        racenum: value,
-        disabled: false
-      },
       function(data,stat){
         $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
@@ -228,7 +225,7 @@ $(function(){
       function(data,stat,err){
 //
 //    追加
-//        
+//
         $.post("/api/record/"+recordNum, data,
         function(data,stat){
           //alert(JSON.stringify(data));
