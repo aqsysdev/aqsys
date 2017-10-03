@@ -173,10 +173,10 @@ $(function(){
     //
     var data = {
       racenum: value,
-      disabeled: false
+      disabled: false
     };
-    if(recordNum!=0) {
-        data.ftime = encodeTime( new Date() );
+    if(!($(that).parent().next().children().last().val())) {
+      data.ftime = encodeTime( new Date() );
     }
     if(!rid || isNaN(rid)) {
       $.post("/api/record/"+recordNum, data,
@@ -420,11 +420,19 @@ $(function(){
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
     var promises= $(".record-rid-0").map(function(seqnum) {
       var rid0=$(this).text().trim();
-        return(
-          $.put("/api/record/0_"+rid0, {
-            disabled: true
-          })
-        );
+        if(rid0) {
+          return(
+            $.put("/api/record/0_"+rid0, {
+              disabled: true
+            })
+          );
+        }else{
+          return(
+            $.post("/api/record/0", {
+              disabled: true
+            })
+          );
+        }
     });
     $.when(promises).done( function(){
       $(".record-rid-0").map(function(seqnum){
