@@ -15,10 +15,10 @@ var config = {
 
 module.exports = {
   getAll(tNum) {
-    return( knex.withSchema(config.schemaname).from(table+tNum).whereNull('disabled').orWhere('disabled',false));
+    return( knex.withSchema(config.schemaname).from(table+tNum));
   },
   getOne(tNum,rid) {
-    return( knex.withSchema(config.schemaname).from(table+tNum).where('rid', rid).whereNull('disabled').orWhere('disabled', false).first());
+    return( knex.withSchema(config.schemaname).from(table+tNum).where('rid', rid).first());
   },
   create(tNum,row) {
 //    console.log("create");

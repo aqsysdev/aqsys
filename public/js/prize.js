@@ -47,7 +47,7 @@ $(function(){
     "getR" : function (rid, data, success, error) {
       error = error || function() {};
       return $.ajax({
-        "url" : '/api/record/0'+(rid=="" || isNaN(rid)?"":"_"+rid),
+        "url" : '/api/record/0'+((rid=="" || isNaN(rid))?"":"_"+rid),
         "data" : data,
         "success" : success,
         "type" : "GET",
@@ -188,9 +188,9 @@ function autoFillTtime() {
             var id=$(btn).parent().parent().children().last().text().trim();
             var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
             var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
-          //  alert(id+":"+racenum+":"+wid);
-            var stimeObj=waves[wid];
-            var ftimeObj=record.find(function(elm){return((elm.racenum)*1==racenum);});
+            //alert("id:"+id+" racenum:"+racenum+" wid:"+wid);
+            var stimeObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
+            var ftimeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
             if(stimeObj && stimeObj.stime && ftimeObj && ftimeObj.ftime) {
               $(btn).val(diffTime(stimeObj.stime,ftimeObj.ftime));
               changeTtime($(btn));

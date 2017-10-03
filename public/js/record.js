@@ -164,9 +164,10 @@ $(function(){
   //
   function recordEditNum(that){
     $(that).addClass("unconfirmed");
-    var recordNum=$(that).eq(0).attr("id").split("-")[2];
+    var recordNum=$(that).attr("id").split("-")[2];
     var value=$(that).val();
     var rid=$(that).parent().prev().text().trim();
+    //alert("that.id:"+$(that).attr("id")+" recordNum:"+recordNum+" rid:"+rid+" num:"+value);
     //
     //  追加
     //
@@ -182,12 +183,11 @@ $(function(){
         //alert(JSON.stringify(data));
         $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
-          //alert(JSON.stringify(data));
-          $(that).addClass("confirmed");
-          $(that).val(decodeRacenum(data.racenum));
+        //  alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum);
           $(that).parent().prev().text(data.rid);
-          $(that).parent().next().children().last().val(decodeTime(data.ftime));
-          $(that).parent().next().next().children().last().val(diffTime(decodeTime(data.ftime),$("#record-ftime-"+recordNum+"-0").val()));
+          $(that).val(decodeRacenum(data.racenum));
+          $(that).parent().next().children().last().val(reformTime(data.ftime));
+          $(that).parent().next().next().children().last().val(diffTime(reformTime(data.ftime),$("#record-ftime-"+recordNum+"-0").val()));
           $(that).removeClass("unconfirmed");
           addRow();
         },
@@ -210,26 +210,22 @@ $(function(){
         disabled: false
       },
       function(data,stat){
-        $.get("/api/record/"+recordNum+"_"+data.rid, data,
+        $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
+          //alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum);
           $(that).parent().prev().text(data.rid);
-          $(that).val(data.racenum);
+          $(that).val(decodeRacenum(data.racenum));
+          $(that).parent().next().children().last().val(reformTime(data.ftime));
+          $(that).parent().next().next().children().last().val(diffTime(reformTime(data.ftime),$("#record-ftime-"+recordNum+"-0").val()));
           $(that).removeClass("unconfirmed");
+          addRow();
         },
         function(req,stat,err){
+          alert("get recorde data error:"+err);
           $(that).val("");
         });
       },
-      function(req,stat,err){
-        $.get("/api/record/"+recordNum+"_"+rid, data,
-        function(data,stat) {
-          $(that).parent().prev().text(data.rid);
-          $(that).val(data.racenum);
-          $(that).removeClass("unconfirmed");
-        },
-        function(req,stat,err){
-          $(that).val("");
-        });
+      function(data,stat,err){
       });
     }
   }
@@ -247,31 +243,18 @@ $(function(){
     //  削除
     //
     if(!value || value == "") {
-      if(recordNum!=0) {
-        $.put("/api/record/"+recordNum+"_"+rid, {disabled: true},
-          function(){
-              $(that).parent().prev().prev().text(rid);
-              $(that).parent().prev().children().eq(0).val("");
-              $(that).parent().children().last().val("");
-              $(that).parent().next().children().last().val("");
-              $(that).removeClass("unconfirmed");
-          },
-          function(){
-            alert("delete record ftime error:"+err);
-          }
-        );
-      }else{
-        $.put("/api/record/"+recordNum+"_"+rid, {disabled: true},
-          function(){
-            $(that).parent().prev().prev().text(rid);
+      $.put("/api/record/"+recordNum+"_"+rid, {disabled: true},
+        function(data,stat){
+            $(that).parent().prev().prev().text(data.rid);
+            $(that).parent().prev().children().eq(0).val("");
+            $(that).parent().children().last().val("");
             $(that).parent().next().children().last().val("");
             $(that).removeClass("unconfirmed");
-          },
-          function(){
-            alert("delete record ftime error:"+err);
-          }
-        );
-      }
+        },
+        function(){
+          alert("delete record ftime error:"+err);
+        }
+      );
     //
     //  追加
     //
@@ -285,8 +268,8 @@ $(function(){
         $.get("/api/record/"+recordNum+"_"+data.rid, data,
         function(data,stat) {
           $(that).parent().prev().prev().text(data.rid);
-          $(that).parent().children().last().val(decodeTime(data.ftime));
-          $(that).parent().next().children().last().val(diffTime(decodeTime(data.ftime),$("#record-ftime-"+recordNum+"-0").val()));
+          $(that).parent().children().last().val(reformTime(data.ftime));
+          $(that).parent().next().children().last().val(diffTime(reformTime(data.ftime),$("#record-ftime-"+recordNum+"-0").val()));
           $(that).removeClass("unconfirmed");
           addRow();
         },
@@ -436,26 +419,19 @@ $(function(){
 
 
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
-    Promise.all( $(".record-rid-0").map(function(seqnum) {
-      var rid0;
-      if(rid0=$(this).text().trim()) {
+    var promises= $(".record-rid-0").map(function(seqnum) {
+      var rid0=$(this).text().trim();
         return(
           $.put("/api/record/0_"+rid0, {
             disabled: true
-          },
-          function(req,stat) {
-            $(this).text("");
-            resolve();
-          },
-          function(req,stat,err){
-            alert("record0 の消去に失敗しました。:"+err);
-            reject();
           })
         );
-      }
-    }))
-    .then( function(){
-      alert("record0 の消去終了：");
+    });
+    $.when(promises).done( function(){
+      $(".record-rid-0").map(function(seqnum){
+        $(this).text(seqnum+1);
+        copyToRecord0One(fieldName,recordNum,seqnum);
+      });
     });
   };
 
@@ -600,7 +576,7 @@ $(function(){
         }
 
         $(newRow).children().last().append(`
-          <td class="record-rid-${recordNum}" id="record-rid-${recordNum}-${seqnum}"></td>
+          <td class="hidden record-rid-${recordNum} record-rid" id="record-rid-${recordNum}-${seqnum}"></td>
           <td>
             <input class="record-num-${recordNum}" type="text" id="record-num-${recordNum}-${seqnum}" name="num${recordNum}-${seqnum}" value="" size="4" ${numEditable} />
           </td>

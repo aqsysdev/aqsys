@@ -11,11 +11,11 @@
     <thead>
       <tr>
         <th>着順</th>
-        <th class="hiddenn">rid0</th>
+        <th class="hidden">rid0</th>
         <th>num0</th>
         <th class="show-ftime">time0</th>
         <th class="show-dtime">time0</th>
-        <th class="hiddenn">rid1</th>
+        <th class="hidden">rid1</th>
         <th><button class="btn btn-xs btn-primary record-num-radio" id="record-num-radio-1">
           num1
         </button></th>
@@ -25,7 +25,7 @@
         <th class="show-dtime"><button class="btn btn-xs btn-primary record-dtime-radio active" id="record-dtime-radio-1">
           dtime1
         </button></th>
-        <th class="hiddenn">rid2</th>
+        <th class="hidden">rid2</th>
         <th><button class="btn btn-xs btn-primary record-num-radio active" id="record-num-radio-2">
           num2
         </button></th>
@@ -35,7 +35,7 @@
         <th class="show-dtime"><button class="btn btn-xs btn-primary record-dtime-radio" id="record-dtime-radio-2">
           dtime2
         </button></th>
-        <th class="hiddenn">rid3</th>
+        <th class="hidden">rid3</th>
         <th><button class="btn btn-xs btn-primary record-num-radio" id="record-num-radio-3">
           num3
         </button></th>
@@ -45,7 +45,7 @@
         <th class="show-dtime"><button class="btn btn-xs btn-primary record-dtime-radio" id="record-dtime-radio-3">
           dtime3
         </button></th>
-        <th class="hiddenn">rid4</th>
+        <th class="hidden">rid4</th>
         <th><button class="btn btn-xs btn-primary record-num-radio" id="record-num-radio-4">
           num4
         </button></th>
@@ -63,7 +63,7 @@
         <td class="record-seqnum" id="record-seqnum-{{seqnum}}">
            {{seqnum}}
         </td>
-        <td class="hiddenn record-rid-0" id="record-rid-0-{{seqnum}}">{{rid0}}</td>
+        <td class="hidden record-rid-0 record-rid" id="record-rid-0-{{seqnum}}">{{rid0}}</td>
         <td>
            <input class="record-num-0" type="text" id="record-num-0-{{seqnum}}" name="number" value="{{racenum0}}" size="4" disabled/>
         </td>
@@ -73,7 +73,7 @@
         <td class="show-dtime">
            <input class="record-dtime-0" type="text" id="record-dtime-0-{{seqnum}}" name="number" value="{{dtime0}}" size="11" disabled/>
         </td>
-        <td class="hiddenn record-rid-1" id="record-rid-1-{{seqnum}}">{{rid1}}</td>
+        <td class="hidden record-rid-1 record-rid" id="record-rid-1-{{seqnum}}">{{rid1}}</td>
         <td>
            <input class="record-num-1" type="text" id="record-num-1-{{seqnum}}" name="number" value="{{racenum1}}" size="4" disabled/>
         </td>
@@ -83,7 +83,7 @@
         <td class="show-dtime">
            <input class="record-dtime-1" type="text" id="record-dtime-1-{{seqnum}}" name="number" value="{{dtime1}}" size="11" disabled/>
         </td>
-        <td class="hiddenn record-rid-2" id="record-rid-2-{{seqnum}}">{{rid2}}</td>
+        <td class="hidden record-rid-2 record-rid" id="record-rid-2-{{seqnum}}">{{rid2}}</td>
         <td>
            <input class="record-num-2" type="text" id="record-num-2-{{seqnum}}" name="number" value="{{racenum2}}" size="4" disabled/>
         </td>
@@ -93,7 +93,7 @@
         <td class="show-dtime">
            <input class="record-dtime-2" type="text" id="record-dtime-2-{{seqnum}}" name="number" value="{{dtime2}}" size="11" disabled/>
         </td>
-        <td class="hiddenn record-rid-3" id="record-rid-3-{{seqnum}}">{{rid3}}</td>
+        <td class="hidden record-rid-3 record-rid" id="record-rid-3-{{seqnum}}">{{rid3}}</td>
         <td>
            <input class="record-num-3" type="text" id="record-num-3-{{seqnum}}" name="number" value="{{racenum3}}" size="4" disabled/>
         </td>
@@ -103,7 +103,7 @@
         <td class="show-dtime">
            <input class="record-dtime-3" type="text" id="record-dtime-3-{{seqnum}}" name="number" value="{{dtime3}}" size="11" disabled/>
         </td>
-        <td class="hiddenn record-rid-4" id="record-rid-4-{{seqnum}}">{{rid4}}</td>
+        <td class="hidden record-rid-4 record-rid" id="record-rid-4-{{seqnum}}">{{rid4}}</td>
         <td>
            <input class="record-num-4" type="text" id="record-num-4-{{seqnum}}" name="number" value="{{racenum4}}" size="4" disabled/>
         </td>
@@ -120,7 +120,7 @@
     <tfoot>
       <tr>
         <td> </td>
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td align="center">
           <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-0" >
           <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
@@ -137,7 +137,7 @@
           </button>
         </td>
 
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td align="center">
           <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-1" >
           <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
@@ -154,7 +154,7 @@
           </button>
         </td>
 
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td align="center">
           <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-2" >
           <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
@@ -171,7 +171,7 @@
           </button>
         </td>
 
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td align="center">
           <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-3" >
           <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
@@ -188,7 +188,7 @@
           </button>
         </td>
 
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td align="center">
           <button type="button" class="btn btn-default btn-xs btn-block btnRecordNumEditable" data-toggle="button"  autocomplete="on" id="btnRecordNumEditable-4" >
           <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
@@ -207,7 +207,7 @@
       </tr>
       <tr>
         <td></td>
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td colspan="2"></td>
         <td align="center" colspan="2">
           <div class="dropup">
@@ -222,7 +222,7 @@
           </div>
         </td>
 
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td align="center" colspan="2">
           <div class="dropup">
             <button class="btn btn-default dropdown-toggle" type="button" id="room2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -236,7 +236,7 @@
           </div>
         </td>
 
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td align="center" colspan="2">
           <div class="dropup">
             <button class="btn btn-default dropdown-toggle" type="button" id="room3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -250,7 +250,7 @@
           </div>
         </td>
 
-        <td class="hiddenn"></td>
+        <td class="hidden"></td>
         <td align="center" colspan="2">
           <div class="dropup">
             <button class="btn btn-default dropdown-toggle" type="button" id="room4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

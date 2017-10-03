@@ -15,7 +15,7 @@ const queries = require('../db/record');
 const user = require('../db/user')
 
 function isValidId(req, res, next) {
-//  console.log("tnum_rid:"+req.params.tnum_rid);
+  console.log("tnum_rid:"+req.params.tnum_rid);
   var tnumRid = req.params.tnum_rid.split("_");
   if(!isNaN(tnumRid[0]) && !isNaN(tnumRid[1])) {
     return next();
@@ -31,13 +31,6 @@ function validrecord(record) {
 }
 
 
-router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res) {
-  queries.getAll(req.params.tnum).then(recordlist => {
-    recordlist.forEach(function(row){queries.decodeRow(row);});
-    res.json(recordlist);
-  });
-});
-
 router.get('/:tnum_rid(\\d+_\\d+)', user.ensureAuthenticated, isValidId, function(req, res, next) {
   queries.getOne(req.params.tnum_rid.split("_")[0]*1,req.params.tnum_rid.split("_")[1]*1, req.body).then(entry => {
     if(entry) {
@@ -46,6 +39,14 @@ router.get('/:tnum_rid(\\d+_\\d+)', user.ensureAuthenticated, isValidId, functio
     } else {
       next();
     }
+  });
+});
+
+router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res) {
+  console.log("tnum:"+req.params.tnum);
+  queries.getAll(req.params.tnum).then(recordlist => {
+    recordlist.forEach(function(row){queries.decodeRow(row);});
+    res.json(recordlist);
   });
 });
 
