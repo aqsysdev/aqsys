@@ -226,6 +226,31 @@ $(function(){
         });
       },
       function(data,stat,err){
+//
+//    追加
+//        
+        $.post("/api/record/"+recordNum, data,
+        function(data,stat){
+          //alert(JSON.stringify(data));
+          $.get("/api/record/"+recordNum+"_"+data.rid,data,
+          function(data,stat) {
+          //  alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum);
+            $(that).parent().prev().text(data.rid);
+            $(that).val(decodeRacenum(data.racenum));
+            $(that).parent().next().children().last().val(reformTime(data.ftime));
+            $(that).parent().next().next().children().last().val(diffTime(reformTime(data.ftime),$("#record-ftime-"+recordNum+"-0").val()));
+            $(that).removeClass("unconfirmed");
+            addRow();
+          },
+          function(req,stat,err){
+            alert("get recorde data error:"+err);
+            $(that).val("");
+          });
+        },
+        function(req,stat,err){
+            alert("post recorde data error:"+err);
+            $(that).val("");
+        });
       });
     }
   }
