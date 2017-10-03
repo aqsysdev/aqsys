@@ -1,0 +1,29 @@
+{
+  "name": "aqsys",
+  "scripts": {
+  },
+  "env": {
+    "HEROKU_POSTGRESQL_BLACK_URL": {
+      "required": true
+    },
+    "MONGODB_URI": {
+      "required": true
+    },
+    "PAPERTRAIL_API_TOKEN": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "papertrail",
+    "heroku-postgresql",
+    "heroku-postgresql",
+    "scheduler"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
