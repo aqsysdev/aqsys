@@ -35,6 +35,7 @@ $(function(){
   		});
   	},
   	"put" : function (url, data, success, error) {
+      //alert(JSON.stringify(data));
   		error = error || function() {};
   		return $.ajax({
   			"url" : url,
@@ -168,16 +169,20 @@ $(function(){
     var value=$(that).val();
     var rid=$(that).parent().prev().text().trim();
     //alert("that.id:"+$(that).attr("id")+" recordNum:"+recordNum+" rid:"+rid+" num:"+value);
-    //
-    //  追加
-    //
     var data = {
       racenum: value,
       disabled: false
     };
-    if(!($(that).parent().next().children().last().val())) {
+
+    if($(that).parent().next().children().last().val()) {
+      data.ftime = $(that).parent().next().children().last().val();
+    }else{
       data.ftime = encodeTime( new Date() );
     }
+    //alert(JSON.stringify(data));
+    //
+    //  追加
+    //
     if(!rid || isNaN(rid)) {
       $.post("/api/record/"+recordNum, data,
       function(data,stat){
@@ -193,19 +198,20 @@ $(function(){
           addRow();
         },
         function(req,stat,err){
-          alert("get recorde data error:"+err);
+//          alert("get recorde data error:"+err);
           $(that).val("");
         });
       },
       function(req,stat,err){
-          alert("post recorde data error:"+err);
+//          alert("post recorde data error:"+err);
           $(that).val("");
       });
     //
     //  編集
     //
     }else{
-      $.put("/api/record/"+recordNum+"_"+rid,
+      //alert(JSON.stringify(data));
+      $.put("/api/record/"+recordNum+"_"+rid,data,
       function(data,stat){
         $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
@@ -218,12 +224,12 @@ $(function(){
           addRow();
         },
         function(req,stat,err){
-          alert("get recorde data error:"+err);
+//          alert("get recorde data error:"+err);
           $(that).val("");
         });
       },
       function(data,stat,err){
-        alert("put recorde data error:"+err);
+//        alert("put recorde data error:"+err);
         $(that).val("");
       });
     }
@@ -238,6 +244,8 @@ $(function(){
     var recordNum=$(that).eq(0).attr("id").split("-")[2];
     var value=$(that).val();
     var rid=$(that).parent().prev().prev().text().trim();
+    var seqnum=$(that).parent().parent().first().text().trim();
+
     //
     //  削除
     //
@@ -252,13 +260,11 @@ $(function(){
         },
         function(){
           alert("delete record ftime error:"+err);
-        }
-      );
+        });
     //
     //  追加
     //
     } else if(!rid || isNaN(rid)) {
-
       $.post("/api/record/"+recordNum,
       {
         ftime: value
@@ -273,11 +279,11 @@ $(function(){
           addRow();
         },
         function(req,stat,err){
-          alert("get record ftime error:"+err);
+//          alert("get record ftime error:"+err);
         });
       },
       function(req,stat,err){
-          alert("post record ftime error:"+err);
+//          alert("post record ftime error:"+err);
       });
     //
     //  編集
@@ -327,10 +333,9 @@ $(function(){
     //  削除
     //
     if(!value || value == "") {
-      if(recordNum!=0) {
         $.put("/api/record/"+recordNum+"_"+rid, {disabled: true},
-        function(){
-            $(that).parent().prev().prev().prev().text(rid);
+        function(data,stat){
+            $(that).parent().prev().prev().prev().text(data.rid);
             $(that).parent().prev().prev().children().eq(0).val("");
             $(that).parent().prev().children().last().val("");
             $(that).parent().children().last().val("");
@@ -339,18 +344,6 @@ $(function(){
         function(){
           alert("delete record dtime error:"+err);
         });
-      }else{
-        $.put("/api/record/"+recordNum+"_"+rid, {disabled: true},
-        function(){
-          $(that).parent().prev().prev().prev().text(rid);
-          $(that).parent().prev().children().last().val("");
-          $(that).parent().children().last().val("");
-          $(that).removeClass("unconfirmed");
-        },
-        function(){
-          alert("delete record dtime error:"+err);
-        });
-      }
     //
     //  追加
     //
@@ -375,11 +368,11 @@ $(function(){
             addRow();
           },
           function(req,stat,err){
-            alert("get record dtime error:"+err);
+  //          alert("get record dtime error:"+err);
           });
         },
         function(req,stat,err){
-            alert("post record dtime error:"+err);
+  //          alert("post record dtime error:"+err);
         });
       //
       //  編集
@@ -561,7 +554,7 @@ $(function(){
   };
 
   var addRow = record.addRow = function(){
-    if( $("#record-time-tbody").children().length == 0  || $("#record-time-tbody").children().last().find(".record-rid").text() ) {
+    if( $("#record-time-tbody").children().length == 0  || $("#record-time-tbody").children().last().find(".record-rid-nz").text() ) {
       var seqnum=$("#record-time-tbody").children().length;
       var newRow = $("#record-time-tbody").append(`
         <tr valign="middle">
@@ -580,9 +573,14 @@ $(function(){
         }else{
             hiddenFTime= "";
         }
-
+        var recordRidNz ;
+        if(recordNum==0) {
+          recordRidNz="";
+        }else{
+          recordRidNz="record-rid-nz";
+        }
         $(newRow).children().last().append(`
-          <td class="hidden record-rid-${recordNum} record-rid" id="record-rid-${recordNum}-${seqnum}"></td>
+          <td class="hidden record-rid-${recordNum} record-rid ${recordRidNz}" id="record-rid-${recordNum}-${seqnum}"></td>
           <td>
             <input class="record-num-${recordNum}" type="text" id="record-num-${recordNum}-${seqnum}" name="num${recordNum}-${seqnum}" value="" size="4" ${numEditable} />
           </td>
@@ -594,6 +592,7 @@ $(function(){
           </td>
         `);
       }
+      $("#record-rid-0-"+seqnum).text(seqnum+1);
     }
     checkNumEditable();
     checkFTimeEditable();

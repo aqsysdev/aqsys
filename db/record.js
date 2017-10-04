@@ -25,10 +25,10 @@ module.exports = {
     return knex.withSchema(config.schemaname).from(table+tNum).insert(row, '*');
   },
   update(tNum,rid,row) {
-//    console.log("update");
-//    console.log(tNum);
-//    console.log(rid);
-//    console.log(row);
+    console.log("update");
+    console.log(tNum);
+    console.log(rid);
+    console.log(row);
     return knex.withSchema(config.schemaname).from(table+tNum).where('rid', rid).update(row, '*');
   },
   delete(iNum,rid) {
@@ -59,11 +59,11 @@ function decodeRow(row) {
 }
 
 function encodeRow(row) {
-  if(row.ftime=="") {
+  if(row.ftime) {
+    row.ftime = reformTime(row.ftime);
+  }else{
     delete row.ftime;
     row.disabled = true;
-  }else{
-    row.ftime = reformTime(row.ftime);
   }
   if(row.racenum != undefined ) {
     row.racenum = encodeRacenum(row.racenum);

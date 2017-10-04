@@ -44,11 +44,19 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       for(var row of recordlist){
         record.decodeRow(row);
       }
-      recordlist = recordlist.filter(function(row){
-        return(!(row.disabled||(!row.racenum&&!row.ftime)));
-      }).sort(function(a,b) {
-        return(record.calcTime(b.ftime, a.ftime));
-      });
+      if(recordNum==0) {
+        recordlist = recordlist.filter(function(row){
+          return(!(row.disabled||(!row.racenum&&!row.ftime)));
+        }).sort(function(a,b) {
+          return(a.rid-b.rid);
+        });
+      }else{
+        recordlist = recordlist.filter(function(row){
+          return(!(row.disabled||(!row.racenum&&!row.ftime)));
+        }).sort(function(a,b) {
+          return(record.calcTime(b.ftime, a.ftime));
+        });
+      }
       for(var seqnum in recordlist){
         row = recordlist[seqnum];
         if(recordTable[seqnum]==undefined){
@@ -69,7 +77,37 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     }));
   }))
   .then( function(){
-    res.render('record',{recordTable: recordTable});
+    //
+    //  record0 のレコード数が足りなければ、予め作っておく
+    //
+    record.getAll(0)
+    .then(function(record0) {
+      console.log(record0.length);
+      var a;
+      if(recordTable.lengh-record0.length>0){
+        a = new Array( recordTable.lengh-record0.length );
+        for (var i = 0 ; i< recordTable.length - record0.length; i++) {
+          a[i] = i+record0.length;
+        }
+      }else{
+        a =[];
+      }
+      Promise.all( a.map(function(rid){
+        return(record.post(0,{}));
+      }))
+      .then(function(){
+        recordTable.forEach(function(row,index){
+          row.rid0=index+1;
+        });
+        res.render('record',{recordTable: recordTable});
+      })
+      .catch( function(err) {
+        console.log("post record0 error:"+err);
+      });
+    })
+    .catch( function(err) {
+      console.log("get record0 error:"+err);
+    });
   })
   .catch( function(err) {
     console.log("rendering recordlist error:"+err);
