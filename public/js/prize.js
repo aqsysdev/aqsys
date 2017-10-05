@@ -9,7 +9,7 @@ $(function(){
     {
       lengthMenu: [ 10, 20, 50, 100, 500 ],
       displayLength: 50,
-      stateSave: false,
+      stateSave: true,
       //scrollX: false,
       //scrollY: false,
       order: [
@@ -239,11 +239,11 @@ function changeTtime(that) {
       $(that).removeClass("unconfirmed");
     },
     function(req,stat,err){
-      alert("記録の確認に失敗しました。");
+    //  alert("記録の確認に失敗しました。");
     });
   },
   function(req,stat,err){
-    alert("記録の書き込みに失敗しました。");
+  //  alert("記録の書き込みに失敗しました。");
     $(that).val(data.ttime);
   });
 }
