@@ -193,8 +193,10 @@ function autoFillTtime() {
             var ftimeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
             if(stimeObj && stimeObj.stime && ftimeObj && ftimeObj.ftime) {
               $(btn).val(diffTime(stimeObj.stime,ftimeObj.ftime));
-              changeTtime($(btn));
+            }else{
+              $(btn).val("");
             }
+            changeTtime($(btn));
           }
         }
       },
@@ -219,7 +221,7 @@ function changeTtime(that) {
   //  編集
   //
   var data = {};
-  if(value=="") {
+  if(!value) {
     data.DNF = true;
   }else{
     data.ttime=reformTime(value);
