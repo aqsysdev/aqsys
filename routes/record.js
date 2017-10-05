@@ -82,18 +82,20 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     //
     record.getAll(0)
     .then(function(record0) {
-      console.log(record0.length);
+      console.log("record0.length:"+record0.length);
+      console.log("recordTable.length:"+recordTable.length);
       var a;
-      if(recordTable.lengh-record0.length>0){
-        a = new Array( recordTable.lengh-record0.length );
+      if(recordTable.length-record0.length>0){
+        a = new Array( recordTable.length-record0.length );
         for (var i = 0 ; i< recordTable.length - record0.length; i++) {
           a[i] = i+record0.length;
         }
       }else{
         a =[];
       }
+      console.log("a.length:"+a.length);
       Promise.all( a.map(function(rid){
-        return(record.post(0,{}));
+        return(record.create(0,{racenum:-1}));
       }))
       .then(function(){
         recordTable.forEach(function(row,index){
