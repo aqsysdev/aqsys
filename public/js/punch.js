@@ -8,7 +8,7 @@
 var HOST;
 var ws;
 
-(function() {
+$(function() {
   HOST = location.origin.replace(/^http/, 'ws');
   //alert(HOST);
   ws = new WebSocket(HOST);
@@ -25,9 +25,26 @@ var ws;
   setInterval(() => {
     punchBreath(tnum);
   }, 10000);
+  $("#message").each(function(){
+      $(this).bind('keyup', zen2han(this));
+  });
+});
+
+var zen2han = function(e) {
+    var v, old = e.value;
+    return function(){
+        if( old != ( v = e.value ) ){
+            old = v;
+            var str = $(this).val();
+            str = str.replace( /[Ａ-Ｚａ-ｚ０-９－！”＃＄％＆’（）＝＜＞，．？＿［］｛｝＠＾～￥]/g, function(s) {
+                return String.fromCharCode(s.charCodeAt(0) - 65248);
+            });
+            $(this).val(str);
+        }
+    };
+};
 
 
-})();
 
   //クライアントからイベント送信（イベント名は自由に設定できます）
 
