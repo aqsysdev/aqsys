@@ -55,6 +55,31 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
 }
 */
 
+.tategaki {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+}
+
+.certificatename {
+  font-family: "YuMincho";
+  letter-spacing: 18px;
+  font-size: 32pt;
+  position:absolute;
+  bottom:7.5cm;
+  right:8cm;
+}
+
+.certificatetime {
+  font-family: "YuMincho";
+  font-size: 14pt;
+  line-height: 1.5em;
+  position:absolute;
+  top:11cm;
+  right:10.2cm;
+}
+
+
 h2 {
   font-size: 28pt;
   float: center;

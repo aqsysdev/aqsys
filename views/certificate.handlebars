@@ -1,0 +1,21 @@
+<!--
+
+表彰状登録テンプレート
+
+-->
+
+<body class="A4 landscape">
+<script type="text/javascript" src="/js/jquery-barcode.js"></script>
+
+{{#each certificates}}
+<section class="sheet padding-10mm" align="center" valign="middle">
+  <div class="tategaki certificatename">
+    {{myouji}}{{namae}}
+  </div>
+  <div class="certificatetime">
+    {{tminute}}<br>分<br>{{tsec}}<br>秒<br>{{tmilisec}}
+  </div>
+</section>
+{{/each}}
+<script type="text/javascript" src="/js/certificaet.js"></script>
+</body>

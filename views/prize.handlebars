@@ -5,7 +5,7 @@
 -->
 
 <script src="/js/prize.js"></script>
-<script type="text/javascript" src="/js/printcard.js"></script>
+<script type="text/javascript" src="/js/printcertificate.js"></script>
 
 <h2 class="page-header">prize List</h2>
 <hr>
@@ -72,10 +72,10 @@
             <input class="prize-wave" type="text" name="wave-{{id}}" value="{{wave}}" size="2" disabled/>
           </td>
           <td align="center">
-            <div id="prize-lname-{{id}}">{{lname}}</div><div class="hidden">","</div><div id="prize-myouji-{{id}}">{{myouji}}</div>
+            <div id="prize-lname-{{id}}">{{lname}}</div><div class="hidden">","</div><div class="prize-myouji" id="prize-myouji-{{id}}">{{myouji}}</div>
           </td>
           <td align="center">
-            <div id="prize-fname-{{id}}">{{fname}}</div><div class="hidden">","</div><div id="prize-namae-{{id}}">{{namae}}</div>
+            <div id="prize-fname-{{id}}">{{fname}}</div><div class="hidden">","</div><div class="prize-namae" id="prize-namae-{{id}}">{{namae}}</div>
           </td>
           <td class="hidden-xs prize-sex" align="center">
             <div id="prize-sex-{{id}}">{{sex}}</div>
@@ -194,7 +194,7 @@
 
 <p>
   <button id="dl" class="btn btn-primary">Download CSV</button>
-  <button id="printCard" class="btn btn-primary">Print Prize Card</button>
+  <button id="printCertificate" class="btn btn-primary">Print Winner Certificate</button>
 </p>
 
 <script>

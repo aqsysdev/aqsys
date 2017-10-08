@@ -12,7 +12,7 @@ $(function(){
     {
       lengthMenu: [ 10, 20, 50, 100, 500 ],
       displayLength: 50,
-      stateSave: false,
+      stateSave: true,
       //scrollX: false,
       //scrollY: false,
       order: [
@@ -364,7 +364,6 @@ $(function(){
       var id=current.text();
       $.put("/api/entry/"+id, {start: isChecked},
       function(data,stat){
-        $(that)[0].disabled=($('#btnEntryStartEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
             $(that).addClass("confirmed");
