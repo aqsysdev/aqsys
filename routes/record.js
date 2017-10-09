@@ -53,9 +53,15 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       }else{
         recordlist = recordlist.filter(function(row){
           return(!(row.disabled||(!row.racenum&&!row.ftime)));
-        }).sort(function(a,b) {
-          return(record.calcTime(b.ftime, a.ftime));
         });
+        if(recordlist.length>1) {
+          var firstRow = recordlist[0];
+          recordlist.shift();
+          recordlist=recordlist.sort(function(a,b) {
+            return(record.calcTime(b.ftime, a.ftime));
+          });
+          recordlist.unshift(firstRow);
+        }
       }
       for(var seqnum in recordlist){
         row = recordlist[seqnum];

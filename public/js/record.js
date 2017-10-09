@@ -481,8 +481,8 @@ $(function(){
   };
 
   var addTime = record.addTime = function(fromTime, toTime) {
-    var fromTimeSplit = (fromTime+"").split(/[:.]/);
-    var toTimeSplit = (toTime+"").split(/[:.]/);
+    var fromTimeSplit = (fromTime+"").split(/[:.-]/);
+    var toTimeSplit = (toTime+"").split(/[:.-]/);
     var milisec =
       (fromTimeSplit[0]||0)*100*60*60+
       (fromTimeSplit[1]||0)*100*60+
