@@ -116,15 +116,19 @@ function formTime(ms) {
 }
 
 function reformTime(ft) {
+  console.log(ft);
+  if(ft.indexOf(".")<0){
+    ft=""+ft+".00";
+  }
+  console.log(ft);
   if(ft){
-    var ftime=ft.split(/:./)
-    var sec=parseInt(ftime[0]||0);
-    var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
+    var ftime = (""+ft).split(/\D/);
+    console.log(ftime[0]+":"+ftime[1]+":"+ftime[2]+"."+ftime[3]);
     return(
-      ("00"+(ftime[2]||0)).slice(-2)+":"+
+      ("00"+(ftime[0]||0)).slice(-2)+":"+
       ("00"+(ftime[1]||0)).slice(-2)+":"+
-      ("00"+(sec||0)).slice(-2)+"."+
-      ("00"+(parseInt((milisec||0),0))).slice(-2)
+      ("00"+(ftime[2]||0)).slice(-2)+"."+
+      ("00"+(ftime[3]||0)).slice(-2)
     );
   } else {
     return(ft);

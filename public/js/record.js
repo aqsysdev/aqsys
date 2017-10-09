@@ -463,7 +463,7 @@ $(function(){
 
   var calcTime = record.calcTime = function(fromTime, toTime) {
     var fromTimeSplit = (fromTime+"").split(/\D/);
-    var toTimeSplit = (toTime+"").split("/\D");
+    var toTimeSplit = (toTime+"").split(/\D/);
     return(
       (toTimeSplit[0]||0)*100*60*60+
       (toTimeSplit[1]||0)*100*60+
@@ -506,15 +506,16 @@ $(function(){
   };
 
   var reformTime = record.reformTime = function(ft) {
+    if(ft.indexOf(".")<0){
+      ft=""+ft+".00";
+    }
     if(ft){
-      var ftime=ft.split(/.:/).reverse();
-      var sec=parseInt(ftime[0]||0);
-      var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
+      var ftime = (""+ft).split(/\D/);
       return(
-        ("00"+(ftime[2]||0)).slice(-2)+":"+
+        ("00"+(ftime[0]||0)).slice(-2)+":"+
         ("00"+(ftime[1]||0)).slice(-2)+":"+
-        ("00"+(sec||0)).slice(-2)+"."+
-        ("00"+(parseInt((milisec||0),0))).slice(-2)
+        ("00"+(ftime[2]||0)).slice(-2)+"."+
+        ("00"+(ftime[3]||0)).slice(-2)
       );
     } else {
       return(ft);
