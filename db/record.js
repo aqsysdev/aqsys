@@ -117,7 +117,7 @@ function formTime(ms) {
 
 function reformTime(ft) {
   if(ft){
-    var ftime=ft.split(/\D/).reverse();
+    var ftime=ft.split(/:./)
     var sec=parseInt(ftime[0]||0);
     var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
     return(

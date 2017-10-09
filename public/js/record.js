@@ -507,7 +507,7 @@ $(function(){
 
   var reformTime = record.reformTime = function(ft) {
     if(ft){
-      var ftime=ft.split(/\D/).reverse();
+      var ftime=ft.split(/.:/).reverse();
       var sec=parseInt(ftime[0]||0);
       var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
       return(
