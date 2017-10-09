@@ -72,8 +72,8 @@ function encodeRow(row) {
 }
 
 function calcTime(fromTime, toTime) {
-    var fromTimeSplit = (fromTime+"").split(/[:.]/);
-    var toTimeSplit = (toTime+"").split(/[:.]/);
+    var fromTimeSplit = (fromTime+"").split(/[:.-+]/);
+    var toTimeSplit = (toTime+"").split(/[:.-+]/);
     return(
       (toTimeSplit[0]||0)*100*60*60+
       (toTimeSplit[1]||0)*100*60+
@@ -91,8 +91,8 @@ function diffTime(fromTime, toTime) {
 }
 
 function addTime(fromTime, toTime) {
-  var fromTimeSplit = (fromTime+"").split(/[:.]/);
-  var toTimeSplit = (toTime+"").split(/[:.]/);
+  var fromTimeSplit = (fromTime+"").split(/[:.-+]/);
+  var toTimeSplit = (toTime+"").split(/[:.-+]/);
   var milisec =
     (fromTimeSplit[0]||0)*100*60*60+
     (fromTimeSplit[1]||0)*100*60+
