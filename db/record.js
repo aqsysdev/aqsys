@@ -108,10 +108,10 @@ function addTime(fromTime, toTime) {
 function formTime(ms) {
     var milisec=new Decimal(ms);
     return(
-      ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
-      ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
-      ("00"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
-      ("00"+parseInt(milisec%100,0)).slice(-2)
+      ("000"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
+      ("000"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
+      ("000"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
+      ("000"+parseInt(milisec%100,0)).slice(-2)
     );
 }
 
@@ -125,10 +125,10 @@ function reformTime(ft) {
     var ftime = (""+ft).split(/\D/);
     console.log(ftime[0]+":"+ftime[1]+":"+ftime[2]+"."+ftime[3]);
     return(
-      ("00"+(""+ftime[0]||0)).slice(-2)+":"+
-      ("00"+(""+ftime[1]||0)).slice(-2)+":"+
-      ("00"+(""+ftime[2]||0)).slice(-2)+"."+
-      ("00"+(""+ftime[3]||0)).slice(-2)
+      ("00"+(""+(ftime[0]||0))).slice(-2)+":"+
+      ("00"+(""+(ftime[1]||0))).slice(-2)+":"+
+      ("00"+(""+(ftime[2]||0))).slice(-2)+"."+
+      ("00"+(""+(ftime[3]||0))).slice(-2)
     );
   } else {
     return(ft);

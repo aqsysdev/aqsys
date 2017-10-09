@@ -512,10 +512,10 @@ $(function(){
     if(ft){
       var ftime = (""+ft).split(/\D/);
       return(
-        ("00"+(""+ftime[0]||0)).slice(-2)+":"+
-        ("00"+(""+ftime[1]||0)).slice(-2)+":"+
-        ("00"+(""+ftime[2]||0)).slice(-2)+"."+
-        ("00"+(""+ftime[3]||0)).slice(-2)
+        ("00"+(""+(ftime[0]||0))).slice(-2)+":"+
+        ("00"+(""+(ftime[1]||0))).slice(-2)+":"+
+        ("00"+(""+(ftime[2]||0))).slice(-2)+"."+
+        ("00"+(""+(ftime[3]||0))).slice(-2)
       );
     } else {
       return(ft);
