@@ -462,8 +462,8 @@ $(function(){
   };
 
   var calcTime = record.calcTime = function(fromTime, toTime) {
-    var fromTimeSplit = (fromTime+"").split(/[:.-]/);
-    var toTimeSplit = (toTime+"").split(/[:.-]/);
+    var fromTimeSplit = (fromTime+"").split(/[:.\+-]/);
+    var toTimeSplit = (toTime+"").split(/[:.\+-]/);
     return(
       (toTimeSplit[0]||0)*100*60*60+
       (toTimeSplit[1]||0)*100*60+
@@ -481,8 +481,8 @@ $(function(){
   };
 
   var addTime = record.addTime = function(fromTime, toTime) {
-    var fromTimeSplit = (fromTime+"").split(/[:.-]/);
-    var toTimeSplit = (toTime+"").split(/[:.-]/);
+    var fromTimeSplit = (fromTime+"").split(/[:.\+-]/);
+    var toTimeSplit = (toTime+"").split(/[:.\+-]/);
     var milisec =
       (fromTimeSplit[0]||0)*100*60*60+
       (fromTimeSplit[1]||0)*100*60+
@@ -507,7 +507,7 @@ $(function(){
 
   var reformTime = record.reformTime = function(ft) {
     if(ft){
-      var ftime=ft.split(/[:.-]/).reverse();
+      var ftime=ft.split(/[:.\+-]/).reverse();
       var sec=parseInt(ftime[0]||0);
       var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
       return(
