@@ -125,10 +125,10 @@ function reformTime(ft) {
     var ftime = (""+ft).split(/\D/);
     console.log(ftime[0]+":"+ftime[1]+":"+ftime[2]+"."+ftime[3]);
     return(
-      ("00"+(ftime[0]||0)).slice(-2)+":"+
-      ("00"+(ftime[1]||0)).slice(-2)+":"+
-      ("00"+(ftime[2]||0)).slice(-2)+"."+
-      ("00"+(ftime[3]||0)).slice(-2)
+      ("00"+(""+ftime[0]||0)).slice(-2)+":"+
+      ("00"+(""+ftime[1]||0)).slice(-2)+":"+
+      ("00"+(""+ftime[2]||0)).slice(-2)+"."+
+      ("00"+(""+ftime[3]||0)).slice(-2)
     );
   } else {
     return(ft);
