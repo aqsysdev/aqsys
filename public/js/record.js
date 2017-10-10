@@ -511,7 +511,7 @@ $(function(){
   var addTime = record.addTime = function(fromTime, toTime) {
     var fromTimeSplit = (fromTime+"").split(/\D/);
     var toTimeSplit = (toTime+"").split(/\D/);
-    var milisec =
+    var centisec =
       (toTimeSplit[0]||0)*100*60*60+
       (toTimeSplit[1]||0)*100*60+
       (toTimeSplit[2]||0)*100+
@@ -519,32 +519,41 @@ $(function(){
       (fromTimeSplit[0]||0)*100*60*60+
       (fromTimeSplit[1]||0)*100*60+
       (fromTimeSplit[2]||0)*100+
-      (fromTimeSplit[3]||0)*1
-      return(formTime(milisec));
+      (fromTimeSplit[3]||0)*1;
+      return(formTime(centisec));
   };
 
-  var formTime = record.formTime = function(ms) {
-      var milisec=new Decimal(ms);
+  var formTime = record.formTime = function(cs) {
+      var centisec=new Decimal(cs);
       return(
-        ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
-        ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
-        ("00"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
-        ("00"+parseInt(milisec%100,0)).slice(-2)
+        ("00"+parseInt(centisec.div(60*60*100),0)%24).slice(-2)+":"+
+        ("00"+parseInt(centisec.div(60*100),0)%60).slice(-2)+":"+
+        ("00"+parseInt(centisec.div(100),0)%60).slice(-2)+"."+
+        ("00"+parseInt(centisec%100,0)).slice(-2)
       );
   };
 
   var reformTime = record.reformTime = function(ft) {
-    if(ft.indexOf(".")<0){
-      ft=""+ft+".00";
-    }
     if(ft){
+      if(ft.indexOf(".")<0){
+        ft="00"+ft+".00";
+      }
       var ftime = (""+ft).split(/\D/);
-      return(
-        ("00"+(""+(ftime[0]||0))).slice(-2)+":"+
-        ("00"+(""+(ftime[1]||0))).slice(-2)+":"+
-        ("00"+(""+(ftime[2]||0))).slice(-2)+"."+
-        ("00"+(""+(ftime[3]||0))).slice(-2)
-      );
+      if(ftime[0].length>=6) {
+        return(reformTime(
+          ftime[0].substr(0,2)+":"+
+          ftime[0].substr(2,2)+":"+
+          ftime[0].substr(4,2)+"."+
+          ftime[1].substr(0,2)
+        ));
+      }else{
+        return(
+          ("00"+(""+(ftime[0]||0))).slice(-2)+":"+
+          ("00"+(""+(ftime[1]||0))).slice(-2)+":"+
+          ("00"+(""+(ftime[2]||0))).slice(-2)+"."+
+          ("00"+(""+(ftime[3]||0))).slice(-2)
+        );
+      }
     } else {
       return(ft);
     }
@@ -558,7 +567,7 @@ $(function(){
       ("00" + (time.getHours()||0)).slice(-2)+":"+
       ("00" + (time.getMinutes()||0)).slice(-2)+":"+
       ("00" + (time.getSeconds()||0)).slice(-2)+"."+
-      ("00" + (time.getTime()||0)).slice(-2)
+      ("000" + (time.getTime()||0)).slice(-3).slice(2)
     );
   };
 
