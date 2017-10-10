@@ -51,17 +51,29 @@ router.get('/', user.ensureAuthenticated, function(req, res){
           return(a.rid-b.rid);
         });
       }else{
+        var firstRow=null;
+        //console.log(recordlist.length);
+        for(var i in recordlist) {
+          //console.log(recordlist[i]);
+          if(recordlist[i].rid==1){
+            firstRow = recordlist[i];
+            recordlist.splice(i,1);
+            recordlist[i].disabled=false;
+          }
+        }
+        //console.log(recordlist.length);
         recordlist = recordlist.filter(function(row){
           return(!(row.disabled||(!row.racenum&&!row.ftime)));
         });
-        if(recordlist.length>1) {
-          var firstRow = recordlist[0];
-          recordlist.shift();
-          recordlist=recordlist.sort(function(a,b) {
-            return(record.calcTime(b.ftime, a.ftime));
-          });
+        //console.log(recordlist.length);
+        recordlist=recordlist.sort(function(a,b) {
+          return(record.calcTime(b.ftime, a.ftime));
+        });
+        //console.log(recordlist.length);
+        if(firstRow) {
           recordlist.unshift(firstRow);
         }
+        //console.log(recordlist.length);
       }
       for(var seqnum in recordlist){
         row = recordlist[seqnum];

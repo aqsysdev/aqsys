@@ -94,14 +94,14 @@ function addTime(fromTime, toTime) {
   var fromTimeSplit = (fromTime+"").split(/\D/);
   var toTimeSplit = (toTime+"").split(/\D/);
   var milisec =
-    (fromTimeSplit[0]||0)*100*60*60+
-    (fromTimeSplit[1]||0)*100*60+
-    (fromTimeSplit[2]||0)*100+
-    (fromTimeSplit[3]||0)*1+
     (toTimeSplit[0]||0)*100*60*60+
     (toTimeSplit[1]||0)*100*60+
     (toTimeSplit[2]||0)*100+
-    (toTimeSplit[3]||0)*1;
+    (toTimeSplit[3]||0)*1+
+    (fromTimeSplit[0]||0)*100*60*60+
+    (fromTimeSplit[1]||0)*100*60+
+    (fromTimeSplit[2]||0)*100+
+    (fromTimeSplit[3]||0)*1
     return(formTime(milisec));
 }
 
@@ -116,14 +116,13 @@ function formTime(ms) {
 }
 
 function reformTime(ft) {
-  console.log(ft);
+  //console.log(ft);
   if(ft.indexOf(".")<0){
     ft=""+ft+".00";
   }
-  console.log(ft);
   if(ft){
     var ftime = (""+ft).split(/\D/);
-    console.log(ftime[0]+":"+ftime[1]+":"+ftime[2]+"."+ftime[3]);
+    //console.log(ftime[0]+":"+ftime[1]+":"+ftime[2]+"."+ftime[3]);
     return(
       ("00"+(""+(ftime[0]||0))).slice(-2)+":"+
       ("00"+(""+(ftime[1]||0))).slice(-2)+":"+
