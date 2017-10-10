@@ -116,13 +116,11 @@ function formTime(ms) {
 }
 
 function reformTime(ft) {
-  console.log(ft);
   if(ft){
     if(ft.indexOf(".")<0){
       ft="00"+ft+".00";
     }
     var ftime = (""+ft).split(/\D/);
-    console.log(ftime);
     if(ftime[0].length>=6&&ftime[1]&&!ftime[3]) {
       return(reformTime(
         ftime[0].substr(-6,2)+":"+
