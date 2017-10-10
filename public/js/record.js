@@ -125,9 +125,11 @@ $(function(){
       .on('change',function(req){ recordEditNum(this); });
       $('.record-num-'+recordNum).off('keyup')
       .on('keyup',function(req){
+        if(req.keyCode == 13) {
         var these=$(this).attr("id").split("-");
-        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
-        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+        }
       });
     });
   }
@@ -148,9 +150,11 @@ $(function(){
       .on('change',function(req){ recordEditFTime(this); });
       $('.record-ftime-'+recordNum).off('keyup')
       .on('keyup',function(req){
+        if(req.keyCode == 13) {
         var these=$(this).attr("id").split("-");
-        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
-        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+        }
       });
     });
   }
@@ -171,9 +175,11 @@ $(function(){
       .on('change',function(req){ recordEditDTime(this); });
       $('.record-dtime-'+recordNum).off('keyup')
       .on('keyup',function(req){
+        if(req.keyCode == 13) {
         var these=$(this).attr("id").split("-");
-        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
-        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+        }
       });
     });
   }
