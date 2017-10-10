@@ -123,6 +123,12 @@ $(function(){
       });
       $('.record-num-'+recordNum).off('change')
       .on('change',function(req){ recordEditNum(this); });
+      $('.record-num-'+recordNum).off('keyup')
+      .on('keyup',function(req){
+        var these=$(this).attr("id").split("-");
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+      });
     });
   }
 
@@ -140,6 +146,12 @@ $(function(){
       });
       $('.record-ftime-'+recordNum).off('change')
       .on('change',function(req){ recordEditFTime(this); });
+      $('.record-ftime-'+recordNum).off('keyup')
+      .on('keyup',function(req){
+        var these=$(this).attr("id").split("-");
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+      });
     });
   }
 
@@ -157,6 +169,12 @@ $(function(){
       });
       $('.record-dtime-'+recordNum).off('change')
       .on('change',function(req){ recordEditDTime(this); });
+      $('.record-dtime-'+recordNum).off('keyup')
+      .on('keyup',function(req){
+        var these=$(this).attr("id").split("-");
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+      });
     });
   }
 
