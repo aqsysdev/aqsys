@@ -124,9 +124,9 @@ function reformTime(ft) {
     var ftime = (""+ft).split(/\D/);
     if(ftime[0].length>=6) {
       return(reformTime(
-        ftime[0].substr(0,2)+":"+
-        ftime[0].substr(2,2)+":"+
-        ftime[0].substr(4,2)+"."+
+        ftime[0].substr(-6,2)+":"+
+        ftime[0].substr(-4,2)+":"+
+        ftime[0].substr(-2,2)+"."+
         ftime[1].substr(0,2)
       ));
     }else{
@@ -140,8 +140,7 @@ function reformTime(ft) {
   } else {
     return(ft);
   }
-}
-
+};
 
 function encodeTime(time) {
   return(

@@ -216,7 +216,8 @@ $(function(){
           $(that).parent().prev().text(data.rid);
           $(that).val(decodeRacenum(data.racenum));
           $(that).parent().next().children().last().val(reformTime(data.ftime));
-          $(that).parent().next().next().children().last().val(diffTime($("#record-ftime-"+recordNum+"-0",reformTime(data.ftime)).val()));
+          var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
+          $(that).parent().next().next().children().last().val(dtime);
           $(that).removeClass("unconfirmed");
           addRow();
         },
@@ -242,7 +243,8 @@ $(function(){
           $(that).parent().prev().text(data.rid);
           $(that).val(decodeRacenum(data.racenum));
           $(that).parent().next().children().last().val(reformTime(data.ftime));
-          $(that).parent().next().next().children().last().val(diffTime($("#record-ftime-"+recordNum+"-0",reformTime(data.ftime)).val()));
+          var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
+          $(that).parent().next().next().children().last().val(dtime);
           $(that).removeClass("unconfirmed");
           addRow();
         },
@@ -265,7 +267,7 @@ $(function(){
   function recordEditFTime(that){
     $(that).addClass("unconfirmed");
     var recordNum=$(that).eq(0).attr("id").split("-")[2];
-    var value=$(that).val();
+    var value=reformTime($(that).val());
     var rid=$(that).parent().prev().prev().text().trim();
     var seqnum=$(that).parent().parent().first().text().trim();
 
@@ -297,7 +299,8 @@ $(function(){
         function(data,stat) {
           $(that).parent().prev().prev().text(data.rid);
           $(that).parent().children().last().val(reformTime(data.ftime));
-          $(that).parent().next().children().last().val(diffTime($("#record-ftime-"+recordNum+"-0",reformTime(data.ftime)).val()));
+          var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
+          $(that).parent().next().children().last().val(dtime);
           $(that).removeClass("unconfirmed");
           addRow();
         },
@@ -322,6 +325,9 @@ $(function(){
         function(data,stat) {
           $(that).parent().prev().prev().text(data.rid);
           $(that).parent().prev().children().last().val(data.racenum);
+          $(that).parent().children().last().val(reformTime(data.ftime));
+          var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
+          $(that).parent().next().children().last().val(dtime);
           $(that).removeClass("unconfirmed");
         },
         function(req,stat,err){
@@ -333,6 +339,8 @@ $(function(){
         function(data,stat) {
           $(that).parent().prev().prev().text(data.rid);
           $(that).parent().prev().children().last().val(data.racenum);
+          $(that).parent().children().last().val(reformTime(data.ftime));
+          var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
           $(that).removeClass("unconfirmed");
         },
         function(req,stat,err){
@@ -349,7 +357,7 @@ $(function(){
   function recordEditDTime(that){
     $(that).addClass("unconfirmed");
     var recordNum=$(that).eq(0).attr("id").split("-")[2];
-    var value=$(that).val();
+    var value=reformTime($(that).val());
     var rid=$(that).parent().prev().prev().prev().text().trim();
     var seqnum=$(that).parent().parent().first().text().trim();
     //
@@ -541,9 +549,9 @@ $(function(){
       var ftime = (""+ft).split(/\D/);
       if(ftime[0].length>=6) {
         return(reformTime(
-          ftime[0].substr(0,2)+":"+
-          ftime[0].substr(2,2)+":"+
-          ftime[0].substr(4,2)+"."+
+          ftime[0].substr(-6,2)+":"+
+          ftime[0].substr(-4,2)+":"+
+          ftime[0].substr(-2,2)+"."+
           ftime[1].substr(0,2)
         ));
       }else{
