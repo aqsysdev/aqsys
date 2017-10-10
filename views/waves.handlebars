@@ -20,10 +20,10 @@ wave 登録テンプレート
       <tr valign="middle">
         <td class="waves-wid" id="waves-wid-{{wid}}">{{wid}}</td>
         <td>
-           <input class="waves-stime" type="text" id="waves-stime-{{wid}}" name="number" value="{{stime}}" size="11" disabled/>
+           <input class="waves-stime" type="text" id="waves-stime-{{wid}}" name="number" value="{{stime}}" size="11" disabled/><div class="hidden">{{stime}}</div>
         </td>
         <td>
-           <input class="waves-dtime" type="text" id="waves-dtime-{{wid}}" name="number" value="{{dtime}}" size="11" disabled/>
+           <input class="waves-dtime" type="text" id="waves-dtime-{{wid}}" name="number" value="{{dtime}}" size="11" disabled/><div class="hidden">{{dtime}}</div>
         </td>
       </tr>
     {{/each}}
