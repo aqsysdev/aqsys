@@ -531,7 +531,7 @@ function postEntryByModalForm() {
     err=err+"性別を入れてください。\n";
   }
   row.grade = $("#modal-grade").text();
-  if( (row.grede == "" || row.grade == "-") && calcAge(row.birthday, "2016/04/01")<16){
+  if( (row.grede == "" || row.grade == "-") && calcAge(row.birthday, null)<15){
     err=err+"学年を入力してください。\n";
   }
   row.grade = grades.indexOf(row.grade);

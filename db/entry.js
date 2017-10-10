@@ -35,7 +35,8 @@ module.exports = {
   katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
-  decodeRow
+  decodeRow,
+  config
 };
 
 
