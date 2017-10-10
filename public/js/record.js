@@ -173,7 +173,6 @@ $(function(){
       racenum: value,
       disabled: false
     };
-
     if($(that).parent().next().children().last().val()) {
       data.ftime = $(that).parent().next().children().last().val();
     }else{
@@ -363,7 +362,8 @@ $(function(){
           function(data,stat) {
             $(that).parent().prev().prev().prev().text(data.rid);
             $(that).parent().prev().children().last().val(reformTime(data.ftime));
-            $(that).parent().children().last().val(diffTime($("#record-ftime-"+recordNum+"-0",reformTime(data.ftime)).val()));
+            var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
+            $(that).parent().children().last().val(dtime);
             $(that).removeClass("unconfirmed");
             addRow();
           },
@@ -387,7 +387,9 @@ $(function(){
           $.get("/api/record/"+recordNum+"_"+data.rid, data,
           function(data,stat) {
             $(that).parent().prev().prev().prev().text(data.rid);
-            $(that).parent().prev().prev().children().last().val(data.racenum);
+            $(that).parent().prev().children().last().val(reformTime(data.ftime));
+            var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
+            $(that).parent().children().last().val(dtime);
             $(that).removeClass("unconfirmed");
           },
           function(req,stat,err){
@@ -398,7 +400,9 @@ $(function(){
           $.get("/api/record/"+recordNum+"_"+rid, data,
           function(data,stat) {
             $(that).parent().prev().prev().prev().text(data.rid);
-            $(that).parent().prev().prev().children().last().val(data.racenum);
+            $(that).parent().prev().children().last().val(reformTime(data.ftime));
+            var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
+            $(that).parent().children().last().val(dtime);
             $(that).removeClass("unconfirmed");
           },
           function(req,stat,err){
