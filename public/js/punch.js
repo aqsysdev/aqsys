@@ -101,7 +101,6 @@ function punchBreath(tnum) {
 function addPunch(event) {
   var data=JSON.parse(event.data);
   var table=$("#recordlist");
-  var table;
   var tr;
   var td;
   if(data.type=="punch") {
