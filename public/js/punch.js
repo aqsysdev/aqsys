@@ -104,8 +104,11 @@ function addPunch(event) {
   var tr;
   var td;
   if(data.type=="punch") {
+    alert("punch"+table);
     tr=$(table).first.append("<tr class='record'></tr>");
+    alert("tr"+tr);
     td=$(tr).append("<td class='seqnum'></td>");
+    alert("td"+td);
     $(td).append(data.seqnum);
     td=$(tr).append("<td class='racenum'></td>");
     $(td).append(decodeRaceNum(data.racenum));
