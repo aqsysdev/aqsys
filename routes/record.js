@@ -57,8 +57,8 @@ router.get('/', user.ensureAuthenticated, function(req, res){
           //console.log(recordlist[i]);
           if(recordlist[i].rid==1){
             firstRow = recordlist[i];
-            recordlist.splice(i,1);
             recordlist[i].disabled=false;
+            recordlist.splice(i,1);
           }
         }
         //console.log(recordlist.length);

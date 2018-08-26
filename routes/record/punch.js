@@ -49,8 +49,8 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
       //console.log(recordlist[i]);
       if(recordlist[i].rid==1){
         firstRow = recordlist[i];
+        recordlist[i].disabled=false;
         recordlist.splice(i,1);
-//        recordlist[i].disabled=false;
       }
     }
     //console.log(recordlist.length);
