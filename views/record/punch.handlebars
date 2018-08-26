@@ -9,7 +9,15 @@
 </script>
 <h2 class="page-header">Record Time {{tnum}}</h2>
 <div id="msg_list" style="height:140px; overflow:scroll;">
-  <table ><tbody id="recordlist">
+  <table >
+    <thead>
+      <tr>
+        <th>順番</th>
+        <th>レース番号</th>
+        <th>打刻時刻</th>
+      </tr>
+    </thead>
+    <tbody id="recordlist">
   {{#each recordlist}}
   <tr class='record'>
     <td class='seqnum'>{{seqnum}}</td>
@@ -17,7 +25,8 @@
     <td class='ftime'>{{ftime}}</td>
   </tr>
   {{/each }}
-</tbody></table>
+  </tbody>
+</table>
 </div>
  <form action="" method="put" onsubmit="return false;">
    <input type="text" class="text" style="width:72px; padding:10px"
