@@ -100,7 +100,7 @@ function punchBreath(tnum) {
 //jqueryでメッセージを追加
 function addPunch(event) {
   var data=JSON.parse(event.data);
-  var table=$("#msg_list.recordlist");
+  var table=$("#recordlist");
   if(data.type=="punch") {
     var tr=$(table).add("<tr class='record'>");
     $(tr).add(data.seqnum);
