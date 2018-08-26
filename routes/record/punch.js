@@ -50,7 +50,7 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
       if(recordlist[i].rid==1){
         firstRow = recordlist[i];
         recordlist.splice(i,1);
-        recordlist[i].disabled=false;
+//        recordlist[i].disabled=false;
       }
     }
     //console.log(recordlist.length);
