@@ -60,7 +60,7 @@ function QRreadConnect(tnum) {
 //  alert("end");
 }
 
-function QReadTime(tnum) {
+function QRreadTime(tnum) {
 //  alert("QRreadTime");
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
