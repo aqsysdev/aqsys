@@ -105,7 +105,7 @@ function addPunch(event) {
   var td;
   if(data.type=="punch") {
     alert("punch"+table);
-    tr=$(table).first.append("<tr class='record'></tr>");
+    tr=$(table).append("<tr class='record'></tr>");
     alert("tr"+tr);
     td=$(tr).append("<td class='seqnum'></td>");
     alert("td"+td);
