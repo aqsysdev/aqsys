@@ -36,13 +36,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-var recordTable=[];
 router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
   record.getAll(req.params.tnum).then(recordlist => {
-    recordlist.forEach(function(row){record.decodeRow(row);});
+    console.log(recordlist);
+    recordlist.forEach(
+      function(row){record.decodeRow(row);}
+    );
     console.log(recordlist.length);
     seqnum = recordlist.filter(function(row){
-      return(!(row.disabled||(!row.racenum&&!row.ftime)));
+    return(!(row.disabled||(!row.racenum&&!row.ftime)));
     }).length;
     console.log(seqnum);
     res.render('record/punch',{

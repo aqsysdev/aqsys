@@ -9,6 +9,7 @@ var HOST;
 var ws;
 
 $(function() {
+
   HOST = location.origin.replace(/^http/, 'ws');
   //alert(HOST);
   ws = new WebSocket(HOST);
@@ -21,7 +22,6 @@ $(function() {
   ws.onmessage = function (event) {
     addPunch(event);
   };
-
   setInterval(() => {
     punchBreath(tnum);
   }, 10000);
@@ -44,6 +44,9 @@ var zen2han = function(e) {
     };
 };
 
+function initRecordList(event) {
+}
+//alert("websocket end");
 
 
   //クライアントからイベント送信（イベント名は自由に設定できます）
@@ -59,6 +62,9 @@ function punchConnect(tnum) {
   ws.send(JSON.stringify(data)); // サーバへ送信
 //  alert("end");
 }
+
+
+
 
 function punchTime(tnum) {
 //  alert("punchTime");
