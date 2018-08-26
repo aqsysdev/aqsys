@@ -4,7 +4,7 @@
 //
 //
 
-alert("websocket begin");
+//alert("websocket begin");
 var HOST;
 var ws;
 
@@ -71,7 +71,7 @@ function QReadTime(tnum) {
   });
   $("#message").val("");
   ws.send(JSON.stringify({
-      type: "QRread",
+      type: "punch",
       seqnum: seqnum,
       tnum: tnum,
       racenum: racenum,
@@ -84,7 +84,7 @@ function QRreadBreath(tnum) {
   var msg = $("#message").val(); //取得
   $("#message").val("");
   var data = {
-    type: "QRreadBreath",
+    type: "punchBreath",
     tnum: tnum
   };
   ws.send(JSON.stringify(data)); // サーバへ送信
@@ -95,14 +95,14 @@ function QRreadBreath(tnum) {
 function addQRread(event) {
   var data=JSON.parse(event.data);
   var d=$("#msg_list");
-  if(data.type=="QRread") {
+  if(data.type=="punch") {
     $(d).append("<div class='msg'>" +
     data.seqnum + "," +
     decodeRacenum(data.racenum) + "," +
     data.ftime + "</div>");
     seqnum = data.seqnum+1;
     $(d).scrollTop($(d)[0].scrollHeight);
-  }else if(data.type=="QRreadBreath") {
+  }else if(data.type=="punchBreath") {
   }
 }
 //alert("websocket end");
