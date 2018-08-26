@@ -49,10 +49,10 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
     recordlist = recordlist.sort(function(a,b) {
       return(record.calcTime(b.ftime, a.ftime));
     });
-    seqnum = 1;
+    seqnum = 0;
     recordlist.forEach(function(row) {
-      row.seqnum = seqnum;
       seqnum=seqnum+1;
+      row.seqnum = seqnum;
     });
     seqnum = recordlist.length;
     console.log(seqnum);

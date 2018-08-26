@@ -7,6 +7,7 @@
 //alert("websocket begin");
 var HOST;
 var ws;
+var seqnum;
 
 $(function() {
 
@@ -64,9 +65,6 @@ function punchConnect(tnum) {
 //  alert("end");
 }
 
-
-
-
 function punchTime(tnum) {
 //  alert("punchTime");
   var racenum = decodeRacenum($("#message").val());
@@ -105,7 +103,6 @@ function addPunch(event) {
   var tr;
   var td;
   if(data.type=="punch") {
-    seqnum = data.seqnum+1;
     $(table).append(
       "<tr id='record'>"+
         "<td class='seqnum'>"+data.seqnum+"</td>"+
