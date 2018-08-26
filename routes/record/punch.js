@@ -47,7 +47,10 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
     recordlist = recordlist.filter(function(row){
       return(!(row.disabled||(!row.racenum&&!row.ftime)));
     });
-    seqnum = recordlist.length; 
+    recordlist = recordlist.sort(function(a,b) {
+      return(record.calcTime(b.ftime, a.ftime));
+    });
+    seqnum = recordlist.length;
     console.log(seqnum);
     res.render('record/punch',{
       tnum: req.params.tnum,
