@@ -103,11 +103,13 @@ function addPunch(event) {
   var table=$("#recordlist");
   alert("addPunch"+table);
   if(data.type=="punch") {
-    var tr=$(table).add("<tr class='record'>");
-    $(tr).add(data.seqnum);
-    $(tr).add(decodeRaceNum(data.racenum));
-    $(tr).add(data.ftime);
+    var tr=$(table).append("<tr class='record'>");
+    alert("addPunch"+tr);
+    $(tr).append(data.seqnum);
+    $(tr).append(decodeRaceNum(data.racenum));
+    $(tr).append(data.ftime);
     seqnum = data.seqnum+1;
+    $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
   }else if(data.type=="punchBreath") {
   }
 }
