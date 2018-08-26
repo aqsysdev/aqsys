@@ -74,6 +74,7 @@ function punchTime(tnum) {
     ftime: ftime,
     racenum: racenum
   });
+  $("#message").val("");
   ws.send(JSON.stringify({
       type: "punch",
       seqnum: seqnum+1,
