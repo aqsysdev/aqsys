@@ -104,14 +104,13 @@ function addPunch(event) {
   var tr;
   var td;
   if(data.type=="punch") {
-    alert("punch"+table);
+    seqnum = data.seqnum+1;
     $(table).append(
       "<tr id='record'>"+
         "<td class='seqnum'>"+data.seqnum+"</td>"+
-        "<td class='recenum'>"+data.recenum+"</td>"+
+        "<td class='recenum'>"+data.racenum+"</td>"+
         "<td class='ftime'>"+data.ftime+"</td>"+
       "</tr>");
-    seqnum = data.seqnum+1;
     $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
   }else if(data.type=="punchBreath") {
   }
