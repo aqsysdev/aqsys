@@ -105,12 +105,12 @@ function addPunch(event) {
   var tr;
   var td;
   if(data.type=="punch") {
-    tr=$(table).append("<tr class='record'>");
-    td=$(tr).append("td class='seqnum'");
+    tr=$(table).first.append("<tr class='record'></tr>");
+    td=$(tr).append("<td class='seqnum'></td>");
     $(td).append(data.seqnum);
-    td=$(tr).append("td class='racenum'");
+    td=$(tr).append("<td class='racenum'></td>");
     $(td).append(decodeRaceNum(data.racenum));
-    td=$(tr).append("td class='ftime'");
+    td=$(tr).append("<td class='ftime'></td>");
     $(td).append(data.ftime);
     seqnum = data.seqnum+1;
     $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
