@@ -76,6 +76,7 @@ function punchTime(tnum) {
     racenum: racenum
   });
   $("#message").val("");
+  alert(seqnum);
   ws.send(JSON.stringify({
       type: "punch",
       seqnum: seqnum+1,
@@ -83,6 +84,7 @@ function punchTime(tnum) {
       racenum: racenum,
       ftime: ftime
   })); // サーバへ送信
+  alert(seqnum);
 }
 
 function punchBreath(tnum) {
