@@ -22,9 +22,9 @@ $(function() {
   ws.onmessage = function (event) {
     addPunch(event);
   };
-  setInterval(() => {
-    punchBreath(tnum);
-  }, 10000);
+//  setInterval(() => {
+//    punchBreath(tnum);
+//  }, 10000);
   $("#message").each(function(){
       $(this).bind('keyup', zen2han(this));
   });
