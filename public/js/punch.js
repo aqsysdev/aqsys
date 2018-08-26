@@ -4,7 +4,7 @@
 //
 //
 
-// alert("websocket begin");
+alert("websocket begin");
 var HOST;
 var ws;
 
