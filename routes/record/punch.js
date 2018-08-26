@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 var recordlist=[];
 router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
   record.getAll(req.params.tnum).then(recordlist => {
-    console.log(recordlist);
+    //console.log(recordlist);
     recordlist.forEach(
       function(row){record.decodeRow(row);}
     );
