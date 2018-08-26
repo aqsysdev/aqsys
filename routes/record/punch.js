@@ -43,12 +43,16 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
     recordlist.forEach(
       function(row){record.decodeRow(row);}
     );
-    console.log(recordlist.length);
     recordlist = recordlist.filter(function(row){
       return(!(row.disabled||(!row.racenum&&!row.ftime)));
     });
     recordlist = recordlist.sort(function(a,b) {
       return(record.calcTime(b.ftime, a.ftime));
+    });
+    seqnum = 1;
+    recordlist.forEach(function(row) {
+      row.seqnum = seqnum;
+      seqnum=seqnum+1;
     });
     seqnum = recordlist.length;
     console.log(seqnum);
