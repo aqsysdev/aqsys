@@ -101,10 +101,8 @@ function punchBreath(tnum) {
 function addPunch(event) {
   var data=JSON.parse(event.data);
   var table=$("#recordlist");
-  alert("addPunch"+table);
   if(data.type=="punch") {
     var tr=$(table).append("<tr class='record'>");
-    alert("addPunch"+tr);
     $(tr).append(data.seqnum);
     $(tr).append(decodeRaceNum(data.racenum));
     $(tr).append(data.ftime);
