@@ -100,14 +100,13 @@ function punchBreath(tnum) {
 //jqueryでメッセージを追加
 function addPunch(event) {
   var data=JSON.parse(event.data);
-  var d=$("#msg_list");
+  var table=$("#msg_list.recordlist");
   if(data.type=="punch") {
-    $(d).append("<div class='msg'>" +
-    data.seqnum + "," +
-    decodeRacenum(data.racenum) + "," +
-    data.ftime + "</div>");
+    var tr=$(table).add("<tr class='record'>");
+    $(tr).add(data.seqnum);
+    $(tr).add(decodeRaceNum(data.racenum));
+    $(tr).add(data.ftime);
     seqnum = data.seqnum+1;
-    $(d).scrollTop($(d)[0].scrollHeight);
   }else if(data.type=="punchBreath") {
   }
 }
