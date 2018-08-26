@@ -101,11 +101,17 @@ function punchBreath(tnum) {
 function addPunch(event) {
   var data=JSON.parse(event.data);
   var table=$("#recordlist");
+  var table;
+  var tr;
+  var td;
   if(data.type=="punch") {
-    var tr=$(table).append("<tr class='record'>");
-    $(tr).append(data.seqnum);
-    $(tr).append(decodeRaceNum(data.racenum));
-    $(tr).append(data.ftime);
+    tr=$(table).append("<tr class='record'>");
+    td=$(tr).append("td class='seqnum'");
+    $(td).append(data.seqnum);
+    td=$(tr).append("td class='racenum'");
+    $(td).append(decodeRaceNum(data.racenum));
+    td=$(tr).append("td class='ftime'");
+    $(td).append(data.ftime);
     seqnum = data.seqnum+1;
     $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
   }else if(data.type=="punchBreath") {
