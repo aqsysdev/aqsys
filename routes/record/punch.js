@@ -43,12 +43,29 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
     recordlist.forEach(
       function(row){record.decodeRow(row);}
     );
+    var firstRow=null;
+    //console.log(recordlist.length);
+    for(var i in recordlist) {
+      //console.log(recordlist[i]);
+      if(recordlist[i].rid==1){
+        firstRow = recordlist[i];
+        recordlist.splice(i,1);
+        recordlist[i].disabled=false;
+      }
+    }
+    //console.log(recordlist.length);
     recordlist = recordlist.filter(function(row){
       return(!(row.disabled||(!row.racenum&&!row.ftime)));
     });
-    recordlist = recordlist.sort(function(a,b) {
+    //console.log(recordlist.length);
+    recordlist=recordlist.sort(function(a,b) {
       return(record.calcTime(b.ftime, a.ftime));
     });
+    //console.log(recordlist.length);
+    if(firstRow) {
+      recordlist.unshift(firstRow);
+    }
+    //console.log(recordlist.length);
     seqnum = 0;
     recordlist.forEach(function(row) {
       seqnum=seqnum+1;
