@@ -8,7 +8,12 @@
   var seqnum={{seqnum}};
 </script>
 <h2 class="page-header">Record Time {{tnum}}</h2>
-<div id="msg_list" style="height:140px; overflow:scroll;"></div>
+<div id="msg_list" style="height:140px; overflow:scroll;">
+  {{#each recordlist}}
+    <br>{{racenum}}, {{ftime}}
+    </br>
+  {{/each }}
+</div>
  <form action="" method="put" onsubmit="return false;">
    <input type="text" class="text" style="width:72px; padding:10px"
    id="message" value=""/>

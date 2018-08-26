@@ -36,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+var recordlist=[];
 router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
   record.getAll(req.params.tnum).then(recordlist => {
     console.log(recordlist);
@@ -43,12 +44,14 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
       function(row){record.decodeRow(row);}
     );
     console.log(recordlist.length);
-    seqnum = recordlist.filter(function(row){
-    return(!(row.disabled||(!row.racenum&&!row.ftime)));
-    }).length;
+    recordlist = recordlist.filter(function(row){
+      return(!(row.disabled||(!row.racenum&&!row.ftime)));
+    });
+    seqnum = recordlist.lentgh; 
     console.log(seqnum);
     res.render('record/punch',{
       tnum: req.params.tnum,
+      recordlist: recordlist,
       seqnum: seqnum
     });
   });
