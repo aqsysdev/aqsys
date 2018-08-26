@@ -28,6 +28,7 @@ $(function() {
   $("#message").each(function(){
       $(this).bind('keyup', zen2han(this));
   });
+  $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
 });
 
 var zen2han = function(e) {
