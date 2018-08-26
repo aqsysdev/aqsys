@@ -9,7 +9,7 @@
 </script>
 <h2 class="page-header">Record Time {{tnum}}</h2>
 <div id="msg_list" style="height:140px; overflow:scroll;">
-  <table id="recordlist">
+  <table ><tbody id="recordlist">
   {{#each recordlist}}
   <tr class='record'>
     <td class='seqnum'>{{seqnum}}</td>
@@ -17,7 +17,7 @@
     <td class='ftime'>{{ftime}}</td>
   </tr>
   {{/each }}
-</table>
+</tbody></table>
 </div>
  <form action="" method="put" onsubmit="return false;">
    <input type="text" class="text" style="width:72px; padding:10px"

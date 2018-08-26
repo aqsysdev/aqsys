@@ -7,7 +7,6 @@
 //alert("websocket begin");
 var HOST;
 var ws;
-var seqnum;
 
 $(function() {
 
@@ -69,15 +68,15 @@ function punchTime(tnum) {
 //  alert("punchTime");
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
+  var seqnum=$("#recordlist").length;
   $.post("/api/record/"+tnum,
   {
     ftime: ftime,
     racenum: racenum
   });
-  $("#message").val("");
   ws.send(JSON.stringify({
       type: "punch",
-      seqnum: seqnum,
+      seqnum: seqnum+1,
       tnum: tnum,
       racenum: racenum,
       ftime: ftime
