@@ -12,6 +12,12 @@
   <table id="recordlist">
   {{#each recordlist}}
     {{#if seqnum}}
+    <tr class='record'>
+      <td class='seqnum'>{{seqnum}}</td>
+      <td class='racenum'>{{racenum}}</td>
+      <td class='ftime'>{{ftime}}</td>
+    </tr>
+    {{else}}
     <tr>
       <th>順番</th>
       <th>レース番号</th>
@@ -21,12 +27,6 @@
       <th></th>
       <th>start time</th>
       <th>{{ftime}}</th>
-    </tr>
-    {{else}}
-    <tr class='record'>
-      <td class='seqnum'>{{seqnum}}</td>
-      <td class='racenum'>{{racenum}}</td>
-      <td class='ftime'>{{ftime}}</td>
     </tr>
     {{/if}}
   {{/each }}
