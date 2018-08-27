@@ -12,6 +12,7 @@ $(function() {
 
   function openWebSocket() {
     if(ws==false) {
+      alert("openWebSocket");
       var HOST = location.origin.replace(/^http/, 'ws');
       //alert(HOST);
       ws = new WebSocket(HOST);
