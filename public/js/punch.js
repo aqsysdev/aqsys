@@ -20,6 +20,7 @@ $(function() {
         punchConnect(tnum);
       };  // 接続時
       ws.onclose =  function (client) {
+        alert("disconnected");
       };  // 切断時
       ws.onmessage = function (event) {
         addPunch(event);
@@ -80,7 +81,6 @@ function punchTime(tnum) {
     racenum: racenum
   });
   $("#message").val("");
-  openWebSocket();
   ws.send(JSON.stringify({
       type: "punch",
       seqnum: seqnum+1,
