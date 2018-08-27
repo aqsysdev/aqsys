@@ -5,12 +5,14 @@
 //
 
 //alert("websocket begin");
+var HOST;
+var ws;
 
 $(function() {
 
-  var HOST = location.origin.replace(/^http/, 'ws');
+  HOST = location.origin.replace(/^http/, 'ws');
   //alert(HOST);
-  var ws = new WebSocket(HOST);
+  ws = new WebSocket(HOST);
 
   //サーバから受け取るイベント
   ws.onopen = function () {
