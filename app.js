@@ -214,5 +214,14 @@ wss.on('connection', (ws, req) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
+setInterval(() => {
+  wss.clients.forEach((client) => {
+    client.send(JSON.stringify({
+      type: "punchBreath"
+    }));
+    console.log("send punchBreath");
+  });
+}, 30000);
+
 console.log('mod_socket end');
 console.log('here7');
