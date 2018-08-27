@@ -68,8 +68,8 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
     //console.log(recordlist.length);
     seqnum = 0;
     recordlist.forEach(function(row) {
-      seqnum=seqnum+1;
       row.seqnum = seqnum;
+      seqnum=seqnum+1;
     });
     seqnum = recordlist.length;
     console.log(seqnum);

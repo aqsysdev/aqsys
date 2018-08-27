@@ -74,7 +74,7 @@ function punchTime(tnum) {
 //  alert("punchTime");
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
-  var seqnum=$("#recordlist").children().length;
+  var seqnum=$("#recordlist > tbody").children().length;
   $.post("/api/record/"+tnum,
   {
     ftime: ftime,
@@ -107,11 +107,11 @@ function punchBreath(tnum) {
 //jqueryでメッセージを追加
 function addPunch(event) {
   var data=JSON.parse(event.data);
-  var table=$("#recordlist");
+  var tbody=$("#recordlist > tbody");
   var tr;
   var td;
   if(data.type=="punch") {
-    $(table).append(
+    $(tbody).append(
       "<tr id='record'>"+
         "<td class='seqnum'>"+data.seqnum+"</td>"+
         "<td class='recenum'>"+data.racenum+"</td>"+
