@@ -204,7 +204,8 @@ wss.on('connection', (ws, req) => {
         }
       });
     }else if(data.type=="punchBreath") {
-      ws.send(JSON.stringify(data));
+//      ws.send(JSON.stringify(data));
+      console.log("punchBreath");
     }
     console.log("end");
   };
