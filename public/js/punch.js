@@ -5,20 +5,20 @@
 //
 
 //alert("websocket begin");
-var HOST;
-var ws;
 
 $(function() {
 
-  HOST = location.origin.replace(/^http/, 'ws');
+  var HOST = location.origin.replace(/^http/, 'ws');
   //alert(HOST);
-  ws = new WebSocket(HOST);
+  var ws = new WebSocket(HOST);
 
   //サーバから受け取るイベント
   ws.onopen = function () {
     punchConnect(tnum);
   };  // 接続時
-  ws.onclose =  function (client) {};  // 切断時
+  ws.onclose =  function (client) {
+
+  };  // 切断時
   ws.onmessage = function (event) {
     addPunch(event);
   };
