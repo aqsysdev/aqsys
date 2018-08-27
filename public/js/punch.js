@@ -12,7 +12,6 @@ $(function() {
 
   function openWebSocket() {
     if(ws==false) {
-      alert("openWebSocket");
       var HOST = location.origin.replace(/^http/, 'ws');
       //alert(HOST);
       ws = new WebSocket(HOST);
@@ -21,7 +20,6 @@ $(function() {
         punchConnect(tnum);
       };  // 接続時
       ws.onclose =  function (client) {
-        ws=false;
       };  // 切断時
       ws.onmessage = function (event) {
         addPunch(event);
@@ -82,9 +80,7 @@ function punchTime(tnum) {
     racenum: racenum
   });
   $("#message").val("");
-  if(ws==false) {
-    openWebSocket();
-  }
+  openWebSocket();
   ws.send(JSON.stringify({
       type: "punch",
       seqnum: seqnum+1,

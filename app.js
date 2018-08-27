@@ -192,6 +192,7 @@ const url = require('url');
 //接続確立時の処理
 
 wss.on('connection', (ws, req) => {
+  console.log("Client connected");
   ws.onmessage = function (event) {
     console.log("message");
     var data=JSON.parse(event.data);
