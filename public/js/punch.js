@@ -20,7 +20,7 @@ $(function() {
         punchConnect(tnum);
       };  // 接続時
       ws.onclose =  function (client) {
-        alert("disconnected");
+        ws=false;
       };  // 切断時
       ws.onmessage = function (event) {
         addPunch(event);
@@ -81,6 +81,9 @@ function punchTime(tnum) {
     racenum: racenum
   });
   $("#message").val("");
+  if(ws==false) {
+    location.reload();
+  }
   ws.send(JSON.stringify({
       type: "punch",
       seqnum: seqnum+1,
