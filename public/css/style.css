@@ -97,7 +97,7 @@ table:not(.pure):not(.no-stripe) tr:nth-child(2n+1) {
 }
 
 table:not(.pure):not(.no-border) tr td {
- padding: 3px 3px;
+ padding: 1px 1px;
  border-spacing: 0px;
  border-right: 1px solid  #bbb;
  border-bottom: 1px solid  #bbb;
@@ -108,7 +108,7 @@ table:not(.pure):not(.no-border) tr td {
 
 table:not(.pure):not(.no-header) tr th {
  color: #fff;
- padding: 3px 3px;
+ padding: 1px 1px;
  background: #258;
  font-weight: bold;
  border-right: 1px solid  #bbb;
