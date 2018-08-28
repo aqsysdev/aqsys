@@ -61,18 +61,21 @@ $(function(){
   	}
   });
 
-  $(".show-ftime").removeClass("hidden");
-  $(".show-dtime").addClass("hidden");
+  $("#diffTime").addClass("active");
+  $("#absTime").removeClass("active");
+  $(".show-ftime").addClass("hidden");
+  $(".show-dtime").removeClass("hidden");
 
   $("#diffTime").on('click',function(){
-    //  $(this).attr("aria-pressed")="true";
-
+    $("#diffTime").addClass("active");
+    $("#absTime").removeClass("active");
     $(".show-ftime").addClass("hidden");
     $(".show-dtime").removeClass("hidden");
   });
 
   $("#absTime").on('click',function(){
-    //  $(this).attr("aria-pressed")="true";
+    $("#diffTime").removeClass("active");
+    $("#absTime").addClass("active");
     $(".show-ftime").removeClass("hidden");
     $(".show-dtime").addClass("hidden");
   });
