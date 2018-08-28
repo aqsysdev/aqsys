@@ -108,11 +108,11 @@ table:not(.pure):not(.no-border) tr td {
 
 table:not(.pure):not(.no-header) tr th {
  color: #fff;
- padding: 4px 3px;
+ padding: 3px 3px;
  background: #258;
  font-weight: bold;
  border-right: 1px solid  #bbb;
- border-bottom: 0px;
+ border-bottom: 1px;
  background:-moz-linear-gradient(rgba(34,85,136,0.7), rgba(34,85,136,0.9) 50%);
  background:-webkit-gradient(linear, 100% 0%, 100% 50%, from(rgba(34,85,136,0.7)), to(rgba(34,85,136,0.9)));
  text-align: center;
@@ -156,7 +156,6 @@ div.frozenRow table tbody {
 div.frozenRow table td,
 div.frozenRow table th {
   white-space:nowrap;
-  width:50px;
 }
 
 div.frozenColumn {
