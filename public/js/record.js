@@ -80,6 +80,11 @@ $(function(){
     $(".show-ftime").removeClass("hidden");
   });
 
+  $("#viewMode").addClass("active");
+  $("#editMode").removeClass("active");
+  $(".show-view").removeClass("hidden");
+  $(".show-edit").addClass("hidden");
+
   $("#viewMode").on('click',function(){
     $("#viewMode").addClass("active");
     $("#editMode").removeClass("active");
