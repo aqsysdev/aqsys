@@ -60,7 +60,7 @@
       </tr>
     </thead>
     {{#each recordTable}}
-    {{#if seqnum}}
+    {{#if !seqnum}}
       <tr valign="middle">
         <td class="record-seqnum" id="record-seqnum-{{seqnum}}">
            {{seqnum}}
@@ -117,7 +117,7 @@
         </td>
       </tr>
       {{else}}
-      <tr valign="middle">
+      <thead><tr valign="middle">
         <th style="width:48px" class="record-seqnum" id="record-seqnum-{{seqnum}}">
         </th>
         <th style="width:60px" class="hidden record-rid-0 record-rid" id="record-rid-0-{{seqnum}}">{{rid0}}<div class="hidden">{{seqnum}}</div></th>
@@ -180,11 +180,11 @@
         <th style="width:132px" class="show-dtime">
            <input class="record-dtime-4" type="text" id="record-dtime-4-{{seqnum}}" name="number" value="{{dtime4}}" size="11" disabled/><div class="hidden">{{dtime4}}</div>
         </th>
-      </tr>
+      </tr></thead>
       {{/if}}
     {{/each}}
     <tfoot>
-      <thead><tr>
+      <tr>
         <td> </td>
         <td class="hidden"></td>
         <td align="center">
@@ -270,7 +270,7 @@
           <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
           </button>
         </td>
-      </tr></thead>
+      </tr>
 
       <tr>
         <td></td>
