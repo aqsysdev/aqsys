@@ -117,7 +117,6 @@
         </td>
       </tr>
       {{else}}
-      <thead>
       <tr valign="middle">
         <th style="width:48px" class="record-seqnum" id="record-seqnum-{{seqnum}}">
         </th>
@@ -134,7 +133,7 @@
            <input class="record-dtime-0" type="text" id="record-dtime-0-{{seqnum}}" name="number" value="{{dtime0}}" size="11" disabled/><div class="hidden">{{dtime0}}</div>
         </th>
         <th style="width:48px" class="hidden record-rid-1 record-rid record-rid-nz" id="record-rid-1-{{seqnum}}">{{rid1}}</th>
-        <th style="width:132px">
+        <th style="width:48px">
            <div class="record-num-1" type="text" id="record-num-1-{{seqnum}}">
             start
           </div>
@@ -181,7 +180,7 @@
         <th style="width:132px" class="show-dtime">
            <input class="record-dtime-4" type="text" id="record-dtime-4-{{seqnum}}" name="number" value="{{dtime4}}" size="11" disabled/><div class="hidden">{{dtime4}}</div>
         </th>
-      </tr></thead>
+      </tr>
       {{/if}}
     {{/each}}
     <tfoot>
