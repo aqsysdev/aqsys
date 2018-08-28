@@ -65,13 +65,16 @@ $(function(){
   $(".show-dtime").addClass("hidden");
 
   $("#diffTime").on('click',function(){
-    if($(this).attr("aria-pressed")=="true") {
-      $(".show-ftime").removeClass("hidden");
-      $(".show-dtime").addClass("hidden");
-    }else{
-      $(".show-ftime").addClass("hidden");
-      $(".show-dtime").removeClass("hidden");
-    }
+    //  $(this).attr("aria-pressed")="true";
+
+    $(".show-ftime").addClass("hidden");
+    $(".show-dtime").removeClass("hidden");
+  });
+
+  $("#absTime").on('click',function(){
+    //  $(this).attr("aria-pressed")="true";
+    $(".show-ftime").removeClass("hidden");
+    $(".show-dtime").addClass("hidden");
   });
   //
   //num ラジオボタン
