@@ -59,11 +59,10 @@
         </button></th>
       </tr>
     </thead>
-
     {{#each recordTable}}
     {{#if seqnum}}
       <tr valign="middle">
-        <td class="record-seqnum" id="record-seqnum-{{seqnum}}">
+        <td style="width:60px" class="record-seqnum" id="record-seqnum-{{seqnum}}">
            {{seqnum}}
         </td>
         <td class="hidden record-rid-0 record-rid" id="record-rid-0-{{seqnum}}">{{rid0}}<div class="hidden">{{seqnum}}</div></td>
