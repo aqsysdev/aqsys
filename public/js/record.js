@@ -63,22 +63,37 @@ $(function(){
 
   $("#diffTime").addClass("active");
   $("#absTime").removeClass("active");
-  $(".show-ftime").addClass("hidden");
   $(".show-dtime").removeClass("hidden");
+  $(".show-ftime").addClass("hidden");
 
   $("#diffTime").on('click',function(){
     $("#diffTime").addClass("active");
     $("#absTime").removeClass("active");
-    $(".show-ftime").addClass("hidden");
     $(".show-dtime").removeClass("hidden");
+    $(".show-ftime").addClass("hidden");
   });
 
   $("#absTime").on('click',function(){
     $("#diffTime").removeClass("active");
     $("#absTime").addClass("active");
-    $(".show-ftime").removeClass("hidden");
     $(".show-dtime").addClass("hidden");
+    $(".show-ftime").removeClass("hidden");
   });
+
+  $("#viewMode").on('click',function(){
+    $("#viewMode").addClass("active");
+    $("#editMode").removeClass("active");
+    $(".show-view").removeClass("hidden");
+    $(".show-edit").addClass("hidden");
+  });
+
+  $("#editMode").on('click',function(){
+    $("#viewMode").removeClass("active");
+    $("#editMode").addClass("active");
+    $(".show-view").addClass("hidden");
+    $(".show-edit").removeClass("hidden");
+  });
+
   //
   //num ラジオボタン
   //
