@@ -68,6 +68,8 @@ $(function(){
 
   $(".show-ftime").removeClass("hidden");
   $(".show-edit").removeClass("hidden");
+
+/*
   if($("#viewMode.active")) {
     $(".show-edit").addClass("hidden");
   }
@@ -80,7 +82,7 @@ $(function(){
   if($("#diffTime.active")) {
     $(".show-ftime").addClass("hidden");
   }
-
+*/
 
   $("#diffTime").on('click',function(){
     $("#diffTime").addClass("active");
@@ -113,7 +115,7 @@ $(function(){
     $("#editMode").removeClass("active");
     $(".show-view").removeClass("hidden");
     $(".show-edit").addClass("hidden");
-    if($("#absTime .active")) {
+    if($("#absTime.active")) {
       $(".show-atime").addClass("hidden");
     }
     if($("#diffTime.active")) {
