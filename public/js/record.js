@@ -69,20 +69,19 @@ $(function(){
   $(".show-ftime").removeClass("hidden");
   $(".show-edit").removeClass("hidden");
 
-/*
+
   if($("#viewMode.active")) {
     $(".show-edit").addClass("hidden");
   }
-  if($("#editMode.active")) {
-    $(".show-view").addClass("hidden");
-  }
-  if($("#absTime.active")) {
-    $(".show-dtime").addClass("hidden");
-  }
-  if($("#diffTime.active")) {
-    $(".show-ftime").addClass("hidden");
-  }
-*/
+//  if($("#editMode.active")) {
+//    $(".show-view").addClass("hidden");
+//  }
+//  if($("#absTime.active")) {
+//    $(".show-dtime").addClass("hidden");
+//  }
+//  if($("#diffTime.active")) {
+//    $(".show-ftime").addClass("hidden");
+//  }
 
   $("#diffTime").on('click',function(){
     $("#diffTime").addClass("active");
