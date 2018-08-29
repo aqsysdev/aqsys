@@ -76,10 +76,10 @@ $(function(){
 //  if($("#editMode.active")) {
 //    $(".show-view").addClass("hidden");
 //  }
-  if($("#absTime + .active")) {
+  if($("#absTime.active").length) {
     $(".show-dtime").addClass("hidden");
   }
-  if($("#diffTime + .active")) {
+  if($("#diffTime.active").length) {
     $(".show-ftime").addClass("hidden");
   }
 
