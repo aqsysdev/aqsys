@@ -269,6 +269,10 @@ div.frozenColumn table tr td {
   border-right: 3px solid red;
 }
 
+input.disabled {
+  color: black;
+}
+
 p.hidden,
 p.invisible,
 a.hidden,
