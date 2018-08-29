@@ -316,7 +316,7 @@
     {{/each}}
     <tfoot>
 
-      <tr>
+      <tr class="show-edit hidden">
         <td style="width:60px"><div></div></td>
         <td class="hidden"></td>
         <td colspan="2"></td>
@@ -375,6 +375,66 @@
           </div>
         </td>
       </tr>
+
+      <tr class="show-view">
+        <td style="width:60px"><div></div></td>
+        <td class="hidden"></td>
+        <td colspan="2"></td>
+        <td style="width:200px" align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="room1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a><span class="caret"></span></a></li>
+              <li><a href="/record/punch/1">打刻</a></li>
+              <li><a href="/record/qrread/1">QR入力</a></li>
+            </ul>
+          </div>
+        </td>
+
+        <td class="hidden"></td>
+        <td style="width:200px" align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="room2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a><span class="caret"></span></a></li>
+              <li><a href="/record/punch/2">打刻</a></li>
+              <li><a href="/record/qrread/2">QR入力</a></li>
+            </ul>
+          </div>
+        </td>
+
+        <td class="hidden"></td>
+        <td style="width:200px" align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="room3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a><span class="caret"></span></a></li>
+              <li><a href="/record/punch/3">打刻</a></li>
+              <li><a href="/record/qrread/3">カメラ入力</a></li>
+            </ul>
+          </div>
+        </td>
+
+        <td class="hidden"></td>
+        <td style="width:200px" align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="room4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a><span class="caret"></span></a></li>
+              <li><a href="/record/punch/4">打刻</a></li>
+              <li><a href="/record/qrread/4">カメラ入力</a></li>
+            </ul>
+          </div>
+        </td>
+        </tr>
     </tfoot>
   </table>
 
