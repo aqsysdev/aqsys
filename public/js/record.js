@@ -68,16 +68,16 @@ $(function(){
 
   $(".show-ftime").removeClass("hidden");
   $(".show-edit").removeClass("hidden");
-  if($("#viewMode active")) {
+  if($("#viewMode.active").) {
     $(".show-edit").addClass("hidden");
   }
-  if($("#editMode active")) {
+  if($("#editMode.active")) {
     $(".show-view").addClass("hidden");
   }
-  if($("#absTime active")) {
+  if($("#absTime.active")) {
     $(".show-dtime").addClass("hidden");
   }
-  if($("#diffTime active")) {
+  if($("#diffTime.active")) {
     $(".show-ftime").addClass("hidden");
   }
 
@@ -87,10 +87,10 @@ $(function(){
     $("#absTime").removeClass("active");
     $(".show-dtime").removeClass("hidden");
     $(".show-ftime").addClass("hidden");
-    if($("#viewMode active")) {
+    if($("#viewMode.active")) {
       $(".show-edit").addClass("hidden");
     }
-    if($("#editMode active")) {
+    if($("#editMode.active")) {
       $(".show-view").addClass("hidden");
     }
   });
@@ -103,7 +103,7 @@ $(function(){
     if($("#viewMode active")) {
       $(".show-edit").addClass("hidden");
     }
-    if($("#editMode active")) {
+    if($("#editMode.active")) {
       $(".show-view").addClass("hidden");
     }
   });
@@ -113,10 +113,10 @@ $(function(){
     $("#editMode").removeClass("active");
     $(".show-view").removeClass("hidden");
     $(".show-edit").addClass("hidden");
-    if($("#absTime active")) {
+    if($("#absTime.active")) {
       $(".show-atime").addClass("hidden");
     }
-    if($("#diffTime active")) {
+    if($("#diffTime.active")) {
       $(".show-ftime").addClass("hidden");
     }
   });
@@ -126,10 +126,10 @@ $(function(){
     $("#editMode").addClass("active");
     $(".show-view").addClass("hidden");
     $(".show-edit").removeClass("hidden");
-    if($("#absTime active")) {
+    if($("#absTime.active")) {
       $(".show-atime").addClass("hidden");
     }
-    if($("#diffTime active")) {
+    if($("#diffTime.active")) {
       $(".show-ftime").addClass("hidden");
     }
   });
