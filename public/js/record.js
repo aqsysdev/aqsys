@@ -75,7 +75,7 @@ $(function(){
     $(".show-view").addClass("hidden");
   }
   if($("#absTime active")) {
-    $(".show-atime").addClass("hidden");
+    $(".show-dtime").addClass("hidden");
   }
   if($("#diffTime active")) {
     $(".show-ftime").addClass("hidden");
