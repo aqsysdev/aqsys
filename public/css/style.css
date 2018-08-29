@@ -270,7 +270,7 @@ div.frozenColumn table tr td {
 }
 
 input:disabled {
-  color: black;
+  color: #222;
 }
 
 p.hidden,
