@@ -63,14 +63,36 @@ $(function(){
 
   $("#diffTime").addClass("active");
   $("#absTime").removeClass("active");
-  $(".show-dtime").removeClass("hidden");
-  $(".show-ftime").addClass("hidden");
+  $("#viewMode").addClass("active");
+  $("#editMode").removeClass("active");
+
+  $(".show-ftime").removeClass("hidden");
+  $(".show-edit").removeClass("hidden");
+  if($("#viewMode active")) {
+    $(".show-edit").addClass("hidden");
+  }
+  if($("#editMode active")) {
+    $(".show-view").addClass("hidden");
+  }
+  if($("#absTime active")) {
+    $(".show-atime").addClass("hidden");
+  }
+  if($("#diffTime active")) {
+    $(".show-ftime").addClass("hidden");
+  }
+
 
   $("#diffTime").on('click',function(){
     $("#diffTime").addClass("active");
     $("#absTime").removeClass("active");
     $(".show-dtime").removeClass("hidden");
     $(".show-ftime").addClass("hidden");
+    if($("#viewMode active")) {
+      $(".show-edit").addClass("hidden");
+    }
+    if($("#editMode active")) {
+      $(".show-view").addClass("hidden");
+    }
   });
 
   $("#absTime").on('click',function(){
@@ -78,18 +100,25 @@ $(function(){
     $("#absTime").addClass("active");
     $(".show-dtime").addClass("hidden");
     $(".show-ftime").removeClass("hidden");
+    if($("#viewMode active")) {
+      $(".show-edit").addClass("hidden");
+    }
+    if($("#editMode active")) {
+      $(".show-view").addClass("hidden");
+    }
   });
-
-  $("#viewMode").addClass("active");
-  $("#editMode").removeClass("active");
-  $(".show-view").removeClass("hidden");
-  $(".show-edit").addClass("hidden");
 
   $("#viewMode").on('click',function(){
     $("#viewMode").addClass("active");
     $("#editMode").removeClass("active");
     $(".show-view").removeClass("hidden");
     $(".show-edit").addClass("hidden");
+    if($("#absTime active")) {
+      $(".show-atime").addClass("hidden");
+    }
+    if($("#diffTime active")) {
+      $(".show-ftime").addClass("hidden");
+    }
   });
 
   $("#editMode").on('click',function(){
@@ -97,6 +126,12 @@ $(function(){
     $("#editMode").addClass("active");
     $(".show-view").addClass("hidden");
     $(".show-edit").removeClass("hidden");
+    if($("#absTime active")) {
+      $(".show-atime").addClass("hidden");
+    }
+    if($("#diffTime active")) {
+      $(".show-ftime").addClass("hidden");
+    }
   });
 
   //
