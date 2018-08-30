@@ -529,6 +529,7 @@ $(function(){
       $(".record-rid-0").map(function(seqnum){
         copyToRecord0One(fieldName,recordNum,seqnum);
       });
+      location.reload();
     });
   };
 
@@ -543,11 +544,7 @@ $(function(){
 //      }
     }else{
         $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
-        if(fieldName=="ftime") {
-          $("#record-ftime-0-"+seqnum).trigger("change");
-        }else{
-          $("#record-dtime-0-"+seqnum).trigger("change");
-        }
+        $("#record-ftime-0-"+seqnum).trigger("change");
     }
   };
 
