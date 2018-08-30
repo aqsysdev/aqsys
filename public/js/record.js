@@ -543,7 +543,11 @@ $(function(){
 //      }
     }else{
         $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
-        $("#record-ftime-0-"+seqnum).trigger("change");
+        if(fieldName=="ftime") {
+          $("#record-ftime-0-"+seqnum).trigger("change");
+        }else{
+          $("#record-dtime-0-"+seqnum).trigger("change");
+        }
     }
   };
 
