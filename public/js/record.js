@@ -160,6 +160,7 @@ $(function(){
   //
   //dtime ラジオボタン
   //
+  /*
   $(document).on('click', '.record-dtime-radio', function(){
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
@@ -168,7 +169,7 @@ $(function(){
     var id = $(this).eq(0).attr("id").split("-");
     copyToRecord0(id[1],id[3]);
   });
-
+  */
 //
 //  レースナンバー編集可能ボタン
 //
