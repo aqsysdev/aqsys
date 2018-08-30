@@ -526,15 +526,10 @@ $(function(){
         }
     });
     $.when(promises).done( function(){
-      if(fieldName=='dtime') {
-        $(".record-ftime-0").removeClass("hidden");
-      }
       $(".record-rid-0").map(function(seqnum){
         copyToRecord0One(fieldName,recordNum,seqnum);
       });
-      if(fieldName=='dtime') {
-        $(".record-ftime-0").addClass("hidden");
-      }
+
     });
   };
 
