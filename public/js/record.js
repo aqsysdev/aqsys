@@ -542,10 +542,9 @@ $(function(){
         $("#record-num-0-"+seqnum).val(""+$("#record-num-"+recordNum+"-"+seqnum).val());
         $("#record-num-0-"+seqnum).trigger("change");
 //      }
-    }else{
-        $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
-        $("#record-ftime-0-"+seqnum).trigger("change");
     }
+    $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
+    $("#record-ftime-0-"+seqnum).trigger("change");
   };
 
   var calcTime = record.calcTime = function(fromTime, toTime) {
