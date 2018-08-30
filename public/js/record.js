@@ -540,7 +540,7 @@ $(function(){
     if(fieldName == "num" && $(".record-num-radio.active").text().trim()==="num"+recordNum){
 //      if($('#btnRecordNumEditable-0.active').length){
         $("#record-num-0-"+seqnum).val(""+$("#record-num-"+recordNum+"-"+seqnum).val());
-        $("#record-num-0-"+seqnum).trigger("change");
+//      $("#record-num-0-"+seqnum).trigger("change");
 //      }
     }
     $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
