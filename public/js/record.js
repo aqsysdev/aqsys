@@ -511,6 +511,7 @@ $(function(){
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
     var promises= $(".record-rid-0").map(function(seqnum) {
       var rid0=$(this).text().trim();
+        alert(rid0);
         if(rid0) {
           return(
             $.put("/api/record/0_"+rid0, {
