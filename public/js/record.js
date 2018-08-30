@@ -541,21 +541,9 @@ $(function(){
         $("#record-num-0-"+seqnum).val(""+$("#record-num-"+recordNum+"-"+seqnum).val());
         $("#record-num-0-"+seqnum).trigger("change");
 //      }
-    }
-    if($("#diffTime.active").length){
-//      if($('#btnRecordDTimeEditable-0.active').length){
-        if(fieldName == "dtime" && $(".record-dtime-radio.active").text().trim()==="dtime"+recordNum){
-          $("#record-dtime-0-"+seqnum).val(""+$("#record-dtime-"+recordNum+"-"+seqnum).val());
-          $("#record-dtime-0-"+seqnum).trigger("change");
-        }
-//      }
     }else{
-//      if($('#btnRecordFTimeEditable-0.active').length){
-        if(fieldName == "ftime" && $(".record-ftime-radio.active").text().trim()==="ftime"+recordNum){
-          $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
-          $("#record-ftime-0-"+seqnum).trigger("change");
-        }
-//      }
+        $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
+        $("#record-ftime-0-"+seqnum).trigger("change");
     }
   };
 
