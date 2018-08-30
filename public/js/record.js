@@ -529,7 +529,6 @@ $(function(){
       $(".record-rid-0").map(function(seqnum){
         copyToRecord0One(fieldName,recordNum,seqnum);
       });
-      location.reload();
     });
   };
 
@@ -543,8 +542,14 @@ $(function(){
         $("#record-num-0-"+seqnum).trigger("change");
 //      }
     }else{
+      if(fieldName=='dtime') {
+        $("#record-ftime-0-"+seqnum).removeClass("hidden");
+      }
         $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
         $("#record-ftime-0-"+seqnum).trigger("change");
+      if(fieldName=='dtime') {
+        $("#record-ftime-0-"+seqnum).addClass("hidden");
+      }
     }
   };
 
