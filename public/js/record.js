@@ -261,18 +261,14 @@ $(function(){
       disabled: false
     };
     var ftime;
-    alert("#record-ftime-"+recordNum+"-"+seqnum);
-    alert($("#record-ftime-"+recordNum+"-"+seqnum).text());
-    alert($("#record-ftime-"+recordNum+"-"+seqnum).val());
     //    if((ftime=$(that).parent().next().children().last().text())) {
-    if((ftime=$("#record-ftime-"+recordNum+"-"+seqnum).text())){
+    if((ftime=$("#record-ftime-"+recordNum+"-"+seqnum).val())){
       data.ftime = ftime;
-    }else if((ftime=$("#record-ftime-"+recordNum+"-"+(seqnum-1)).text())) {
-      data.ftime = ftime;
+    }else if((ftime=$("#record-ftime-"+recordNum+"-"+(seqnum-1)).val())) {
+      data.ftime = addTime(ftime,"00:00:01.00");
     }else{
       data.ftime = encodeTime( new Date() );
     }
-    alert(JSON.stringify(data));
     //
     //  追加
     //
