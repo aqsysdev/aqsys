@@ -281,5 +281,5 @@ div.invisible
 }
 
 input[type="text"][disabled] {
-   color: #222;
+   color: #111;
 }
