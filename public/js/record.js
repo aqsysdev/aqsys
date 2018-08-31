@@ -245,10 +245,11 @@ $(function(){
       });
     });
   }
-
+  //////////////////////////////////////////////////////////////////////////
   //
   //  レースナンバー編集
   //
+  //////////////////////////////////////////////////////////////////////////
   function recordEditNum(that){
     $(that).addClass("unconfirmed");
     var recordNum=$(that).attr("id").split("-")[2];
@@ -327,10 +328,11 @@ $(function(){
     }
   }
 
+  //////////////////////////////////////////////////////////////////////////
   //
   //  フィニッシュ時刻編集
   //
-
+  //////////////////////////////////////////////////////////////////////////
   function recordEditFTime(that){
     $(that).addClass("unconfirmed");
     var recordNum=$(that).eq(0).attr("id").split("-")[2];
@@ -576,7 +578,7 @@ $(function(){
 
   var addTime = record.addTime =
   function(fromTime, toTime) {
-      return(formTime(centisecTime(fromTime),centisecTime(toTime)));
+      return(formTime(centisecTime(fromTime)+centisecTime(toTime)));
   };
 
   var formTime = record.formTime =

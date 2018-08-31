@@ -87,7 +87,7 @@ function diffTime(fromTime, toTime) {
 }
 
 function addTime(fromTime, toTime) {
-    return(formTime(centisecTime(fromTime),centisecTime(toTime)));
+    return(formTime(centisecTime(fromTime)+centisecTime(toTime)));
 }
 
 function formTime(cs) {
