@@ -262,7 +262,7 @@ $(function(){
     if($(that).parent().next().children().last().val()) {
       data.ftime = $(that).parent().next().children().last().val();
     }else{
-      data.ftime = encodeTime( new Date() );
+      data.ftime = reformTime(encodeTime( new Date() ));
     }
     alert(data.ftime);
     //alert(JSON.stringify(data));
