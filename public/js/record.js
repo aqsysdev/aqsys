@@ -512,7 +512,7 @@ $(function(){
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
     alert(fieldName);
     if(
-      (fieldName=="num" && $("#btnRecordNumEditable-0").attr("area-pressed") == "true") ||
+      (fieldName=="num" && $("#btnRecordNumEditable-0").attr("aria-pressed") == "true") ||
       (fieldName=="ftime" && $("#btnRecordFTimeEditable-0").attr("aria-pressed") == "true") ||
       (fieldName=="dtime" && $("#btnRecordDTimeEditable-0").atrr("aria-pressed") == "true")
     ) {
