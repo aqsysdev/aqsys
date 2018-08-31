@@ -87,11 +87,14 @@ function calcTime(fromTime, toTime) {
 }
 
 function diffTime(fromTime, toTime) {
+  console.log("from:"+fromTime+" to:"+toTime);
   var diffCentisec;
   diffCentisec = calcTime(fromTime,toTime);
   if(diffCentisec>=0) {
+    console.log(formTime(diffCentisec));
     return(formTime(diffCentisec));
   }else{
+    console.log(addTime(formTime(diffCentisec),"24:00:00.00"));
     return(addTime(formTime(diffCentisec),"24:00:00.00"));
   }
 }
