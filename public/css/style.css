@@ -269,9 +269,6 @@ div.frozenColumn table tr td {
   border-right: 3px solid red;
 }
 
-input:disabled {
-  color: #222;
-}
 
 p.hidden,
 p.invisible,
@@ -283,10 +280,6 @@ div.invisible
   letter-spacing: -1em;
 }
 
-input[type="text"] {
-   color: blue;
-}
-
 input[type="text"][disabled] {
-   color: black;
+   color: #222;
 }
