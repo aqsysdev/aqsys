@@ -539,13 +539,15 @@ $(function(){
   var copyToRecord0One = record.copyToRecord0One =
   function(fieldName, recordNum, seqnum) {
     if(fieldName == "num" && $(".record-num-radio.active").text().trim()==="num"+recordNum){
-//      if($('#btnRecordNumEditable-0.active').length){
+      if($('#btnRecordNumEditable-0.active').length){
+        $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
         $("#record-num-0-"+seqnum).val(""+$("#record-num-"+recordNum+"-"+seqnum).val());
-//      $("#record-num-0-"+seqnum).trigger("change");
-//      }
+        $("#record-ftime-0-"+seqnum).trigger("change");
+        $("#record-num-0-"+seqnum).trigger("change");
+      }else{
+        alert("採用記録の編集ボタンを押してください。");
+      }
     }
-    $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
-    $("#record-ftime-0-"+seqnum).trigger("change");
   };
 
   var calcTime = record.calcTime = function(fromTime, toTime) {
