@@ -87,7 +87,13 @@ function calcTime(fromTime, toTime) {
 }
 
 function diffTime(fromTime, toTime) {
-    return(formTime(calcTime(fromTime,toTime)));
+  var diffCentisec;
+  diffCentisec = calcTime(fromTime,toTime);
+  if(diffCentisec>=0) {
+    return(formTime(diffCentisec));
+  }else{
+    return(formTime(diffCnetisec+calcTime("00:00:00.00","24:00:00.00")));
+  }
 }
 
 function addTime(fromTime, toTime) {

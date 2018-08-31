@@ -65,11 +65,16 @@ router.get('/', user.ensureAuthenticated, function(req, res){
         recordlist = recordlist.filter(function(row){
           return(!(row.disabled||(!row.racenum&&!row.ftime)));
         });
+        var startTime = (firstRow&&firstRow.ftime)||"00:00:00.00";
         //console.log(recordlist.length);
         recordlist=recordlist.sort(function(a,b) {
-          return(record.calcTime(b.ftime, a.ftime));
+          return(record.calcTime(
+            record.diffTime(startTime,b.ftime),
+            record.diffTime(startTime,a.ftime)
+          ));
         });
         //console.log(recordlist.length);
+        // 先頭の行を戻す。
         if(firstRow) {
           recordlist.unshift(firstRow);
         }
