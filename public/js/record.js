@@ -545,10 +545,8 @@ $(function(){
   var copyToRecord0One = record.copyToRecord0One =
   function(fieldName, recordNum, seqnum) {
     if(fieldName == "num" ){
-        $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
-        $("#record-num-0-"+seqnum).val(""+$("#record-num-"+recordNum+"-"+seqnum).val());
-//        $("#record-ftime-0-"+seqnum).trigger("change");
-        $("#record-num-0-"+seqnum).trigger("change");
+      $("#record-num-0-"+seqnum).val(""+$("#record-num-"+recordNum+"-"+seqnum).val());
+      $("#record-num-0-"+seqnum).trigger("change");
     }else{
       $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
       $("#record-ftime-0-"+seqnum).trigger("change");
