@@ -136,7 +136,7 @@ $(function(){
   });
 
   //
-  //num ラジオボタン
+  //num 選択ラジオボタン
   //
   $(document).on('click', '.record-num-radio', function(){
     $('.record-num-radio').removeClass("active");
@@ -146,7 +146,7 @@ $(function(){
   });
 
   //
-  //ftime ラジオボタン
+  //ftime 選択ラジオボタン
   //
   $(document).on('click', '.record-ftime-radio', function(){
     $('.record-ftime-radio').removeClass("active");
@@ -158,9 +158,9 @@ $(function(){
   });
 
   //
-  //dtime ラジオボタン
+  //dtime 選択ラジオボタン
   //
-  /*
+
   $(document).on('click', '.record-dtime-radio', function(){
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
@@ -169,7 +169,6 @@ $(function(){
     var id = $(this).eq(0).attr("id").split("-");
     copyToRecord0(id[1],id[3]);
   });
-  */
 //
 //  レースナンバー編集可能ボタン
 //
@@ -510,7 +509,6 @@ $(function(){
 
 
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
-    alert(fieldName);
     if(
       (fieldName=="num" && $("#btnRecordNumEditable-0").attr("aria-pressed") == "true") ||
       (fieldName=="ftime" && $("#btnRecordFTimeEditable-0").attr("aria-pressed") == "true") ||
@@ -546,11 +544,14 @@ $(function(){
 
   var copyToRecord0One = record.copyToRecord0One =
   function(fieldName, recordNum, seqnum) {
-    if(fieldName == "num" && $(".record-num-radio.active").text().trim()==="num"+recordNum){
+    if(fieldName == "num" ){
         $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
         $("#record-num-0-"+seqnum).val(""+$("#record-num-"+recordNum+"-"+seqnum).val());
-        $("#record-ftime-0-"+seqnum).trigger("change");
+//        $("#record-ftime-0-"+seqnum).trigger("change");
         $("#record-num-0-"+seqnum).trigger("change");
+    }else{
+      $("#record-ftime-0-"+seqnum).val(""+$("#record-ftime-"+recordNum+"-"+seqnum).val());
+      $("#record-ftime-0-"+seqnum).trigger("change");
     }
   };
 
