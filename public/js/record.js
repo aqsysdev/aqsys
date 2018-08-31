@@ -254,7 +254,7 @@ $(function(){
     var recordNum=$(that).attr("id").split("-")[2];
     var value=$(that).val();
     var rid=$(that).parent().prev().text().trim();
-    //alert("that.id:"+$(that).attr("id")+" recordNum:"+recordNum+" rid:"+rid+" num:"+value);
+    alert("that.id:"+$(that).attr("id")+" recordNum:"+recordNum+" rid:"+rid+" num:"+value);
     var data = {
       racenum: value,
       disabled: false
