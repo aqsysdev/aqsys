@@ -283,6 +283,10 @@ div.invisible
   letter-spacing: -1em;
 }
 
-input[type="text"][disabled] {
+input[type="text"].not[disabled] {
    color: blue;
+}
+
+input[type="text"][disabled] {
+   color: black;
 }
