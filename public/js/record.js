@@ -260,11 +260,11 @@ $(function(){
       disabled: false
     };
     alert($(that));
-    alert($(that).parent());
-    alert($(that).parent().next());
-    alert($(that).parent().next().children());
-    alert($(that).parent().next().children().last());
-    alert($(that).parent().next().children().last().val());
+    alert($(that).parent().text());
+    alert($(that).parent().next().text());
+    alert($(that).parent().next().children().text());
+    alert($(that).parent().next().children().last().text());
+    alert($(that).parent().next().children().last().val().text());
     if($(that).parent().next().children().last().val()) {
       data.ftime = $(that).parent().next().children().last().val();
     }else{
