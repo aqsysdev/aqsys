@@ -43,6 +43,7 @@ module.exports = {
   diffTime,
   addTime,
   formTime,
+  centisecTime,
   reformTime,
   encodeTime,
   decodeRacenum,
@@ -72,29 +73,15 @@ function encodeRow(row) {
 }
 
 function calcTime(fromTime, toTime) {
-    var fromTimeSplit = (fromTime+"").split(/\D/);
-    var toTimeSplit = (toTime+"").split(/\D/);
-    return(
-      (toTimeSplit[0]||0)*100*60*60+
-      (toTimeSplit[1]||0)*100*60+
-      (toTimeSplit[2]||0)*100+
-      (toTimeSplit[3]||0)*1-
-      (fromTimeSplit[0]||0)*100*60*60-
-      (fromTimeSplit[1]||0)*100*60-
-      (fromTimeSplit[2]||0)*100-
-      (fromTimeSplit[3]||0)*1
-    );
+    return(centisecTime(toTime)-centisecTime(fromTime));
 }
 
 function diffTime(fromTime, toTime) {
-  console.log("from:"+fromTime+" to:"+toTime);
   var diffCentisec;
   diffCentisec = calcTime(fromTime,toTime);
   if(diffCentisec>=0) {
-    console.log(formTime(diffCentisec));
     return(formTime(diffCentisec));
   }else{
-    console.log(formTime(diffCentisec+centisecTime("24:00:00.00")));
     return(formTime(diffCentisec+centisecTime("24:00:00.00")));
   }
 }
