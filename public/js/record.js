@@ -512,9 +512,9 @@ $(function(){
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
     alert(fieldName);
     if(
-      (fieldName=="num" && $("#btnRecordNumEditable-0.active").length) ||
-      (fieldName=="ftime" && $("#btnRecordFTimeEditable-0.active").length) ||
-      (fieldName=="dtime" && $("#btnRecordDTimeEditable-0.active").length)
+      (fieldName=="num" && $("#btnRecordNumEditable-0").attr("area-pressed") == "true") ||
+      (fieldName=="ftime" && $("#btnRecordFTimeEditable-0").attr("aria-pressed") == "true") ||
+      (fieldName=="dtime" && $("#btnRecordDTimeEditable-0").atrr("aria-pressed") == "true")
     ) {
       var promises= $(".record-rid-0").map(function(seqnum) {
         var rid0=$(this).text().trim();
