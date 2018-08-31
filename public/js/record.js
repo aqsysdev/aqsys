@@ -261,9 +261,9 @@ $(function(){
       disabled: false
     };
     var ftime;
-    alert("record-ftime-"+recordNum+"-"+seqnum);
-    alert($("record-ftime-"+recordNum+"-"+seqnum).text());
-    alert($("record-ftime-"+recordNum+"-"+seqnum).val());
+    alert("#record-ftime-"+recordNum+"-"+seqnum);
+    alert($("#record-ftime-"+recordNum+"-"+seqnum).text());
+    alert($("#record-ftime-"+recordNum+"-"+seqnum).val());
     //    if((ftime=$(that).parent().next().children().last().text())) {
     if((ftime=$("#record-ftime-"+recordNum+"-"+seqnum).text())){
       data.ftime = ftime;
