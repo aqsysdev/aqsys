@@ -282,3 +282,7 @@ div.invisible
 {
   letter-spacing: -1em;
 }
+
+input[type="text"][disabled] {
+   color: blue;
+}
