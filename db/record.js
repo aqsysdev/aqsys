@@ -94,24 +94,13 @@ function diffTime(fromTime, toTime) {
     console.log(formTime(diffCentisec));
     return(formTime(diffCentisec));
   }else{
-    console.log(addTime(formTime(diffCentisec),"24:00:00.00"));
-    return(addTime(formTime(diffCentisec),"24:00:00.00"));
+    console.log(formTime(diffCentisec+centisecTime("24:00:00.00")));
+    return(formTime(diffCentisec+centisecTime("24:00:00.00")));
   }
 }
 
 function addTime(fromTime, toTime) {
-  var fromTimeSplit = (fromTime+"").split(/\D/);
-  var toTimeSplit = (toTime+"").split(/\D/);
-  var centisec =
-    (toTimeSplit[0]||0)*100*60*60+
-    (toTimeSplit[1]||0)*100*60+
-    (toTimeSplit[2]||0)*100+
-    (toTimeSplit[3]||0)*1+
-    (fromTimeSplit[0]||0)*100*60*60+
-    (fromTimeSplit[1]||0)*100*60+
-    (fromTimeSplit[2]||0)*100+
-    (fromTimeSplit[3]||0)*1;
-    return(formTime(centisec));
+    return(formTime(centisecTime(fromTime),centisecTime(toTime)));
 }
 
 function formTime(ms) {
@@ -148,6 +137,20 @@ function reformTime(ft) {
   } else {
     return(ft);
   }
+}
+
+function centisecTime(time) {
+  var ft=time;
+  if(ft.indexOf(".")<0){
+    ft="00"+ft+".00";
+  }
+  var timeSplit = (ft+"").split(/\D/);
+  return(
+    (timeSplit[0]||0)*100*60*60+
+    (timeSplit[1]||0)*100*60+
+    (timeSplit[2]||0)*100+
+    (timeSplit[3]||0)*1
+  );
 }
 
 function encodeTime(time) {
