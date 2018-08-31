@@ -271,6 +271,13 @@ $(function(){
       data.ftime = encodeTime( new Date() );
     }
     $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+    if(seqnum==1) {
+      $("#record-dtime-"+recordNum+"-"+seqnum).val(diffTime(data.ftime));
+    }else{
+      $("#record-dtime-"+recordNum+"-"+seqnum).val(
+        diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+      );
+    }
     //
     //  追加
     //
