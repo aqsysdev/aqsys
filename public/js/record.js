@@ -264,7 +264,8 @@ $(function(){
     }else{
       data.ftime = encodeTime( new Date() );
     }
-    alert(JSON.stringify(data));
+    alert(rid);
+    //alert(JSON.stringify(data));
     //
     //  追加
     //
