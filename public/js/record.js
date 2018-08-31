@@ -261,10 +261,10 @@ $(function(){
     };
     if($(that).parent().next().children().last().val()) {
       data.ftime = $(that).parent().next().children().last().val();
-      alert(data.ftime);
     }else{
       data.ftime = encodeTime( new Date() );
     }
+    alert(data.ftime);
     //alert(JSON.stringify(data));
     //
     //  追加
