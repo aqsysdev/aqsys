@@ -252,6 +252,7 @@ $(function(){
   function recordEditNum(that){
     $(that).addClass("unconfirmed");
     var recordNum=$(that).attr("id").split("-")[2];
+    var seqnum=$(that).attr("id").split("-")[3];
     var value=$(that).val();
     var rid=$(that).parent().prev().text().trim();
     //alert("that.id:"+$(that).attr("id")+" recordNum:"+recordNum+" rid:"+rid+" num:"+value);
@@ -259,13 +260,16 @@ $(function(){
       racenum: value,
       disabled: false
     };
-    if($(that).parent().next().children().last().text()) {
-      data.ftime = $(that).parent().next().children().last().text();
+    var ftime;
+//    if((ftime=$(that).parent().next().children().last().text())) {
+    if((ftime=$("#record-ftime-"+recordNum+"-"+seqnum).text())){
+      data.ftime = ftime;
+    }else if((ftime=$("#record-ftime-"+recordNum+"-"+(seqnum-1)).text())) {
+      data.ftime = ftime;
     }else{
       data.ftime = encodeTime( new Date() );
     }
-    alert(data.ftime);
-    //alert(JSON.stringify(data));
+    alert(JSON.stringify(data));
     //
     //  追加
     //
