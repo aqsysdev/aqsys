@@ -510,6 +510,7 @@ $(function(){
 
 
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
+    alert(fieldName);
     if(
       (fieldName=="num" && $("#btnRecordNumEditable-0.active").length) ||
       (fieldName=="ftime" && $("#btnRecordFTimeEditable-0.active").length) ||
