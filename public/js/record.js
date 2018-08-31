@@ -264,6 +264,7 @@ $(function(){
     alert($(that).parent().next());
     alert($(that).parent().next().children());
     alert($(that).parent().next().children().last());
+    alert($(that).parent().next().children().last().val());
     if($(that).parent().next().children().last().val()) {
       data.ftime = $(that).parent().next().children().last().val();
     }else{
