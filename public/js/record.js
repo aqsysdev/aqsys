@@ -269,6 +269,7 @@ $(function(){
     }else{
       data.ftime = encodeTime( new Date() );
     }
+    $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTIme(data.ftime));
     //
     //  追加
     //
