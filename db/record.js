@@ -92,7 +92,7 @@ function diffTime(fromTime, toTime) {
   if(diffCentisec>=0) {
     return(formTime(diffCentisec));
   }else{
-    return(formTime(diffCentisec+calcTime("00:00:00.00","24:00:00.00")));
+    return(addTime(formTime(diffCentisec),"24:00:00.00"));
   }
 }
 
