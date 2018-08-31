@@ -558,41 +558,29 @@ $(function(){
     }
   };
 
-  var calcTime = record.calcTime = function(fromTime, toTime) {
-    var fromTimeSplit = (fromTime+"").split(/\D/);
-    var toTimeSplit = (toTime+"").split(/\D/);
-    return(
-      (toTimeSplit[0]||0)*100*60*60+
-      (toTimeSplit[1]||0)*100*60+
-      (toTimeSplit[2]||0)*100+
-      (toTimeSplit[3]||0)*1-
-      (fromTimeSplit[0]||0)*100*60*60-
-      (fromTimeSplit[1]||0)*100*60-
-      (fromTimeSplit[2]||0)*100-
-      (fromTimeSplit[3]||0)*1
-    );
+  var calcTime = record.calcTime =
+  function calcTime(fromTime, toTime) {
+      return(centisecTime(toTime)-centisecTime(fromTime));
   };
 
-  var diffTime = record.diffTime = function(fromTime, toTime) {
-      return(formTime(calcTime(fromTime,toTime)));
+  var diffTime = record.diffTime =
+  function(fromTime, toTime) {
+    var diffCentisec;
+    diffCentisec = calcTime(fromTime,toTime);
+    if(diffCentisec>=0) {
+      return(formTime(diffCentisec));
+    }else{
+      return(formTime(diffCentisec+centisecTime("24:00:00.00")));
+    }
   };
 
-  var addTime = record.addTime = function(fromTime, toTime) {
-    var fromTimeSplit = (fromTime+"").split(/\D/);
-    var toTimeSplit = (toTime+"").split(/\D/);
-    var centisec =
-      (toTimeSplit[0]||0)*100*60*60+
-      (toTimeSplit[1]||0)*100*60+
-      (toTimeSplit[2]||0)*100+
-      (toTimeSplit[3]||0)*1+
-      (fromTimeSplit[0]||0)*100*60*60+
-      (fromTimeSplit[1]||0)*100*60+
-      (fromTimeSplit[2]||0)*100+
-      (fromTimeSplit[3]||0)*1;
-      return(formTime(centisec));
+  var addTime = record.addTime =
+  function(fromTime, toTime) {
+      return(formTime(centisecTime(fromTime),centisecTime(toTime)));
   };
 
-  var formTime = record.formTime = function(cs) {
+  var formTime = record.formTime =
+  function(cs) {
       var centisec=new Decimal(cs);
       return(
         ("00"+parseInt(centisec.div(60*60*100),0)%24).slice(-2)+":"+
@@ -602,7 +590,8 @@ $(function(){
       );
   };
 
-  var reformTime = record.reformTime = function(ft) {
+  var reformTime = record.reformTime =
+  function(ft) {
     if(ft){
       if(ft.indexOf(".")<0){
         ft="00"+ft+".00";
@@ -628,19 +617,36 @@ $(function(){
     }
   };
 
-  var encodeTime = record.encodeTime = function(time) {
+  var centisecTime = record.centisecTime =
+  function(time) {
+    var ft=time;
+    if(ft.indexOf(".")<0){
+      ft="00"+ft+".00";
+    }
+    var timeSplit = (ft+"").split(/\D/);
     return(
-//      ("0000"+(time.getFullYear()||0)).slice(-4)+"/"+
-//      ("00" + (time.getMonth()+1)).slice(-2)+"/"+
-//      ("00" + (time.getDate()||0)).slice(-2)+" "+
-      ("00" + (time.getHours()||0)).slice(-2)+":"+
-      ("00" + (time.getMinutes()||0)).slice(-2)+":"+
-      ("00" + (time.getSeconds()||0)).slice(-2)+"."+
-      ("000" + (time.getTime()||0)).slice(-4).slice(2)
+      (timeSplit[0]||0)*100*60*60+
+      (timeSplit[1]||0)*100*60+
+      (timeSplit[2]||0)*100+
+      (timeSplit[3]||0)*1
     );
   };
 
-  var decodeRacenum = record.decodeRaceNum = function(racenum) {
+  var encodeTime = record.encodeTime =
+  function(time) {
+    return(
+  //    ("0000"+(time.getFullYear()||0)).slice(-4)+"/"+
+  //    ("00" + (time.getMonth()+1)).slice(-2)+"/"+
+  //    ("00" + (time.getDate()||0)).slice(-2)+" "+
+      ("00" + (time.getHours()||0)).slice(-2)+":"+
+      ("00" + (time.getMinutes()||0)).slice(-2)+":"+
+      ("00" + (time.getSeconds()||0)).slice(-2)+"."+
+      ("000" + (time.getTime()||0)).slice(-3).slice(2)
+    );
+  };
+
+  var decodeRacenum = record.decodeRaceNum =
+  function(racenum) {
     if( racenum == null ) {
       return(null);
     }else if( racenum!="" && racenum>=0){
@@ -649,6 +655,7 @@ $(function(){
       return("");
     }
   };
+
 
   var encodeRacenum = record.eecodeRaceNum = function(racenum) {
     if(racenum == null) {

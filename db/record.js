@@ -90,8 +90,8 @@ function addTime(fromTime, toTime) {
     return(formTime(centisecTime(fromTime),centisecTime(toTime)));
 }
 
-function formTime(ms) {
-    var centisec=new Decimal(ms);
+function formTime(cs) {
+    var centisec=new Decimal(cs);
     return(
       ("00"+parseInt(centisec.div(60*60*100),0)%24).slice(-2)+":"+
       ("00"+parseInt(centisec.div(60*100),0)%60).slice(-2)+":"+
