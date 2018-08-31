@@ -510,7 +510,11 @@ $(function(){
 
 
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
-    if($("#btnRecordNumEditable-0.active").length) {
+    if(
+      (fieldName=="num" && $("#btnRecordNumEditable-0.active").length) ||
+      (fieldName=="ftime" && $("#btnRecordFTimeEditable-0.active").length) ||
+      (fieldName=="dtime" && $("#btnRecordDTimeEditable-0.active").length)
+    ) {
       var promises= $(".record-rid-0").map(function(seqnum) {
         var rid0=$(this).text().trim();
         if(rid0) {
