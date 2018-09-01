@@ -571,6 +571,7 @@ $(function(){
       (fieldName=="ftime" && $("#btnRecordFTimeEditable-0").attr("aria-pressed") == "true") ||
       (fieldName=="dtime" && $("#btnRecordDTimeEditable-0").attr("aria-pressed") == "true")
     ) {
+      alert("fieldName");
       var promises= $(".record-rid-0").map(function(seqnum) {
         var rid0=$(this).text().trim();
         if(rid0) {
