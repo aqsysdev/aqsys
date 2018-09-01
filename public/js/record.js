@@ -718,6 +718,8 @@ $(function(){
 
   var setHidden = record.setHidden = function(){
     $(".show-ftime").removeClass("hidden");
+    $(".show-dtime").removeClass("hidden");
+    $(".show-view").removeClass("hidden");
     $(".show-edit").removeClass("hidden");
     if($("#viewMode.active").length) {
       $(".show-edit").addClass("hidden");
