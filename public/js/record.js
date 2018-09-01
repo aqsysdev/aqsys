@@ -681,9 +681,9 @@ $(function(){
 
   var addRow = record.addRow = function(){
     alert("addRow");
-    if( $("#record-time-tbody").children().length == 0  || $("#record-time-tbody").children().last().find(".record-rid-nz").text() ) {
-      var seqnum=$("#record-time-tbody").children().length;
-      var newRow = $("#record-time-tbody").append(`
+    if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
+      var seqnum=$("#recordTimeTbody").children().length;
+      var newRow = $("#recordTimeTbody").append(`
         <tr valign="middle">
            <td class="record-seqnum" id="record-seqnum-${seqnum}">${seqnum}</td>
         </tr>
@@ -725,5 +725,6 @@ $(function(){
     checkFTimeEditable();
     checkDTimeEditable();
   };
+  $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
   addRow();
 });
