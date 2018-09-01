@@ -48,6 +48,8 @@ router.post('/register', function(req, res){
 	var gradesString = req.body.grades.join(",");
 	var cateString = req.body.cate.join(",");
 
+  consolo.log("gradesString:"+gradesString);
+
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
