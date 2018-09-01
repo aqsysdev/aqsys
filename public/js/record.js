@@ -671,7 +671,7 @@ $(function(){
   };
 
   var addRow = record.addRow = function(){
-    alart("addRow");
+    alert("addRow");
     if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
       var seqnum=$("#recordTimeTbody").children().length+1;
       var newRow = $("#recordTimeTbody").append(`
