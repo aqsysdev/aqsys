@@ -129,20 +129,7 @@ app.use(flash());
 // Global Vars
 app.use(function (req, res, next) {
 
-  /*
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = (req.user && req.user.username) || null;
-  res.locals.schemaname = (req.user && req.user.schemaname) || null;
-  res.locals.basedate = (req.user && req.user.basedate) || "2017/12/31";
-  res.locals.numbercardheader = (req.user && req.user.numbercardheader) || "";
-  res.locals.numbercardfooter = (req.user && req.user.numbercardfooter) || "";
-  res.locals.useradmin = (req.user && (req.user.username=="aqsysadmin"));
-  */
-
-  res.locals =
-  {
+  res.locals = {
     success_msg: req.flash('success_msg'),
     error_msg: req.flash('error_msg'),
     error: req.flash('error'),
@@ -160,7 +147,9 @@ app.use(function (req, res, next) {
     schemaname: res.locals.schemaname,
     basedate: res.locals.basedate,
     numbercardheader: res.locals.numbercardheader,
-    numbercardfooter: res.locals.numbercardfooter
+    numbercardfooter: res.locals.numbercardfooter,
+    grades: res.local.gredes,
+    cate: res.local.cate
   };
   dbRecord.setConfig(config);
   dbEntry.setConfig(config);
