@@ -141,8 +141,9 @@ app.use(function (req, res, next) {
     numbercardheader: (req.user && req.user.numbercardheader) || "",
     numbercardfooter: (req.user && req.user.numbercardfooter) || "",
     grades: (req.user && req.user.grades) || dbUser.getConfig().grades,
-    //dbRecord.config.grades,
+    gradesString: ((req.user && req.user.grades) || dbUser.getConfig().grades).join(","),
     cate: (req.user && req.user.cate) || dbUser.getConfig().cate,
+    cateString: ((req.user && req.user.cate) || dbUser.getConfig().cate).join(","),
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
   };
 
