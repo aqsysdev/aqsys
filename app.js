@@ -105,6 +105,7 @@ app.use(expressValidator({
 var dbRecord = require('./db/record');
 var dbEntry = require('./db/entry');
 var dbWaves = require('./db/waves');
+var dbUser = require('./db/user');
 
 var routes = require('./routes/index');
 var users  = require('./routes/users');
@@ -136,12 +137,12 @@ app.use(function (req, res, next) {
     name: (req.user && req.user.name) || null,
     user: (req.user && req.user.username) || null,
     schemaname: (req.user && req.user.schemaname) || null,
-    basedate: (req.user && req.user.basedate) || users.getConfig().basedate,
+    basedate: (req.user && req.user.basedate) || dbUser.getConfig().basedate,
     numbercardheader: (req.user && req.user.numbercardheader) || "",
     numbercardfooter: (req.user && req.user.numbercardfooter) || "",
-    grades: (req.user && req.user.grades) || users.getConfig().grades,
+    grades: (req.user && req.user.grades) || dbUser.getConfig().grades,
     //dbRecord.config.grades,
-    cate: (req.user && req.user.cate) || users.getConfig().cate,
+    cate: (req.user && req.user.cate) || dbUser.getConfig().cate,
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
   };
 
