@@ -19,6 +19,8 @@ router.get('/register', function(req, res){
 	 	if(err) throw err;
 	 	if(usernum){
 			User.ensureAuthenticated(req, res, function(){
+				var config = new User.getConfig();
+				console.log(config);
 				res.render('register');
 			});
 	 	}else{
