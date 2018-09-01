@@ -169,12 +169,10 @@ $(function(){
   //dtime 選択ラジオボタン
   //
   $(document).on('click', '.record-dtime-radio', function(){
-    alert("dTime");
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
     $(this).addClass("active");
     var id = $(this).eq(0).attr("id").split("-");
-    alert("dTime"+id[1]+"-"+id[3]);
     copyToRecord0(id[1],id[3]);
   });
 
@@ -568,11 +566,10 @@ $(function(){
 
 
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
-    alert("fieldName:"+fieldName);
     if(
       (fieldName=="num" && $("#btnRecordNumEditable-0").attr("aria-pressed") == "true") ||
       (fieldName=="ftime" && $("#btnRecordFTimeEditable-0").attr("aria-pressed") == "true") ||
-      (fieldName=="dtime" && $("#btnRecordDTimeEditable-0").atrr("aria-pressed") == "true")
+      (fieldName=="dtime" && $("#btnRecordDTimeEditable-0").attr("aria-pressed") == "true")
     ) {
       var promises= $(".record-rid-0").map(function(seqnum) {
         var rid0=$(this).text().trim();
