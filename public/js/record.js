@@ -294,6 +294,7 @@ $(function(){
 //          alert("get recorde data error:"+err);
           $(that).val("");
         });
+        addRow();
       },
       function(req,stat,err){
 //          alert("post recorde data error:"+err);
