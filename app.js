@@ -152,7 +152,7 @@ app.use(function (req, res, next) {
     basedate: res.locals.basedate,
     numbercardheader: res.locals.numbercardheader,
     numbercardfooter: res.locals.numbercardfooter,
-    grades: res.local.gredes,
+    grades: res.local.grades,
     cate: res.local.cate
   };
 
