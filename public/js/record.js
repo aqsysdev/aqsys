@@ -692,13 +692,13 @@ $(function(){
         $(newRow).children().last().append(`
           <td class="hidden record-rid-${recordNum} record-rid ${recordRidNz}" id="record-rid-${recordNum}-${seqnum}"></td>
           <td  style="width:60px">
-            <input class="record-num-${recordNum}" type="text" id="record-num-${recordNum}-${seqnum}" name="num${recordNum}-${seqnum}" value="" size="4" ${numEditable} />
+            <input class="record-num-${recordNum}" type="text" id="record-num-${recordNum}-${seqnum}" name="num${recordNum}-${seqnum}" value="" size="4" ${numEditable} /><div class="hidden"></div>
           </td>
           <td style="width:120px" class="show-ftime ${hiddenFTime}">
-            <input class="record-ftime-${recordNum}" type="text" id="record-ftime-${recordNum}-${seqnum}" name="ftime${recordNum}-${seqnum}" value="" size="11" ${ftimeEditable} />
+            <input class="record-ftime-${recordNum}" type="text" id="record-ftime-${recordNum}-${seqnum}" name="ftime${recordNum}-${seqnum}" value="" size="11" ${ftimeEditable} /><div class="hidden"></div>
           </td>
           <td style="width:120px" class="show-dtime ${hiddenDTime}">
-            <input class="record-dtime-${recordNum}" type="text" id="record-dtime-${recordNum}-${seqnum}" name="dtime${recordNum}-${seqnum}" value="" size="11" ${dtimeEditable} />
+            <input class="record-dtime-${recordNum}" type="text" id="record-dtime-${recordNum}-${seqnum}" name="dtime${recordNum}-${seqnum}" value="" size="11" ${dtimeEditable} /><div class="hidden"></div>
           </td>
         `);
       }
