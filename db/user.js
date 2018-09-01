@@ -7,6 +7,36 @@
 
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
+var config = {
+    schemaname: 'aqsyssample',
+    basedate: '2017/12/31',
+    grades: [
+      "小学１",
+      "小学２",
+      "小学３",
+      "小学４",
+      "小学５",
+      "小学６",
+      "中学１",
+      "中学２",
+      "中学３"
+    ],
+    cate: [
+      "1:低学年男",
+      "2:低学年女",
+      "3:高学年男",
+      "4:高学年女",
+      "5:中学生男",
+      "6:中学生女",
+      "7:39才以下男",
+      "8:39才以下女",
+      "9:40才以上男",
+      "A:40才以上女",
+      "B:低学年リレー",
+      "C:高学年リレー"
+    ]
+  };
+
 
 // User Schema
 var UserSchema = new mongoose.Schema({
@@ -81,4 +111,12 @@ module.exports.ensureAuthenticated =function(req, res, next){
 	//req.flash('error_msg','You are not logged in');
 	   res.redirect('/users/login');
    }
+};
+
+module.exports.setConfig = function(argconfig) {
+  config = argconfig;
+};
+
+module.exports.getConfig = function() {
+  return config;
 };

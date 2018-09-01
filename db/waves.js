@@ -8,8 +8,6 @@ const Decimal = require('decimal');
 const knex = require('./knex'); // the connection!
 const table = 'waves';
 var config = {
-  schemaname: 'aqsyssample',
-  basedate: '2017/12/31'
 };
 
 // console.log("db/waves.js begin");
@@ -33,7 +31,9 @@ module.exports = {
   setConfig(argconfig) {
     config = argconfig;
   } ,
-
+  getConfig(){
+    return config;
+  },
   decodeRow,
   encodeRow,
   calcTime,
