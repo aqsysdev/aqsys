@@ -278,7 +278,7 @@ $(function(){
         //alert(JSON.stringify(data));
         $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
-          alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum+" seqnum:"+seqnum);
+          //alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum+" seqnum:"+seqnum);
           $("#record-rid-"+recordNum+"-"+seqnum).text(data.rid);
           $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
           if(seqnum==0) {
@@ -672,9 +672,9 @@ $(function(){
   };
 
   var addRow = record.addRow = function(){
-    alert("addRow");
+    //alert("addRow");
     if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
-      alert("addRow:"+$("#recordTimeTbody").children().last().find(".record-rid-nz").text());
+      //alert("addRow:"+$("#recordTimeTbody").children().last().find(".record-rid-nz").text());
       var seqnum=$("#recordTimeTbody").children().length+1;
       var newRow = $("#recordTimeTbody").append(`
         <tr align="center" valign="middle">
