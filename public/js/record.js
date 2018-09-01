@@ -271,8 +271,8 @@ $(function(){
       data.ftime = encodeTime( new Date() );
     }
     $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
-    if(seqnum==1) {
-      $("#record-dtime-"+recordNum+"-"+seqnum).val(diffTime(data.ftime));
+    if(seqnum==0) {
+      $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
     }else{
       $("#record-dtime-"+recordNum+"-"+seqnum).val(
         diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
@@ -288,8 +288,9 @@ $(function(){
         $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
           alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum+" seqnum:"+seqnum);
-          if(seqnum==1) {
-            $("#record-dtime-"+recordNum+"-"+seqnum).val(diffTime(data.ftime));
+          $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+          if(seqnum==0) {
+            $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
           }else{
             $("#record-dtime-"+recordNum+"-"+seqnum).val(
               diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
