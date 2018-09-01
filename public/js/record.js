@@ -61,12 +61,20 @@ $(function(){
   	}
   });
 
+
+////////////////////////////////////////////////////////////
+//
+//    ボタンにコールバック設定
+//
+////////////////////////////////////////////////////////////
   $("#diffTime").addClass("active");
   $("#absTime").removeClass("active");
   $("#viewMode").addClass("active");
   $("#editMode").removeClass("active");
 
-
+//
+// 時間ボタン
+//
   $("#diffTime").on('click',function(){
     $("#diffTime").addClass("active");
     $("#absTime").removeClass("active");
@@ -81,6 +89,9 @@ $(function(){
     }
   });
 
+//
+//  時刻ボタン
+//
   $("#absTime").on('click',function(){
     $("#diffTime").removeClass("active");
     $("#absTime").addClass("active");
@@ -96,6 +107,9 @@ $(function(){
     }
   });
 
+//
+//  表示ボタン
+//
   $("#viewMode").on('click',function(){
     $("#viewMode").addClass("active");
     $("#editMode").removeClass("active");
@@ -111,6 +125,9 @@ $(function(){
     }
   });
 
+  //
+  //  編集ボタン
+  //
   $("#editMode").on('click',function(){
     $("#viewMode").removeClass("active");
     $("#editMode").addClass("active");
@@ -140,6 +157,7 @@ $(function(){
   //ftime 選択ラジオボタン
   //
   $(document).on('click', '.record-ftime-radio', function(){
+    alert("dTime");
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
     $(this).addClass("active");
@@ -151,8 +169,8 @@ $(function(){
   //
   //dtime 選択ラジオボタン
   //
-
   $(document).on('click', '.record-dtime-radio', function(){
+    alert("dTime");
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
     $(this).parent().prev().children().addClass("active");
@@ -160,11 +178,11 @@ $(function(){
     var id = $(this).eq(0).attr("id").split("-");
     copyToRecord0(id[1],id[3]);
   });
+
+
 //
 //  レースナンバー編集可能ボタン
 //
-
-
   $(document).on('click', '.btnRecordNumEditable', function(){checkNumEditable();});
 
   function checkNumEditable () {
@@ -236,6 +254,7 @@ $(function(){
       });
     });
   }
+
   //////////////////////////////////////////////////////////////////////////
   //
   //  レースナンバー編集
