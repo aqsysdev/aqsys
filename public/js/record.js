@@ -284,10 +284,10 @@ $(function(){
     if(!rid || isNaN(rid)) {
       $.post("/api/record/"+recordNum, data,
       function(data,stat){
-        //alert(JSON.stringify(data));
+        alert(JSON.stringify(data));
         $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
-          //  alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum);
+          alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum+" seqnum:"+seqnum);
           if(seqnum==1) {
             $("#record-dtime-"+recordNum+"-"+seqnum).val(diffTime(data.ftime));
           }else{
