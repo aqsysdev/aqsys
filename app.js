@@ -150,13 +150,17 @@ app.use(function (req, res, next) {
   console.log("setConfig begin");
   console.log("res.locals.grades:"+res.locals.grades);
   console.log("res.locals.gradesString:"+res.locals.gradesString);
+  console.log("res.locals.cate:"+res.locals.cate);
+  console.log("res.locals.cateString:"+res.locals.cateString);
   var config={
     schemaname: res.locals.schemaname,
     basedate: res.locals.basedate,
     numbercardheader: res.locals.numbercardheader,
     numbercardfooter: res.locals.numbercardfooter,
     grades: res.locals.grades,
-    cate: res.locals.cate
+    gradesString: res.locals.gradesString,
+    cate: res.locals.cate,
+    cateString: res.locals.cateString,
   };
 
   dbRecord.setConfig(config);
