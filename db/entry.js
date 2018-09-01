@@ -57,11 +57,13 @@ module.exports = {
   setConfig(argconfig) {
     config = argconfig;
   } ,
+  getConfig() {
+    return(config);
+  },
   katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
   decodeRow,
-  config: config
 };
 
 
