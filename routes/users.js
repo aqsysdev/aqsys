@@ -35,6 +35,7 @@ router.get('/login', function(req, res){
 // Register User
 router.post('/register', function(req, res){
 	console.log("post register");
+
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
@@ -44,6 +45,8 @@ router.post('/register', function(req, res){
 	var numbercardfooter = req.body.numbercardfooter;
 	var password = req.body.password;
 	var password2 = req.body.password2;
+	var grades = req.body.grades;
+	var cate = req.body.cate;
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
@@ -52,13 +55,12 @@ router.post('/register', function(req, res){
 	req.checkBody('username', 'Login ID is required').notEmpty();
 	req.checkBody('schemaname', 'Schema Name is required').notEmpty();
 	req.checkBody('basedate', 'Base Date is required').isDate();
+	req.checkBody('greads', '小学１,小学２,小学３').isString();
+	req.checkBody('cate', '1:低学年男,2:低学年女,3:低学年女,4:低学年女').isString();
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
 	var errors = req.validationErrors();
-
-
-
 	if(errors){
 		res.render('register',{
 			errors:errors
@@ -71,8 +73,10 @@ router.post('/register', function(req, res){
 			basedate: basedate,
 			numbercardheader: numbercardheader,
 			numbercardfooter: numbercardfooter,
+			greads: greads,
+			cate: cate,
 			username: username,
-			password: password
+			password: password,
 		});
 
 		User.createUser(newUser, function(err, user){
