@@ -141,7 +141,7 @@ app.use(function (req, res, next) {
     numbercardfooter: (req.user && req.user.numbercardfooter) || "",
     grades: (req.user && req.user.grades) || "",
     //dbRecord.config.grades,
-    cate: (req.user && req.user.cate) || dbRecord.getConfig().cate,
+    cate: (req.user && req.user.cate) || "",
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
   };
 
@@ -155,7 +155,7 @@ app.use(function (req, res, next) {
     cate: res.local.cate
   };
 
-  console.log("dbRecord.config():"+dbRecord.getConfig());
+  console.log("dbEntry.config():"+dbEntry.getConfig());
   dbRecord.setConfig(config);
   dbEntry.setConfig(config);
   dbWaves.setConfig(config);
