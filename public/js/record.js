@@ -66,22 +66,6 @@ $(function(){
   $("#viewMode").addClass("active");
   $("#editMode").removeClass("active");
 
-  $(".show-ftime").removeClass("hidden");
-  $(".show-edit").removeClass("hidden");
-
-
-  if($("#viewMode.active").length) {
-    $(".show-edit").addClass("hidden");
-  }
-  if($("#editMode.active").length) {
-    $(".show-view").addClass("hidden");
-  }
-  if($("#absTime.active").length) {
-    $(".show-dtime").addClass("hidden");
-  }
-  if($("#diffTime.active").length) {
-    $(".show-ftime").addClass("hidden");
-  }
 
   $("#diffTime").on('click',function(){
     $("#diffTime").addClass("active");
@@ -680,7 +664,6 @@ $(function(){
   };
 
   var addRow = record.addRow = function(){
-    alert("addRow");
     if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
       var seqnum=$("#recordTimeTbody").children().length;
       var newRow = $("#recordTimeTbody").append(`
@@ -721,10 +704,29 @@ $(function(){
       }
       $("#record-rid-0-"+seqnum).text(seqnum+1);
     }
+    setHidden();
     checkNumEditable();
     checkFTimeEditable();
     checkDTimeEditable();
   };
+
+  var setHidden = record.setHidden = function(){
+    $(".show-ftime").removeClass("hidden");
+    $(".show-edit").removeClass("hidden");
+    if($("#viewMode.active").length) {
+      $(".show-edit").addClass("hidden");
+    }
+    if($("#editMode.active").length) {
+      $(".show-view").addClass("hidden");
+    }
+    if($("#absTime.active").length) {
+      $(".show-dtime").addClass("hidden");
+    }
+    if($("#diffTime.active").length) {
+      $(".show-ftime").addClass("hidden");
+    }
+  };
+
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
   addRow();
 });
