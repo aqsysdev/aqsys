@@ -123,7 +123,7 @@ var waveslist = require('./api/waves');
 
 app.use(flash());
 
-
+console.log(dbRecord.config);
 // Connect Flash
 
 // Global Vars
