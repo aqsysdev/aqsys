@@ -157,7 +157,6 @@ $(function(){
   //ftime 選択ラジオボタン
   //
   $(document).on('click', '.record-ftime-radio', function(){
-    alert("fTime");
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
     $(this).addClass("active");
@@ -571,7 +570,6 @@ $(function(){
       (fieldName=="ftime" && $("#btnRecordFTimeEditable-0").attr("aria-pressed") == "true") ||
       (fieldName=="dtime" && $("#btnRecordDTimeEditable-0").attr("aria-pressed") == "true")
     ) {
-      alert("fieldName");
       var promises= $(".record-rid-0").map(function(seqnum) {
         var rid0=$(this).text().trim();
         if(rid0) {
