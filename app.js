@@ -146,6 +146,7 @@ app.use(function (req, res, next) {
     success_msg: req.flash('success_msg'),
     error_msg: req.flash('error_msg'),
     error: req.flash('error'),
+    name: (req.user && req.user.name) || null,
     user: (req.user && req.user.username) || null,
     schemaname: (req.user && req.user.schemaname) || null,
     basedate: (req.user && req.user.basedate) || "2017/12/31",
