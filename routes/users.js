@@ -45,8 +45,12 @@ router.post('/register', function(req, res){
 	var numbercardfooter = req.body.numbercardfooter;
 	var password = req.body.password;
 	var password2 = req.body.password2;
-	var gradesString = req.body.grades.join(",");
-	var cateString = req.body.cate.join(",");
+	var grades = req.body.grades;
+	console.log("grades:"+grades);
+	var gradesString = grades.join(",");
+	var cate = req.body.cate;
+	console.log("cate:"+cate);
+	var cateString = cate.join(",");
 
   consolo.log("gradesString:"+gradesString);
 
