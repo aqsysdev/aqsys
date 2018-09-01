@@ -136,12 +136,12 @@ app.use(function (req, res, next) {
     name: (req.user && req.user.name) || null,
     user: (req.user && req.user.username) || null,
     schemaname: (req.user && req.user.schemaname) || null,
-    basedate: (req.user && req.user.basedate) || "2017/12/31",
+    basedate: (req.user && req.user.basedate) || users.getConfig().basedate,
     numbercardheader: (req.user && req.user.numbercardheader) || "",
     numbercardfooter: (req.user && req.user.numbercardfooter) || "",
-    grades: (req.user && req.user.grades) || user.getConfig().grades,
+    grades: (req.user && req.user.grades) || users.getConfig().grades,
     //dbRecord.config.grades,
-    cate: (req.user && req.user.cate) || user.getConfig().cate,
+    cate: (req.user && req.user.cate) || users.getConfig().cate,
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
   };
 
