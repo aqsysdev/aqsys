@@ -342,9 +342,9 @@ $(function(){
   function recordEditFTime(that){
     $(that).addClass("unconfirmed");
     var recordNum=$(that).eq(0).attr("id").split("-")[2];
+    var seqnum=$(that).attr("id").split("-")[3];
     var value=reformTime($(that).val());
     var rid=$(that).parent().prev().prev().text().trim();
-    var seqnum=$(that).parent().parent().first().text().trim();
 
     //
     //  削除
@@ -445,9 +445,9 @@ $(function(){
   function recordEditDTime(that){
     $(that).addClass("unconfirmed");
     var recordNum=$(that).eq(0).attr("id").split("-")[2];
+    var seqnum=$(that).attr("id").split("-")[3];
     var value=reformTime($(that).val());
     var rid=$(that).parent().prev().prev().prev().text().trim();
-    var seqnum=$(that).parent().parent().first().text().trim();
     //
     //  削除
     //
@@ -480,10 +480,15 @@ $(function(){
         function(data,stat){
           $.get("/api/record/"+recordNum+"_"+data.rid, data,
           function(data,stat) {
-            $(that).parent().prev().prev().prev().text(data.rid);
-            $(that).parent().prev().children().last().val(reformTime(data.ftime));
-            var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
-            $(that).parent().children().last().val(dtime);
+            $("#record-rid-"+recordNum+"-"+seqnum).text(data.rid);
+            $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+            if(seqnum==0) {
+              $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+            }else{
+              $("#record-dtime-"+recordNum+"-"+seqnum).val(
+                diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+              );
+            }
             $(that).removeClass("unconfirmed");
             addRow();
           },
@@ -506,10 +511,15 @@ $(function(){
         function(data,stat){
           $.get("/api/record/"+recordNum+"_"+data.rid, data,
           function(data,stat) {
-            $(that).parent().prev().prev().prev().text(data.rid);
-            $(that).parent().prev().children().last().val(reformTime(data.ftime));
-            var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
-            $(that).parent().children().last().val(dtime);
+            $("#record-rid-"+recordNum+"-"+seqnum).text(data.rid);
+            $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+            if(seqnum==0) {
+              $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+            }else{
+              $("#record-dtime-"+recordNum+"-"+seqnum).val(
+                diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+              );
+            }
             $(that).removeClass("unconfirmed");
           },
           function(req,stat,err){
@@ -519,10 +529,15 @@ $(function(){
         function(req,stat,err){
           $.get("/api/record/"+recordNum+"_"+rid, data,
           function(data,stat) {
-            $(that).parent().prev().prev().prev().text(data.rid);
-            $(that).parent().prev().children().last().val(reformTime(data.ftime));
-            var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
-            $(that).parent().children().last().val(dtime);
+            $("#record-rid-"+recordNum+"-"+seqnum).text(data.rid);
+            $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+            if(seqnum==0) {
+              $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+            }else{
+              $("#record-dtime-"+recordNum+"-"+seqnum).val(
+                diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+              );
+            }
             $(that).removeClass("unconfirmed");
           },
           function(req,stat,err){
