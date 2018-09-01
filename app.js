@@ -152,8 +152,8 @@ app.use(function (req, res, next) {
     basedate: res.locals.basedate,
     numbercardheader: res.locals.numbercardheader,
     numbercardfooter: res.locals.numbercardfooter,
-    grades: res.local.grades,
-    cate: res.local.cate
+    grades: res.locals.grades,
+    cate: res.locals.cate
   };
 
   dbRecord.setConfig(config);
