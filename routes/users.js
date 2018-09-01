@@ -23,7 +23,7 @@ router.get('/register', function(req, res){
 					var config = new User.getConfig();
 					console.log(config);
 					res.render('register');
-				};
+				});
 			});
 	 	}else{
 			res.render('register');
