@@ -275,7 +275,7 @@ $(function(){
     if(!rid || isNaN(rid)) {
       $.post("/api/record/"+recordNum, data,
       function(data,stat){
-        //alert(JSON.stringify(data));
+        alert(JSON.stringify(data));
         $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
           //alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum+" seqnum:"+seqnum);
@@ -367,7 +367,6 @@ $(function(){
       function(data,stat){
         $.get("/api/record/"+recordNum+"_"+data.rid, data,
         function(data,stat) {
-          alert(data);
           $(that).parent().prev().prev().text(data.rid);
           $(that).parent().children().last().val(reformTime(data.ftime));
           var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
