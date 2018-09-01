@@ -703,6 +703,12 @@ $(function(){
         `);
       }
       $("#record-rid-0-"+seqnum).text(seqnum+1);
+      $("#record-ftime-1-"+seqnum).addClass("show-edit");
+      $("#record-dtime-1-"+seqnum).addClass("show-edit");
+      $("#record-num-2-"+seqnum).addClass("show-edit");
+      $("#record-ftime-3-"+seqnum).addClass("show-edit");
+      $("#record-dtime-3-"+seqnum).addClass("show-edit");
+      $("#record-num-4-"+seqnum).addClass("show-edit");
     }
     setHidden();
     checkNumEditable();
