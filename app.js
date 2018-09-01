@@ -148,6 +148,8 @@ app.use(function (req, res, next) {
   };
 
   console.log("setConfig begin");
+  console.log("res.locals.grades:"+res.locals.grades);
+  console.log("res.locals.gradesString:"+res.locals.gradesString);
   var config={
     schemaname: res.locals.schemaname,
     basedate: res.locals.basedate,
