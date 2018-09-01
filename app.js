@@ -128,6 +128,8 @@ app.use(flash());
 
 // Global Vars
 app.use(function (req, res, next) {
+
+  /*
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
@@ -137,6 +139,21 @@ app.use(function (req, res, next) {
   res.locals.numbercardheader = (req.user && req.user.numbercardheader) || "";
   res.locals.numbercardfooter = (req.user && req.user.numbercardfooter) || "";
   res.locals.useradmin = (req.user && (req.user.username=="aqsysadmin"));
+  */
+
+  res.locals =
+  {
+    success_msg: req.flash('success_msg'),
+    error_msg: req.flash('error_msg'),
+    error: req.flash('error'),
+    user: (req.user && req.user.username) || null,
+    schemaname: (req.user && req.user.schemaname) || null,
+    basedate: (req.user && req.user.basedate) || "2017/12/31",
+    numbercardheader: (req.user && req.user.numbercardheader) || "",
+    numbercardfooter: (req.user && req.user.numbercardfooter) || "",
+    useradmin: (req.user && (req.user.username=="aqsysadmin"))
+  };
+
   console.log("setConfig begin");
   var config={
     schemaname: res.locals.schemaname,
