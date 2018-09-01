@@ -310,11 +310,15 @@ $(function(){
         $.get("/api/record/"+recordNum+"_"+data.rid,data,
         function(data,stat) {
           //alert("that.id:"+$(that).attr("id")+" recordNum:"+data.recordNum+" rid:"+data.rid+" num:"+data.racenum);
-          $(that).parent().prev().text(data.rid);
-          $(that).val(decodeRacenum(data.racenum));
-          $(that).parent().next().children().last().val(reformTime(data.ftime));
-          var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
-          $(that).parent().next().next().children().last().val(dtime);
+          $("#record-rid-"+recordNum+"-"+seqnum).text(data.rid);
+          $("#record-ftime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+          if(seqnum==0) {
+            $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
+          }else{
+            $("#record-dtime-"+recordNum+"-"+seqnum).val(
+              diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+            );
+          }
           $(that).removeClass("unconfirmed");
           addRow();
         },
