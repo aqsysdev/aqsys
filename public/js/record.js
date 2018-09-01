@@ -157,10 +157,10 @@ $(function(){
   //ftime 選択ラジオボタン
   //
   $(document).on('click', '.record-ftime-radio', function(){
+    alert("fTime");
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
     $(this).addClass("active");
-    $(this).parent().next().children().addClass("active");
     var id = $(this).eq(0).attr("id").split("-");
     copyToRecord0(id[1],id[3]);
   });
@@ -172,7 +172,6 @@ $(function(){
     alert("dTime");
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
-    $(this).parent().next().children().addClass("active");
     $(this).addClass("active");
     var id = $(this).eq(0).attr("id").split("-");
     copyToRecord0(id[1],id[3]);
