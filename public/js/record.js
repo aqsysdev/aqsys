@@ -294,7 +294,6 @@ $(function(){
 //          alert("get recorde data error:"+err);
           $(that).val("");
         });
-        addRow();
       },
       function(req,stat,err){
 //          alert("post recorde data error:"+err);
@@ -672,6 +671,7 @@ $(function(){
   };
 
   var addRow = record.addRow = function(){
+    alart("addRow");
     if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
       var seqnum=$("#recordTimeTbody").children().length+1;
       var newRow = $("#recordTimeTbody").append(`
