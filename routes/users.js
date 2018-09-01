@@ -45,8 +45,8 @@ router.post('/register', function(req, res){
 	var numbercardfooter = req.body.numbercardfooter;
 	var password = req.body.password;
 	var password2 = req.body.password2;
-	var grades = req.body.grades;
-	var cate = req.body.cate;
+	var gradesString = req.body.grades.join(",");
+	var cateString = req.body.cate.join(",");
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
