@@ -123,7 +123,7 @@ var waveslist = require('./api/waves');
 
 app.use(flash());
 
-console.log("dbRecord.config:"+dbRecord.config);
+console.log("dbRecord.config():"+dbRecord.getConfig());
 
 // Connect Flash
 
@@ -142,7 +142,7 @@ app.use(function (req, res, next) {
     numbercardfooter: (req.user && req.user.numbercardfooter) || "",
     grades: (req.user && req.user.grades) || "",
     //dbRecord.config.grades,
-    cate: (req.user && req.user.cate) || dbRecord.config.cate(),
+    cate: (req.user && req.user.cate) || dbRecord.getConfig().cate(),
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
   };
 
