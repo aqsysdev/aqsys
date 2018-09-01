@@ -63,77 +63,105 @@ function encodeRow(row) {
 }
 
 function calcTime(fromTime, toTime) {
-    var fromTimeSplit = (fromTime+"").split(/[:.]/);
-    var toTimeSplit = (toTime+"").split(/[:.]/);
-    return(
-      (toTimeSplit[0]||0)*100*60*60+
-      (toTimeSplit[1]||0)*100*60+
-      (toTimeSplit[2]||0)*100+
-      (toTimeSplit[3]||0)*1-
-      (fromTimeSplit[0]||0)*100*60*60-
-      (fromTimeSplit[1]||0)*100*60-
-      (fromTimeSplit[2]||0)*100-
-      (fromTimeSplit[3]||0)*1
-    );
+    return(centisecTime(toTime)-centisecTime(fromTime));
 }
 
-
 function diffTime(fromTime, toTime) {
-    var milisec=calcTime(fromTime,toTime);
-    return((milisec<0?"-":"")+formTime(Math.abs(milisec)));
+  var diffCentisec;
+  diffCentisec = calcTime(fromTime,toTime);
+  if(diffCentisec>=0) {
+    return(formTime(diffCentisec));
+  }else{
+    return(formTime(diffCentisec+centisecTime("24:00:00.00")));
+  }
 }
 
 function addTime(fromTime, toTime) {
-  var fromTimeSplit = (fromTime+"").split(/[:.]/);
-  var toTimeSplit = (toTime+"").split(/[:.]/);
-  var milisec =
-    (fromTimeSplit[0]||0)*100*60*60+
-    (fromTimeSplit[1]||0)*100*60+
-    (fromTimeSplit[2]||0)*100+
-    (fromTimeSplit[3]||0)*1+
-    (toTimeSplit[0]||0)*100*60*60+
-    (toTimeSplit[1]||0)*100*60+
-    (toTimeSplit[2]||0)*100+
-    (toTimeSplit[3]||0)*1;
-    return(formTime(milisec));
+    return(formTime(centisecTime(fromTime)+centisecTime(toTime)));
 }
 
-function formTime(ms) {
-    var milisec=new Decimal(ms);
+function formTime(cs) {
+    var centisec=new Decimal(cs);
     return(
-      ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
-      ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
-      ("00"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
-      ("00"+parseInt(milisec%100,0)).slice(-2)
+      ("00"+parseInt(centisec.div(60*60*100),0)%24).slice(-2)+":"+
+      ("00"+parseInt(centisec.div(60*100),0)%60).slice(-2)+":"+
+      ("00"+parseInt(centisec.div(100),0)%60).slice(-2)+"."+
+      ("00"+parseInt(centisec%100,0)).slice(-2)
     );
 }
 
 function reformTime(ft) {
   if(ft){
-    var ftime=ft.split(/[-:]/).reverse();
-    var sec=parseInt(ftime[0]||0);
-    var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
-    return(
-      ("00"+(ftime[2]||0)).slice(-2)+":"+
-      ("00"+(ftime[1]||0)).slice(-2)+":"+
-      ("00"+(sec||0)).slice(-2)+"."+
-      ("00"+(parseInt((milisec||0),0))).slice(-2)
-    );
+    if(ft.indexOf(".")<0){
+      ft="00"+ft+".00";
+    }
+    var ftime = (""+ft).split(/\D/);
+    if(ftime[0].length>=6&&ftime[1]&&!ftime[3]) {
+      return(reformTime(
+        ftime[0].substr(-6,2)+":"+
+        ftime[0].substr(-4,2)+":"+
+        ftime[0].substr(-2,2)+"."+
+        ftime[1].substr(0,2)
+      ));
+    }else{
+      return(
+        ("00"+(""+(ftime[0]||0))).slice(-2)+":"+
+        ("00"+(""+(ftime[1]||0))).slice(-2)+":"+
+        ("00"+(""+(ftime[2]||0))).slice(-2)+"."+
+        (((ftime[3]||0)+"00").substring(0,2))
+      );
+    }
   } else {
     return(ft);
   }
 }
 
+function centisecTime(time) {
+  var ft=time;
+  if(ft.indexOf(".")<0){
+    ft="00"+ft+".00";
+  }
+  var timeSplit = (ft+"").split(/\D/);
+  return(
+    (timeSplit[0]||0)*100*60*60+
+    (timeSplit[1]||0)*100*60+
+    (timeSplit[2]||0)*100+
+    (timeSplit[3]||0)*1
+  );
+}
+
 function encodeTime(time) {
   return(
-    ("0000"+(time.getFullYear()||0)).slice(-4)+"/"+
-    ("00" + (time.getMonth()+1)).slice(-2)+"/"+
-    ("00" + (time.getDate()||0)).slice(-2)+" "+
+//    ("0000"+(time.getFullYear()||0)).slice(-4)+"/"+
+//    ("00" + (time.getMonth()+1)).slice(-2)+"/"+
+//    ("00" + (time.getDate()||0)).slice(-2)+" "+
     ("00" + (time.getHours()||0)).slice(-2)+":"+
     ("00" + (time.getMinutes()||0)).slice(-2)+":"+
     ("00" + (time.getSeconds()||0)).slice(-2)+"."+
-    ("00" + (parseInt((time.getTime()||0),0))).slice(-2)
+    ("000" + (time.getTime()||0)).slice(-3).slice(2)
   );
 }
+
+function decodeRacenum(racenum) {
+  if( racenum == null ) {
+    return(null);
+  }else if( racenum!="" && racenum>=0){
+    return(("000"+racenum).slice(-3));
+  }else{
+    return("");
+  }
+}
+
+
+function encodeRacenum(racenum) {
+  if(racenum == null) {
+    return(null);
+  }else if(racenum != null && racenum!="" && racenum>=0){
+    return(("000"+racenum).slice(-3));
+  }else{
+    return(-1);
+  }
+}
+
 
 //console.log("db/waves.js end");

@@ -10,7 +10,6 @@ var config = {
   schemaname: 'aqsyssample',
   basedate: '2017/12/31',
   grades: [
-    "",
     "小学１",
     "小学２",
     "小学３",
@@ -22,7 +21,6 @@ var config = {
     "中学３"
   ],
   cate: [
-    "",
     "1:低学年男",
     "2:低学年女",
     "3:高学年男",

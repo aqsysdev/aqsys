@@ -139,6 +139,8 @@ app.use(function (req, res, next) {
     basedate: (req.user && req.user.basedate) || "2017/12/31",
     numbercardheader: (req.user && req.user.numbercardheader) || "",
     numbercardfooter: (req.user && req.user.numbercardfooter) || "",
+    grades: (req.user && req.user.grades) || dbRecode.config.grades,
+    cate: (req.user && req.user.cate) || dbRecode.config.cate,
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
   };
 
