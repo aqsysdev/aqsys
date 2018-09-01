@@ -55,8 +55,8 @@ router.post('/register', function(req, res){
 	req.checkBody('username', 'Login ID is required').notEmpty();
 	req.checkBody('schemaname', 'Schema Name is required').notEmpty();
 	req.checkBody('basedate', 'Base Date is required').isDate();
-	req.checkBody('greads', '小学１,小学２,小学３').isString();
-	req.checkBody('cate', '1:低学年男,2:低学年女,3:低学年女,4:低学年女').isString();
+	req.checkBody('greads', '小学１,小学２,小学３,小学４,小学5,小学6,中学１,中学２,中学３').isString();
+	req.checkBody('cate', '1:低学年男,2:低学年女,3:低学年女,4:低学年女,5:中学生男,6:中学生女,7:39才以下男,8:39才以下女,9:40才以上男,A:40才以上女,B:低学年リレー,C:高学年リレー').isString();
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
