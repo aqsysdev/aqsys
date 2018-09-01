@@ -568,6 +568,7 @@ $(function(){
 
 
   var copyToRecord0 = record.copyToRecord0 = function(fieldName,recordNum) {
+    alert("fieldName:"+fieldName);
     if(
       (fieldName=="num" && $("#btnRecordNumEditable-0").attr("aria-pressed") == "true") ||
       (fieldName=="ftime" && $("#btnRecordFTimeEditable-0").attr("aria-pressed") == "true") ||
