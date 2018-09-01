@@ -665,10 +665,10 @@ $(function(){
 
   var addRow = record.addRow = function(){
     if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
-      var seqnum=$("#recordTimeTbody").children().length;
+      var seqnum=$("#recordTimeTbody").children().length+1;
       var newRow = $("#recordTimeTbody").append(`
         <tr valign="middle">
-           <td class="record-seqnum" id="record-seqnum-${seqnum}">${seqnum}</td>
+           <td style="width:60px" class="record-seqnum" id="record-seqnum-${seqnum}">${seqnum}</td>
         </tr>
       `);
       for(var recordNum in [0,1,2,3,4]) {
@@ -691,13 +691,13 @@ $(function(){
         }
         $(newRow).children().last().append(`
           <td class="hidden record-rid-${recordNum} record-rid ${recordRidNz}" id="record-rid-${recordNum}-${seqnum}"></td>
-          <td>
+          <td  style="width:60px">
             <input class="record-num-${recordNum}" type="text" id="record-num-${recordNum}-${seqnum}" name="num${recordNum}-${seqnum}" value="" size="4" ${numEditable} />
           </td>
           <td class="show-ftime ${hiddenFTime}">
-            <input class="record-ftime-${recordNum}" type="text" id="record-ftime-${recordNum}-${seqnum}" name="ftime${recordNum}-${seqnum}" value="" size="11" ${ftimeEditable} />
+            <input style="width:120px" class="record-ftime-${recordNum}" type="text" id="record-ftime-${recordNum}-${seqnum}" name="ftime${recordNum}-${seqnum}" value="" size="11" ${ftimeEditable} />
           </td>
-          <td class="show-dtime ${hiddenDTime}">
+          <td style="width:120px" class="show-dtime ${hiddenDTime}">
             <input class="record-dtime-${recordNum}" type="text" id="record-dtime-${recordNum}-${seqnum}" name="dtime${recordNum}-${seqnum}" value="" size="11" ${dtimeEditable} />
           </td>
         `);
