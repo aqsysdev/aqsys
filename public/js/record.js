@@ -174,6 +174,7 @@ $(function(){
     $('.record-dtime-radio').removeClass("active");
     $(this).addClass("active");
     var id = $(this).eq(0).attr("id").split("-");
+    alert("dTime");
     copyToRecord0(id[1],id[3]);
   });
 
