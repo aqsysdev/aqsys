@@ -266,7 +266,7 @@ $(function(){
       $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
     }else{
       $("#record-dtime-"+recordNum+"-"+seqnum).val(
-        diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+        diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
       );
     }
     //
@@ -285,7 +285,7 @@ $(function(){
             $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
           }else{
             $("#record-dtime-"+recordNum+"-"+seqnum).val(
-              diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+              diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
             );
           }
           $(that).removeClass("unconfirmed");
@@ -316,7 +316,7 @@ $(function(){
             $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
           }else{
             $("#record-dtime-"+recordNum+"-"+seqnum).val(
-              diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+              diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
             );
           }
           $(that).removeClass("unconfirmed");
@@ -378,7 +378,7 @@ $(function(){
             $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
           }else{
             $("#record-dtime-"+recordNum+"-"+seqnum).val(
-              diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+              diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
             );
           }
         },
@@ -407,7 +407,7 @@ $(function(){
             $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
           }else{
             $("#record-dtime-"+recordNum+"-"+seqnum).val(
-              diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+              diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
             );
           }
           $(that).removeClass("unconfirmed");
@@ -425,7 +425,7 @@ $(function(){
             $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
           }else{
             $("#record-dtime-"+recordNum+"-"+seqnum).val(
-              diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+              diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
             );
           }
           $(that).removeClass("unconfirmed");
@@ -486,7 +486,7 @@ $(function(){
               $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
             }else{
               $("#record-dtime-"+recordNum+"-"+seqnum).val(
-                diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+                diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
               );
             }
             $(that).removeClass("unconfirmed");
@@ -517,7 +517,7 @@ $(function(){
               $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
             }else{
               $("#record-dtime-"+recordNum+"-"+seqnum).val(
-                diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+                diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
               );
             }
             $(that).removeClass("unconfirmed");
@@ -535,7 +535,7 @@ $(function(){
               $("#record-dtime-"+recordNum+"-"+seqnum).val(reformTime(data.ftime));
             }else{
               $("#record-dtime-"+recordNum+"-"+seqnum).val(
-                diffTime($("#record-dtime-"+recordNum+"-"+1).val(),data.ftime)
+                diffTime($("#record-dtime-"+recordNum+"-"+0).val(),data.ftime)
               );
             }
             $(that).removeClass("unconfirmed");
