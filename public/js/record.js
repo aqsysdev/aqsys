@@ -367,6 +367,7 @@ $(function(){
       function(data,stat){
         $.get("/api/record/"+recordNum+"_"+data.rid, data,
         function(data,stat) {
+          alert(data);
           $(that).parent().prev().prev().text(data.rid);
           $(that).parent().children().last().val(reformTime(data.ftime));
           var dtime=diffTime($("#record-ftime-"+recordNum+"-0").val(), reformTime(data.ftime));
