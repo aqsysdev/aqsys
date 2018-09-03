@@ -42,14 +42,14 @@ router.get('/', user.ensureAuthenticated, function(req, res){
   console.log('entry3');
   entry.getAll().then( function(entrylist) {
     console.log('entry4');
-    console.log(entrylist);
     entrylist = entrylist.filter(function(row){
       return(!row.disabled);
     });
+    console.log('entry5');
     for(var row of entrylist){
       entry.decodeRow(row);
     }
-    console.log(entrylist);
+    console.log('entry6');
     res.render('entry',{entrylist: entrylist});
 //    done();
   });
