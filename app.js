@@ -145,10 +145,11 @@ app.use(function (req, res, next) {
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
   };
 
-  if(res.locals.grades.length()<=1){
+
+  if(!Array.isArray(res.locals.grades) || res.locals.grades.length()<=1){
     res.locals.grades = dbUser.getConfig().grades;
   }
-  if(res.locals.cate.length()<=1){
+  if(!Array.isArray(res.local.grades) || res.locals.cate.length()<=1){
     res.locals.cate = dbUser.getConfig().cate;
   }
 
