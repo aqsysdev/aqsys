@@ -11,6 +11,7 @@ var config = {
     schemaname: 'aqsyssample',
     basedate: '2017/12/31',
     grades: [
+      "-",
       "小学１",
       "小学２",
       "小学３",
