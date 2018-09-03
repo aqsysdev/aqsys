@@ -58,7 +58,9 @@ router.post('/register', function(req, res){
 	req.checkBody('name', 'Name is required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
-	req.checkBody('username', 'Login ID is required').isAlpha();
+	if(useradmin) {
+		req.checkBody('username', 'Login ID is required').isAlpha();
+	}
 	req.checkBody('schemaname', 'Schema Name is required').notEmpty();
 	req.checkBody('basedate', 'Base Date is required').isDate();
 	req.checkBody('gradesString', '小学１,小学２,小学３,小学４,小学5,小学6,中学１,中学２,中学３').notEmpty();
