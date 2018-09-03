@@ -48,7 +48,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     for(var row of entrylist){
       entry.decodeRow(row);
     }
-        // console.log(entrylist);
+    console.log(entrylist);
     res.render('entry',{entrylist: entrylist});
 //    done();
   });
