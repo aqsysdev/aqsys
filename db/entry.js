@@ -37,7 +37,7 @@ module.exports = {
   katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
-  decodeRow,
+  decodeRow
 };
 
 
@@ -145,6 +145,7 @@ function encodePrize(prize) {
 }
 
 function decodeRow(row) {
+    console.log("decodeRow:"+row);
     row.lname  = katakanaToHiragana((row.lname||"").replace(/　/g," ").trim().split(" ")[0]);
     row.myouji = (row.myouji||"").replace(/　/g," ").trim().split(" ")[0];
     row.fname  = katakanaToHiragana((row.fname||"").replace(/　/g," ").trim().split(" ").pop());
