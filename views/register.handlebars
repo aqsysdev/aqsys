@@ -15,10 +15,17 @@
     <label>Name</label>
     <input type="text" class="form-control" placeholder="Name" name="name" value="{{name}}">
   </div>
+  {{#if useradmin}}
   <div class="form-group">
     <label>Login ID</label>
     <input type="text" class="form-control" placeholder="LoginID" name="username" value="{{user}}">
   </div>
+  {{else}}
+  <div class="form-group">
+    <label>Login ID</label>
+    <input type="text" class="form-control" placeholder="LoginID" name="username" value="{{user}}" disabled>
+  </div>
+  {{/if}}
   <div class="form-group">
     <label>SQL Schema</label>
     <input type="text" class="form-control" placeholder="Schemaname" name="schemaname" value="{{schemaname}}">

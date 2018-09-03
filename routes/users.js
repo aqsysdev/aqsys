@@ -49,10 +49,10 @@ router.post('/register', function(req, res){
 	var numbercardfooter = req.body.numbercardfooter;
 	var password = req.body.password;
 	var password2 = req.body.password2;
-	var gradesString = req.body.gradesString;
-	console.log("gradesString:"+gradesString);
-	var cateString = req.body.cateString;
-	console.log("cateString:"+cateString);
+	var grades = req.body.grades;
+	var gradesString = req.body.grades.join(",");
+	var cate = req.body.cate;
+	var cateString = req.body.cate.join(",");
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
@@ -79,8 +79,8 @@ router.post('/register', function(req, res){
 			basedate: basedate,
 			numbercardheader: numbercardheader,
 			numbercardfooter: numbercardfooter,
-			greads: greads,
-			cate: cate,
+			grades: gradesString.split(","),
+			cate: cateString.split(","),
 			username: username,
 			password: password
 		});
