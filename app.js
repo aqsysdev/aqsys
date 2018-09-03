@@ -149,7 +149,7 @@ app.use(function (req, res, next) {
   if(!Array.isArray(res.locals.grades) || res.locals.grades.length<=1){
     res.locals.grades = dbUser.getConfig().grades;
   }
-  if(!Array.isArray(res.local.grades) || res.locals.cate.length<=1){
+  if(!Array.isArray(res.locals.cate) || res.locals.cate.length<=1){
     res.locals.cate = dbUser.getConfig().cate;
   }
 
