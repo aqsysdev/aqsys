@@ -58,8 +58,8 @@ router.post('/register', function(req, res){
 	req.checkBody('name', 'Name is required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
-	if(useradmin) {
-		req.checkBody('username', 'Login ID is required').isAlpha();
+	if(req.body.username!="") {
+		req.checkBody('username', 'Login ID is required').notEmpty();
 	}
 	req.checkBody('schemaname', 'Schema Name is required').notEmpty();
 	req.checkBody('basedate', 'Base Date is required').isDate();
