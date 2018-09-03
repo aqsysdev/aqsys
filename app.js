@@ -138,14 +138,19 @@ app.use(function (req, res, next) {
     user: (req.user && req.user.username) || null,
     schemaname: (req.user && req.user.schemaname) || null,
     basedate: (req.user && req.user.basedate) || dbUser.getConfig().basedate,
-    numbercardheader: (req.user && req.user.numbercardheader) || "",
-    numbercardfooter: (req.user && req.user.numbercardfooter) || "",
-    grades: (req.user && req.user.grades) || dbUser.getConfig().grades,
-    gradesString: ((req.user && req.user.grades) || dbUser.getConfig().grades).join(","),
-    cate: (req.user && req.user.cate) || dbUser.getConfig().cate,
-    cateString: ((req.user && req.user.cate) || dbUser.getConfig().cate).join(","),
+    numbercardheader: (req.user && req.user.numbercardheader) || dbUser.getConfig().numbercardheader || "",
+    numbercardfooter: (req.user && req.user.numbercardfooter) || dbUser.getConfig().numbercardfooter || "",
+    grades: (req.user && req.user.grades) || [],
+    cate: (req.user && req.user.cate) || [],
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
   };
+
+  if(res.locals.grades.length()<=1){
+    res.locals.grades = dbUser.getConfig().grades;
+  }
+  if(res.locals.cate.length()<=1){
+    res.locals.cate = dbUser.getConfig().cate;
+  }
 
   console.log("setConfig begin");
   console.log("res.locals.grades:"+res.locals.grades);
