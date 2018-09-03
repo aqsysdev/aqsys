@@ -42,6 +42,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
   console.log('entry3');
   entry.getAll().then( function(entrylist) {
     console.log('entry4');
+    console.log(entrylist);
     entrylist = entrylist.filter(function(row){
       return(!row.disabled);
     });
