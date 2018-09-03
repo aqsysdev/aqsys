@@ -42,8 +42,6 @@ module.exports = {
 
 
 var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-var grades=config.grades;
-var cate=config.cate;
 var sex={M:"男",F:"女"};
 
 console.log("db/entry.js 1");
@@ -154,7 +152,7 @@ function decodeRow(row) {
     row.birthday = ('0000'+birthday[3]).slice(-4)+"/"+
     ('00'+(months.indexOf(birthday[1],0)+1)).slice(-2)+"/"+
     ('00'+birthday[2]).slice(-2);
-    row.grade = (row.grade && grades[row.grade]) ? grades[row.grade] : calcAge(row.birthday, config.basedate)+ "才";
+    row.grade = (row.grade && config.grades[row.grade]) ? config.grades[row.grade] : calcAge(row.birthday, config.basedate)+ "才";
     row.sex = sex[(row.sex||"M")] || sex.M ;
     row.zip1 = ('000'+(row.zip1)).slice(-3);
     row.zip2 = ('0000'+(row.zip2)).slice(-4);
@@ -174,7 +172,7 @@ function decodeRow(row) {
     row.regist = row.regist == true ? "checked" : "" ;
     row.start = row.start == true ? "checked" : "" ;
     row.confirmation = row.confirmation == true ? "checked" : "" ;
-    row.cate = (row.cate&&cate[row.cate])?cate[row.cate]:"";
+    row.cate = (row.cate&&config.cate[row.cate])?config.cate[row.cate]:"";
     row.wave = (row.wave || row.wave*1 != 0) ? ('00' + row.wave*1).slice(-2) : "";
     row.racenum = (row.racenum || row.racenum*1 != 0 )? ('000'+row.racenum*1).slice(-3) : "";
     if( row.DNF ) {
