@@ -28,7 +28,7 @@ module.exports = {
     return knex.withSchema(config.schemaname).from(table).where('id', id).del();
   },
   setConfig(argconfig) {
-    console.log("entory setConfig:"+argconfig);
+    console.log("entry setConfig:"+JSON.stringify(argconfig));
     config = argconfig;
   } ,
   getConfig() {
