@@ -152,8 +152,8 @@ app.use(function (req, res, next) {
   if(!Array.isArray(res.locals.cate) || res.locals.cate.length<=1){
     res.locals.cate = dbUser.getConfig().cate;
   }
-  res.locals.gradesString=res.locals.gradesString.join(",");
-  res.locals.cateString=res.locals.cateString.join(",");
+  res.locals.gradesString=res.locals.grades.join(",");
+  res.locals.cateString=res.locals.cate.join(",");
 
   console.log("setConfig begin");
   console.log("res.locals.grades:"+res.locals.grades);
