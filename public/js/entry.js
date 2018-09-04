@@ -104,7 +104,7 @@ $(function(){
       //
       ///////////////////////////////////////////////////////////////////
       alert("here");
-      alert($(that).parent().prev().parent().html());
+      alert($(that).parent().prev().parent().first().html());
 
       if($(that).parent().prev().hasclass("entry-cate")) {
         var num=$(that).attr('name');
