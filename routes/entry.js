@@ -63,6 +63,8 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     var cateList=cate.map(function(cate){
       return({cNum:cNum++,cate:cate});
     });
+    console.log("cateList:"+JSON.stringify(cateList));
+
 
     res.render('entry',{
       entrylist: entrylist,
