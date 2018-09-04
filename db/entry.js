@@ -37,7 +37,8 @@ module.exports = {
   katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
-  decodeRow
+  decodeRow,
+  getHtmlGrades
 };
 
 
@@ -186,6 +187,12 @@ function decodeRow(row) {
     row.prize3= decodePrize(row.prize3);
 }
 
-
+function getHtmlGrades() {
+    var htmlGrades = "<li><a>-</a></li>";
+    (config.grades || [] ).forEach( function(grade){
+      htmlGrades=htmlGrades+"<li><a>"+grade+"</a></li>";
+    });
+    return(htmlGrades);
+}
 
 console.log("db/entry.js end");
