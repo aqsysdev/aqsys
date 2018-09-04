@@ -54,16 +54,11 @@
           <div class="hidden no-csv-output">c{{cate}}</div>
           <div class="dropdown">
             <button class="btn btn-default btn-xs dropdown-toggle entry-cate" type="button" id="entry-cate-{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
-            {{#if cate}}
-              {{cate}}
-            {{else}}
-              <span class="caret"></span>
-            {{/if}}
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-{{id}}">
               <li name=0><a><span class="caret"></span></a></li>
               {{#each cateList}}
-              <li name={{cNum}}><a>{{cate}}</a></li>
+              <li name="{{cNum}}"><a>{{cate}}</a></li>
               {{/each}}
               <!--
               <li name=1><a>1:低学年男</a></li>

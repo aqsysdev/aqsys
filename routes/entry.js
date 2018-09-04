@@ -51,7 +51,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     }
     console.log('entry6');
     console.log(JSON.stringify(entry.getConfig().grades));
-    console.log(JSON.stringify(entry.getConfig().cates));
+    console.log(JSON.stringify(entry.getConfig().cate));
     var grades=entry.getConfig().grades;
     var cate=entry.getConfig().cate;
     var gNum=1;
