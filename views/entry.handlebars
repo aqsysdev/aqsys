@@ -16,7 +16,17 @@
       <tr>
         <th class="hidden-xs">編集</th>
         <th >#<br></th>
-        <th>cate</th>
+        <th>
+          <button class="btn btn-default btn-xs dropdown-toggle entry-cate" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
+            <li name=0><a><span class="caret"></span></a></li>
+            {{#each cateList}}
+            <li name="cNum"><a>{{cateName}}</a></li>
+            {{/each}}
+          </ul><br/>
+        cate</th>
         <th><div class="hidden-xs">wave</div><div class="hidden-sm hidden-md hidden-lg">w</div></th>
         <th data-toggle="false">誓約書</th>
         <th data-toggle="false">受付</th>
@@ -65,20 +75,6 @@
               {{#each cateList}}
               <li name="cNum"><a>{{cateName}}</a></li>
               {{/each}}
-              <!--
-              <li name=1><a>1:低学年男</a></li>
-              <li name=2><a>2:低学年女</a></li>
-              <li name=3><a>3:高学年男</a></li>
-              <li name=4><a>4:高学年女</a></li>
-              <li name=5><a>5:中学男</a></li>
-              <li name=6><a>6:中学女</a></li>
-              <li name=7><a>7:39才以下男</a></li>
-              <li name=8><a>8:39才以下女</a></li>
-              <li name=9><a>9:40才以上男</a></li>
-              <li name=10><a>A:40才以上女</a></li>
-              <li name=11><a>B:低学リレー</a></li>
-              <li name=12><a>C:高学リレー</a></li>
-            -->
             </ul>
           </div>
         </td>

@@ -50,8 +50,8 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       entry.decodeRow(row);
     }
     console.log('entry6');
-    console.log(JSON.stringify(entry.getConfig().grades));
-    console.log(JSON.stringify(entry.getConfig().cate));
+//    console.log(JSON.stringify(entry.getConfig().grades));
+//    console.log(JSON.stringify(entry.getConfig().cate));
     var grades=entry.getConfig().grades;
     var cate=entry.getConfig().cate;
     var gNum=1;
@@ -63,17 +63,16 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     var cateList=cate.map(function(cate){
       return({cNum:cNum++,cateName:cate});
     });
-    console.log("cateList:"+JSON.stringify(cateList));
+//    console.log("cateList:"+JSON.stringify(cateList));
 
     entrylist=entrylist.map(function(row){
       row.cateList=cateList;
       return(row);
     });
-
-
     res.render('entry',{
       entrylist: entrylist,
-      gradeList: gradeList
+      gradeList: gradeList,
+      cateList: cateList
     });
 //    done();
   });
