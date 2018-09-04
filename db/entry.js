@@ -37,9 +37,7 @@ module.exports = {
   katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
-  decodeRow,
-  getHtmlGrades,
-  getHtmlCate
+  decodeRow
 };
 
 
@@ -188,21 +186,4 @@ function decodeRow(row) {
     row.prize3= decodePrize(row.prize3);
 }
 
-function getHtmlGrades() {
-    var htmlGrades = "<li><a>-</a></li>";
-    (config.grades || [] ).forEach( function(grade){
-      htmlGrades=htmlGrades+"<li><a>"+grade+"</a></li>";
-    });
-    return(htmlGrades);
-}
-
-function getHtmlCate() {
-    var htmlCate = '<li name=0><a><span class="caret"></span></a></li>';
-    var cateNum=1;
-    (config.cate || [] ).forEach( function(cate){
-      htmlCate=htmlCate+"<li name="+cateNum+"><a>"+cate+"</a></li>";
-      cateNum+=1;
-    });
-    return(htmlCate);
-}
 console.log("db/entry.js end");
