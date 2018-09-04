@@ -38,7 +38,8 @@ module.exports = {
   hiraganaToKatakana,
   calcAge,
   decodeRow,
-  getHtmlGrades
+  getHtmlGrades,
+  getHtmlCate
 };
 
 
@@ -195,4 +196,13 @@ function getHtmlGrades() {
     return(htmlGrades);
 }
 
+function getHtmlCate() {
+    var htmlCate = '<li name=0><a><span class="caret"></span></a></li>';
+    var cateNum=1;
+    (config.cate || [] ).forEach( function(cate){
+      htmlCate=htmlCate+"<li name="+cateNum+"><a>"+cate+"</a></li>";
+      cateNum+=1;
+    });
+    return(htmlCate);
+}
 console.log("db/entry.js end");

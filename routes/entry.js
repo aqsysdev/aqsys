@@ -53,7 +53,8 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     console.log(entry.getHtmlGrades());
     res.render('entry',{
       entrylist: entrylist,
-      htmlGrades: entry.getHtmlGrades()
+      htmlGrades: entry.getHtmlGrades(),
+      htmlCate: entry.getHtmlCate()
     });
 //    done();
   });
