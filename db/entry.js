@@ -28,7 +28,7 @@ module.exports = {
     return knex.withSchema(config.schemaname).from(table).where('id', id).del();
   },
   setConfig(argconfig) {
-    console.log("entry setConfig:"+JSON.stringify(argconfig));
+//    console.log("entry setConfig:"+JSON.stringify(argconfig));
     config = argconfig;
   } ,
   getConfig() {
@@ -145,8 +145,8 @@ function encodePrize(prize) {
 }
 
 function decodeRow(row) {
-    console.log("decodeRow:"+JSON.stringify(row));
-    console.log("config:"+JSON.stringify(config));
+//    console.log("decodeRow:"+JSON.stringify(row));
+//    console.log("config:"+JSON.stringify(config));
     row.lname  = katakanaToHiragana((row.lname||"").replace(/　/g," ").trim().split(" ")[0]);
     row.myouji = (row.myouji||"").replace(/　/g," ").trim().split(" ")[0];
     row.fname  = katakanaToHiragana((row.fname||"").replace(/　/g," ").trim().split(" ").pop());
