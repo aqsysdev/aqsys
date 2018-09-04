@@ -109,6 +109,7 @@ $(function(){
         for(current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
         }
         var id=current.text();
+        alert("id:"+id+"num:"+num);
         $.put("/api/entry/"+id, {cate: num},
         function(data,stat){
       //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
