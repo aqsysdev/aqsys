@@ -76,6 +76,7 @@ $(function(){
   	}
   });
 
+
   // カテゴリー
 
   $(document).on('click', function () {
@@ -88,7 +89,7 @@ $(function(){
       btn.disabled=isChecked;
     }
 
-    $('.dropdown-menu li').click(function(req){
+    $('.dropdown-menu-cate li').click(function(req){
       var current;
       var that=this;
       $(that).removeClass("confirmed");
