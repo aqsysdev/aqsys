@@ -57,7 +57,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     var gNum=1;
     var cNum=1;
 
-    var gradesList=grades.map(function(grade){
+    var gradeList=grades.map(function(grade){
       return({gNum:gNum++,gradeName:grade});
     });
     var cateList=cate.map(function(cate){
@@ -72,7 +72,8 @@ router.get('/', user.ensureAuthenticated, function(req, res){
 
 
     res.render('entry',{
-      entrylist: entrylist
+      entrylist: entrylist,
+      gradeList: gradeList
     });
 //    done();
   });
