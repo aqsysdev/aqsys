@@ -108,6 +108,7 @@ $(function(){
         var current;
         var that=this;
         var num=$(that).attr('name');
+        alert("change .entry-cate");
     //  $(that)[0].disabled="disabled";
         for(current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
         }
