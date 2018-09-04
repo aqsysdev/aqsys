@@ -51,6 +51,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     }
     console.log('entry6');
     console.log(entry.getHtmlGrades());
+    console.log(entry.getHtmlCate());
     res.render('entry',{
       entrylist: entrylist,
       htmlGrades: entry.getHtmlGrades(),
