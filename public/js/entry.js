@@ -96,17 +96,14 @@ $(function(){
       var that=this;
       $(that).removeClass("confirmed");
       var value=$(that).html();
+      $(that).parent().prev().html(value);
 
       ///////////////////////////////////////////////////////////////////
       //
       // カテゴリー変更
       //
       ///////////////////////////////////////////////////////////////////
-
-      $('.entry-cate').off('change');
-      $('.entry-cate').on('change',function(req){
-        var current;
-        var that=this;
+      if($(that).parent().prev().hasclass("entry-cate")) {
         var num=$(that).attr('name');
         alert("change .entry-cate");
     //  $(that)[0].disabled="disabled";
@@ -142,8 +139,7 @@ $(function(){
       //      $(that)[0].value="";
           });
         });
-      });
-      $(that).parent().prev().html(value);
+      }
     });
   });
 
