@@ -58,10 +58,10 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     var cNum=1;
 
     var gradesList=grades.map(function(grade){
-      return({gNum:gNum++,grade:grade});
+      return({gNum:gNum++,gradeName:grade});
     });
     var cateList=cate.map(function(cate){
-      return({cNum:cNum++,cate:cate});
+      return({cNum:cNum++,cateName:cate});
     });
     console.log("cateList:"+JSON.stringify(cateList));
 
