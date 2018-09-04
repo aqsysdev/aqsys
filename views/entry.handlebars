@@ -13,7 +13,7 @@
 <div class="well table-responsive" width="100%">
   <table class="table table-condensed" id="entrylist">
     <thead>
-      <tr>
+      <tr align="center">
         <th class="hidden-xs">編集</th>
         <th >#<br></th>
         <th>cate<br/>
@@ -23,8 +23,9 @@
           </button>
           <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
             <li name=0><a><span class="caret"></span></a></li>
-            <li name=1><a>cateNum</a></li>
-<!--            <li name="cNum"><a>{{cateName}}</a></li> -->
+            {{#each cateList}}
+            <li name="cNum"><a>{{cateName}}</a></li>
+            {{/each}}
           </ul>
         </div>
         </th>
