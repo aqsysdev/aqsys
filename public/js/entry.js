@@ -103,11 +103,8 @@ $(function(){
       // カテゴリー変更
       //
       ///////////////////////////////////////////////////////////////////
-      alert("here");
-      alert($(that).parent().prev().eq(0).hasClass("entry-cate"));
-      if($(that).parent().prev().hasclass("entry-cate")) {
+      if($(that).parent().prev().eq(0).hasClass("entry-cate")) {
         var num=$(that).attr('name');
-        alert("change .entry-cate");
     //  $(that)[0].disabled="disabled";
         for(current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
         }
