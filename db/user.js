@@ -65,12 +65,8 @@ var UserSchema = new mongoose.Schema({
 	numbercardfooter: {
 		type: String
 	},
-	grades: [{
-		type: String
-	}],
-	cate: [{
-		type: String
-	}]
+	grades: [{type: String}],
+	cate: [{type: String}]
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);

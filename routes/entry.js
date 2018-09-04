@@ -51,13 +51,23 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     }
     console.log('entry6');
     console.log(JSON.stringify(entry.getConfig().grades));
-    console.log(JSON.stringify(entry.getConfig().cate));
+    console.log(JSON.stringify(entry.getConfig().cates));
     var grades=entry.getConfig().grades;
-    var cate=entry.getConfig().cate;
+    var cate=entry.getConfig().cates;
+    var gNum=1;
+    var cNum=1;
+
+    var gradesList=grades.map(function(grade){
+      return({gNum:gNum++,grade:grade});
+    });
+    var cateList=cate.map(function(cate){
+      return({cNum:cNum++,cate:cate});
+    });
+
     res.render('entry',{
       entrylist: entrylist,
-      grades: grades,
-      cate: cate
+      gradesList: gradesList,
+      cateList: cateList
     });
 //    done();
   });
