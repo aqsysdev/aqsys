@@ -50,7 +50,11 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       entry.decodeRow(row);
     }
     console.log('entry6');
-    res.render('entry',{entrylist: entrylist});
+    console.log(entry.getHtmlGrades());
+    res.render('entry',{
+      entrylist: entrylist,
+      htmlGrades: entry.getHtmlGrades()
+    });
 //    done();
   });
 });
