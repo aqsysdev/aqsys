@@ -50,12 +50,14 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       entry.decodeRow(row);
     }
     console.log('entry6');
-    console.log(entry.getHtmlGrades());
-    console.log(entry.getHtmlCate());
+    console.log(JSON.stringify(entry.getConfig().grades));
+    console.log(JSON.stringify(entry.getConfig().cate));
+    var grades=entry.getCofig().grades;
+    var cate=entry.getConfig().cate;
     res.render('entry',{
       entrylist: entrylist,
-      htmlGrades: entry.getHtmlGrades(),
-      htmlCate: entry.getHtmlCate()
+      grades: grades,
+      cate: cate
     });
 //    done();
   });
