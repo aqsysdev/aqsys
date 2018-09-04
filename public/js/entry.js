@@ -103,7 +103,7 @@ $(function(){
       // カテゴリー変更
       //
       ///////////////////////////////////////////////////////////////////
-      alert($(that).parent().prev().class());
+      alert($(that).parent().prev().classList.contains("entry-cate"));
       if($(that).parent().prev().hasclass("entry-cate")) {
         var num=$(that).attr('name');
         alert("change .entry-cate");
