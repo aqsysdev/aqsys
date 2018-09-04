@@ -16,8 +16,7 @@ $(function(){
       //scrollX: false,
       //scrollY: false,
       order: [
-//        [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
-        [1,"asc"],[2,"asc"],[3,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
+        [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
       ]
     }
   );
@@ -77,8 +76,11 @@ $(function(){
   	}
   });
 
-
-  // カテゴリー
+  ////////////////////////////////////////////////////////////////////
+  //
+  // ドロップダウンメニュー
+  //
+  ////////////////////////////////////////////////////////////////////
 
   $(document).on('click', function () {
     var isChecked;
@@ -90,46 +92,57 @@ $(function(){
       btn.disabled=isChecked;
     }
 
-    $('.dropdown-menu-cate li').click(function(req){
-      var current;
+    $('.dropdown-menu li').click(function(req){
       var that=this;
       $(that).removeClass("confirmed");
       var value=$(that).html();
-      $(that).parent().prev().html(value);
-      var num=$(that).attr('name');
+
+      ///////////////////////////////////////////////////////////////////
+      //
+      // カテゴリー変更
+      //
+      ///////////////////////////////////////////////////////////////////
+
+      $('.entry-cate').off('change');
+      $('.entry-cate').on('change',function(req){
+        var current;
+        var that=this;
+        var num=$(that).attr('name');
     //  $(that)[0].disabled="disabled";
-      for(current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
-      }
-      var id=current.text();
-      $.put("/api/entry/"+id, {cate: num},
-      function(data,stat){
-    //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-    //        $(that)[0].value=data.cate;
-          }else{
-    //        $(that)[0].value=true;
-          }
+        for(current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
+        }
+        var id=current.text();
+        $.put("/api/entry/"+id, {cate: num},
+        function(data,stat){
+      //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
+          $.get("/api/entry/"+id, data, function(data,stat) {
+            if(data.id==id){
+              $(that).addClass("confirmed");
+      //        $(that)[0].value=data.cate;
+            }else{
+      //        $(that)[0].value=true;
+            }
+          },
+          function(req,stat,err){
+      //      $(that)[0].value=true;
+          });
         },
         function(req,stat,err){
-    //      $(that)[0].value=true;
-        });
-      },
-      function(req,stat,err){
-    //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-    //        $(that)[0].value=data.cate;
-          }else{
-    //        $(that)[0].value="";
-          }
-        },
-        function(req,stat,err){
-    //      $(that)[0].value="";
+      //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
+          $.get("/api/entry/"+id, data, function(data,stat) {
+            if(data.id==id){
+              $(that).addClass("confirmed");
+      //        $(that)[0].value=data.cate;
+            }else{
+      //        $(that)[0].value="";
+            }
+          },
+          function(req,stat,err){
+      //      $(that)[0].value="";
+          });
         });
       });
+      $(that).parent().prev().html(value);
     });
   });
 
