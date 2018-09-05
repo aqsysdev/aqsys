@@ -124,7 +124,7 @@ $(function(){
       $(this).removeClass("confirmed");
       $(this).parent().prev().html($(this).html());
       var num=$(this).attr('name');
-      var id=$(this).parents('.dropdown-cate').attr("id").split('-')[3];
+      var id=$(this).parents('.dropdown-cate').attr("id").split('-')[2];
       alert($(this).parents('.dropdown-cate'));
       alert($(this).parents('.dropdown-cate').attr("id"));
       alert("id:"+id+"num:"+num);
