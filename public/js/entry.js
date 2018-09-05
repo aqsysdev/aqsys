@@ -148,48 +148,41 @@ $(function(){
     }
   });
 
-/*
-    $('.entry-race-num').off('change');
-    $('.entry-race-num').on('change',function(req){
-      var that=this;
-      var value=$(that).val();
-      $(that).removeClass("confirmed");
-    //  $(that)[0].disabled="disabled";
-      for(var current=$(that).parent();current.next().length>0;current=current.next()) {
-      }
-      var id=current.text();
-      $.put("/api/entry/"+id, {racenum: value},
-      function(data,stat){
-    //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-            $(that).val(('000'+data.racenum).slice(-3));
-          }else{
-            $(that).val("");
-          }
-        },
-        function(req,stat,err){
-          $(that).val("");
-        });
+
+  $('.entry-race-num').on('change',function(req){
+    var racenum=$(this).val();
+    $(this).addClass("unconfirmed");
+    var id=$(this).attr("id").split('-')[2];
+    var that=this;
+    $.put("/api/entry/"+id, {racenum: recenum},
+    function(data,stat){
+      $.get("/api/entry/"+id, data, function(data,stat) {
+        if(data.racenum==racenum){
+          $(that).addClass("confirmed");
+          $(that).val(('000'+data.racenum).slice(-3));
+        }
       },
       function(req,stat,err){
-    //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-            $(that).val(('000'+data.racenum).slice(-3));
-          }else{
-            $(that).val("");
-          }
-        },
-        function(req,stat,err){
-          $(that).val("");
-        });
+        $(that).val("");
+      });
+    },
+    function(req,stat,err){
+  //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
+      $.get("/api/entry/"+id, data, function(data,stat) {
+        if(data.racenum==racenum){
+          $(that).addClass("confirmed");
+          $(that).val(('000'+data.racenum).slice(-3));
+        }else{
+          $(that).val(('000'+data.racenum).slice(-3));
+        }
+      },
+      function(req,stat,err){
+        $(that).val("");
       });
     });
   });
 
+/*
     $('.entry-wave').off('change');
     $('.entry-wave').on('change',function(req){
       var that=this;
