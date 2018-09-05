@@ -158,7 +158,7 @@ $(function(){
     function(data,stat){
       $.get("/api/entry/"+id, data, function(data,stat) {
         var dataRacenum=(data.racenum || data.racenum*1 != 0 )? ('000'+data.racenum*1).slice(-3) : "";
-        if(dataRracenum===racenum){
+        if(dataRacenum===racenum){
           $(that).removeClass("unconfirmed");
         }
       },
