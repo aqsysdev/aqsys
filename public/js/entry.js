@@ -111,23 +111,25 @@ $(function(){
     isChecked=($(this).attr("aria-pressed") == "true");
     $(".entry-wave").prop("disabled",isChecked);
   });
+
   ////////////////////////////////////////////////////////////////////
   //
   // カテゴリー変更
   //
   ////////////////////////////////////////////////////////////////////
-
   $('.dropdown-cate li').on('click', function(){
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).parent().prev().addClass("unconfirmed");
       $(this).parent().prev().html($(this).html());
-      var num=$(this).attr('name');
+      var cateNum=$(this).attr('name');
       var id=$(this).parents('.dropdown-cate').attr("id").split('-')[2];
       var that=this;
-      $.put("/api/entry/"+id, {cate: num},
+      $.put("/api/entry/"+id, {cate: cateNum},
       function(data,stat){
+        alert("put:"+JSON.stringify(data));
         $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
+          alert("get:"+JSON.stringify(data));
+          if(data.cate==cateNum){
             $(that).parent().prev().removeClass("unconfirmed");
           }
         },
@@ -136,7 +138,7 @@ $(function(){
       },
       function(req,stat,err){
         $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
+          if(data.cate==cateNum){
             $(that).removeClass("unconfirmed");
           }
         },
