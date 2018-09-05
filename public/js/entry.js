@@ -129,7 +129,7 @@ $(function(){
         alert("put:"+JSON.stringify(data));
         $.get("/api/entry/"+id, data, function(data,stat) {
           alert("get:"+JSON.stringify(data));
-          if(data.cate==cateNum){
+          if(data.cate===cateNum){
             $(that).parent().prev().removeClass("unconfirmed");
           }
         },
@@ -148,15 +148,15 @@ $(function(){
   //
   ////////////////////////////////////////////////////////////////////
   $('.entry-race-num').on('change',function(req){
+    $(this).addClass("unconfirmed");
     var racenum=('000'+$(this).val()).slice(-3);
     $(this).val(racenum);
-    $(this).addClass("unconfirmed");
     var id=$(this).attr("id").split('-')[2];
     var that=this;
     $.put("/api/entry/"+id, {racenum: racenum},
     function(data,stat){
       $.get("/api/entry/"+id, data, function(data,stat) {
-        if(data.racenum==racenum){
+        if(data.racenum===racenum){
           $(that).removeClass("unconfirmed");
         }
       },
@@ -167,7 +167,7 @@ $(function(){
     function(req,stat,err){
   //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
       $.get("/api/entry/"+id, data, function(data,stat) {
-        if(data.racenum==racenum){
+        if(data.racenum===racenum){
           $(that).removeClass("unconfirmed");
         }else{
           $(that).val(('000'+data.racenum).slice(-3));
@@ -191,17 +191,16 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('.entry-wave').on('change',function(req){
-    var wave=$(this).val();
     $(this).addClass("unconfirmed");
+    var wave=('00'+$(this).val()).slice(-2);
     var id=$(this).attr("id").split('-')[2];
     var that=this;
     $.put("/api/entry/"+id, {wave: wave},
     function(data,stat){
   //    $(that)[0].disabled=($('#btnEntryWaveEditable').attr("aria-pressed") == "true" ? false : "disabled");
       $.get("/api/entry/"+id, data, function(data,stat) {
-        if(data.wave==wave){
+        if(data.wave===wave){
           $(that).removeClass("uconfirmed");
-          $(that).val(('00'+data.wave).slice(-2));
         }else{
           $(that).val(('00'+data.wave).slice(-2));
         }
