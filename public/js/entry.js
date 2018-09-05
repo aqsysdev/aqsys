@@ -118,47 +118,34 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('.dropdown-cate li').on('click', function(){
-    alert("this.html()"+$(this).html());
-    alert("$(this).parent().prev().html():"+$(this).parent().prev().html());
     if($(this).html()!=$(this).parent().prev().html()){
-      $(this).removeClass("confirmed");
+      $(this).addClass("unconfirmed");
       $(this).parent().prev().html($(this).html());
       var num=$(this).attr('name');
       var id=$(this).parents('.dropdown-cate').attr("id").split('-')[2];
-      alert($(this).parents('.dropdown-cate'));
-      alert($(this).parents('.dropdown-cate').attr("id"));
-      alert("id:"+id+"num:"+num);
+      var that=this;
       $.put("/api/entry/"+id, {cate: num},
       function(data,stat){
-    //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
-            $(that).addClass("confirmed");
-    //        $(that)[0].value=data.cate;
-          }else{
-    //        $(that)[0].value=true;
+            $(that).removeClass("unconfirmed");
           }
         },
         function(req,stat,err){
-    //      $(that)[0].value=true;
         });
       },
       function(req,stat,err){
-    //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
-            $(that).addClass("confirmed");
-    //        $(that)[0].value=data.cate;
-          }else{
-    //        $(that)[0].value="";
+            $(that).removeClass("unconfirmed");
           }
         },
         function(req,stat,err){
-    //      $(that)[0].value="";
         });
       });
     }
-    });
+  });
+
 /*
     $('.entry-race-num').off('change');
     $('.entry-race-num').on('change',function(req){
