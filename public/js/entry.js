@@ -158,7 +158,7 @@ $(function(){
     function(data,stat){
       $.get("/api/entry/"+id, data, function(data,stat) {
         var dataRacenum=(data.racenum || !isNaN(data.racenum) || data.racenum*1 != 0 )? ('000'+data.racenum*1).slice(-3) : "";
-        if(dataRacenum===racenum){
+        if(dataRacenum==racenum){
           $(that).removeClass("unconfirmed");
         }
       },
@@ -169,7 +169,8 @@ $(function(){
     function(req,stat,err){
   //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
       $.get("/api/entry/"+id, data, function(data,stat) {
-        if(data.racenum===racenum){
+        var dataRacenum=(data.racenum || !isNaN(data.racenum) || data.racenum*1 != 0 )? ('000'+data.racenum*1).slice(-3) : "";
+        if(dataRacenum==racenum){
           $(that).removeClass("unconfirmed");
         }else{
           $(that).val(('000'+data.racenum).slice(-3));
