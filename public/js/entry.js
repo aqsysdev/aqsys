@@ -130,7 +130,7 @@ $(function(){
   // カテゴリー変更
   //
   ///////////////////////////////////////////////////////////////////
-  $('.entry-cate').chage( function(req) {
+  $('.entry-cate').change( function(req) {
     alert("changed");
   });
 
