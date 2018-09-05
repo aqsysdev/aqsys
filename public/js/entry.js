@@ -128,6 +128,8 @@ $(function(){
       $.put("/api/entry/"+id, {cate: num},
       function(data,stat){
         $.get("/api/entry/"+id, data, function(data,stat) {
+          alert("id:"+id);
+          alert("data.id:"+data.id);
           if(data.id==id){
             $(that).removeClass("unconfirmed");
           }
