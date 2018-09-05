@@ -148,7 +148,8 @@ $(function(){
   //
   ////////////////////////////////////////////////////////////////////
   $('.entry-race-num').on('change',function(req){
-    var racenum=$(this).val();
+    var racenum=('000'+$(this).val()).slice(-3);
+    $(this).val(racenum);
     $(this).addClass("unconfirmed");
     var id=$(this).attr("id").split('-')[2];
     var that=this;
@@ -157,7 +158,6 @@ $(function(){
       $.get("/api/entry/"+id, data, function(data,stat) {
         if(data.racenum==racenum){
           $(that).removeClass("unconfirmed");
-          $(that).val(('000'+data.racenum).slice(-3));
         }
       },
       function(req,stat,err){
@@ -169,7 +169,6 @@ $(function(){
       $.get("/api/entry/"+id, data, function(data,stat) {
         if(data.racenum==racenum){
           $(that).removeClass("unconfirmed");
-          $(that).val(('000'+data.racenum).slice(-3));
         }else{
           $(that).val(('000'+data.racenum).slice(-3));
         }
