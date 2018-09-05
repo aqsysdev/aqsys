@@ -117,7 +117,7 @@ $(function(){
   //
   ////////////////////////////////////////////////////////////////////
 
-  $('.entry-cate li').on('click', function(){
+  $('.entry-cate').on('click', 'li', function(){
     alert(".entry-cate li");
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).removeClass("confirmed");
