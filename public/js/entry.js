@@ -163,7 +163,7 @@ $(function(){
     }
     });
   });
-
+/*
     $('.entry-race-num').off('change');
     $('.entry-race-num').on('change',function(req){
       var that=this;
