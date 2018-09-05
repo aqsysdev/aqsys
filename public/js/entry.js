@@ -78,32 +78,62 @@ $(function(){
 
   ////////////////////////////////////////////////////////////////////
   //
+  // カテゴリー編集ボタン
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $('#btnEntryCateEditable').on('click', function () {
+    var isChecked;
+    var btn;
+    var btns;
+    isChecked=$(this).attr("aria-pressed") == "true" ? false : "disabled";
+    $(".entry-cate").prop("disabled",isChecked);
+  });
+
+  ////////////////////////////////////////////////////////////////////
+  //
+  // レースナンバー編集ボタン
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $('#btnEntryRaceNumEditable').on('click', function () {
+    var isChecked;
+    isChecked=$(this).attr("aria-pressed") == "true" ? false : "disabled";
+    $(".entry-race-num").prop("disabled",isChecked);
+  });
+
+  ////////////////////////////////////////////////////////////////////
+  //
+  // wave　編集ボタン
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $('#btnEntryWaveEditable').on('click', function () {
+    var isChecked;
+    isChecked=$(this).attr("aria-pressed") == "true" ? false : "disabled";
+    $(".entry-wave").prop("disabled",isChecked);
+  });
+  ////////////////////////////////////////////////////////////////////
+  //
   // ドロップダウンメニュー
   //
   ////////////////////////////////////////////////////////////////////
 
-  $(document).on('click', function () {
-    var isChecked;
-    var btn;
-    var btns;
-    isChecked=$('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled";
-    btns=$(".entry-cate");
-    for(btn of btns) {
-      btn.disabled=isChecked;
+  $('.dropdown-menu li').click(function(req){
+    if($(this).html()!=$(this).parent().prev().html()){
+      $(this).removeClass("confirmed");
+      $(this).parent().prev().html($(this).html());
     }
+  });
 
-    $('.dropdown-menu li').click(function(req){
-      var that=this;
-      $(that).removeClass("confirmed");
-      var value=$(that).html();
-      $(that).parent().prev().html(value);
 
-      ///////////////////////////////////////////////////////////////////
-      //
-      // カテゴリー変更
-      //
-      ///////////////////////////////////////////////////////////////////
-      if($(that).parent().prev().eq(0).hasClass("entry-cate")) {
+  ///////////////////////////////////////////////////////////////////
+  //
+  // カテゴリー変更
+  //
+  ///////////////////////////////////////////////////////////////////
+  /*
+    if($(that).parent().prev().eq(0).hasClass("entry-cate")) {
         var num=$(that).attr('name');
     //  $(that)[0].disabled="disabled";
         for(current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
@@ -143,18 +173,6 @@ $(function(){
     });
   });
 
-
-  // レースナンバー
-
-  $(document).on('click', function () {
-    var isChecked;
-    var btn;
-    var btns;
-    isChecked=$('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled";
-    btns=$(".entry-race-num");
-    for(btn of btns) {
-      btn.disabled=isChecked;
-    }
     $('.entry-race-num').off('change');
     $('.entry-race-num').on('change',function(req){
       var that=this;
@@ -196,18 +214,6 @@ $(function(){
     });
   });
 
-  // wave
-
-  $(document).on('click', function () {
-    var isChecked;
-    var btn;
-    var btns;
-    isChecked=$('#btnEntryWaveEditable').attr("aria-pressed") == "true" ? false : "disabled";
-    btns=$(".entry-wave");
-    for(btn of btns) {
-      btn.disabled=isChecked;
-    }
-
     $('.entry-wave').off('change');
     $('.entry-wave').on('change',function(req){
       var that=this;
@@ -248,6 +254,8 @@ $(function(){
       });
     });
   });
+*/
+
 
   // 誓約書ボタン
 

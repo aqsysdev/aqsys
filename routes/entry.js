@@ -54,14 +54,12 @@ router.get('/', user.ensureAuthenticated, function(req, res){
 //    console.log(JSON.stringify(entry.getConfig().cate));
     var grades=entry.getConfig().grades;
     var cate=entry.getConfig().cate;
-    var gNum=1;
-    var cNum=1;
 
-    var gradeList=grades.map(function(grade){
-      return({gNum:gNum++,gradeName:grade});
+    var gradeList=grades.map(function(grade,gNum){
+      return({gNum:gNum+1,gradeName:grade});
     });
-    var cateList=cate.map(function(cate){
-      return({cNum:cNum++,cateName:cate});
+    var cateList=cate.map(function(cate,cNum){
+      return({cNum:cNum+1,cateName:cate});
     });
 //    console.log("cateList:"+JSON.stringify(cateList));
 
