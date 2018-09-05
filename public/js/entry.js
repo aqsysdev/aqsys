@@ -150,14 +150,14 @@ $(function(){
   $('.entry-race-num').on('change',function(req){
     $(this).addClass("unconfirmed");
     var racenum=$(this).val();
-    racenum = (racenum || racenum*1 != 0 )? ('000'+racenum*1).slice(-3) : "";
+    racenum = (racenum || !isNaN(racenum) || racenum*1 != 0 )? ('000'+racenum*1).slice(-3) : "";
     $(this).val(racenum);
     var id=$(this).attr("id").split('-')[2];
     var that=this;
     $.put("/api/entry/"+id, {racenum: racenum},
     function(data,stat){
       $.get("/api/entry/"+id, data, function(data,stat) {
-        var dataRacenum=(data.racenum || data.racenum*1 != 0 )? ('000'+data.racenum*1).slice(-3) : "";
+        var dataRacenum=(data.racenum || !isNaN(data.racenum) || data.racenum*1 != 0 )? ('000'+data.racenum*1).slice(-3) : "";
         if(dataRacenum===racenum){
           $(that).removeClass("unconfirmed");
         }
