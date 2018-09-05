@@ -116,7 +116,7 @@ $(function(){
   // ドロップダウンメニュー
   //
   ////////////////////////////////////////////////////////////////////
-
+/*
   $('.dropdown-menu li').on('click', function(req){
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).removeClass("confirmed");
@@ -124,7 +124,7 @@ $(function(){
       $(this).parents('.entry-cate').change();
     }
   });
-
+*/
 
   ///////////////////////////////////////////////////////////////////
   //
