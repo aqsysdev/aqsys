@@ -125,6 +125,8 @@ $(function(){
       $(this).parent().prev().html($(this).html());
       var num=$(this).attr('name');
       var id=$(this).parents('.dropdown-cate').attr("id").split('-')[3];
+      alert($(this).parents('.dropdown-cate'));
+      alert($(this).parents('.dropdown-cate').attr("id"));
       alert("id:"+id+"num:"+num);
       $.put("/api/entry/"+id, {cate: num},
       function(data,stat){
