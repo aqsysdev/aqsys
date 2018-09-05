@@ -83,10 +83,8 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('#btnEntryCateEditable').on('click', function () {
-    alert("edit category");
     var isChecked;
-    isChecked=$(this).attr("aria-pressed") == "true";
-    alert("isChecked:"+isChecked);
+    isChecked=($(this).attr("aria-pressed") == "true");
     $(".entry-cate").prop("disabled",isChecked);
   });
 
