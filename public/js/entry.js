@@ -119,19 +119,12 @@ $(function(){
 
   $('.dropdown-cate li').on('click', function(){
     alert("this.html()"+$(this).html());
-    alert("$(this).parent().prev().html()"+$(this).parent().prev().html());
+    alert("$(this).parent().prev().html():"+$(this).parent().prev().html());
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).removeClass("confirmed");
       $(this).parent().prev().html($(this).html());
-      var that=this;
-      var num=$(that).attr('name');
-  //  $(that)[0].disabled="disabled";
-  /*
-      for(var current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
-      }
-      var id=current.text();
-  */
-      var id=$(this).parents('.entry-cate').attr("id").split('-')[3];
+      var num=$(this).attr('name');
+      var id=$(this).parents('.dropdown-cate').attr("id").split('-')[3];
       alert("id:"+id+"num:"+num);
       $.put("/api/entry/"+id, {cate: num},
       function(data,stat){
