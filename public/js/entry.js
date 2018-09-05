@@ -121,6 +121,7 @@ $(function(){
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).removeClass("confirmed");
       $(this).parent().prev().html($(this).html());
+      $(this).parents('.entry-cate').change();
     }
   });
 
@@ -130,8 +131,8 @@ $(function(){
   // カテゴリー変更
   //
   ///////////////////////////////////////////////////////////////////
-  $('.entry-cate').change( function(req) {
-    alert("changed");
+  $('.entry-cate').dropdown( 'update',function(req) {
+    alert("dropdown update");
   });
 
   /*
