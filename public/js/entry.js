@@ -118,7 +118,6 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('.dropdown-cate li').on('click', function(){
-    alert(".dropdown-cate li");
     alert("this.html()"+$(this).html());
     alert("$(this).parent().prev().html()"+$(this).parent().prev().html());
     if($(this).html()!=$(this).parent().prev().html()){
