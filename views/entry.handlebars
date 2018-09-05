@@ -64,15 +64,15 @@
         </td>
         <td align="center">
           <div class="hidden no-csv-output">cate{{cate}}</div>
-          <div class="dropdown">
-            <button class="btn btn-default btn-xs dropdown-toggle entry-cate" type="button" id="entry-cate-{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
+          <div class="dropdown entry-cate" id="entry-cate-{{id}}">
+            <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
             {{#if cate}}
               {{cate}}
             {{else}}
               <span class="caret"></span>
             {{/if}}
             </button>
-            <ul class="dropdown-menu dropdown-menu-cate no-csv-output" aria-labelledby="entry-cate-{{id}}">
+            <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-{{id}}">
               <li name=0><a><span class="caret"></span></a></li>
               {{#each cateList}}
               <li name={{cNum}}><a>{{cateName}}</a></li>
