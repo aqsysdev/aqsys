@@ -130,7 +130,7 @@ $(function(){
   // カテゴリー変更
   //
   ///////////////////////////////////////////////////////////////////
-  $('.entry-cate').children().on('changed', function(req) {
+  $('.entry-cate').on('changed', 'a', function(req) {
     alert("changed");
   });
 
