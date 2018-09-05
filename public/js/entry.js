@@ -116,8 +116,11 @@ $(function(){
   // ドロップダウンメニュー
   //
   ////////////////////////////////////////////////////////////////////
+  $('.dropdown-toggle').on('changed', function(req){
+    alert("changed");
+  });
 
-  $('.dropdown-menu li').click(function(req){
+  $('.dropdown-menu li').on('click', function(req){
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).removeClass("confirmed");
       $(this).parent().prev().html($(this).html());
