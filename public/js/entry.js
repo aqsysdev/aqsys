@@ -116,9 +116,6 @@ $(function(){
   // ドロップダウンメニュー
   //
   ////////////////////////////////////////////////////////////////////
-  $('.dropdown-toggle').on('changed', function(req){
-    alert("changed");
-  });
 
   $('.dropdown-menu li').on('click', function(req){
     if($(this).html()!=$(this).parent().prev().html()){
@@ -133,6 +130,10 @@ $(function(){
   // カテゴリー変更
   //
   ///////////////////////////////////////////////////////////////////
+  $('.entry-cate').children().on('changed', function) {
+    alert("changed");
+  });
+
   /*
     if($(that).parent().prev().eq(0).hasClass("entry-cate")) {
         var num=$(that).attr('name');
