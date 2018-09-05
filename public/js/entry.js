@@ -153,7 +153,7 @@ $(function(){
     $(this).addClass("unconfirmed");
     var id=$(this).attr("id").split('-')[2];
     var that=this;
-    $.put("/api/entry/"+id, {racenum: recenum},
+    $.put("/api/entry/"+id, {racenum: racenum},
     function(data,stat){
       $.get("/api/entry/"+id, data, function(data,stat) {
         if(data.racenum==racenum){
