@@ -113,66 +113,54 @@ $(function(){
   });
   ////////////////////////////////////////////////////////////////////
   //
-  // ドロップダウンメニュー
+  // カテゴリー変更
   //
   ////////////////////////////////////////////////////////////////////
-/*
-  $('.dropdown-menu li').on('click', function(req){
+
+  $('.entry-cate li').on('click', function(req){
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).removeClass("confirmed");
       $(this).parent().prev().html($(this).html());
-      $(this).parents('.entry-cate').change();
-    }
-  });
-*/
-
-  ///////////////////////////////////////////////////////////////////
-  //
-  // カテゴリー変更
-  //
-  ///////////////////////////////////////////////////////////////////
-  $('.entry-cate').dropdown( 'update',function(req) {
-    alert("dropdown update");
-  });
-
+      var that=this;
+      var num=$(that).attr('name');
+  //  $(that)[0].disabled="disabled";
   /*
-    if($(that).parent().prev().eq(0).hasClass("entry-cate")) {
-        var num=$(that).attr('name');
-    //  $(that)[0].disabled="disabled";
-        for(current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
-        }
-        var id=current.text();
-        alert("id:"+id+"num:"+num);
-        $.put("/api/entry/"+id, {cate: num},
-        function(data,stat){
-      //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
-          $.get("/api/entry/"+id, data, function(data,stat) {
-            if(data.id==id){
-              $(that).addClass("confirmed");
-      //        $(that)[0].value=data.cate;
-            }else{
-      //        $(that)[0].value=true;
-            }
-          },
-          function(req,stat,err){
-      //      $(that)[0].value=true;
-          });
+      for(var current=$(that).parent().parent().parent();current.next().length>0;current=current.next()) {
+      }
+      var id=current.text();
+  */
+      var id=$(this).parents('.entry-cate').attr("id").split('-')[3];
+      alert("id:"+id+"num:"+num);
+      $.put("/api/entry/"+id, {cate: num},
+      function(data,stat){
+    //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
+        $.get("/api/entry/"+id, data, function(data,stat) {
+          if(data.id==id){
+            $(that).addClass("confirmed");
+    //        $(that)[0].value=data.cate;
+          }else{
+    //        $(that)[0].value=true;
+          }
         },
         function(req,stat,err){
-      //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
-          $.get("/api/entry/"+id, data, function(data,stat) {
-            if(data.id==id){
-              $(that).addClass("confirmed");
-      //        $(that)[0].value=data.cate;
-            }else{
-      //        $(that)[0].value="";
-            }
-          },
-          function(req,stat,err){
-      //      $(that)[0].value="";
-          });
+    //      $(that)[0].value=true;
         });
-      }
+      },
+      function(req,stat,err){
+    //    $(that)[0].disabled=($('#btnEntryCateEditable').attr("aria-pressed") == "true" ? false : "disabled");
+        $.get("/api/entry/"+id, data, function(data,stat) {
+          if(data.id==id){
+            $(that).addClass("confirmed");
+    //        $(that)[0].value=data.cate;
+          }else{
+    //        $(that)[0].value="";
+          }
+        },
+        function(req,stat,err){
+    //      $(that)[0].value="";
+        });
+      });
+    }
     });
   });
 
