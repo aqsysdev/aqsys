@@ -85,7 +85,7 @@ $(function(){
   $('#btnEntryCateEditable').on('click', function () {
     var isChecked;
     alert($(this).attr("aria-pressed"));
-    isChecked=($(this).attr("aria-pressed") == false);
+    isChecked=($(this).attr("aria-pressed") == undefined);
     $(".entry-cate").prop("disabled",isChecked);
   });
 
@@ -97,7 +97,7 @@ $(function(){
 
   $('#btnEntryRaceNumEditable').on('click', function () {
     var isChecked;
-    isChecked=($(this).attr("aria-pressed") == false);
+    isChecked=($(this).attr("aria-pressed") == undefined);
     $(".entry-race-num").prop("disabled",isChecked);
   });
 
@@ -109,7 +109,7 @@ $(function(){
 
   $('#btnEntryWaveEditable').on('click', function () {
     var isChecked;
-    isChecked=($(this).attr("aria-pressed") == false)
+    isChecked=($(this).attr("aria-pressed") == undefined)
     $(".entry-wave").prop("disabled",isChecked);
   });
   ////////////////////////////////////////////////////////////////////
