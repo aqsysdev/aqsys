@@ -119,7 +119,7 @@ $(function(){
 
   $('.dropdown-cate li').on('click', function(){
     if($(this).html()!=$(this).parent().prev().html()){
-      $(this).addClass("unconfirmed");
+      $(this).parent().prev().addClass("unconfirmed");
       $(this).parent().prev().html($(this).html());
       var num=$(this).attr('name');
       var id=$(this).parents('.dropdown-cate').attr("id").split('-')[2];
@@ -130,8 +130,9 @@ $(function(){
         $.get("/api/entry/"+id, data, function(data,stat) {
           alert("id:"+id);
           alert("data.id:"+data.id);
+          alert("data.cate:"+data.cate);
           if(data.id==id){
-            $(that).removeClass("unconfirmed");
+            $(that).parent().prev().removeClass("unconfirmed");
           }
         },
         function(req,stat,err){
