@@ -36,14 +36,14 @@ module.exports = {
   getConfig() {
     return(config);
   },
-//  katakanaToHiragana,
-//  hiraganaToKatakana,
-//  calcAge,
-//  decodeRow
-  aqsysCoder.katakanaToHiragana,
-  aqsysCoder.hiraganaToKatakana,
-  aqsysCoder.calcAge,
-  aqsysCoder.decodeRow
+  katakanaToHiragana,
+  hiraganaToKatakana,
+  calcAge,
+  decodeRow
+//  aqsysCoder.katakanaToHiragana,
+//  aqsysCoder.hiraganaToKatakana,
+//  aqsysCoder.calcAge,
+//  aqsysCoder.decodeRow
 };
 
 
@@ -56,12 +56,13 @@ console.log("db/entry.js 1");
  * @returns {String} - ひらがな
  */
 
-function katakanaToHiragana(src) {
-	return src.replace(/[\u30a1-\u30f6]/g, function(match) {
-		var chr = match.charCodeAt(0) - 0x60;
-		return String.fromCharCode(chr);
-	});
-}
+var katakanaToHiragana = aqsysCoder.katakanaToHiragana;
+//function katakanaToHiragana(src) {
+//	return src.replace(/[\u30a1-\u30f6]/g, function(match) {
+//		var chr = match.charCodeAt(0) - 0x60;
+//		return String.fromCharCode(chr);
+//	});
+//}
 
 
 /** ひらがなをカタカナに変換する関数
@@ -69,12 +70,14 @@ function katakanaToHiragana(src) {
  * @returns {String} - カタカナ
  */
 
-function hiraganaToKatakana(src) {
-	return src.replace(/[\u3041-\u3096]/g, function(match) {
-		var chr = match.charCodeAt(0) + 0x60;
-		return String.fromCharCode(chr);
-	});
-}
+
+ var hiraganaToKatakana = aqsysCoder.hiraganaToKatakana;
+//function hiraganaToKatakana(src) {
+//	return src.replace(/[\u3041-\u3096]/g, function(match) {
+//		var chr = match.charCodeAt(0) + 0x60;
+//		return String.fromCharCode(chr);
+//	});
+//}
 
 function calcAge(birthdate, targetdate) {
   	birthdate = birthdate.replace(/[/-]/g, "");
