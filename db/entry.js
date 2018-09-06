@@ -7,7 +7,8 @@ const Decimal = require('decimal');
 const knex = require('./knex'); // the connection!
 const table = 'entrylist';
 const aqsysCoder= require('aqsysCoder');
-let config = {
+
+var config = {
   };
 
 console.log("db/entry.js begin");
@@ -35,14 +36,14 @@ module.exports = {
   getConfig() {
     return(config);
   },
-//  katakanaToHiragana,
-//  hiraganaToKatakana,
-//  calcAge,
-//  decodeRow
-  aqsysCoder.katakanaToHiragana,
-  aqsysCoder.hiraganaToKatakana,
-  aqsysCoder.calcAge,
-  aqsysCoder.decodeRow
+  katakanaToHiragana,
+  hiraganaToKatakana,
+  calcAge,
+  decodeRow
+//  aqsysCoder.katakanaToHiragana,
+//  aqsysCoder.hiraganaToKatakana,
+//  aqsysCoder.calcAge,
+//  aqsysCoder.decodeRow
 };
 
 
