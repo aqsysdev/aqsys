@@ -280,7 +280,7 @@ function decodeBirthday2(argBirthday2) {
   );
 }
 
-function decocdeSex2(sex2) {
+function decodeSex2(sex2) {
   return(sex2 && sexList[(sex2||"M")]);
 }
 
