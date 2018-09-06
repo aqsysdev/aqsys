@@ -6,7 +6,7 @@
 const Decimal = require('decimal');
 const knex = require('./knex'); // the connection!
 const table = 'entrylist';
-const aqsysCoder= require('aqsysCoder');
+const aqsysCoder= require('../public/js/aqsysCoder');
 
 var config = {
   };
