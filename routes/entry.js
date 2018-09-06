@@ -22,7 +22,6 @@ console.log("routes/entry begin");
 // include user functions
 var user = require('../db/user');
 var entry = require('../db/entry');
-var aqsysCoder = require('../public/js/aqsysCoder');
 
 // View Engine
 
@@ -48,8 +47,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     });
     console.log('entry5');
     for(var row of entrylist){
-      console.log("aqsysCoder.decodeRow:"+aqsysCoder.decodeRow);
-      aqsysCoder.decodeRow(row);
+      entry.decodeRow(row);
     }
     console.log('entry6');
 //    console.log(JSON.stringify(entry.getConfig().grades));
