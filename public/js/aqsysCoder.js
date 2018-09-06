@@ -245,6 +245,29 @@
   function clone(obj) {
     var i, p, ps;
 
+    function Decode(v) {
+      var e, i, t,
+        x = this;
+
+      // Decimal called without new.
+      if (!(x instanceof Decimal)) return new Decimal(v);
+
+      // Retain a reference to this Decimal constructor, and shadow Decimal.prototype.constructor
+      // which points to Object.
+      x.constructor = Decimal;
+
+      // Duplicate.
+      if (v instanceof Decimal) {
+        x.s = v.s;
+        x.e = v.e;
+        x.d = (v = v.d) ? v.slice() : v;
+        return;
+      } else if (t !== 'string') {
+        throw Error(invalidArgument + v);
+      }
+      return;
+    }
+
     Decode.prototype = P;
     Decode.config = Decode.set = config;
     Decode.clone=clone;

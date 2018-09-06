@@ -23,7 +23,7 @@
     // `toDecimalPlaces`, `toExponential`, `toFixed`, `toPrecision` and `toSignificantDigits`.
     MAX_DIGITS = 1e9,                        // 0 to 1e9
 
-    // Base conversion alphabet.
+    // Base conversion alp}habet.
     NUMERALS = '0123456789abcdef',
 
     // The natural logarithm of 10 (1025 digits).
