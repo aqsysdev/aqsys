@@ -36,14 +36,14 @@ module.exports = {
   getConfig() {
     return(config);
   },
-  katakanaToHiragana,
-  hiraganaToKatakana,
-  calcAge,
-  decodeRow
-//  aqsysCoder.katakanaToHiragana,
-//  aqsysCoder.hiraganaToKatakana,
-//  aqsysCoder.calcAge,
-//  aqsysCoder.decodeRow
+//  katakanaToHiragana,
+//  hiraganaToKatakana,
+//  calcAge,
+//  decodeRow
+  aqsysCoder.katakanaToHiragana,
+  aqsysCoder.hiraganaToKatakana,
+  aqsysCoder.calcAge,
+  aqsysCoder.decodeRow
 };
 
 
