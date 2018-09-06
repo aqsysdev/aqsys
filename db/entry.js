@@ -211,7 +211,7 @@ function decodeMyouji(myouji) {
 }
 
 function decodeFname(fname) {
-  return(katakanaToHiragana((row.fname||"").replace(/　/g," ").trim().split(" ").pop()));
+  return(katakanaToHiragana((fname||"").replace(/　/g," ").trim().split(" ").pop()));
 }
 
 function decodeNamae(namae) {
