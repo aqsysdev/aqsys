@@ -48,6 +48,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     });
     console.log('entry5');
     for(var row of entrylist){
+      console.log("aqsysCoder.decodeRow:"+aqsysCoder.decodeRow);
       aqsysCoder.decodeRow(row);
     }
     console.log('entry6');
