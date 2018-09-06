@@ -6,7 +6,8 @@
 const Decimal = require('decimal');
 const knex = require('./knex'); // the connection!
 const table = 'entrylist';
-var config = {
+const aqsysCoder= require('aqsysCoder');
+let config = {
   };
 
 console.log("db/entry.js begin");
@@ -34,15 +35,19 @@ module.exports = {
   getConfig() {
     return(config);
   },
-  katakanaToHiragana,
-  hiraganaToKatakana,
-  calcAge,
-  decodeRow
+//  katakanaToHiragana,
+//  hiraganaToKatakana,
+//  calcAge,
+//  decodeRow
+  aqsysCoder.katakanaToHiragana,
+  aqsysCoder.hiraganaToKatakana,
+  aqsysCoder.calcAge,
+  aqsysCoder.decodeRow
 };
 
 
-var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-var sex={M:"男",F:"女"};
+const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const sex={M:"男",F:"女"};
 
 console.log("db/entry.js 1");
 /** カタカナをひらがなに変換する関数
@@ -176,6 +181,7 @@ function decodeRow(row) {
     row.cate = (row.cate&&config.cate[row.cate-1])?config.cate[row.cate-1]:"";
     row.wave = (row.wave || row.wave*1 != 0) ? ('00' + row.wave*1).slice(-2) : "";
     row.racenum = (row.racenum || row.racenum*1 != 0 )? ('000'+row.racenum*1).slice(-3) : "";
+
     if( row.DNF ) {
       row.ttime= "DNF";
     }else{

@@ -22,6 +22,7 @@ console.log("routes/entry begin");
 // include user functions
 var user = require('../db/user');
 var entry = require('../db/entry');
+//var aqsysCoder = require('aqsysCoder');
 
 // View Engine
 
