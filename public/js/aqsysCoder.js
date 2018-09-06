@@ -3,6 +3,7 @@
 // aqsys encoder and decoder
 //
 //
+
 ;(function (globalScope) {
   'user strict';
   //////////////////////////////////////////////////////////
@@ -10,6 +11,7 @@
   // 規定値設定
   //
   //////////////////////////////////////////////////////////
+  var Decimal = require("decimal.js");
   var Decode = {
         schemaname: 'aqsyssample',
         basedate: '2017/12/31',
@@ -53,7 +55,7 @@
       invalidArgument = decodeError + 'Invalid argument: ',
 
   //    precisionLimitExceeded = decodeError + 'Precision limit exceeded',
-  //    cryptoUnavailable = decimalError + 'crypto unavailable',
+  //    cryptoUnavailable = decodeError + 'crypto unavailable',
 
       isBinary = /^0b([01]+(\.[01]*)?|\.[01]+)(p[+-]?\d+)?$/i,
       isHex = /^0x([0-9a-f]+(\.[0-9a-f]*)?|\.[0-9a-f]+)(p[+-]?\d+)?$/i,
