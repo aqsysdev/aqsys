@@ -315,7 +315,7 @@
   }
 
   // Create and configure initial Decode constructor.
-  Decode = clone(Deccode);
+  Decode = clone(Decode);
 
   Decode['default'] = Decode.Decode = Decode;
   // Export.
