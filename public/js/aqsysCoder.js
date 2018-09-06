@@ -11,7 +11,7 @@
   // 規定値設定
   //
   //////////////////////////////////////////////////////////
-  var Decimal = require("decimal.js");
+  var Decimal = require("js/decimal.js");
   var Decode = {
         schemaname: 'aqsyssample',
         basedate: '2017/12/31',
