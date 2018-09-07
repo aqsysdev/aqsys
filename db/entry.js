@@ -321,6 +321,7 @@ function encodeRacenum(racenum) {
 }
 
 
+
 function decodeTtime(DNF,ttime) {
   if( DNF ) {
     return("DNF");
