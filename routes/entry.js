@@ -66,6 +66,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       row.cateList=cateList;
       return(row);
     });
+    console.log('entry7');
     res.render('entry',{
       entrylist: entrylist,
       gradeList: gradeList,
