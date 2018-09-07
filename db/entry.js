@@ -40,6 +40,10 @@ module.exports = {
   katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
+  formTime,
+  reformTime,
+  encodeTime,
+  decodePrize, encodePrize,
   decodeRow,
   decodeLname,
   decodeMyouji,
@@ -64,7 +68,7 @@ module.exports = {
   decodeConfirmation,
   decodeCate,
   decodeWave,
-  decodeRacenum,
+  decodeRacenum,  encodeRacenum,
   decodeTtime,
   decodePrize
 };
@@ -304,9 +308,18 @@ function decodeWave(wave) {
   return((wave || wave*1 != 0) ? ('00' + wave*1).slice(-2) : "");
 }
 
-function decodeRacenum(racenum) {
-  return((racenum || racenum*1 != 0 )? ('000'+racenum*1).slice(-3) : "");
+function encodeWave(wave) {
+  return((!wave || isNaN(wave) || wave==0 )? "" : ('00'+wave*1).slice(-2));
 }
+
+function decodeRacenum(racenum) {
+  return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
+}
+
+function encodeRacenum(racenum) {
+  return((!racenum || isNaN(racenum) || racenum*1==0 )? 0 : ('000'+racenum*1).slice(-3));
+}
+
 
 function decodeTtime(DNF,ttime) {
   if( DNF ) {

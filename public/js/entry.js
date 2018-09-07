@@ -126,9 +126,7 @@ $(function(){
       var that=this;
       $.put("/api/entry/"+id, {cate: cateNum},
       function(data,stat){
-        alert("put:"+JSON.stringify(data));
         $.get("/api/entry/"+id, data, function(data,stat) {
-          alert("get:"+JSON.stringify(data));
           if(data.cate===cateNum){
             $(that).parent().prev().removeClass("unconfirmed");
           }
@@ -149,16 +147,14 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
   $('.entry-race-num').on('change',function(req){
     $(this).addClass("unconfirmed");
-    var racenum=$(this).val();
-    racenum = (racenum || !isNaN(racenum) || racenum*1 != 0 )? ('000'+racenum*1).slice(-3) : "";
+    var racenum=encodeRacenum($(this).val());
     $(this).val(racenum);
     var id=$(this).attr("id").split('-')[2];
     var that=this;
     $.put("/api/entry/"+id, {racenum: racenum},
     function(data,stat){
       $.get("/api/entry/"+id, data, function(data,stat) {
-        var dataRacenum=(data.racenum || !isNaN(data.racenum) || data.racenum*1 != 0 )? ('000'+data.racenum*1).slice(-3) : "";
-        if(dataRacenum==racenum){
+        if(data.racenum==racenum){
           $(that).removeClass("unconfirmed");
         }
       },
@@ -169,16 +165,15 @@ $(function(){
     function(req,stat,err){
   //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
       $.get("/api/entry/"+id, data, function(data,stat) {
-        var dataRacenum=(data.racenum || !isNaN(data.racenum) || data.racenum*1 != 0 )? ('000'+data.racenum*1).slice(-3) : "";
-        if(dataRacenum==racenum){
+        if(data.racenum==racenum){
           $(that).removeClass("unconfirmed");
         }else{
-          $(that).val(('000'+data.racenum).slice(-3));
+          $(that).val(decodeRacenum(data.racenum);
         }
       },
       function(req,stat,err){
         $.get("/api/entry/"+id, data, function(data,stat) {
-          $(that).val(('000'+data.racenum).slice(-3));
+          $(that).val(decodeRacenum(data.racenum);
         },
         function(req,stat,err){
           $(that).val("");
@@ -195,7 +190,7 @@ $(function(){
 
   $('.entry-wave').on('change',function(req){
     $(this).addClass("unconfirmed");
-    var wave=('00'+$(this).val()).slice(-2);
+    var wave=encodeWave($(this).val());
     var id=$(this).attr("id").split('-')[2];
     var that=this;
     $.put("/api/entry/"+id, {wave: wave},
@@ -205,7 +200,7 @@ $(function(){
         if(data.wave===wave){
           $(that).removeClass("uconfirmed");
         }else{
-          $(that).val(('00'+data.wave).slice(-2));
+          $(that).val(decodeWave(data.wave));
         }
       },
       function(req,stat,err){
@@ -214,7 +209,7 @@ $(function(){
     },
     function(req,stat,err){
       $.get("/api/entry/"+id, data, function(data,stat) {
-        $(that).val(('00'+data.wave).slice(-2));
+        $(that).val(decodeWave(data.wave));
       },
       function(req,stat,err){
         $(that).val("");
@@ -635,4 +630,21 @@ function checkMail( mail ) {
     } else {
         return false;
     }
+}
+
+function decodeRacenum(racenum) {
+  return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
+}
+
+function encodeRacenum(racenum) {
+  return((!racenum || isNaN(racenum) || racenum*1==0 )? 0 : ('000'+racenum*1).slice(-3));
+}
+
+
+function decodeWave(wave) {
+  return((wave || wave*1 != 0) ? ('00' + wave*1).slice(-2) : "");
+}
+
+function encodeWave(wave) {
+  return((!wave || isNaN(wave) || wave==0 )? "" : ('00'+wave*1).slice(-2));
 }
