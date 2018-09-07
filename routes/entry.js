@@ -72,6 +72,5 @@ router.get('/', user.ensureAuthenticated, function(req, res){
   });
 });
 
-
 module.exports = router;
 console.log("routes/entry end");
