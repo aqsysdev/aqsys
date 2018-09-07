@@ -63,14 +63,14 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     });
 
     console.log('entry7');
-/*
+
     res.render('entry',{
       entrylist: entrylist,
       gradeList: gradeList,
       cateList: cateList
     });
 //    done();
-*/
+
   });
 });
 

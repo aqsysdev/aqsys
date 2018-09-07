@@ -11,6 +11,7 @@
 <hr>
 
 <div class="well table-responsive" width="100%">
+
   <table class="table table-condensed" id="entrylist">
     <thead>
       <tr align="center">
@@ -51,7 +52,6 @@
     <tbody id="entry-list-tbody">
     {{#each entrylist}}
       <tr valign="middle">
-      <!-- Button trigger modal -->
 
         <td align="center" class="hidden-xs">
           <button type="button" class="btn btn-default btn-xs edit-entrylist" data-toggle="modal" data-target="#formEditEntryModal" data-id="{{id}}" id="edit-entry-modal-{{id}}">
