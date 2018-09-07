@@ -62,10 +62,11 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       return({cNum:cNum+1,cateName:cate});
     });
 
-    entrylist=entrylist.map(function(row){
-      row.cateList=cateList;
-      return(row);
-    });
+//    entrylist=entrylist.map(function(row){
+//      row.cateList=cateList;
+//      return(row);
+//    });
+
     console.log('entry7');
     res.render('entry',{
       entrylist: entrylist,
