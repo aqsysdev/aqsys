@@ -4,14 +4,14 @@
 //
 //
 
-(function($) {
+(function(globalScope) {
   //////////////////////////////////////////////////////////
   //
   // 規定値設定
   //
   //////////////////////////////////////////////////////////
   var Decimal = require("../js/decimal.js");
-  var Decode = {
+  var aqsysCoder = {
         schemaname: 'aqsyssample',
         basedate: '2017/12/31',
         grades: [
@@ -61,8 +61,8 @@
       isOctal = /^0o([0-7]+(\.[0-7]*)?|\.[0-7]+)(p[+-]?\d+)?$/i,
       isDecimal = /^(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i;
 
-
-  $.fn.katakanaToHiragana = function (src) {
+  var P={};
+  P.katakanaToHiragana = function (src) {
     return src.replace(/[\u30a1-\u30f6]/g, function(match) {
       var chr = match.charCodeAt(0) - 0x60;
       return String.fromCharCode(chr);
@@ -74,7 +74,7 @@
   //   * @param {String} src - ひらがな
   //   * @returns {String} - カタカナ
   //
-  $.fn.hiraganaToKatakana = function (src) {
+  P.hiraganaToKatakana = function (src) {
   	return src.replace(/[\u3041-\u3096]/g, function(match) {
   		var chr = match.charCodeAt(0) + 0x60;
   		return String.fromCharCode(chr);
@@ -82,7 +82,7 @@
   };
 
 
-  $.fn.calcAge = function (birthdate, targetdate) {
+  P.calcAge = function (birthdate, targetdate) {
     	birthdate = birthdate.replace(/[/-]/g, "");
     	if (targetdate) {
     		targetdate = targetdate.replace(/[/-]/g, "");
@@ -93,7 +93,7 @@
     	return (Math.floor((targetdate - birthdate) / 10000));
   };
 
-  $.fn.formTime = function (ms) {
+  P.formTime = function (ms) {
       var milisec=new Decimal(ms);
       return(
         ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
@@ -103,7 +103,7 @@
       );
   };
 
-  $.fn.reformTime = function (ft) {
+  P.reformTime = function (ft) {
     if(ft){
       var ftime=ft.split(/[-:]/).reverse();
       var sec=parseInt(ftime[0]||0);
@@ -119,7 +119,7 @@
     }
   };
 
-  $.fn.encodeTime = function (time) {
+  P.encodeTime = function (time) {
     return(
       ("0000"+(time.getFullYear()||0)).slice(-4)+"/"+
       ("00" + (time.getMonth()+1)).slice(-2)+"/"+
@@ -132,7 +132,7 @@
   };
 
 
-  $.fn.decodePrize = function (prize) {
+  P.decodePrize = function (prize) {
     if( prize == null ) {
       return(null);
     }else if( prize=="" || isNaN(prize) || prize==0){
@@ -144,7 +144,7 @@
     }
   };
 
-  $.fn.encodePrize = function (prize) {
+  P.encodePrize = function (prize) {
     if(prize == null || prize == "") {
       return(0);
     }else if(!isNaN(prize) && prize>=0){
@@ -154,7 +154,7 @@
     }
   };
 
-  $.fn.decodeRow = function (row) {
+  P.decodeRow = function (row) {
   //    console.log("decodeRow:"+JSON.stringify(row));
   //    console.log("config:"+JSON.stringify(config));
       row.lname  = decodeLname(row.lname);
@@ -309,6 +309,60 @@
     }
   }
 
-})(jQuery);
+  /*
+   * Create and return a Decimal constructor with the same configuration properties as this Decimal
+   * constructor.
+   *
+   */
+  function clone(obj) {
+    var i, p, ps;
+
+    aqsysCoder.prototype = P;
+
+
+    aqsysCoder.config = config;
+    aqsysCoder.clone = clone;
+
+
+    globalScope.aqsysCoder = aqsysCoder;
+
+    // Create and configure initial Decimal constructor.
+    aqsysCoder = clone(aqsysCoder);
+
+    aqsysCoder['default'] = aqsysCoder.aqsysCoder = aqsysCoder;
+
+    // Export.
+
+
+    // AMD.
+    if (typeof define == 'function' && define.amd) {
+      define(function () {
+        return aqsysCoder;
+      });
+
+    // Node and other environments that support module.exports.
+    } else if (typeof module != 'undefined' && module.exports) {
+      module.exports = aqsysCoder;
+
+    // Browser.
+    } else {
+      if (!globalScope) {
+        globalScope = typeof self != 'undefined' && self && self.self == self
+          ? self : Function('return this')();
+      }
+
+      noConflict = globalScope.aqsysCoder;
+      aqsysCoder.noConflict = function () {
+        globalScope.aqsysCoder = noConflict;
+        return aqsysCoder;
+      };
+
+      globalScope.Decimal = aqsysCoder;
+    }
+
+
+  }
+
+})(this);
 
 // console.log("js/aqsysCoder.js end");
