@@ -24,7 +24,7 @@ var user = require('../db/user');
 var entry = require('../db/entry');
 var aqsysCoder = require('../public/js/aqsysCoder');
 
-console.log(JSON.stringify(aqsysCoder.config));
+console.log("aqsysCoder:"+JSON.stringify(aqsysCoder.config));
 // View Engine
 
 app.set('views', path.join(__dirname, 'views'));
