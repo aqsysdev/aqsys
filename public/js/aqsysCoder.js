@@ -57,7 +57,7 @@
       invalidArgument = aqsysDecodeError + 'Invalid argument: ',
       precisionLimitExceeded = aqsysDecodeError + 'Precision limit exceeded',
       cryptoUnavailable = aqsysDecodeError + 'crypto unavailable',
-      invalidArgument = aqsysDecodeError + 'Invalid argument: ',
+      invalidArgument = aqsysDecodeError + 'Invalid argument: ';
 
 
   var P={};
