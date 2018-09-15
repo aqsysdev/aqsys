@@ -150,66 +150,23 @@ $(function(){
     }
   });
 
-/*
-    $('.entry-race-num').off('change');
-    $('.entry-race-num').on('change',function(req){
-      var that=this;
-      var value=$(that).val();
-      $(that).removeClass("confirmed");
-    //  $(that)[0].disabled="disabled";
-      for(var current=$(that).parent();current.next().length>0;current=current.next()) {
-      }
-      var id=current.text();
-      $.put("/api/entry/"+id, {racenum: value},
-      function(data,stat){
-    //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-            $(that).val(('000'+data.racenum).slice(-3));
-          }else{
-            $(that).val("");
-          }
-        },
-        function(req,stat,err){
-          $(that).val("");
-        });
-      },
-      function(req,stat,err){
-    //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-            $(that).val(('000'+data.racenum).slice(-3));
-          }else{
-            $(that).val("");
-          }
-        },
-        function(req,stat,err){
-          $(that).val("");
-        });
-      });
-    });
-  });
 
-    $('.entry-wave').off('change');
-    $('.entry-wave').on('change',function(req){
+    ////////////////////////////////////////////////////////////////////
+    //
+    // レースナンバー変更
+    //
+    ////////////////////////////////////////////////////////////////////
+    $('.entry-race-num').on('change',function(req){
+      $(this).addClass("unconfirmed");
+      var racenum=encodeRacenum($(this).val());
+      $(this).val(racenum);
+      var id=$(this).attr("id").split('-')[2];
       var that=this;
-      var value=$(that).val();
-      $(that).removeClass("confirmed");
-    //  $(that)[0].disabled="disabled";
-      for(var current=$(that).parent();current.next().length>0;current=current.next()) {
-      }
-      var id=current.text();
-      $.put("/api/entry/"+id, {wave: value},
+      $.put("/api/entry/"+id, {racenum: racenum},
       function(data,stat){
-    //    $(that)[0].disabled=($('#btnEntryWaveEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-            $(that).val(('00'+data.wave).slice(-2));
-          }else{
-            $(that).val("");
+          if(data.racenum==racenum){
+            $(that).removeClass("unconfirmed");
           }
         },
         function(req,stat,err){
@@ -217,22 +174,59 @@ $(function(){
         });
       },
       function(req,stat,err){
+    //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
+        $.get("/api/entry/"+id, data, function(data,stat) {
+          if(data.racenum==racenum){
+            $(that).removeClass("unconfirmed");
+          }else{
+            $(that).val(decodeRacenum(data.racenum);
+          }
+        },
+        function(req,stat,err){
+          $.get("/api/entry/"+id, data, function(data,stat) {
+            $(that).val(decodeRacenum(data.racenum);
+          },
+          function(req,stat,err){
+            $(that).val("");
+          });
+        });
+      });
+    });
+
+    ////////////////////////////////////////////////////////////////////
+    //
+    // ウェーブ変更
+    //
+    ////////////////////////////////////////////////////////////////////
+
+    $('.entry-wave').on('change',function(req){
+      $(this).addClass("unconfirmed");
+      var wave=encodeWave($(this).val());
+      var id=$(this).attr("id").split('-')[2];
+      var that=this;
+      $.put("/api/entry/"+id, {wave: wave},
+      function(data,stat){
     //    $(that)[0].disabled=($('#btnEntryWaveEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-            $(that).val(('00'+data.wave).slice(-2));
+          if(data.wave===wave){
+            $(that).removeClass("uconfirmed");
           }else{
-            $(that).val("");
+            $(that).val(decodeWave(data.wave));
           }
+        },
+        function(req,stat,err){
+          $(that).val("");
+        });
+      },
+      function(req,stat,err){
+        $.get("/api/entry/"+id, data, function(data,stat) {
+          $(that).val(decodeWave(data.wave));
         },
         function(req,stat,err){
           $(that).val("");
         });
       });
     });
-  });
-*/
 
 
   // 誓約書ボタン
