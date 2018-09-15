@@ -309,6 +309,6 @@
     }
   }
 
-})(jQuery);
+})(this);
 
 // console.log("js/aqsysCoder.js end");
