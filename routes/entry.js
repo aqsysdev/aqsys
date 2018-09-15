@@ -24,7 +24,6 @@ var user = require('../db/user');
 var entry = require('../db/entry');
 var aqsysCoder = require('../public/js/aqsysCoder');
 
-console.log("aqsysCoder:"+JSON.stringify(aqsysCoder.config));
 // View Engine
 
 app.set('views', path.join(__dirname, 'views'));
@@ -42,6 +41,7 @@ console.log("routes/entry2");
 
 router.get('/', user.ensureAuthenticated, function(req, res){
   console.log('entry3');
+  console.log("aqsysCoder:"+JSON.stringify(aqsysCoder.config));
   entry.getAll().then( function(entrylist) {
     console.log('entry4');
     entrylist = entrylist.filter(function(row){
