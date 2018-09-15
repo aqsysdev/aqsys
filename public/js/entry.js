@@ -179,12 +179,12 @@ $(function(){
           if(data.racenum==racenum){
             $(that).removeClass("unconfirmed");
           }else{
-            $(that).val(decodeRacenum(data.racenum);
+            $(that).val(decodeRacenum(data.racenum));
           }
         },
         function(req,stat,err){
           $.get("/api/entry/"+id, data, function(data,stat) {
-            $(that).val(decodeRacenum(data.racenum);
+            $(that).val(decodeRacenum(data.racenum));
           },
           function(req,stat,err){
             $(that).val("");
