@@ -49,7 +49,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     });
     console.log('entry5');
     for(var row of entrylist){
-      aqsysCoder.decodeRow(row);
+      entry.decodeRow(row);
     }
     console.log('entry6');
 //    console.log(JSON.stringify(entry.getConfig().grades));
