@@ -392,7 +392,7 @@
 
   globalScope.aqsysCoder = aqsysCoder;
 
-    // Create and configure initial Decimal constructor.
+    // Create and configure initial aqsysCoder constructor.
   aqsysCoder = clone(aqsysCoder);
 
   aqsysCoder['default'] = aqsysCoder.aqsysCoder = aqsysCoder;
@@ -423,7 +423,7 @@
       return aqsysCoder;
     };
 
-    globalScope.Decimal = aqsysCoder;
+    globalScope.aqsysCoder = aqsysCoder;
   }
 
 })(this);
