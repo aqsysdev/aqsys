@@ -4,6 +4,8 @@
 //
 //
 
+
+
 (function(globalScope) {
   //////////////////////////////////////////////////////////
   //
@@ -50,16 +52,13 @@
   var inexact, noConflict, quadrant,
       external = true,
 
-      decodeError = '[DecodelError] ',
-      invalidArgument = decodeError + 'Invalid argument: ',
 
-  //    precisionLimitExceeded = decodeError + 'Precision limit exceeded',
-  //    cryptoUnavailable = decodeError + 'crypto unavailable',
+      aqsysDecodeError = '[aqssyDecodeError] ',
+      invalidArgument = aqsysDecodeError + 'Invalid argument: ',
+      precisionLimitExceeded = aqsysDecodeError + 'Precision limit exceeded',
+      cryptoUnavailable = aqsysDecodeError + 'crypto unavailable',
+      invalidArgument = aqsysDecodeError + 'Invalid argument: ',
 
-      isBinary = /^0b([01]+(\.[01]*)?|\.[01]+)(p[+-]?\d+)?$/i,
-      isHex = /^0x([0-9a-f]+(\.[0-9a-f]*)?|\.[0-9a-f]+)(p[+-]?\d+)?$/i,
-      isOctal = /^0o([0-7]+(\.[0-7]*)?|\.[0-7]+)(p[+-]?\d+)?$/i,
-      isDecimal = /^(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i;
 
   var P={};
   P.katakanaToHiragana = function (src) {
@@ -320,7 +319,7 @@
    *
    */
   function config(obj) {
-    if (!obj || typeof obj !== 'object') throw Error(decimalError + 'Object expected');
+    if (!obj || typeof obj !== 'object') throw Error(aqsysCoderError + 'Object expected');
     var i, p, v,
       ps = [
       ];
@@ -427,5 +426,6 @@
   }
 
 })(this);
+
 
 // console.log("js/aqsysCoder.js end");
