@@ -53,8 +53,8 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     console.log('entry6');
 //    console.log(JSON.stringify(entry.getConfig().grades));
 //    console.log(JSON.stringify(entry.getConfig().cate));
-    var grades=asysCoder.getConfig().grades;
-    var cate=asysCoder.getConfig().cate;
+    var grades=aqsysCoder.getConfig().grades;
+    var cate=aqsysCoder.getConfig().cate;
 
     var gradeList=grades.map(function(grade,gNum){
       return({gNum:gNum+1,gradeName:grade});
