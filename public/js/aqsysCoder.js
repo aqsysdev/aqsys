@@ -349,4 +349,4 @@ function decodeTtime(DNF,ttime) {
   }
 }
 
-console.log("db/aqsysDecode.js end");
+console.log("js/aqsysDecode.js end");
