@@ -309,6 +309,33 @@
     }
   }
 
+
+  /*
+   * Configure global settings for a Decimal constructor.
+   *
+   * `obj` is an object with one or more of the following properties,
+   *
+   *
+   * E.g. aqsysDecoder.config({ precision: 20, rounding: 4 })
+   *
+   */
+  function config(obj) {
+    if (!obj || typeof obj !== 'object') throw Error(decimalError + 'Object expected');
+    var i, p, v,
+      ps = [
+      ];
+
+    for (i = 0; i < ps.length; i += 3) {
+      if ((v = obj[p = ps[i]]) !== void 0) {
+        if (mathfloor(v) === v && v >= ps[i + 1] && v <= ps[i + 2]) this[p] = v;
+        else throw Error(invalidArgument + p + ': ' + v);
+      }
+    }
+    return this;
+  }
+
+
+
   /*
    * Create and return a Decimal constructor with the same configuration properties as this Decimal
    * constructor.
@@ -317,50 +344,86 @@
   function clone(obj) {
     var i, p, ps;
 
-    aqsysCoder.prototype = P;
+    /*
+     * The Decimal constructor and exported function.
+     * Return a new Decimal instance.
+     *
+     * v {number|string|Decimal} A numeric value.
+     *
+     */
+    function aqsysDecoder(v) {
+      var e, i, t,
+        x = this;
 
+      // Decimal called without new.
+      if (!(x instanceof aqsysDecoder)) return new aqsysDecoder(v);
 
-    aqsysCoder.config = config;
-    aqsysCoder.clone = clone;
+      // Retain a reference to this Decimal constructor, and shadow Decimal.prototype.constructor
+      // which points to Object.
+      x.constructor = aqsysDecoeer;
 
-
-    globalScope.aqsysCoder = aqsysCoder;
-
-    // Create and configure initial Decimal constructor.
-    aqsysCoder = clone(aqsysCoder);
-
-    aqsysCoder['default'] = aqsysCoder.aqsysCoder = aqsysCoder;
-
-    // Export.
-
-
-    // AMD.
-    if (typeof define == 'function' && define.amd) {
-      define(function () {
-        return aqsysCoder;
-      });
-
-    // Node and other environments that support module.exports.
-    } else if (typeof module != 'undefined' && module.exports) {
-      module.exports = aqsysCoder;
-
-    // Browser.
-    } else {
-      if (!globalScope) {
-        globalScope = typeof self != 'undefined' && self && self.self == self
-          ? self : Function('return this')();
+      // Duplicate.
+      if (v instanceof aqsysDecoder) {
+        x.s = v.s;
+        x.e = v.e;
+        x.d = (v = v.d) ? v.slice() : v;
+        return;
       }
 
-      noConflict = globalScope.aqsysCoder;
-      aqsysCoder.noConflict = function () {
-        globalScope.aqsysCoder = noConflict;
-        return aqsysCoder;
-      };
+      t = typeof v;
 
-      globalScope.Decimal = aqsysCoder;
+
+      return parseOther(x, v);
+    }
+    aqsysCoder.prototype = P;
+    aqsysCoder.config = config;
+    aqsysCoder.clone = clone;
+    if (obj === void 0) obj = {};
+    if (obj) {
+      ps = [];
+      for (i = 0; i < ps.length;) if (!obj.hasOwnProperty(p = ps[i++])) obj[p] = this[p];
     }
 
+    aqsysCoder.config(obj);
 
+    return aqsysCoder;
+  }
+
+
+  globalScope.aqsysCoder = aqsysCoder;
+
+    // Create and configure initial Decimal constructor.
+  aqsysCoder = clone(aqsysCoder);
+
+  aqsysCoder['default'] = aqsysCoder.aqsysCoder = aqsysCoder;
+
+  // Export.
+
+
+  // AMD.
+  if (typeof define == 'function' && define.amd) {
+    define(function () {
+      return aqsysCoder;
+    });
+
+  // Node and other environments that support module.exports.
+  } else if (typeof module != 'undefined' && module.exports) {
+    module.exports = aqsysCoder;
+
+  // Browser.
+  } else {
+    if (!globalScope) {
+      globalScope = typeof self != 'undefined' && self && self.self == self
+        ? self : Function('return this')();
+    }
+
+    noConflict = globalScope.aqsysCoder;
+    aqsysCoder.noConflict = function () {
+      globalScope.aqsysCoder = noConflict;
+      return aqsysCoder;
+    };
+
+    globalScope.Decimal = aqsysCoder;
   }
 
 })(this);
