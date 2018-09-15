@@ -4,6 +4,7 @@
 //
 //
 const knex = require('./knex'); // the connection!
+const table = 'entrylist';
 
 var config = {
   };
