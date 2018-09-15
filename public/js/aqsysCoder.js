@@ -47,7 +47,7 @@
 
     // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
 
-modules.exports = {
+module.exports = {
   setConfig(argconfig) {
 //    console.log("entry setConfig:"+JSON.stringify(argconfig));
     config = argconfig;
