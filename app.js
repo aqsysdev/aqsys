@@ -106,7 +106,7 @@ var dbRecord = require('./db/record');
 var dbEntry = require('./db/entry');
 var dbWaves = require('./db/waves');
 var dbUser = require('./db/user');
-var aqsysCoder = require('./js/aqsysCoder');
+var aqsysCoder = require('./public/js/aqsysCoder');
 
 var routes = require('./routes/index');
 var users  = require('./routes/users');
