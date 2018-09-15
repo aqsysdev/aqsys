@@ -41,7 +41,6 @@ console.log("routes/entry2");
 
 router.get('/', user.ensureAuthenticated, function(req, res){
   console.log('entry3');
-  console.log("aqsysCoder:"+JSON.stringify(aqsysCoder));
   entry.getAll().then( function(entrylist) {
     console.log('entry4');
     entrylist = entrylist.filter(function(row){

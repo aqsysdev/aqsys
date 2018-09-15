@@ -106,6 +106,7 @@ var dbRecord = require('./db/record');
 var dbEntry = require('./db/entry');
 var dbWaves = require('./db/waves');
 var dbUser = require('./db/user');
+var aqsysCoder = require('./js/aqsysCoder');
 
 var routes = require('./routes/index');
 var users  = require('./routes/users');
@@ -172,7 +173,7 @@ app.use(function (req, res, next) {
   };
 
   dbRecord.setConfig(config);
-  dbEntry.setConfig(config);
+  aqsysCoder.setConfig(config);
   dbWaves.setConfig(config);
   numbercards.setConfig(config);
 
