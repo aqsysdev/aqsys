@@ -315,11 +315,11 @@ function encodeWave(wave) {
 }
 
 function decodeRacenum(racenum) {
-//  return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
+  return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
 }
 
 function encodeRacenum(racenum) {
-//  return((!racenum || isNaN(racenum) || racenum*1==0 )? 0 : ('000'+racenum*1).slice(-3));
+  return((!racenum || isNaN(racenum) || racenum*1==0 )? 0 : ('000'+racenum*1).slice(-3));
 }
 
 function decodeTtime(DNF,ttime) {
