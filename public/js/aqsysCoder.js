@@ -4,6 +4,9 @@
 //
 //
 
+const table = 'entrylist';
+const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const sexList ={M:"男",F:"女"};
 
 
   //////////////////////////////////////////////////////////
