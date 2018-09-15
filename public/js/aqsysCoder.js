@@ -9,6 +9,7 @@ const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct",
 const sexList ={M:"男",F:"女"};
 
 
+
   //////////////////////////////////////////////////////////
   //
   // 規定値設定

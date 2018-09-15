@@ -3,11 +3,7 @@
 // エントリーリストデータベース CRUD
 //
 //
-const Decimal = require('decimal');
 const knex = require('./knex'); // the connection!
-const table = 'entrylist';
-const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const sexList ={M:"男",F:"女"};
 
 var config = {
   };
@@ -29,7 +25,12 @@ module.exports = {
   },
   delete(id) {
     return knex.withSchema(config.schemaname).from(table).where('id', id).del();
+  },
+  setConfig(argconfig) {
+//    console.log("entry setConfig:"+JSON.stringify(argconfig));
+    config = argconfig;
   }
+
 };
 
 

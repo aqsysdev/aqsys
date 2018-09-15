@@ -173,8 +173,9 @@ app.use(function (req, res, next) {
   };
 
   dbRecord.setConfig(config);
-  aqsysCoder.setConfig(config);
+  dbEntry.setConfig(config);
   dbWaves.setConfig(config);
+  aqsysCoder.setConfig(config);
   numbercards.setConfig(config);
 
   console.log("config.schemaname:"+config.schemaname);
