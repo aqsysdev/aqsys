@@ -249,7 +249,7 @@ $(function(){
         var that=this;
         var isChecked=$(that).prop("checked");
         $(that).removeClass("confirmed");
-        $(that).prop("disabled","true");
+//        $(that).prop("disabled","true");
         var id=$(this).attr("id").split('-')[2];
         $.put("/api/entry/"+id, {confirmation: isChecked},
         function(data,stat){
