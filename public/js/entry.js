@@ -204,6 +204,7 @@ $(function(){
       $(this).val(wave);
       var id=$(this).attr("id").split('-')[2];
       var that=this;
+      alert("put");
 
       $.put("/api/entry/"+id, {wave: wave},
       function(data,stat){
