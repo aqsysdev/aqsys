@@ -206,7 +206,7 @@ $(function(){
       $.put("/api/entry/"+id, {wave: wave},
       function(data,stat){
         $.get("/api/entry/"+id, data, function(data,stat) {
-          if(aqsysCoder.decodeWave(data.wave)===wave){
+          if(aqsysCoder.decodeWave(data.wave)==wave){
             $(that).removeClass("unconfirmed");
           }else{
             $(that).val(aqsysCoder.decodeWave(data.wave));
