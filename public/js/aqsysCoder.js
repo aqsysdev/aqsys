@@ -58,7 +58,7 @@ var aqsysCoder = {};
     // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
 
 
-aqsysCoder = module.exports = {
+module.exports = aqsysCoder = {
   config: config,
   setConfig(argconfig) {
 //    console.log("aqsysCoder setConfig:"+JSON.stringify(argconfig));
