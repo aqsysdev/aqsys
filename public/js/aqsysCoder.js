@@ -96,7 +96,9 @@ aqsysCoder = {
   decodeWave, encodeWave,
   decodeRacenum,  encodeRacenum,
   decodeTtime,
-  decodePrize
+  decodePrize,
+  checkMail,
+  checkDate
 };
 
 module.exports  = aqsysCoder;
@@ -353,6 +355,48 @@ function decodeTtime(DNF,ttime) {
     return(reformTime(ttime));
   }
 }
+
+
+function checkDate(datestr) {
+	// 正規表現による書式チェック
+	if(!datestr.match(/^\d{4}\/\d{2}\/\d{2}$/)){
+		return false;
+	}
+	var vYear = datestr.substr(0, 4) - 0;
+ 	// Javascriptは、0-11で表現
+	var vMonth = datestr.substr(5, 2) - 1;
+	var vDay = datestr.substr(8, 2) - 0;
+	// 月,日の妥当性チェック
+	if(vMonth >= 0 && vMonth <= 11 && vDay >= 1 && vDay <= 31){
+		var vDt = new Date(vYear, vMonth, vDay);
+		if(isNaN(vDt)){
+			return false;
+		}else if(vDt.getFullYear() == vYear
+		 && vDt.getMonth() == vMonth
+		 && vDt.getDate() == vDay){
+			return true;
+		}else{
+			return false;
+		}
+	}else{
+		return false;
+	}
+}
+
+function checkMail( mail ) {
+    var mail_regex1 = new RegExp( '(?:[-!#-\'*+/-9=?A-Z^-~]+\.?(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*|"(?:[!#-\[\]-~]|\\\\[\x09 -~])*")@[-!#-\'*+/-9=?A-Z^-~]+(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*' );
+    var mail_regex2 = new RegExp( '^[^\@]+\@[^\@]+$' );
+    if( mail.match( mail_regex1 ) && mail.match( mail_regex2 ) ) {
+        // 全角チェック
+        if( mail.match( /[^a-zA-Z0-9\!\"\#\$\%\&\'\(\)\=\~\|\-\^\\\@\[\;\:\]\,\.\/\\\<\>\?\_\`\{\+\*\} ]/ ) ) { return false; }
+        // 末尾TLDチェック（〜.co,jpなどの末尾ミスチェック用）
+        if( !mail.match( /\.[a-z]+$/ ) ) { return false; }
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 console.log("js/aqsysCoder.js end");
 
