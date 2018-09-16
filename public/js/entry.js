@@ -173,7 +173,6 @@ $(function(){
         });
       },
       function(req,stat,err){
-    //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(aqsysCoder.decodeRecenum(data.racenum)==racenum){
             $(that).removeClass("unconfirmed");
@@ -205,10 +204,9 @@ $(function(){
       var that=this;
       $.put("/api/entry/"+id, {wave: wave},
       function(data,stat){
-    //    $(that)[0].disabled=($('#btnEntryWaveEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.wave===wave){
-            $(that).removeClass("uconfirmed");
+          if(aqsysCoder.decodeWave(data.wave)===wave){
+            $(that).removeClass("unconfirmed");
           }else{
             $(that).val(aqsysCoder.decodeWave(data.wave));
           }
