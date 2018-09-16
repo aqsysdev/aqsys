@@ -253,7 +253,6 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     $('.entry-confirmation').on('click',function(req){
-      alert("clicked .entry-confirmation");
       var that=this;
       var isChecked=$(that).prop("checked");
       $(that).removeClass("confirmed");
@@ -287,29 +286,35 @@ $(function(){
       });
     });
 
-  // 受付ボタン
+    ////////////////////////////////////////////////////////////////////
+    //
+    // 受付編集可能ボタン
+    //
+    ////////////////////////////////////////////////////////////////////
+    $('#btnEntryRegistEditable').on('click',  function () {
+      var isChecked;
+      var btn;
+      var btns;
+      isChecked=$('#btnEntryRegistEditable').attr("aria-pressed") == "true" ? false : true;
+      btns=$(".entry-regist");
+      for(btn of btns) {
+        $(btn).prop("disabled",isChecked);
+      }
+    });
 
-  $(document).on('click', '#btnEntryRegistEditable', function () {
-    var isChecked;
-    var btn;
-    var btns;
-    isChecked=$('#btnEntryRegistEditable').attr("aria-pressed") == "true" ? false : true;
-    btns=$(".entry-regist");
-    for(btn of btns) {
-      $(btn).prop("disabled",isChecked);
-    }
-    $('.entry-regist').off('click');
+    ////////////////////////////////////////////////////////////////////
+    //
+    // 受付ボタン
+    //
+    ////////////////////////////////////////////////////////////////////
+
     $('.entry-regist').on('click',function(req){
       var that=this;
       var isChecked=$(that).prop("checked");
       $(that).removeClass("confirmed");
-      $(that).prop("disabled","true");
-      for(var current=$(that).parent().parent();current.next().length>0;current=current.next()) {
-      }
-      var id=current.text();
+      var id=$(this).attr("id").split('-')[2];
       $.put("/api/entry/"+id, {regist: isChecked},
       function(data,stat){
-        $(that).prop("disabled",($('#btnEntryRegistEditable').attr("aria-pressed") == "true" ? "false" : "true"));
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
             $(that).addClass("confirmed");
@@ -323,7 +328,6 @@ $(function(){
         });
       },
       function(req,stat,err){
-        $(that)[0].disabled=($('#btnEntryRegistEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
             $(that).addClass("confirmed");
@@ -337,54 +341,58 @@ $(function(){
         });
       });
     });
-  });
 
-  // 召集ボタン
+    ////////////////////////////////////////////////////////////////////
+    //
+    // 召集編集可能ボタン
+    //
+    ////////////////////////////////////////////////////////////////////
 
-  $(document).on('click', function () {
-    var isChecked;
-    var btn;
-    var btns;
-    isChecked=$('#btnEntryStartEditable').attr("aria-pressed") == "true" ? false : "disabled";
-    btns=$(".entry-start");
-    for(btn of btns) {
-      btn.disabled=isChecked;
-    }
+    $('#btnEntryStartEditable').on('click', function () {
+      var isChecked;
+      var btn;
+      var btns;
+      isChecked=$('#btnEntryStartEditable').attr("aria-pressed") == "true" ? false : "disabled";
+      btns=$(".entry-start");
+      for(btn of btns) {
+        btn.disabled=isChecked;
+      }
+    });
 
-    $('.entry-start').off('click');
+    ////////////////////////////////////////////////////////////////////
+    //
+    // 召集編集可能ボタン
+    //
+    ////////////////////////////////////////////////////////////////////
     $('.entry-start').on('click',function(req){
       var that=this;
-      var isChecked=$(that)[0].checked;
+      var isChecked=$(that).prop("checked");
       $(that).removeClass("confirmed");
-      $(that)[0].disabled="disabled";
-      for(var current=$(that).parent().parent();current.next().length>0;current=current.next()) {
-      }
-      var id=current.text();
+      var id=$(this).attr("id").split('-')[2];
       $.put("/api/entry/"+id, {start: isChecked},
       function(data,stat){
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
             $(that).addClass("confirmed");
-            $(that)[0].checked=data.start;
+            $(that).prop("checked",data.start);
           }else{
-            $(that)[0].checked=true;
+            $(that).prop("checked",true);
           }
         },
         function(req,stat,err){
         });
       },
       function(req,stat,err){
-        $(that)[0].disabled=($('#btnEntryStartEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
             $(that).addClass("confirmed");
-            $(that)[0].checked=data.start;
+            $(that).prop("checked".data.start);
           }else{
-            $(that)[0].checked=true;
+            $(that).prop("checked",true);
           }
         },
         function(req,stat,err){
-          $(that)[0].checked=true;
+          $(that).prop("checked",true);
         });
       });
     });
