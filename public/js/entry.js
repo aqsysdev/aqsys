@@ -498,37 +498,48 @@ function postEntryByModalForm() {
     err=err+"みょうじを入れてください。\n";
   }
   row.fname  = ($("#modal-fname").val()+"").trim();
+  alert(row.fname);
   if(!row.fname) {
     err=err+"なまえを入れてください。\n";
   }
   row.myouji = ($("#modal-myouji").val()+"").trim();
+  alert(row.myouji);
   if(!row.myouji) {
     err=err+"苗字を入れてください。\n";
   }
   row.namae  = ($("#modal-namae").val()+"").trim();
+  alert(row.namae);
   if(!row.namae) {
     err=err+"名前を入れてください。\n";
   }
   row.birthday = ($("#modal-birthday").val()+"").trim();
+  alert(row.birthday);
   if(!aqsysCoder.checkDate(row.birthday)) {
     err=err+"誕生日は YYYY/MM/DD の形式で入れてください。\n";
   }
   row.sex = $("#modal-sex").text();
+  alert(row.sex);
+
   row.sex = Object.keys(sex).filter(function(key){return(sex[key] === row.sex);})[0];
+  alert(row.sex);
   if( row.sex != "M" && row.sex != "F"){
     err=err+"性別を入れてください。\n";
   }
   row.grade = $("#modal-grade").text();
+  alert(row.grade);
   if( (row.grede == "" || row.grade == "-") && aqsysCoder.calcAge(row.birthday, null)<15){
     err=err+"学年を入力してください。\n";
   }
   row.grade = grades.indexOf(row.grade);
+  alert(row.grade);
   row.zip1 = ($("#modal-zip").val().split("-")[0]||"").trim();
+  alert(row.zip1);
   row.zip2 = ($("#modal-zip").val().split("-")[1]||"").trim();
   if(!row.zip1 || row.zip1=="000" ||  !row.zip2 ) {
     err=err+"郵便番号は 123-4567 の形式で入れてください。\n";
   }
   row.address1 = $("#modal-address1").val().trim();
+  alert(row.address1);
   row.address2 = $("#modal-address2").val().trim();
   if(!row.address1 ) {
     err=err+"住所を入れてください。\n";
