@@ -234,11 +234,11 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
 
-    $(document).on('click', '#btnEntryConfirmationEditable', function () {
+    $('#btnEntryConfirmationEditable').on('click',  function () {
       var isChecked;
       var btn;
       var btns;
-      isChecked=$('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? false : true;
+      isChecked=$('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? true : false;
       btns=$(".entry-confirmation");
       for(btn of btns) {
         $(btn).prop("disabled",isChecked);
@@ -295,7 +295,7 @@ $(function(){
       var isChecked;
       var btn;
       var btns;
-      isChecked=$('#btnEntryRegistEditable').attr("aria-pressed") == "true" ? false : true;
+      isChecked=$('#btnEntryRegistEditable').attr("aria-pressed") == "true" ? true : false;
       btns=$(".entry-regist");
       for(btn of btns) {
         $(btn).prop("disabled",isChecked);
@@ -352,10 +352,10 @@ $(function(){
       var isChecked;
       var btn;
       var btns;
-      isChecked=$('#btnEntryStartEditable').attr("aria-pressed") == "true" ? false : "disabled";
+      isChecked=$('#btnEntryStartEditable').attr("aria-pressed") == "true" ? true : false;
       btns=$(".entry-start");
       for(btn of btns) {
-        btn.disabled=isChecked;
+        $(btn).prop("disabled",isChecked);
       }
     });
 
