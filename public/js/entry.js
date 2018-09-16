@@ -462,12 +462,12 @@ $(function(){
         if(window.confirm('エントリーを削除しますか？この操作は取り消せません。')){
           $.put("/api/entry/"+id, {disabled: true},
           function(data,stat){
-            alert("レースナンバー:"+(("#entry-racenum-"+id).text()||"？")+"のエントリーを削除しました。");
+            alert("レースナンバー:"+($("#entry-racenum-"+id).text()||"？")+"のエントリーを削除しました。");
             $('#entry-race-num-'+id).parent().parent().addClass("hidden");
             location.reload();
           },
           function(){
-            alert("レースナンバー:"+(("#entry-racenum-"+id).text()||"？")+"のエントリーの削除に失敗しました。");
+            alert("レースナンバー:"+($("#entry-racenum-"+id).text()||"？")+"のエントリーの削除に失敗しました。");
           　location.reload();
           });
         }
