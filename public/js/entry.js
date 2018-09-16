@@ -163,10 +163,8 @@ $(function(){
       var that=this;
       $.put("/api/entry/"+id, {racenum: racenum},
       function(data,stat){
-        alert("put /api/entry/"+id+"("+racenum+")");
         $.get("/api/entry/"+id, data, function(data,stat) {
-          alert("get /api/entry/"+id+":"+data.racenum+"=="+racenum);
-          if(data.racenum==racenum){
+          if(aqsysCoder.decodeRacenum(data.racenum)==racenum){
             $(that).removeClass("unconfirmed");
           }
         },
@@ -177,7 +175,6 @@ $(function(){
       function(req,stat,err){
     //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
-          alert("get /api/entry/"+id+":"+aqsysCoder.decodeRacenum(data.racenum)+"=="+racenum);
           if(aqsysCoder.decodeRecenum(data.racenum)==racenum){
             $(that).removeClass("unconfirmed");
           }else{
