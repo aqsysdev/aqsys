@@ -7,9 +7,6 @@
 
 $(function(){
 
-  alert("public/entry.js begin");
-  alert("aqsysCoder:"+JSON.stringify(aqsysCoder));
-
   $("#entrylist").DataTable(
     {
       lengthMenu: [ 10, 20, 50, 100, 500 ],
@@ -161,7 +158,6 @@ $(function(){
     $('.entry-race-num').on('change',function(req){
       $(this).addClass("unconfirmed");
       var racenum=aqsysCoder.encodeRacenum($(this).val());
-      alert("racenum:"+racenum);
       $(this).val(racenum);
       var id=$(this).attr("id").split('-')[2];
       var that=this;
