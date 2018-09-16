@@ -7,7 +7,8 @@
 
 $(function(){
 
-  //alert("public/entry.js begin");
+  alert("public/entry.js begin");
+  alert("aqsysCoder:"+aqsysCoder);
 
   $("#entrylist").DataTable(
     {
