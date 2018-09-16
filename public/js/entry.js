@@ -198,6 +198,7 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     $('.entry-wave').on('change',function(req){
+      alert("change wave");
       $(this).addClass("unconfirmed");
       var wave=aqsysCoder.encodeWave($(this).val());
       $(this).val(wave);
@@ -206,6 +207,8 @@ $(function(){
       $.put("/api/entry/"+id, {wave: wave},
       function(data,stat){
         $.get("/api/entry/"+id, data, function(data,stat) {
+          alert(aqsysCoder.decodeWave(data.wave));
+          alert(wave);
           if(aqsysCoder.decodeWave(data.wave)==wave){
             $(that).removeClass("unconfirmed");
           }else{
