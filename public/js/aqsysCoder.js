@@ -4,6 +4,10 @@
 //
 //
 
+var aqsysCoder = (typeof module === 'undefined') ? module.exports : {};
+
+
+(function() {
 
 const table = 'entrylist';
 const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -17,7 +21,7 @@ const sexList ={M:"男",F:"女"};
   //
   //////////////////////////////////////////////////////////
 
-  var Decimal = require("../js/decimal.js");
+  var Decimal = (typeof require === 'undefined') ? Decimal : require("../js/decimal.js");
   var config = {
         schemaname: 'aqsyssample',
         basedate: '2017/12/31',
@@ -53,7 +57,7 @@ const sexList ={M:"男",F:"女"};
 
     // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
 
-module.exports = {
+aqsysCoder = {
   setConfig(argconfig) {
 //    console.log("entry setConfig:"+JSON.stringify(argconfig));
     config = argconfig;
@@ -98,9 +102,6 @@ module.exports = {
 };
 
 
-
-var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-var sex={M:"男",F:"女"};
 
 console.log("db/entry.js 1");
 /** カタカナをひらがなに変換する関数
@@ -356,3 +357,5 @@ function decodeTtime(DNF,ttime) {
 }
 
 console.log("js/aqsysDecode.js end");
+
+}());
