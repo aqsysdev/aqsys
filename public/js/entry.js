@@ -491,6 +491,7 @@ $('#formEditEntryModal').on('hide.bs.modal', function (event) {
 });
 
 function postEntryByModalForm() {
+  alert("postEntryByModalForm()");
   var row={};
   var err="";
   var id=$("#formAddEntryModalLabel").text().split(":")[1]*1;
