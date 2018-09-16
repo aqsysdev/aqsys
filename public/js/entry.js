@@ -520,7 +520,7 @@ function postEntryByModalForm() {
   row.sex = $("#modal-sex").text();
   alert(row.sex);
 
-  row.sex = Object.keys(sex).filter(function(key){return(sex[key] === row.sex);})[0];
+  row.sex = Object.keys(aqsysCoder.config.sex).filter(function(key){return(aqsysCoder.config.sex[key] === row.sex);})[0];
   alert(row.sex);
   if( row.sex != "M" && row.sex != "F"){
     err=err+"性別を入れてください。\n";
@@ -530,7 +530,7 @@ function postEntryByModalForm() {
   if( (row.grede == "" || row.grade == "-") && aqsysCoder.calcAge(row.birthday, null)<15){
     err=err+"学年を入力してください。\n";
   }
-  row.grade = grades.indexOf(row.grade);
+  row.grade = aqsysCoder.config.grades.indexOf(row.grade);
   alert(row.grade);
   row.zip1 = ($("#modal-zip").val().split("-")[0]||"").trim();
   alert(row.zip1);
