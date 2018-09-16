@@ -158,7 +158,7 @@ $(function(){
     $('.entry-race-num').on('change',function(req){
       $(this).addClass("unconfirmed");
       var racenum=aqsysCoder.encodeRacenum($(this).val());
-      $(this).val(racenum);
+      $(this).val(aqsysCoder.decodeRacenum(racenum));
       var id=$(this).attr("id").split('-')[2];
       var that=this;
       $.put("/api/entry/"+id, {racenum: racenum},
@@ -198,23 +198,15 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     $('.entry-wave').on('change',function(req){
-      alert("change wave");
       $(this).addClass("unconfirmed");
       var wave=aqsysCoder.encodeWave($(this).val());
-      alert("put");
-      $(this).val(wave);
-      alert("put");
+      $(this).val(aqsysCoder.decodeWave(wave));
       var id=$(this).attr("id").split('-')[2];
-      alert("put");
       var that=this;
-      alert("put");
-
       $.put("/api/entry/"+id, {wave: wave},
       function(data,stat){
-        alert("put");
         $.get("/api/entry/"+id, data, function(data,stat) {
           alert(aqsysCoder.decodeWave(data.wave));
-          alert(wave);
           if(aqsysCoder.decodeWave(data.wave)==wave){
             $(that).removeClass("unconfirmed");
           }else{
