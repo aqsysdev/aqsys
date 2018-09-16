@@ -163,6 +163,7 @@ $(function(){
       var that=this;
       $.put("/api/entry/"+id, {racenum: racenum},
       function(data,stat){
+        alert("put /api/entry/"+id+"("+racenum+")");
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.racenum==racenum){
             $(that).removeClass("unconfirmed");
