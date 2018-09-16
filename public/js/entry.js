@@ -233,7 +233,8 @@ $(function(){
     //
     ////////////////////////////////////////////////////////////////////
 
-    $("#btnEntryConfirmationEditable").on('click', function () {
+
+    $(document).on('click', '#btnEntryConfirmationEditable', function () {
       var isChecked;
       var btn;
       var btns;
@@ -283,7 +284,7 @@ $(function(){
 
   // 受付ボタン
 
-  $(document).on('click', function () {
+  $(document).on('click', '#btnEntryRegistEditable', function () {
     var isChecked;
     var btn;
     var btns;
