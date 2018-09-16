@@ -62,8 +62,10 @@ console.log("config:"+JSON.stringify(config));
 aqsysCoder = module.exports = {
   config: config,
   setConfig(argconfig) {
-//    console.log("entry setConfig:"+JSON.stringify(argconfig));
-    config = argconfig;
+//    console.log("aqsysCoder setConfig:"+JSON.stringify(argconfig));
+    for(var name in argconfig) {
+      config[name]=argconfig[name];
+    }
   } ,
   getConfig() {
     return(config);
@@ -106,7 +108,7 @@ aqsysCoder = module.exports = {
 
 
 
-console.log("db/entry.js 1");
+console.log("js/aqsysCoder.js 1");
 /** カタカナをひらがなに変換する関数
  * @param {String} src - カタカナ
  * @returns {String} - ひらがな
