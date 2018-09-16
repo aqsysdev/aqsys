@@ -57,7 +57,7 @@ var aqsysCoder = {};
     // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
 
 
-aqsysCoder = module.exports  = {
+aqsysCoder = {
   config: config,
   setConfig(argconfig) {
 //    console.log("aqsysCoder setConfig:"+JSON.stringify(argconfig));
@@ -104,7 +104,7 @@ aqsysCoder = module.exports  = {
   decodePrize
 };
 
-
+module.exports  = aqsysCoder;
 
 console.log("js/aqsysCoder.js 1");
 /** カタカナをひらがなに変換する関数
