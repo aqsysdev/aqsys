@@ -260,7 +260,6 @@ $(function(){
       var id=$(this).attr("id").split('-')[2];
       $.put("/api/entry/"+id, {confirmation: isChecked},
       function(data,stat){
-        $(that).prop("disabled",($('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? "false" : "true"));
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
             $(that).addClass("confirmed");
@@ -274,7 +273,6 @@ $(function(){
         });
       },
       function(req,stat,err){
-        $(that)[0].disabled=($('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
             $(that).addClass("confirmed");
