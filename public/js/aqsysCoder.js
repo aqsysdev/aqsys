@@ -9,9 +9,9 @@ var aqsysCoder = (typeof module === 'undefined') ? module.exports : {};
 
 (function() {
 
-const table = 'entrylist';
-const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const sexList ={M:"男",F:"女"};
+//const table = 'entrylist';
+//const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+//const sexList ={M:"男",F:"女"};
 
 
 
@@ -58,6 +58,7 @@ const sexList ={M:"男",F:"女"};
     // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
 
 aqsysCoder = {
+  config: config,
   setConfig(argconfig) {
 //    console.log("entry setConfig:"+JSON.stringify(argconfig));
     config = argconfig;
@@ -254,7 +255,7 @@ function decodeBirthday(argBirthday) {
   var birthday = argBirthday.toString().split(" ");
   return(
     ('0000'+birthday[3]).slice(-4)+"/"+
-    ('00'+(monthsArray.indexOf(birthday[1],0)+1)).slice(-2)+"/"+
+    ('00'+(aqsysCoder.months.indexOf(birthday[1],0)+1)).slice(-2)+"/"+
     ('00'+birthday[2]).slice(-2)
   );
 }
@@ -264,7 +265,7 @@ function decodeGrade(grade,birthday) {
 }
 
 function decodeSex(sex) {
-  return(sexList[(sex||"M")] || sexList.M );
+  return(aqsysCoder.sex[(sex||"M")] || aqsysCoder.sex.M );
 }
 
 function decodeZip1(zip1) {
@@ -307,13 +308,13 @@ function decodeBirthday2(argBirthday2) {
   var birthday2 = (argBirthday2||"").toString().split(" ");
   return(
     argBirthday2 && ('0000'+birthday2[3]).slice(-4)+"/"+
-    ('00'+(monthsArray.indexOf(birthday2[1],0)+1)).slice(-2)+"/"+
+    ('00'+(aqsysCoder.months.indexOf(birthday2[1],0)+1)).slice(-2)+"/"+
     ('00'+birthday2[2]).slice(-2)
   );
 }
 
 function decodeSex2(sex2) {
-  return(sex2 && sexList[(sex2||"M")]);
+  return(sex2 && aqsysCoder.sex[(sex2||"M")]);
 }
 
 function decodeRegist(regist) {
@@ -356,6 +357,6 @@ function decodeTtime(DNF,ttime) {
   }
 }
 
-console.log("js/aqsysDecode.js end");
+console.log("js/aqsysCoder.js end");
 
 }());
