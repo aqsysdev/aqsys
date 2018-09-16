@@ -201,8 +201,11 @@ $(function(){
       alert("change wave");
       $(this).addClass("unconfirmed");
       var wave=aqsysCoder.encodeWave($(this).val());
+      alert("put");
       $(this).val(wave);
+      alert("put");
       var id=$(this).attr("id").split('-')[2];
+      alert("put");
       var that=this;
       alert("put");
 
