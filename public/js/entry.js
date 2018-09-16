@@ -206,7 +206,6 @@ $(function(){
       $.put("/api/entry/"+id, {wave: wave},
       function(data,stat){
         $.get("/api/entry/"+id, data, function(data,stat) {
-          alert(aqsysCoder.decodeWave(data.wave));
           if(aqsysCoder.decodeWave(data.wave)==wave){
             $(that).removeClass("unconfirmed");
           }else{
@@ -228,57 +227,59 @@ $(function(){
     });
 
 
-  // 誓約書ボタン
+    ////////////////////////////////////////////////////////////////////
+    //
+    //   誓約書ボタン
+    //
+    ////////////////////////////////////////////////////////////////////
 
-  $(document).on('click', function () {
-    var isChecked;
-    var btn;
-    var btns;
-    isChecked=$('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? false : true;
-    btns=$(".entry-confirmation");
-    for(btn of btns) {
-      $(btn).prop("disabled",isChecked);
-    }
-    $('.entry-confirmation').off('click');
-    $('.entry-confirmation').on('click',function(req){
-      var that=this;
-      var isChecked=$(that).prop("checked");
-      $(that).removeClass("confirmed");
-      $(that).prop("disabled","true");
-      for(var current=$(that).parent().parent();current.next().length>0;current=current.next()) {
+    $("#btnEntryConfirmationEditable").on('click', function () {
+      var isChecked;
+      var btn;
+      var btns;
+      isChecked=$('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? false : true;
+      btns=$(".entry-confirmation");
+      for(btn of btns) {
+        $(btn).prop("disabled",isChecked);
       }
-      var id=current.text();
-      $.put("/api/entry/"+id, {confirmation: isChecked},
-      function(data,stat){
-        $(that).prop("disabled",($('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? "false" : "true"));
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-            $(that).prop("checked",data.confirmation);
-          }else{
+      $('.entry-confirmation').off('click');
+      $('.entry-confirmation').on('click',function(req){
+        var that=this;
+        var isChecked=$(that).prop("checked");
+        $(that).removeClass("confirmed");
+        $(that).prop("disabled","true");
+        var id=$(this).attr("id").split('-')[2];
+        $.put("/api/entry/"+id, {confirmation: isChecked},
+        function(data,stat){
+          $(that).prop("disabled",($('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? "false" : "true"));
+          $.get("/api/entry/"+id, data, function(data,stat) {
+            if(data.id==id){
+              $(that).addClass("confirmed");
+              $(that).prop("checked",data.confirmation);
+            }else{
+              $(that).prop("checked",true);
+            }
+          },
+          function(req,stat,err){
             $(that).prop("checked",true);
-          }
+          });
         },
         function(req,stat,err){
-          $(that).prop("checked",true);
-        });
-      },
-      function(req,stat,err){
-        $(that)[0].disabled=($('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? false : "disabled");
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(data.id==id){
-            $(that).addClass("confirmed");
-            $(that).prop("checked".data.confirmation);
-          }else{
+          $(that)[0].disabled=($('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? false : "disabled");
+          $.get("/api/entry/"+id, data, function(data,stat) {
+            if(data.id==id){
+              $(that).addClass("confirmed");
+              $(that).prop("checked".data.confirmation);
+            }else{
+              $(that).prop("checked",true);
+            }
+          },
+          function(req,stat,err){
             $(that).prop("checked",true);
-          }
-        },
-        function(req,stat,err){
-          $(that).prop("checked",true);
+          });
         });
       });
     });
-  });
 
   // 受付ボタン
 
