@@ -4,7 +4,7 @@
 //
 //
 
-var aqsysCoder = (typeof module === 'undefined') ? module.exports : {};
+var aqsysCoder = {};
 
 
 (function() {
@@ -57,7 +57,7 @@ var aqsysCoder = (typeof module === 'undefined') ? module.exports : {};
 
     // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
 
-aqsysCoder = {
+module.exports = {
   config: config,
   setConfig(argconfig) {
 //    console.log("entry setConfig:"+JSON.stringify(argconfig));
