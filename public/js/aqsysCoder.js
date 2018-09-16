@@ -4,8 +4,7 @@
 //
 //
 
-var aqsysCoder = {};
-
+var aqsysCoder = modele.exports;
 
 (function() {
 
@@ -58,7 +57,7 @@ var aqsysCoder = {};
     // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
 
 
-module.exports = aqsysCoder = {
+module.exports  = {
   config: config,
   setConfig(argconfig) {
 //    console.log("aqsysCoder setConfig:"+JSON.stringify(argconfig));
