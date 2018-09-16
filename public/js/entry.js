@@ -287,6 +287,7 @@ $(function(){
           $(that).prop("checked",true);
         });
       });
+      $(btn).prop("disabled",false);
     });
 
   // 受付ボタン
