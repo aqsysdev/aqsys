@@ -4,7 +4,7 @@
 //
 //
 
-var aqsysCoder = modele.exports;
+var aqsysCoder = module.exports;
 
 (function() {
 
