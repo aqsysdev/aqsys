@@ -4,8 +4,9 @@
 //
 //
 
+var aqsysCoder = {};
 
-function aqsysCoderFunc() {
+$(function() {
 
 //const table = 'entrylist';
 //const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -56,7 +57,7 @@ function aqsysCoderFunc() {
     // ----------------------------------- END OF EDITABLE DEFAULTS ------------------------------- //
 
 
-var aqsysCoder = module.exports  = {
+aqsysCoder = module.exports  = {
   config: config,
   setConfig(argconfig) {
 //    console.log("aqsysCoder setConfig:"+JSON.stringify(argconfig));
@@ -359,8 +360,5 @@ function decodeTtime(DNF,ttime) {
 }
 
 console.log("js/aqsysCoder.js end");
-return(aqsysCoder);
 
-}
-
-var aqsysCoder = aqsysCoderFunc();
+});
