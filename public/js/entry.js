@@ -491,7 +491,9 @@ function postEntryByModalForm() {
   var row={};
   var err="";
   var id=$("#formAddEntryModalLabel").text().split(":")[1]*1;
+  alert("lname");
   row.lname  = ($("#modal-lname").val()+"").trim();
+  alert(row.lname);
   if(!row.lname) {
     err=err+"みょうじを入れてください。\n";
   }
