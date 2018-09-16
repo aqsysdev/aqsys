@@ -245,6 +245,7 @@ $(function(){
       }
       $('.entry-confirmation').off('click');
       $('.entry-confirmation').on('click',function(req){
+        alert("clicked .entry-confirmation");
         var that=this;
         var isChecked=$(that).prop("checked");
         $(that).removeClass("confirmed");
