@@ -38,6 +38,7 @@
     "passport-local": "^1.0.0",
     "pg": "^6.4.2",
     "quagga": "^0.12.1",
+    "requirejs": "^2.3.6",
     "serve-favicon": "^2.4.3",
     "utf-8-validate": "3.0.3",
     "ws": "3.2.0"
