@@ -159,7 +159,7 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
     $('.entry-race-num').on('change',function(req){
       $(this).addClass("unconfirmed");
-      var racenum=encodeRacenum($(this).val());
+      var racenum=aqsysCoder.encodeRacenum($(this).val());
       $(this).val(racenum);
       var id=$(this).attr("id").split('-')[2];
       var that=this;
@@ -180,12 +180,12 @@ $(function(){
           if(data.racenum==racenum){
             $(that).removeClass("unconfirmed");
           }else{
-            $(that).val(decodeRacenum(data.racenum));
+            $(that).val(aqsysCoder.decodeRacenum(data.racenum));
           }
         },
         function(req,stat,err){
           $.get("/api/entry/"+id, data, function(data,stat) {
-            $(that).val(decodeRacenum(data.racenum));
+            $(that).val(aqsysCoder.decodeRacenum(data.racenum));
           },
           function(req,stat,err){
             $(that).val("");
@@ -202,7 +202,7 @@ $(function(){
 
     $('.entry-wave').on('change',function(req){
       $(this).addClass("unconfirmed");
-      var wave=encodeWave($(this).val());
+      var wave=aqsysCoder.encodeWave($(this).val());
       var id=$(this).attr("id").split('-')[2];
       var that=this;
       $.put("/api/entry/"+id, {wave: wave},
@@ -212,7 +212,7 @@ $(function(){
           if(data.wave===wave){
             $(that).removeClass("uconfirmed");
           }else{
-            $(that).val(decodeWave(data.wave));
+            $(that).val(aqsysCoder.decodeWave(data.wave));
           }
         },
         function(req,stat,err){
@@ -221,7 +221,7 @@ $(function(){
       },
       function(req,stat,err){
         $.get("/api/entry/"+id, data, function(data,stat) {
-          $(that).val(decodeWave(data.wave));
+          $(that).val(aqsysCoder.decodeWave(data.wave));
         },
         function(req,stat,err){
           $(that).val("");
