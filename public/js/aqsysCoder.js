@@ -336,7 +336,7 @@ function decodeCate(cate) {
 }
 
 function decodeWave(wave) {
-  return((wave || wave*1 != 0) ? ('00' + wave*1).slice(-2) : "");
+  return((!wave || isNaN(wave) || wave*1 == 0 )? "" : ('00'+wave*1).slice(-2));
 }
 
 function encodeWave(wave) {
