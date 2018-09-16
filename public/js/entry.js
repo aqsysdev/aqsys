@@ -252,7 +252,7 @@ $(function(){
     //
     ////////////////////////////////////////////////////////////////////
 
-    $(document).on('click','.entry-confirmation',function(req){
+    $('.entry-confirmation').on('click',function(req){
       alert("clicked .entry-confirmation");
       var that=this;
       var isChecked=$(that).prop("checked");
@@ -287,7 +287,6 @@ $(function(){
           $(that).prop("checked",true);
         });
       });
-      $(btn).prop("disabled",false);
     });
 
   // 受付ボタン
