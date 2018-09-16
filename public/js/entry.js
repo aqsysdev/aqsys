@@ -177,7 +177,7 @@ $(function(){
       function(req,stat,err){
     //    $(that)[0].disabled=($('#btnEntryRaceNumEditable').attr("aria-pressed") == "true" ? false : "disabled");
         $.get("/api/entry/"+id, data, function(data,stat) {
-          alert("get /api/entry/"+id+":"+JSON.stringify(data));
+          alert("get /api/entry/"+id+":"+data.racenum+"=="+nacenum);
           if(aqsysCoder.decodeRecenum(data.racenum)==racenum){
             $(that).removeClass("unconfirmed");
           }else{
