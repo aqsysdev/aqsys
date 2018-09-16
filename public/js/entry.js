@@ -204,8 +204,10 @@ $(function(){
       $(this).val(wave);
       var id=$(this).attr("id").split('-')[2];
       var that=this;
+
       $.put("/api/entry/"+id, {wave: wave},
       function(data,stat){
+        alert("put");
         $.get("/api/entry/"+id, data, function(data,stat) {
           alert(aqsysCoder.decodeWave(data.wave));
           alert(wave);

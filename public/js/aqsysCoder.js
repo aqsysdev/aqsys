@@ -98,7 +98,7 @@ aqsysCoder = {
   decodeStart,
   decodeConfirmation,
   decodeCate,
-  decodeWave,
+  decodeWave, encodeWave,
   decodeRacenum,  encodeRacenum,
   decodeTtime,
   decodePrize
@@ -340,7 +340,7 @@ function decodeWave(wave) {
 }
 
 function encodeWave(wave) {
-  return((!wave || isNaN(wave) || wave==0 )? "" : ('00'+wave*1).slice(-2));
+  return((!wave || isNaN(wave) || wave*1==0 )? "0" : ('00'+wave*1).slice(-2));
 }
 
 function decodeRacenum(racenum) {
