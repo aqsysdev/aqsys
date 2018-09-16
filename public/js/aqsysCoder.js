@@ -6,7 +6,7 @@
 
 var aqsysCoder = {};
 
-$(function() {
+(function() {
 
 //const table = 'entrylist';
 //const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -361,4 +361,4 @@ function decodeTtime(DNF,ttime) {
 
 console.log("js/aqsysCoder.js end");
 
-});
+}());
