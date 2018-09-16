@@ -494,8 +494,11 @@ function postEntryByModalForm() {
   alert("postEntryByModalForm()");
   var row={};
   var err="";
+  alert("postEntryByModalForm()");
   var id=$("#formAddEntryModalLabel").text().split(":")[1]*1;
+  alert("postEntryByModalForm()");
   row.lname  = ($("#modal-lname").val()+"").trim();
+  alert("postEntryByModalForm()");
   if(!row.lname) {
     err=err+"みょうじを入れてください。\n";
   }
