@@ -165,6 +165,7 @@ $(function(){
       function(data,stat){
         alert("put /api/entry/"+id+"("+racenum+")");
         $.get("/api/entry/"+id, data, function(data,stat) {
+          alert("get /api/entry/"+id+":"+JSON.stringify(data));
           if(data.racenum==racenum){
             $(that).removeClass("unconfirmed");
           }
