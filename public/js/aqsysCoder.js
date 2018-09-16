@@ -4,7 +4,8 @@
 //
 //
 
-var aqsysCoder = (function() {
+
+var aqsysDecodeFunc = (function() {
 
 //const table = 'entrylist';
 //const monthsArray =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -105,7 +106,6 @@ var aqsysCoder = module.exports  = {
 
 
 console.log("js/aqsysCoder.js 1");
-alert("js/aqsysCoder.js 1");
 /** カタカナをひらがなに変換する関数
  * @param {String} src - カタカナ
  * @returns {String} - ひらがな
@@ -359,7 +359,8 @@ function decodeTtime(DNF,ttime) {
 }
 
 console.log("js/aqsysCoder.js end");
-alert("js/aqsysCoder.js end");
 return(aqsysCoder);
 
 }());
+
+var aqsysCoder = aqsysCoderFunc();
