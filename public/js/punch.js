@@ -27,7 +27,7 @@ $(function() {
       ws.onerror = function (event) {
         location.reload();
       };
-      
+
     }
   }
   openWebSocket();
@@ -38,6 +38,10 @@ $(function() {
       $(this).bind('keyup', zen2han(this));
   });
   $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
+
+  $(".page-header").addClass("hidden");
+  $("#page-header-"+tnum).removeClass("hidden");
+
 });
 
 var zen2han = function(e) {
