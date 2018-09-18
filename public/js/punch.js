@@ -44,22 +44,22 @@ $(function() {
   setInterval(showCurrentTime,1000);
   showCurrentTime();
 
-
-  function zen2han(e) {
-    var v, old = e.value;
-    return function(){
-        if( old != ( v = e.value ) ){
-            old = v;
-            var str = $(this).val();
-            str = str.replace( /[Ａ-Ｚａ-ｚ０-９－！”＃＄％＆’（）＝＜＞，．？＿［］｛｝＠＾～￥]/g, function(s) {
-                return String.fromCharCode(s.charCodeAt(0) - 65248);
-            });
-            $(this).val(str);
-        }
-    };
-  }
-
 });
+
+
+function zen2han(e) {
+  var v, old = e.value;
+  return function(){
+      if( old != ( v = e.value ) ){
+          old = v;
+          var str = $(this).val();
+          str = str.replace( /[Ａ-Ｚａ-ｚ０-９－！”＃＄％＆’（）＝＜＞，．？＿［］｛｝＠＾～￥]/g, function(s) {
+              return String.fromCharCode(s.charCodeAt(0) - 65248);
+          });
+          $(this).val(str);
+      }
+  };
+}
 
 function initRecordList(event) {
 }
