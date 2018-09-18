@@ -46,8 +46,7 @@ $(function() {
 
 
   function showCurrentTime() {
-    alert(encodeTime(new Date())+"-"+$("#currentTime").html());
-    $("#currentTime").val(encodeTime(new Date()));
+    $("#currentTime").html(encodeTime(new Date()));
   }
 
   function zen2han(e) {
