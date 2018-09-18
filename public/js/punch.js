@@ -118,7 +118,7 @@ function addPunch(event) {
   var tr;
   var td;
   if(data.type=="punch") {
-    if(data.seqnum>table.length()-2) {
+    if(data.seqnum>table.length()-3) {
       $(table).append(
         "<tr id='record'>"+
           "<td style='width:40px' align='center' class='seqnum' id='seqnum-"+data.seqnum+"'>"+data.seqnum+"</td>"+
