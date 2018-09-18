@@ -79,7 +79,7 @@ function punchConnect(tnum) {
 }
 
 function punchTime(tnum) {
-//  alert("punchTime");
+ alert("punchTime");
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
   var seqnum=$("#recordlist > tbody").children().length-2;
