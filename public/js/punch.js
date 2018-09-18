@@ -122,17 +122,17 @@ function addPunch(event) {
       $(table).append(
         "<tr id='record'>"+
           "<td style='width:40px' align='center' class='seqnum' id='seqnum-"+data.seqnum+"'>"+data.seqnum+"</td>"+
-          "<td style='width:80px' align='center' class='recenum' id='racenum-"+data.seqnum+"'>"+data.racenum+"</td>"+
-          "<td style='width:100px' align='center' class='ftime' id='ftime-"+data.seqnum+"'>"+data.ftime+"</td>"+
+          "<td style='width:80px' align='center' class='recenum' id='racenum-"+data.seqnum+"'></td>"+
+          "<td style='width:100px' align='center' class='ftime' id='ftime-"+data.seqnum+"'></td>"+
         "</tr>");
       $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
-    }else{
-      if(parseInt(data.tnum/2,10)*2-data.tnum){
-        $("#racenum-"+data.seqnum).html(data.racenum);
-      }else{
-        $("#ftime-"+data.seqnum).html(data.ftime);
-      }
     }
+    if(parseInt(data.tnum/2,10)*2-data.tnum){
+      $("#racenum-"+data.seqnum).html(data.racenum);
+    }else{
+      $("#ftime-"+data.seqnum).html(data.ftime);
+    }
+
   }else if(data.type=="punchBreath") {
   }
 }
