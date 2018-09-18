@@ -127,12 +127,13 @@ function addPunch(event) {
         "</tr>");
       $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
     }
+    /*
     if(parseInt(data.tnum/2,10)*2-data.tnum){
       $("#racenum-"+data.seqnum).html(data.racenum);
     }else{
       $("#ftime-"+data.seqnum).html(data.ftime);
     }
-
+*/
   }else if(data.type=="punchBreath") {
   }
 }
