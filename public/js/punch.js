@@ -41,7 +41,7 @@ $(function() {
 
   $(".page-header").addClass("hidden");
   $("#page-header-"+tnum).removeClass("hidden");
-  setInterval('showCurrentTime()',1000);
+  setInterval(showCurrentTime,1000);
   showCurrentTime();
 
 
