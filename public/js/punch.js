@@ -170,6 +170,5 @@ function decodeRacenum(racenum) {
 
 
 function showCurrentTime() {
-  alert("showCurrentTime");
   $('#currentTime').val(encodeTime(new Date()));
 }
