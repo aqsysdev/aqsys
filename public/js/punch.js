@@ -169,7 +169,7 @@ function punchTime(tnum) {
 
 
   function showCurrentTime() {
-
+    $('#currentTime').val(encodeTime(new Date()));
   }
 
 });
