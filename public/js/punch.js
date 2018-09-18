@@ -46,6 +46,7 @@ $(function() {
 
 
   function showCurrentTime() {
+    alert(encodeTime(new Date())+"-"+$("#currentTime").val());
     $("#currentTime").val(encodeTime(new Date()));
   }
 
