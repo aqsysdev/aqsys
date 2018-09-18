@@ -45,10 +45,6 @@ $(function() {
   showCurrentTime();
 
 
-  function showCurrentTime() {
-    $("#currentTime").html(encodeTime(new Date()));
-  }
-
   function zen2han(e) {
     var v, old = e.value;
     return function(){
@@ -171,4 +167,8 @@ function reformTime(ft) {
 
 function decodeRacenum(racenum) {
   return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
+}
+
+function showCurrentTime() {
+  $("#currentTime").html(encodeTime(new Date()));
 }
