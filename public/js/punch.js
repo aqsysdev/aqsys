@@ -58,6 +58,7 @@ $(function() {
         }
     };
   }
+});
 
 function initRecordList(event) {
 }
@@ -96,81 +97,79 @@ function punchTime(tnum) {
       racenum: racenum,
       ftime: ftime
   })); // サーバへ送信
-  }
+}
 
-  function punchBreath(tnum) {
-  //  alert("punchBreath");
-    var msg = $("#message").val(); //取得
-    var data = {
-      type: "punchBreath",
-      tnum: tnum
-    };
-    ws.send(JSON.stringify(data)); // サーバへ送信
-  //  alert("end");
-  }
-
-  //jqueryでメッセージを追加
-  function addPunch(event) {
-    var data=JSON.parse(event.data);
-    var table=$("#recordlist");
-    var tr;
-    var td;
-    if(data.type=="punch") {
-      $(table).append(
-        "<tr id='record'>"+
-          "<td class='seqnum'>"+data.seqnum+"</td>"+
-          "<td class='recenum'>"+data.racenum+"</td>"+
-          "<td class='ftime'>"+data.ftime+"</td>"+
-        "</tr>");
-      $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
-    }else if(data.type=="punchBreath") {
-    }
-  }
-  //alert("websocket end");
-
-  function encodeTime(time) {
-    return(
-      ("00" + (time.getHours()||0)).slice(-2)+":"+
-      ("00" + (time.getMinutes()||0)).slice(-2)+":"+
-      ("00" + (time.getSeconds()||0)).slice(-2)+"."+
-      ("00" + (time.getTime()||0)).slice(-2)
-    );
+function punchBreath(tnum) {
+//  alert("punchBreath");
+  var msg = $("#message").val(); //取得
+  var data = {
+    type: "punchBreath",
+    tnum: tnum
   };
+  ws.send(JSON.stringify(data)); // サーバへ送信
+//  alert("end");
+}
 
-  function formTime(ms) {
-      var milisec=new Decimal(ms);
-      return(
-        ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
-        ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
-        ("00"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
-        ("00"+parseInt(milisec%100,0)).slice(-2)
-      );
+//jqueryでメッセージを追加
+function addPunch(event) {
+  var data=JSON.parse(event.data);
+  var table=$("#recordlist");
+  var tr;
+  var td;
+  if(data.type=="punch") {
+    $(table).append(
+      "<tr id='record'>"+
+        "<td class='seqnum'>"+data.seqnum+"</td>"+
+        "<td class='recenum'>"+data.racenum+"</td>"+
+        "<td class='ftime'>"+data.ftime+"</td>"+
+      "</tr>");
+    $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
+  }else if(data.type=="punchBreath") {
   }
+}
+//alert("websocket end");
 
-  function reformTime(ft) {
-    if(ft){
-      var ftime=ft.split(/[-:]/).reverse();
-      var sec=parseInt(ftime[0]||0);
-      var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
-      return(
-        ("00"+(ftime[2]||0)).slice(-2)+":"+
-        ("00"+(ftime[1]||0)).slice(-2)+":"+
-        ("00"+(sec||0)).slice(-2)+"."+
-        ("00"+(parseInt((milisec||0),0))).slice(-2)
-      );
-    } else {
-      return(ft);
-    }
+function encodeTime(time) {
+  return(
+    ("00" + (time.getHours()||0)).slice(-2)+":"+
+    ("00" + (time.getMinutes()||0)).slice(-2)+":"+
+    ("00" + (time.getSeconds()||0)).slice(-2)+"."+
+    ("00" + (time.getTime()||0)).slice(-2)
+  );
+};
+
+function formTime(ms) {
+    var milisec=new Decimal(ms);
+    return(
+      ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
+      ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
+      ("00"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
+      ("00"+parseInt(milisec%100,0)).slice(-2)
+    );
+}
+
+function reformTime(ft) {
+  if(ft){
+    var ftime=ft.split(/[-:]/).reverse();
+    var sec=parseInt(ftime[0]||0);
+    var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
+    return(
+      ("00"+(ftime[2]||0)).slice(-2)+":"+
+      ("00"+(ftime[1]||0)).slice(-2)+":"+
+      ("00"+(sec||0)).slice(-2)+"."+
+      ("00"+(parseInt((milisec||0),0))).slice(-2)
+    );
+  } else {
+    return(ft);
   }
+}
 
-  function decodeRacenum(racenum) {
-    return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
-  }
+function decodeRacenum(racenum) {
+  return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
+}
 
 
-  function showCurrentTime() {
-    alert("showCurrentTime");
-    $('#currentTime').val(encodeTime(new Date()));
-  }
-
-});
+function showCurrentTime() {
+  alert("showCurrentTime");
+  $('#currentTime').val(encodeTime(new Date()));
+}
