@@ -118,8 +118,7 @@ function addPunch(event) {
   var tr;
   var td;
   if(data.type=="punch") {
-    alert($("#seqnum-"+data.seqnum));
-    if($("#seqnum-"+data.seqnum)) {
+    if($("#seqnum-"+data.seqnum).length==0) {
       $(table).append(
         "<tr id='record'>"+
           "<td style='width:40px' align='center' class='seqnum' id='seqnum-"+data.seqnum+"'>"+data.seqnum+"</td>"+
@@ -128,13 +127,11 @@ function addPunch(event) {
         "</tr>");
       $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
     }
-    /*
     if(parseInt(data.tnum/2,10)*2-data.tnum){
       $("#racenum-"+data.seqnum).html(data.racenum);
     }else{
       $("#ftime-"+data.seqnum).html(data.ftime);
     }
-*/
   }else if(data.type=="punchBreath") {
   }
 }
