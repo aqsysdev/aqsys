@@ -229,7 +229,7 @@ wss.on('connection', (ws, req) => {
       ws.tnum = data.tnum ;
     }else if(data.type=="punch") {
       wss.clients.forEach((client) => {
-        if(client.tnum==data.tnum) {
+        if(int(client.tnum/2)==int(data.tnum/2)) {
           client.send(JSON.stringify(data));
         }
       });
