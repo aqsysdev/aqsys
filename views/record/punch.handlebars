@@ -26,9 +26,9 @@
   {{#each recordlist}}
     {{#if seqnum}}
     <tr class='record'>
-      <td style="width:40px" align="center" class='seqnum'>{{seqnum}}</td>
-      <td style="width:80px" align="center" class='racenum'>{{racenum}}</td>
-      <td style="width:100px" align="center" class='ftime'>{{ftime}}</td>
+      <td style="width:40px" align="center" class='seqnum' id="seqnum-"{{seqnum}}>{{seqnum}}</td>
+      <td style="width:80px" align="center" class='racenum' id="racenum-"{{seqnum}}>{{racenum}}</td>
+      <td style="width:100px" align="center" class='ftime' id="ftime-"{{seqnum}}>{{ftime}}</td>
     </tr>
     {{else}}
     <tr id="startTime">
