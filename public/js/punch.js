@@ -118,8 +118,8 @@ function addPunch(event) {
   var tr;
   var td;
   if(data.type=="punch") {
-    alert($("#seqnum-"+data.seqnum).length());
-    if($("#seqnum-"+data.seqnum).length()==0) {
+    alert($("#seqnum-"+data.seqnum));
+    if($("#seqnum-"+data.seqnum)) {
       $(table).append(
         "<tr id='record'>"+
           "<td style='width:40px' align='center' class='seqnum' id='seqnum-"+data.seqnum+"'>"+data.seqnum+"</td>"+
@@ -147,7 +147,7 @@ function encodeTime(time) {
     ("00" + (time.getSeconds()||0)).slice(-2)+"."+
     ("00" + (time.getTime()||0)).slice(-2)
   );
-};
+}
 
 function formTime(ms) {
     var milisec=new Decimal(ms);
