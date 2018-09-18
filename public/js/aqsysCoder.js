@@ -68,6 +68,7 @@ aqsysCoder = {
   calcAge,
   formTime,
   reformTime,
+  encodeDateTime,
   encodeTime,
   decodePrize, encodePrize,
   decodeRow,
@@ -166,11 +167,20 @@ function reformTime(ft) {
   }
 }
 
-function encodeTime(time) {
+function encodeDateTime(time) {
   return(
     ("0000"+(time.getFullYear()||0)).slice(-4)+"/"+
     ("00" + (time.getMonth()+1)).slice(-2)+"/"+
     ("00" + (time.getDate()||0)).slice(-2)+" "+
+    ("00" + (time.getHours()||0)).slice(-2)+":"+
+    ("00" + (time.getMinutes()||0)).slice(-2)+":"+
+    ("00" + (time.getSeconds()||0)).slice(-2)+"."+
+    ("00" + (time.getTime()||0)).slice(-2)
+  );
+}
+
+function encodeTime(time) {
+  return(
     ("00" + (time.getHours()||0)).slice(-2)+":"+
     ("00" + (time.getMinutes()||0)).slice(-2)+":"+
     ("00" + (time.getSeconds()||0)).slice(-2)+"."+
