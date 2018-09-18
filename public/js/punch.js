@@ -119,9 +119,9 @@ function addPunch(event) {
   if(data.type=="punch") {
     $(table).append(
       "<tr id='record'>"+
-        "<td class='seqnum'>"+data.seqnum+"</td>"+
-        "<td class='recenum'>"+data.racenum+"</td>"+
-        "<td class='ftime'>"+data.ftime+"</td>"+
+        "<td style="width:40px" align="center" class='seqnum'>"+data.seqnum+"</td>"+
+        "<td style="width:40px" align="center" class='recenum'>"+data.racenum+"</td>"+
+        "<td style="width:40px" align="center" class='ftime'>"+data.ftime+"</td>"+
       "</tr>");
     $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
   }else if(data.type=="punchBreath") {
