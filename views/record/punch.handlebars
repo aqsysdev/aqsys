@@ -17,9 +17,9 @@
   {{#each recordlist}}
     {{#if seqnum}}
     <tr class='record'>
-      <td class='seqnum'>{{seqnum}}</td>
-      <td class='racenum'>{{racenum}}</td>
-      <td class='ftime'>{{ftime}}</td>
+      <td style="width:40px" class='seqnum'>{{seqnum}}</td>
+      <td style="width:200px" class='racenum'>{{racenum}}</td>
+      <td style="width:200px" class='ftime'>{{ftime}}</td>
     </tr>
     {{else}}
     <tr>
@@ -34,6 +34,13 @@
     </tr>
     {{/if}}
   {{/each }}
+</table>
+<table>
+  <tr>
+    <td style="width:40px" ></td>
+    <td style="width:200px" ></td>
+    <td style="width:200px" id='currentTime'></td>
+  </tr>
 </table>
 </div>
  <form action="" method="put" onsubmit="return false;">
