@@ -158,10 +158,11 @@ app.use(function (req, res, next) {
   res.locals.cateString=res.locals.cate.join(",");
 
   console.log("setConfig begin");
-  console.log("res.locals.grades:"+res.locals.grades);
-  console.log("res.locals.gradesString:"+res.locals.gradesString);
-  console.log("res.locals.cate:"+res.locals.cate);
-  console.log("res.locals.cateString:"+res.locals.cateString);
+//  console.log("res.locals.grades:"+res.locals.grades);
+//  console.log("res.locals.gradesString:"+res.locals.gradesString);
+//  console.log("res.locals.cate:"+res.locals.cate);
+//  console.log("res.locals.cateString:"+res.locals.cateString);
+  console.log("res.locals.basedate:"+res.locals.basedate);
   var config={
     schemaname: res.locals.schemaname,
     basedate: res.locals.basedate,
