@@ -85,8 +85,8 @@ function punchTime(tnum) {
   var ftime = encodeTime(new Date());
   var seqnum = 1;
 
-  for(var elem of $( "#recordlist > tbody").children()) {
-    alert(elem.val());
+  for(var elem of $( "#recordlist > tbody").children("td")) {
+    alert(elem.html());
     if(elem.html()=="") {
       ++seqnum;
       break;
