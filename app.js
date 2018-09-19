@@ -164,6 +164,7 @@ app.use(function (req, res, next) {
   var config={
     schemaname: res.locals.schemaname,
     basedate: res.locals.basedate,
+    email: res.locals.email,
     numbercardheader: res.locals.numbercardheader,
     numbercardfooter: res.locals.numbercardfooter,
     grades: res.locals.grades,
