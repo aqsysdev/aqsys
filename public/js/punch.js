@@ -81,16 +81,12 @@ function punchConnect(tnum) {
 }
 
 function punchTime(tnum) {
-
- alert("punchTime");
-
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
   var seqnum = 1;
 
   for(var elem of $( "#recordlist > tbody").children()) {
-    alert(elem);
-
+    alert(elem.html());
     if(elem.html()=="") {
       ++seqnum;
       break;
