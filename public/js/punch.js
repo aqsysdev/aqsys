@@ -86,7 +86,7 @@ function punchTime(tnum) {
   var seqnum = 1;
 
   if(tnum-parseInt(tnum/2,10)*2){
-    for(var elem of $( "#recordlist > tbody").children(".racenum")) {
+    for(var elem of $( "#recordlist.racenum")) {
       alert(elem.html());
       if(elem.html()=="") {
         break;
@@ -95,7 +95,7 @@ function punchTime(tnum) {
       }
     }
   }else{
-    for(var elem of $( "#recordlist > tbody").children(".ftime")) {
+    for(var elem of $( "#recordlist.ftime")) {
       alert(elem.html());
       if(elem.html()=="") {
         break;
