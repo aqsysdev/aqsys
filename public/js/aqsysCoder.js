@@ -55,13 +55,14 @@ var aqsysCoder = {};
 aqsysCoder = {
   config: config,
   setConfig(argconfig) {
-//    console.log("aqsysCoder setConfig:"+JSON.stringify(argconfig));
+    console.log("aqsysCoder setConfig:"+JSON.stringify(argconfig));
     for(var name in argconfig) {
-      config[name]=argconfig[name];
+      aqsysCoder.config[name]=argconfig[name];
     }
   } ,
   getConfig() {
-    return(config);
+    console.log("aqsysCoder getConfig:"+JSON.stringify(argconfig));
+    return(aqsysCoder.config);
   },
   katakanaToHiragana,
   hiraganaToKatakana,
