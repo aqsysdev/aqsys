@@ -86,23 +86,23 @@ function punchTime(tnum) {
   var seqnum = 1;
   alert(tnum-parseInt(tnum/2,10)*2,10);
   if(tnum-parseInt(tnum/2,10)*2,10){
-    for(var elem of $( "#recordlist").find(".racenum")) {
-      alert(elem.text());
+    $( "#recordlist").find(".racenum").each( function(index,elem) {
+      alert(elem.val());
       if(elem=="") {
         break;
       }else{
         ++seqnum;
       }
-    }
+    });
   }else{
-    for(var elem of $( "#recordlist").find(".ftime")) {
-      alert(elem.text());
+    $( "#recordlist").find(".ftime").each( function(index,elem) {
+      alert(elem.val());
       if(elem=="") {
         break;
       }else{
         ++seqnum;
       }
-    }
+    });
   }
   alert(seqnum);
   $.post("/api/record/"+tnum,
