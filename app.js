@@ -162,6 +162,7 @@ app.use(function (req, res, next) {
 //  console.log("res.locals.gradesString:"+res.locals.gradesString);
 //  console.log("res.locals.cate:"+res.locals.cate);
 //  console.log("res.locals.cateString:"+res.locals.cateString);
+  console.log("req.user.basedate:"+(req.user && req.user.basedate));
   console.log("res.locals.basedate:"+res.locals.basedate);
   var config={
     schemaname: res.locals.schemaname,
