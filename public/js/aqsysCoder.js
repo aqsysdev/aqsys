@@ -264,17 +264,17 @@ function decodeBirthday(argBirthday) {
   var birthday = argBirthday.toString().split(" ");
   return(
     ('0000'+birthday[3]).slice(-4)+"/"+
-    ('00'+(config.months.indexOf(birthday[1],0)+1)).slice(-2)+"/"+
+    ('00'+(aqsysCoder.config.months.indexOf(birthday[1],0)+1)).slice(-2)+"/"+
     ('00'+birthday[2]).slice(-2)
   );
 }
 
 function decodeGrade(grade,birthday) {
-  return((grade && config.grades[grade-1]) ? config.grades[grade-1] : calcAge(birthday, config.basedate)+ "才");
+  return((grade && aqsysCoder.config.grades[grade-1]) ? aqsysCoder.config.grades[grade-1] : calcAge(birthday, aqsysCoder.config.basedate)+ "才");
 }
 
 function decodeSex(sex) {
-  return(config.sex[(sex||"M")] || config.sex.M );
+  return(aqsysCoder.config.sex[(sex||"M")] || aqsysCoder.config.sex.M );
 }
 
 function decodeZip1(zip1) {
@@ -317,13 +317,13 @@ function decodeBirthday2(argBirthday2) {
   var birthday2 = (argBirthday2||"").toString().split(" ");
   return(
     argBirthday2 && ('0000'+birthday2[3]).slice(-4)+"/"+
-    ('00'+(config.months.indexOf(birthday2[1],0)+1)).slice(-2)+"/"+
+    ('00'+(aqsysCoder.config.months.indexOf(birthday2[1],0)+1)).slice(-2)+"/"+
     ('00'+birthday2[2]).slice(-2)
   );
 }
 
 function decodeSex2(sex2) {
-  return(sex2 && config.sex[(sex2||"M")]);
+  return(sex2 && aqsysCoder.config.sex[(sex2||"M")]);
 }
 
 function decodeRegist(regist) {
@@ -339,7 +339,7 @@ function decodeConfirmation( confirmation ) {
 }
 
 function decodeCate(cate) {
-  return((cate&&config.cate[cate-1])?config.cate[cate-1]:"");
+  return((cate&&aqsysCoder.config.cate[cate-1])?aqsysCoder.config.cate[cate-1]:"");
 }
 
 function decodeWave(wave) {
