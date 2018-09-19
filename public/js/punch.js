@@ -85,14 +85,23 @@ function punchTime(tnum) {
   var ftime = encodeTime(new Date());
   var seqnum = 1;
 
-  for(var elem of $( "#recordlist > tbody").children("td")) {
-    alert(elem.html());
-    if(elem.html()=="") {
-      ++seqnum;
-      break;
+  if(tnum-parseInt(tnum/2,10)*2){
+    for(var elem of $( "#recordlist > tbody").children(".racenum")) {
+      if(elem.html()=="") {
+        ++seqnum;
+      }else{
+        break;
+      }
+    }
+  }else{
+    for(var elem of $( "#recordlist > tbody").children(".ftime")) {
+      if(elem.html()=="") {
+        ++seqnum;
+      }else{
+        break;
+      }
     }
   }
-
   alert(seqnum);
   $.post("/api/record/"+tnum,
   {
