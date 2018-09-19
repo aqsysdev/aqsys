@@ -139,6 +139,7 @@ app.use(function (req, res, next) {
     user: (req.user && req.user.username) || null,
     schemaname: (req.user && req.user.schemaname) || null,
     basedate: (req.user && req.user.basedate) || dbUser.getConfig().basedate,
+    email: (req.user && req.user.email) || dbUser.getConfig().email,
     numbercardheader: (req.user && req.user.numbercardheader) || dbUser.getConfig().numbercardheader || "",
     numbercardfooter: (req.user && req.user.numbercardfooter) || dbUser.getConfig().numbercardfooter || "",
     grades: (req.user && req.user.grades) || [],
