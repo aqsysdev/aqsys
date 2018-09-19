@@ -61,7 +61,7 @@ aqsysCoder = {
     }
   } ,
   getConfig() {
-    console.log("aqsysCoder getConfig:"+JSON.stringify(argconfig));
+    console.log("aqsysCoder getConfig:"+JSON.stringify(aqsysCoder.config));
     return(aqsysCoder.config);
   },
   katakanaToHiragana,
