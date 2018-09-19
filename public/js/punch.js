@@ -88,17 +88,17 @@ function punchTime(tnum) {
   if(tnum-parseInt(tnum/2,10)*2){
     for(var elem of $( "#recordlist > tbody").children(".racenum")) {
       if(elem.html()=="") {
-        ++seqnum;
-      }else{
         break;
+      }else{
+        ++seqnum;
       }
     }
   }else{
     for(var elem of $( "#recordlist > tbody").children(".ftime")) {
       if(elem.html()=="") {
-        ++seqnum;
-      }else{
         break;
+      }else{
+        ++seqnum;
       }
     }
   }
