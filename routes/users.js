@@ -22,7 +22,7 @@ router.get('/register', function(req, res){
 				User.getUserById(usernum, function() {
 					var config = new User.getConfig();
 					console.log(config);
-					res.render('register');
+					res.render('register',config);
 				});
 			});
 	 	}else{
