@@ -83,10 +83,11 @@ function punchConnect(tnum) {
 function punchTime(tnum) {
 
  alert("punchTime");
- /*
+
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
   var seqnum = 1;
+  /*
   for(var elem in $( "#recordlist > tbody").children()) {
     if(elem.html()=="") {
       alert(elem);
@@ -94,6 +95,7 @@ function punchTime(tnum) {
       break;
     }
   }
+  */
   alert(seqnum);
   $.post("/api/record/"+tnum,
   {
@@ -108,7 +110,7 @@ function punchTime(tnum) {
       racenum: racenum,
       ftime: ftime
   })); // サーバへ送信
-  */
+  
 }
 
 
