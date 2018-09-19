@@ -154,6 +154,7 @@ $(function(){
   $('.dropdown-cate-search li').on('click', function(){
     alert("dropdown-cate-search");
     alert($(this).text());
+    alert($("#entrylist-filter input"));
     $("#entrylist-filter input").val("cate"+$(this).text());
   });
 
