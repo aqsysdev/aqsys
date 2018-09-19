@@ -20,7 +20,6 @@ router.get('/register', function(req, res){
 	 	if(usernum){
 			User.ensureAuthenticated(req, res, function(){
 				User.getUserById(usernum, function(req) {
-//					var config = new User.getConfig();
 					console.log("User.getUserById:");
 					console.log(req.config);
 					res.render('register',req.config);
