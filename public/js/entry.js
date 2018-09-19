@@ -155,7 +155,9 @@ $(function(){
     alert("dropdown-cate-search");
     var num=$(this).attr('name');
     alert("num:"+num);
-    var cateName=$(this).text();
+    var cateName=$(this).val();
+    alert("cateName:"+cateName);
+
     $("#entrylist-filter input").val(cateName);
   });
 
