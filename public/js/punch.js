@@ -86,10 +86,8 @@ function punchTime(tnum) {
   var seqnum = 1;
   alert(tnum-parseInt(tnum/2,10)*2,10);
   if(tnum-parseInt(tnum/2,10)*2,10){
-    alert($( "#recordlist").find(".racenum").length);
     $( "#recordlist").find(".ftime").each( function(index,elem) {
-      alert(elem.innerHTML);
-      if(elem) {
+      if(elem.innerHTML) {
         ++seqnum;
       }else{
         return false;
@@ -97,15 +95,13 @@ function punchTime(tnum) {
     });
   }else{
     $("#recordlist").find(".racenum").each( function(index,elem) {
-      alert(elem.innerHTML);
-      if(elem) {
+      if(elem.innerHTML) {
         ++seqnum;
       }else{
         return false;
       }
     });
   }
-  alert(seqnum);
   $.post("/api/record/"+tnum,
   {
     ftime: ftime,
