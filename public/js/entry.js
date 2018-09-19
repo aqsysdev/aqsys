@@ -153,12 +153,8 @@ $(function(){
 
   $('.dropdown-cate-search li').on('click', function(){
     alert("dropdown-cate-search");
-    var num=$(this).attr('name');
-    alert("num:"+num);
-    var cateName=$(this).val();
-    alert("cateName:"+cateName);
-
-    $("#entrylist-filter input").val(cateName);
+    alert($(this).text());
+    $("#entrylist-filter input").val("cate"+$(this).text());
   });
 
 
