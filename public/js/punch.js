@@ -87,7 +87,7 @@ function punchTime(tnum) {
   alert(tnum-parseInt(tnum/2,10)*2,10);
   if(tnum-parseInt(tnum/2,10)*2,10){
     for(var elem of $( "#recordlist").find(".racenum")) {
-      alert(elem);
+      alert(elem.value());
       if(elem=="") {
         break;
       }else{
@@ -96,7 +96,7 @@ function punchTime(tnum) {
     }
   }else{
     for(var elem of $( "#recordlist").find(".ftime")) {
-      alert(elem);
+      alert(elem.value());
       if(elem=="") {
         break;
       }else{
@@ -113,7 +113,7 @@ function punchTime(tnum) {
   $("#message").val("");
   ws.send(JSON.stringify({
       type: "punch",
-      seqnum: seqnum+2,
+      seqnum: seqnum,
       tnum: tnum,
       racenum: racenum,
       ftime: ftime
