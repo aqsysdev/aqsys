@@ -152,6 +152,9 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('.dropdown-cate-search li').on('click', function(){
+    alert($("#entrylist_filter input").length);
+    alert($("#entrylist_filter input").eq(0).length);
+    alert($("#entrylist_filter input").eq(0).val());
     $("#entrylist_filter input").eq(0).val("cate"+$(this).text());
   });
 
