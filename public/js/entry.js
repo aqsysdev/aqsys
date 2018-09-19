@@ -152,7 +152,7 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('.dropdown-cate-search li').on('click', function(){
-    $("#entrylist_filter input").eq(0).value("cate"+$(this).text());
+    $("#entrylist_filter input").eq(0).val("cateC");
   });
 
 
