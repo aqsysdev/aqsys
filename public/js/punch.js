@@ -84,8 +84,8 @@ function punchTime(tnum) {
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
   var seqnum = 1;
-
-  if(tnum-parseInt(tnum/2,10)*2){
+  alert(tnum-parseInt(tnum/2,10)*2,10);
+  if(tnum-parseInt(tnum/2,10)*2,10){
     for(var elem of $( "#recordlist > tbody").children()) {
       alert(elem);
       if(elem.html()=="") {
