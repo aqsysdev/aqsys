@@ -83,25 +83,7 @@ function punchConnect(tnum) {
 function punchTime(tnum) {
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
-  var seqnum = 1;
-  alert(tnum-parseInt(tnum/2,10)*2,10);
-  if(tnum-parseInt(tnum/2,10)*2,10){
-    $( "#recordlist").find(".ftime").each( function(index,elem) {
-      if(elem.innerHTML) {
-        ++seqnum;
-      }else{
-        return false;
-      }
-    });
-  }else{
-    $("#recordlist").find(".racenum").each( function(index,elem) {
-      if(elem.innerHTML) {
-        ++seqnum;
-      }else{
-        return false;
-      }
-    });
-  }
+  var seqnum = $("#recordlist > tbody").children().length + 1;
   $.post("/api/record/"+tnum,
   {
     ftime: ftime,
@@ -141,15 +123,10 @@ function addPunch(event) {
       $(table).append(
         "<tr id='record'>"+
           "<td style='width:40px' align='center' class='seqnum' id='seqnum-"+data.seqnum+"'>"+data.seqnum+"</td>"+
-          "<td style='width:80px' align='center' class='recenum' id='racenum-"+data.seqnum+"'></td>"+
-          "<td style='width:100px' align='center' class='ftime' id='ftime-"+data.seqnum+"'></td>"+
+          "<td style='width:80px' align='center' class='recenum' id='racenum-"+data.seqnum+"'>"+data.racenum+"</td>"+
+          "<td style='width:100px' align='center' class='ftime' id='ftime-"+data.seqnum+"'>"+data.ftime+"</td>"+
         "</tr>");
       $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
-    }
-    if(parseInt(data.tnum/2,10)*2-data.tnum){
-      $("#racenum-"+data.seqnum).html(data.racenum);
-    }else{
-      $("#ftime-"+data.seqnum).html(data.ftime);
     }
   }else if(data.type=="punchBreath") {
   }
