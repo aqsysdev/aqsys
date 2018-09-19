@@ -19,11 +19,11 @@ router.get('/register', function(req, res){
 	 	if(err) throw err;
 	 	if(usernum){
 			User.ensureAuthenticated(req, res, function(){
-				User.getUserById(usernum, function(req,res) {
+				User.getUserById(usernum, function(req) {
 //					var config = new User.getConfig();
 					console.log("User.getUserById:");
-					console.log(res.config);
-					res.render('register',res.config);
+					console.log(req.config);
+					res.render('register',req.config);
 				});
 			});
 	 	}else{
