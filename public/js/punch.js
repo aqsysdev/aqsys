@@ -83,7 +83,7 @@ function punchConnect(tnum) {
 function punchTime(tnum) {
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
-  var seqnum = $("#recordlist > tbody").children().length + 1;
+  var seqnum = $("#recordlist > tbody").children().length;
   $.post("/api/record/"+tnum,
   {
     ftime: ftime,
