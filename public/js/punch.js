@@ -88,8 +88,8 @@ function punchTime(tnum) {
   if(tnum-parseInt(tnum/2,10)*2,10){
     alert($( "#recordlist").find(".racenum").length);
     $( "#recordlist").find(".racenum").each( function(index,elem) {
-      alert(elem.text());
-      if(elem.text()) {
+      alert(elem);
+      if(elem) {
         ++seqnum;
       }else{
         return false;
@@ -97,8 +97,8 @@ function punchTime(tnum) {
     });
   }else{
     $("#recordlist").find(".ftime").each( function(index,elem) {
-      alert(elem.text());
-      if(elem.text()) {
+      alert(elem);
+      if(elem) {
         ++seqnum;
       }else{
         return false;
