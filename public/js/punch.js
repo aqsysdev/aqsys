@@ -81,7 +81,8 @@ function punchConnect(tnum) {
 }
 
 function punchTime(tnum) {
- //alert("punchTime");
+  /*
+ alert("punchTime");
   var racenum = decodeRacenum($("#message").val());
   var ftime = encodeTime(new Date());
   var seqnum = 1;
@@ -106,7 +107,9 @@ function punchTime(tnum) {
       racenum: racenum,
       ftime: ftime
   })); // サーバへ送信
+  */
 }
+
 
 function punchBreath(tnum) {
 //  alert("punchBreath");
