@@ -89,7 +89,7 @@ function punchTime(tnum) {
     $( "#recordlist").find(".racenum").each( function(index,elem) {
       alert(elem.val());
       if(elem=="") {
-        break;
+        return false;
       }else{
         ++seqnum;
       }
@@ -98,7 +98,7 @@ function punchTime(tnum) {
     $( "#recordlist").find(".ftime").each( function(index,elem) {
       alert(elem.val());
       if(elem=="") {
-        break;
+        return false;
       }else{
         ++seqnum;
       }
