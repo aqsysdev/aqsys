@@ -87,10 +87,12 @@ function punchTime(tnum) {
   var seqnum = 1;
   for(var elem in $( "#recordlist > tbody").children()) {
     if(elem.html()=="") {
+      alert(elem);
       ++seqnum;
       break;
     }
   }
+  alert(seqnum);
   $.post("/api/record/"+tnum,
   {
     ftime: ftime,
