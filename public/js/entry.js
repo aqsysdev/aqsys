@@ -256,7 +256,7 @@ $(function(){
       //alert($(this).text().split(":")[0]);
       $(this).parent().prev().html($(this).html());
       if($(this).text()) {
-        table.column(2).search("wave"+$(this).text()).draw();
+        table.column(2).search("w"+$(this).text()).draw();
       }else{
         table.column(2).search("").draw();
       }
