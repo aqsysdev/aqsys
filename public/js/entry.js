@@ -16,8 +16,8 @@ $(function(){
       //scrollY: false,
       order: [
         [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
-      ],
-      columnDefs: [{ "orderable": false, "targets": 2 }]
+      ]
+//      ,columnDefs: [{ "orderable": false, "targets": 2 }]
     }
   );
 
@@ -154,7 +154,7 @@ $(function(){
 
   $('.dropdown-cate-search li').on('click', function(){
     var table = $("#entrylist").DataTable();
-
+    this.stopPropagation();
     // #testhoge をクリックすると table の 2列目から 728を検索して返す
     // 列は 0 列目から始まる。
     alert($(this).text().split(":")[0]);
