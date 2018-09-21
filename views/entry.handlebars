@@ -17,12 +17,11 @@
         <th class="hidden-xs">編集</th>
         <th >#<br></th>
         <th>cate<br/>
-        <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">          
+        <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">
           <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <span class="caret"></span>
           </button>
           <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
-            <li name=0><a><span class="caret"></span></a></li>
+            <li name=0><a></a></li>
             {{#each cateList}}
             <li name={{cNum}}><a>{{cateName}}</a></li>
             {{/each}}
@@ -69,11 +68,11 @@
             {{#if cate}}
               {{cate}}
             {{else}}
-              <a><span class="caret"></span></a>
+              <a></a>
             {{/if}}
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-{{id}}">
-              <li name=0><a><span class="caret"></span></a></li>
+              <li name=0><a></a></li>
               {{#each cateList}}
               <li name={{cNum}}><a>{{cateName}}</a></li>
               {{/each}}
@@ -259,7 +258,6 @@
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   男
-                  <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-sex">
                   <li><a>男</a></li>
@@ -271,7 +269,6 @@
               <label>学年（親子リレーも含む）</label>
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="modal-grade" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-grade">
                   <li><a>-</a></li>
@@ -326,7 +323,6 @@
                 <label>性別</label><br>
                 <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex2"   data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" name="sex2">
                 男
-                <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-sex2">
                 <li><a>-</a></li>
