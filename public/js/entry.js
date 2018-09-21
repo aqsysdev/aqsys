@@ -12,12 +12,12 @@ $(function(){
       lengthMenu: [ 10, 20, 50, 100, 500 ],
       displayLength: 50,
       stateSave: true,
-      //scrollX: false,
-      //scrollY: false,
+      //,scrollX: false
+      //,scrollY: false
       order: [
         [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
-      ]
-//      ,columnDefs: [{ "orderable": false, "targets": 2 }]
+      ],
+      columnDefs: [{ "orderable": false, "targets": 2 }]
     }
   );
 
@@ -156,7 +156,7 @@ $(function(){
     var table = $("#entrylist").DataTable();
     // #testhoge をクリックすると table の 2列目から 728を検索して返す
     // 列は 0 列目から始まる。
-    alert($(this).text().split(":")[0]);
+    //alert($(this).text().split(":")[0]);
     $(this).parent().prev().html($(this).html());
     if($(this).text()) {
       table.column(2).search("").draw();
@@ -164,7 +164,6 @@ $(function(){
 //      table.column(2).search("cate"+$(this).text().split(":")[0]).draw();
       table.column(2).search("cateB").draw();
     }
-    ev.stopPropagation();
   });
 
 
