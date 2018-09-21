@@ -160,7 +160,8 @@ $(function(){
     if($(this).text()) {
       table.column(2).search("").draw();
     }else{
-      table.column(2).search("cate"+$(this).text().split(":")[0]).draw();
+//      table.column(2).search("cate"+$(this).text().split(":")[0]).draw();
+      table.column(2).search("cateB").draw();
     }
   });
 
