@@ -65,6 +65,12 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       return({cNum:cNum+1,cateName:cate});
     });
 //    console.log("cateList:"+JSON.stringify(cateList));
+    var wave=entrylist.wave.filter(function (x, i, self) {
+            return self.indexOf(x) === i;
+        }).sort();
+    waveList = wave.map(function(wave,wNum){
+      return({wNum:wNum+1,waveName:wave});
+    });
 
     entrylist=entrylist.map(function(row){
       row.cateList=cateList;
@@ -73,7 +79,8 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     res.render('entry',{
       entrylist: entrylist,
       gradeList: gradeList,
-      cateList: cateList
+      cateList: cateList,
+      waveList: waveList
     });
 //    done();
   });
