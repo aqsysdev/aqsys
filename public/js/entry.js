@@ -156,11 +156,11 @@ $(function(){
 
     // #testhoge をクリックすると table の 2列目から 728を検索して返す
     // 列は 0 列目から始まる。
-    //alert($(this).text());
+    alert(split($(this).text(),":")[0]));
     if($(this).text()) {
       table.column(2).search("").draw();
     }else{
-      table.column(2).search("cate"+$(this).text()).draw();
+      table.column(2).search("cate"+split($(this).text(),":")[0]).draw();
     }
   });
 
