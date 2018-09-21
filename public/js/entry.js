@@ -152,9 +152,9 @@ $(function(){
   //
   ////////////////////////////////////////////////////////////////////
 
-  $('.dropdown-cate-search li').on('click', function(){
+  $('.dropdown-cate-search li').on('click', function(ev){
     var table = $("#entrylist").DataTable();
-    this.stopPropagation();
+    ev.stopPropagation();
     // #testhoge をクリックすると table の 2列目から 728を検索して返す
     // 列は 0 列目から始まる。
     alert($(this).text().split(":")[0]);
