@@ -152,7 +152,12 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('.dropdown-cate-search li').on('click', function(){
-    $("#entrylist_filter input").eq(0).val("cateC");
+    var table = $("#entrylist").DataTable();
+
+    // #testhoge をクリックすると table の 2列目から 728を検索して返す
+    // 列は 0 列目から始まる。
+    table.column(2).search("cateC").draw();
+
   });
 
 
