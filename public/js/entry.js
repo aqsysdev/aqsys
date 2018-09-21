@@ -154,16 +154,17 @@ $(function(){
 
   $('.dropdown-cate-search li').on('click', function(ev){
     var table = $("#entrylist").DataTable();
-    ev.stopPropagation();
     // #testhoge をクリックすると table の 2列目から 728を検索して返す
     // 列は 0 列目から始まる。
     alert($(this).text().split(":")[0]);
+    $(this).parent().prev().html($(this).html());
     if($(this).text()) {
       table.column(2).search("").draw();
     }else{
 //      table.column(2).search("cate"+$(this).text().split(":")[0]).draw();
       table.column(2).search("cateB").draw();
     }
+    ev.stopPropagation();
   });
 
 
