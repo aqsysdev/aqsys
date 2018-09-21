@@ -16,7 +16,8 @@ $(function(){
       //scrollY: false,
       order: [
         [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
-      ]
+      ],
+      columnDefs: [{ "orderable": false, "targets": 2 }]
     }
   );
 
