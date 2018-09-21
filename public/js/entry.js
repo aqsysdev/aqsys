@@ -156,7 +156,7 @@ $(function(){
 
     // #testhoge をクリックすると table の 2列目から 728を検索して返す
     // 列は 0 列目から始まる。
-    table.column(2).search("cateC").draw();
+    table.column(2).search("cateB").draw();
 
   });
 
