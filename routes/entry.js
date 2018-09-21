@@ -66,7 +66,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     });
 //    console.log("cateList:"+JSON.stringify(cateList));
     var wave=entrylist.filter(function (x, i, self) {
-            return self.indexOf(x.wave) === i.wave;
+            return self.indexOf(x.wave) === i;
         }).sort();
     waveList = wave.map(function(wave,wNum){
       return({wNum:wNum+1,waveName:wave});
