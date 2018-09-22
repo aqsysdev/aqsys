@@ -118,7 +118,6 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('.dropdown-cate li').on('click', function(){
-    alert(".dropdown-cate");
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).parent().prev().addClass("unconfirmed");
       $(this).parent().prev().html($(this).html());
