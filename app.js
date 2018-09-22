@@ -181,7 +181,7 @@ app.use(function (req, res, next) {
   dbWaves.setConfig(config);
   aqsysCoder.setConfig(config);
   numbercards.setConfig(config);
-
+  res.locales.configString = JSON.stringify(config);
   console.log("config.schemaname:"+config.schemaname);
   console.log("config.numbercardheader:"+config.numbercardheader);
   console.log("setConfig end");
