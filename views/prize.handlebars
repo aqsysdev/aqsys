@@ -6,6 +6,12 @@
 
 <script src="/js/prize.js"></script>
 <script type="text/javascript" src="/js/printcertificate.js"></script>
+<script type="text/javascript" src="/js/table2csv.js"></script>
+<script type="text/javascript" src="/js/jquery.redirect.js"></script>
+<script type="text/javascript" src="/js/decimal.min.js"></script>
+<script type="text/javascript" src="/js/aqsysCoder.js" ></script>
+
+<input class="hidden" type="text" id="variable-handler" name="variable-handler" value="{{configString}}" disabled/>
 
 <h2 class="page-header">prize List</h2>
 <hr>
@@ -51,25 +57,15 @@
               {{/if}}
               </button>
               <ul class="dropdown-menu no-csv-output" aria-labelledby="prize-cate-{{id}}">
-                <li name=0><a><span class="caret"></span></a></li>
-                <li name=1><a>1:低学年男</a></li>
-                <li name=2><a>2:低学年女</a></li>
-                <li name=3><a>3:高学年男</a></li>
-                <li name=4><a>4:高学年女</a></li>
-                <li name=5><a>5:中学男</a></li>
-                <li name=6><a>6:中学女</a></li>
-                <li name=7><a>7:39才以下男</a></li>
-                <li name=8><a>8:39才以下女</a></li>
-                <li name=9><a>9:40才以上男</a></li>
-                <li name=10><a>A:40才以上女</a></li>
-                <li name=11><a>B:低学リレー</a></li>
-                <li name=12><a>C:高学リレー</a></li>
+                {{#each cateList}}
+                <li name={{cNum}}><a>{{cateName}}</a></li>
+                {{/each}}
               </ul>
             </div>
           </td>
           <td align="center">
-            <div class="hidden" id="prize-wave-{{id}}"><div class="no-csv-output">W</div>{{wave}}<div class="no-csv-output">:</div></div>
-            <input class="prize-wave" type="text" name="wave-{{id}}" value="{{wave}}" size="2" disabled/>
+            <div class="hidden" id="prize-wave-{{id}}"><div class="no-csv-output">wave</div>{{wave}}<div class="no-csv-output">:</div></div>
+            <input class="prize-wave" type="text" name="wave-{{id}}" value="{{wave}}" size="3" disabled/>
           </td>
           <td align="center">
             <div id="prize-lname-{{id}}">{{lname}}</div><div class="hidden">","</div><div class="prize-myouji" id="prize-myouji-{{id}}">{{myouji}}</div>
