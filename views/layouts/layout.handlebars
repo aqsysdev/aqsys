@@ -49,9 +49,17 @@
 	<script type="text/javascript" src="/js/jquery.redirect.js"></script>
 	<script type="text/javascript" src="/js/decimal.min.js"></script>
 	<script type="text/javascript" src="/js/aqsysCoder.js" ></script>
-
 </head>
 <body>
+	<script>
+	$(function(){
+		alert("here");
+		alert('{{configString}}');
+		aqsysCoder.setConfig({
+	  	JSON.parse('{{configString}}');
+		});
+	});
+	</script>
 
 {{#unless print}}
 <div align="center">
