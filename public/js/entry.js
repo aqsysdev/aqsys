@@ -7,7 +7,6 @@
 
 $(function(){
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
-  alert(aqsysCoder.config.basedate);
   $("#entrylist").DataTable(
     {
       lengthMenu: [ 10, 20, 50, 100, 500 ],
@@ -575,7 +574,7 @@ function postEntryByModalForm() {
     err=err+"性別を入れてください。\n";
   }
   row.grade = aqsysCoder.encodeGrade($("#modal-grade").text() || "");
-  alert(row.grade+"-"+aqsysCoder.calcAge(row.birthday, false)+":"+aqsysCoder.config.basedate);
+//  alert(row.grade+"-"+aqsysCoder.calcAge(row.birthday, false)+":"+aqsysCoder.config.basedate);
   if( row.grade <= 0 && aqsysCoder.calcAge(row.birthday, false)<15){
     err=err+"学年を入力してください。\n";
   }
