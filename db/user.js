@@ -7,6 +7,8 @@
 
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
+
+/*
 var config = {
     schemaname: 'aqsyssample',
     basedate: '2017/12/31',
@@ -36,7 +38,7 @@ var config = {
       "C:高学年リレー"
     ]
   };
-
+*/
 
 // User Schema
 var UserSchema = new mongoose.Schema({
@@ -109,6 +111,7 @@ module.exports.ensureAuthenticated =function(req, res, next){
    }
 };
 
+/*
 module.exports.setConfig = function(argconfig) {
   config = argconfig;
 };
@@ -116,3 +119,4 @@ module.exports.setConfig = function(argconfig) {
 module.exports.getConfig = function() {
   return config;
 };
+*/

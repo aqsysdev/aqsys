@@ -138,10 +138,10 @@ app.use(function (req, res, next) {
     name: (req.user && req.user.name) || null,
     user: (req.user && req.user.username) || null,
     schemaname: (req.user && req.user.schemaname) || null,
-    basedate: (req.user && req.user.basedate) || dbUser.getConfig().basedate,
-    email: (req.user && req.user.email) || dbUser.getConfig().email,
-    numbercardheader: (req.user && req.user.numbercardheader) || dbUser.getConfig().numbercardheader || "",
-    numbercardfooter: (req.user && req.user.numbercardfooter) || dbUser.getConfig().numbercardfooter || "",
+    basedate: (req.user && req.user.basedate) || aqsysCoder.getConfig().basedate,
+    email: (req.user && req.user.email) || aqsysCoder.getConfig().email,
+    numbercardheader: (req.user && req.user.numbercardheader) || aqsysCoder.getConfig().numbercardheader || "",
+    numbercardfooter: (req.user && req.user.numbercardfooter) || aqsysCoder.getConfig().numbercardfooter || "",
     grades: (req.user && req.user.grades) || [],
     cate: (req.user && req.user.cate) || [],
     useradmin: (req.user && (req.user.username=="aqsysadmin"))
@@ -149,10 +149,10 @@ app.use(function (req, res, next) {
 
 
   if(!Array.isArray(res.locals.grades) || res.locals.grades.length<=1){
-    res.locals.grades = dbUser.getConfig().grades;
+    res.locals.grades = aqsysCoder.getConfig().grades;
   }
   if(!Array.isArray(res.locals.cate) || res.locals.cate.length<=1){
-    res.locals.cate = dbUser.getConfig().cate;
+    res.locals.cate = aqsysCoder.getConfig().cate;
   }
   res.locals.gradesString=res.locals.grades.join(",");
   res.locals.cateString=res.locals.cate.join(",");
