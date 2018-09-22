@@ -13,15 +13,22 @@
 
 <script>
 alert("here");
-aqsysCoder.setConfig({
-  JSON.parse('{{configString}}');
+/*
+$(function(){
+  alert("there");
+  alert('{{configString}}');
+  aqsysCoder.setConfig({
 });
 alert("where");
+*/
 </script>
 
 
 <h2 class="page-header">Entry List</h2>
 <hr>
+<pre>
+  {{configString}}
+</pre>
 <div class="well table-responsive" width="100%">
   <table class="table table-condensed" id="entrylist">
     <thead>
