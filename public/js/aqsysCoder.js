@@ -136,7 +136,7 @@ function calcAge(birthdate, targetdate) {
   	if (targetdate) {
   		targetdate = targetdate.replace(/[/-]/g, "");
   	} else if(aqsysCoder.config.basedate){
-      targetdate = aqsysCoder.config.basedate;
+      targetdate = aqsysCoder.config.basedate.replace(/[/-]/g, "");
     } else {
   		var today = new Date();
   		targetdate = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
