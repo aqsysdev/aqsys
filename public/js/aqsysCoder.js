@@ -277,7 +277,7 @@ function decodeGrade(grade,birthday) {
 }
 
 function encodeGrade(gradeName) {
-  return(aqsysCoder.config.grades.indexOf(gradeName));
+  return(aqsysCoder.config.grades.indexOf(gradeName)+1);
 }
 
 function decodeSex(sex) {
