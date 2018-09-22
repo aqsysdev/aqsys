@@ -16,8 +16,8 @@ $(function(){
       //,scrollY: false
       order: [
         [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
-      ],
-      columnDefs: [{ "orderable": false, "targets": 2 }]
+      ]
+//      columnDefs: [{ "orderable": false, "targets": 2 }]
     }
   );
 
@@ -256,7 +256,7 @@ $(function(){
       //alert($(this).text().split(":")[0]);
       $(this).parent().prev().html($(this).html());
       if($(this).text()) {
-        table.column(2).search("w"+$(this).text()).draw();
+        table.column(2).search("wave"+$(this).text()).draw();
       }else{
         table.column(2).search("").draw();
       }
