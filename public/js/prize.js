@@ -88,9 +88,9 @@ $(function(){
     }else{
       table.column(1).search("").draw();
     }
-    $('#prize-cate-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
+    $('#prize-cate-search').html(($("#entrylist").DataTable().column(1).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
   });
-  $('#prize-cate-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
+  $('#prize-cate-search').html(($("#entrylist").DataTable().column(1).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
 
 
   ////////////////////////////////////////////////////////////////////
@@ -110,9 +110,9 @@ $(function(){
     }else{
       table.column(2).search("").draw();
     }
-    $('#prize-wave-search').html(($("#entrylist").DataTable().column(3).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
+    $('#prize-wave-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
   });
-  $('#prize-wave-search').html(($("#entrylist").DataTable().column(3).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
+  $('#prize-wave-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
 
   ////////////////////////////////////////////////////////////////////
   //
