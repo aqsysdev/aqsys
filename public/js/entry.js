@@ -157,12 +157,12 @@ $(function(){
     // #testhoge をクリックすると table の 2列目から 728を検索して返す
     // 列は 0 列目から始まる。
     //alert($(this).text().split(":")[0]);
-    $(this).parent().prev().html($(this).html());
     if($(this).text()) {
       table.column(2).search("cate"+$(this).text().split(":")[0]).draw();
     }else{
       table.column(2).search("").draw();
     }
+    $('#entry-cate-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
   });
   $('#entry-cate-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
 
@@ -260,6 +260,7 @@ $(function(){
       }else{
         table.column(3).search("").draw();
       }
+      $('#entry-wave-search').html(($("#entrylist").DataTable().column(3).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
     });
     $('#entry-wave-search').html(($("#entrylist").DataTable().column(3).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
 
