@@ -94,7 +94,7 @@ aqsysCoder = {
   decodeRegist,
   decodeStart,
   decodeConfirmation,
-  decodeCate,
+  decodeCate, encodeCate,
   decodeWave, encodeWave,
   decodeRacenum,  encodeRacenum,
   decodeTtime,
@@ -341,6 +341,10 @@ function decodeConfirmation( confirmation ) {
 
 function decodeCate(cate) {
   return((cate&&aqsysCoder.config.cate[cate-1])?aqsysCoder.config.cate[cate-1]:"");
+}
+
+function encodeCate(cateName) {
+  return(aqsysCoder.config.cate.indexOf(cateName));
 }
 
 function decodeWave(wave) {
