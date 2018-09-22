@@ -132,16 +132,17 @@ function hiraganaToKatakana(src) {
 }
 
 function calcAge(birthdate, targetdate) {
-  	birthdate = birthdate.replace(/[/-]/g, "");
-  	if (targetdate) {
-  		targetdate = targetdate.replace(/[/-]/g, "");
+    var tdate= targetdate;
+  	var bdate = birthdate.replace(/[/-]/g, "");
+  	if (tdate) {
+  		tdate = tdate.replace(/[/-]/g, "");
   	} else if(aqsysCoder.config.basedate){
-      targetdate = aqsysCoder.config.basedate.replace(/[/-]/g, "");
+      tdate = aqsysCoder.config.basedate.replace(/[/-]/g, "");
     } else {
   		var today = new Date();
-  		targetdate = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+  		tdate = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
   	}
-  	return (Math.floor((targetdate - birthdate) / 10000));
+  	return (Math.floor((tdate - bdate) / 10000));
 }
 
 function formTime(ms) {
