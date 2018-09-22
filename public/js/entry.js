@@ -535,6 +535,9 @@ function postEntryByModalForm() {
   var row={};
   var err="";
   var id=$("#formAddEntryModalLabel").text().split(":")[1]*1;
+  row.racenum = $("#modal-racenum").val()||"";
+  row.cate = $("#modal-cate").text()||"";
+  row.wave = $("#modal-wave").val()||"";
 //  alert("lname");
   row.lname  = ($("#modal-lname").val()+"").trim();
 //  alert(row.lname);
