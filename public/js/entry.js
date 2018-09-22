@@ -464,7 +464,7 @@ $(function(){
       $("#modal-birthday").val($("#entry-birthday-"+id).text()||"");
       $("#modal-sex").text($("#entry-sex-"+id).text()||"");
 
-      alert(aqsysCoder.decodeGrade($("#entry-grade-"+id).text()||""));
+      alert($("#entry-grade-"+id).text()||"");
 //      $("#modal-grade").text(
 //        aqsysCoder.encodeGrade(aqsysCoder.decodeGrade($("#entry-grade-"+id).text()||""))
 //      );
