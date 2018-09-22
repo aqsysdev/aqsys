@@ -354,7 +354,7 @@ function decodeCate(cate) {
 }
 
 function encodeCate(cateName) {
-  return(aqsysCoder.config.cate.indexOf(cateName));
+  return(aqsysCoder.config.cate.indexOf(cateName)+1);
 }
 
 function decodeWave(wave) {
