@@ -662,7 +662,6 @@ function postEntryByModalForm() {
 ////////////////////////////////////////////////////////////////////
 
 $('#modal-dropdown-cate li').on('click', function(){
-  if($(this).html()!=$(this).parent().prev().html()){
-    $(this).parent().prev().html($(this).html());
-  }
+  alert($(this).html());
+  $(this).parent().prev().html($(this).html());
 });
