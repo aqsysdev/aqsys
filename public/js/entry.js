@@ -455,6 +455,7 @@ $(function(){
 
       $("#modal-racenum").val($("#entry-racenum-"+id).val()||"");
       $("#modal-cate").html($("#entry-cate-"+id).html()||"");
+      alert($("#entry-wave-"+id).val());
       $("#modal-wave").val($("#entry-wave-"+id).val()||"");
 
       $("#modal-lname").val($("#entry-lname-"+id).text()||"");
