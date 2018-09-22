@@ -464,13 +464,9 @@ $(function(){
       $("#modal-birthday").val($("#entry-birthday-"+id).text()||"");
       $("#modal-sex").text($("#entry-sex-"+id).text()||"");
 
-      var grade=$("#entry-grade-"+id).text()||"";
-      var reg=/^[0-9]/ ;
-      if( reg.test(grade) ) {
-        $("#modal-grade").text("-");
-      }else{
-        $("#modal-grade").text(grade);
-      }
+      $("#modal-grade").text(
+        aqsysCoder.encodeGrade(aqsysCoder.decodeGrade($("#entry-grade-"+id).text()||""))
+      );
       $("#modal-zip").val(($("#entry-zip-"+id).text()||"").replace(/〒/,""));
       $("#modal-address1").val($("#entry-address1-"+id).text()||"");
       $("#modal-address2").val($("#entry-address2-"+id).text()||"");
@@ -572,12 +568,11 @@ function postEntryByModalForm() {
   if( row.sex != "M" && row.sex != "F"){
     err=err+"性別を入れてください。\n";
   }
-  row.grade = $("#modal-grade").text();
+  row.grade = $("#modal-grade").text() || "";
 //  alert(row.grade);
-  if( (row.grede == "" || row.grade == "-") && aqsysCoder.calcAge(row.birthday, null)<15){
+  if( (row.grade == "" || row.grade == "-") && aqsysCoder.calcAge(row.birthday, null)<15){
     err=err+"学年を入力してください。\n";
   }
-  row.grade = aqsysCoder.config.grades.indexOf(row.grade);
 //  alert(row.grade);
   row.zip1 = ($("#modal-zip").val().split("-")[0]||"").trim();
 //  alert(row.zip1);
@@ -598,11 +593,11 @@ function postEntryByModalForm() {
   row.birthday2 = ($("#modal-birthday2").val()+"").trim();
   if(row.lname2 || row.myouji2 || row.fname2 || row.namae2 ) {
     row.sex2 = $("#modal-sex2").text();
-    row.sex2 = Object.keys(sex).filter(function(key){return(sex[key] === row.sex2);})[0];
+    row.sex2 = Object.keys(aqsysCoder.config.sex).filter(function(key){return(aqsysCoder.config.sex[key] === row.sex2);})[0];
     if(!aqsysCoder.checkDate(row.birthday2)) {
       err=err+"子の誕生日を YYYY/MM/DD の形式で入れてください。\n";
     }
-    if( row.grede == "" || row.grade == "-"){
+    if( row.grade == "" || row.grade == "-"){
       err=err+"学年を入力してください。\n";
     }
     if( row.sex2 != "M" && row.sex2 != "F"){
@@ -660,3 +655,14 @@ function postEntryByModalForm() {
     }
   }
 }
+////////////////////////////////////////////////////////////////////
+//
+//　modalカテゴリー変更
+//
+////////////////////////////////////////////////////////////////////
+
+$('#modal-dropdown-cate li').on('click', function(){
+  if($(this).html()!=$(this).parent().prev().html()){
+    $(this).parent().prev().html($(this).html());
+  }
+});

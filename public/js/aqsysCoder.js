@@ -78,7 +78,7 @@ aqsysCoder = {
   decodeFname,
   decodeNamae,
   decodeBirthday,
-  decodeGrade,
+  decodeGrade, encodeGrade,
   decodeSex,
   decodeZip1,
   decodeZip2,
@@ -135,7 +135,9 @@ function calcAge(birthdate, targetdate) {
   	birthdate = birthdate.replace(/[/-]/g, "");
   	if (targetdate) {
   		targetdate = targetdate.replace(/[/-]/g, "");
-  	} else {
+  	} else if(aqsysCoder.config.basedate){
+      targetdate = aqsysCoder.config.basedate;
+    } else {
   		var today = new Date();
   		targetdate = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
   	}
@@ -272,6 +274,10 @@ function decodeBirthday(argBirthday) {
 
 function decodeGrade(grade,birthday) {
   return((grade && aqsysCoder.config.grades[grade-1]) ? aqsysCoder.config.grades[grade-1] : calcAge(birthday, aqsysCoder.config.basedate)+ "才");
+}
+
+function encodeGrade(gradeName) {
+  return(aqsysCoder.config.grades.indexOf(gradeName));
 }
 
 function decodeSex(sex) {
