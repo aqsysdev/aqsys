@@ -79,6 +79,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       row.cateList=cateList;
       return(row);
     });
+
     res.render('entry',{
       entrylist: entrylist,
       gradeList: gradeList,
