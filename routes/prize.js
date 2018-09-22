@@ -79,7 +79,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
 
 
     var prizelist = entrylist.filter(function(row){
-      return(row.start=="checked") ;
+      return(row.start) ;
     });
         // console.log(entrylist);
     res.render('prize',{
