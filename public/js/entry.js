@@ -6,7 +6,8 @@
 
 
 $(function(){
-
+  aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
+  alert(aqsysCoder.config.basedate);
   $("#entrylist").DataTable(
     {
       lengthMenu: [ 10, 20, 50, 100, 500 ],
