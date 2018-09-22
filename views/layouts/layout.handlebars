@@ -52,13 +52,6 @@
 
 </head>
 <body>
-	<script>
-		alert("here");
-		aqsysCoder.setConfig({
-			JSON.parse('{{configString}}');
-		});
-	  alert('{{configString}}');
-	</script>
 
 {{#unless print}}
 <div align="center">
@@ -119,6 +112,12 @@
 {{/unless}}
 
 <script>
+	alert("here");
+	aqsysCoder.setConfig({
+		JSON.parse('{{configString}}');
+	});
+	alert('{{configString}}');
+
     $(function(){
         // datatableの設定を変更
         $("#table1").DataTable({
