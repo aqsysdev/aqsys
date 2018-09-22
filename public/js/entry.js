@@ -164,7 +164,7 @@ $(function(){
       table.column(2).search("").draw();
     }
   });
-  $('#entry-cate-search').html($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>');
+  $('#entry-cate-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
 
     ////////////////////////////////////////////////////////////////////
     //
@@ -261,7 +261,7 @@ $(function(){
         table.column(3).search("").draw();
       }
     });
-    $('#entry-wave-search').html($("#entrylist").DataTable().column(3).search() || '<a><span class="caret"></span></a>');
+    $('#entry-wave-search').html(($("#entrylist").DataTable().column(3).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
 
 
     ////////////////////////////////////////////////////////////////////
