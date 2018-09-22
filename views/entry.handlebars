@@ -27,7 +27,7 @@
           <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           </button>
           <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
-            <li name=0><a>-</a></li>
+            <li name=0><a><span class="caret"></span></a></li>
             {{#each cateList}}
             <li name={{cNum}}><a>{{cateName}}</a></li>
             {{/each}}
@@ -39,7 +39,7 @@
             <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-wave-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
-              <li name=0><a>-</a></li>
+              <li name=0><a><span class="caret"></span></a></li>
               {{#each waveList}}
               <li name={{wNum}}><a>{{waveName}}</a></li>
               {{/each}}
@@ -89,7 +89,7 @@
             {{/if}}
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-{{id}}">
-              <li name=0><a>-</a></li>
+              <li name=0><a><span class="caret"></span></a></li>
               {{#each cateList}}
               <li name={{cNum}}><a>{{cateName}}</a></li>
               {{/each}}
@@ -265,7 +265,7 @@
                 <a></a>
               </button>
               <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-modal">
-                <li name=0><a>-</a></li>
+                <li name=0><a><span class="caret"></span></a></li>
                 {{#each cateList}}
                 <li name={{cNum}}><a>{{cateName}}</a></li>
                 {{/each}}
