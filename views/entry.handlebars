@@ -6,13 +6,21 @@
 
 <script src="/js/entry.js"></script>
 <script type="text/javascript" src="/js/printcard.js"></script>
+<script type="text/javascript" src="/js/table2csv.js"></script>
+<script type="text/javascript" src="/js/jquery.redirect.js"></script>
+<script type="text/javascript" src="/js/decimal.min.js"></script>
+<script type="text/javascript" src="/js/aqsysCoder.js" ></script>
 
 <script>
 alert("here");
-alert('{{configString}}');
-aqsysCoder.setConfig({
-  JSON.parse('{{configString}}');
+$(function(){
+  alert("there");
+  alert('{{configString}}');
+  aqsysCoder.setConfig({
+    JSON.parse('{{configString}}');
+  });
 });
+alert("where");
 </script>
 
 
