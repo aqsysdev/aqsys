@@ -184,10 +184,7 @@ $(function(){
   function checkNumEditable () {
     $(".btnRecordNumEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
-      alert(recordNum);
-      alert($("#btnRecordNumEditable-"+recordNum).prop("aria-pressed"));
-      var isChecked=$("#btnRecordNumEditable-"+recordNum).prop("aria-pressed") == "true" ? false : "disabled" ;
-      alert(isChecked);
+      var isChecked=$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true" ? false : "disabled" ;
 
       $(".record-num-"+recordNum).each( function() {
         this.disabled=isChecked;
