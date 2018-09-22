@@ -248,14 +248,14 @@
         </div>
         <div class="modal-body">
           <div class="form-inline">
-            <div class="form-input">
+            <div class="form-input col-lg-4">
               <label>レース番号</label><br>
               <textarea type="text" placeholder="001" name="racenum" id="modal-racenum"></textarea>
             </div>
 
-            <div class="dropdown dropdown-cate" id="dropdown-cate-modal">
+            <div class="dropdown modal-dropdown-cate  col-lg-4" id="modal-dropdown-cate">
               <label>カテゴリ</label><br>
-              <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="entry-cate-modal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="modal-entry-cate" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <a></a>
               </button>
               <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-modal">
@@ -265,7 +265,7 @@
                 {{/each}}
               </ul>
             </div>
-            <div class="form-input">
+            <div class="form-input col-lg-4">
               <label>wave</label><br>
               <textarea type="text" placeholder="01" name="wave" id="modal-wave"></textarea>
             </div>
