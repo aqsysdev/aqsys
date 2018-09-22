@@ -54,12 +54,13 @@
 	<script>
 	alert("here");
 	$(function(){
-		alert("here");
+		alert("there");
 		alert('{{configString}}');
-//		aqsysCoder.setConfig({
-//	  	JSON.parse('{{configString}}');
-//		});
+		aqsysCoder.setConfig({
+  		JSON.parse('{{configString}}');
+		});
 	});
+	alert("where");
 	</script>
 
 {{#unless print}}
