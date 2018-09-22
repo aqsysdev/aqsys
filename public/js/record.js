@@ -180,23 +180,21 @@ $(function(){
 //  レースナンバー編集可能ボタン
 //
   $('.btnRecordNumEditable').on('click', function(){
-    $(".btnRecordNumEditable").each( function() {
-      var recordNum = $(this).attr("id").split("-")[1];
-      var isChecked=($("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
+    var recordNum = $(this).attr("id").split("-")[1];
+    var isChecked=($("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
 
-      $(".record-num-"+recordNum).each( function() {
-        this.disabled=isChecked;
-      });
-      $('.record-num-'+recordNum).off('change')
-      .on('change',function(req){ recordEditNum(this); });
-      $('.record-num-'+recordNum).off('keyup')
-      .on('keyup',function(req){
-        if(req.keyCode == 13) {
-        var these=$(this).attr("id").split("-");
-          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
-          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
-        }
-      });
+    $(".record-num-"+recordNum).each( function() {
+      this.disabled=isChecked;
+    });
+    $('.record-num-'+recordNum).off('change')
+    .on('change',function(req){ recordEditNum(this); });
+    $('.record-num-'+recordNum).off('keyup')
+    .on('keyup',function(req){
+      if(req.keyCode == 13) {
+      var these=$(this).attr("id").split("-");
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+      }
     });
   });
 
@@ -204,22 +202,20 @@ $(function(){
   //  フィニッシュ時刻編集可能ボタン
   //
   $('.btnRecordFTimeEditable').on('click', function(){
-    $(".btnRecordFTimeEditable").each( function() {
-      var recordNum = $(this).attr("id").split("-")[1];
-      var isChecked=($("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true");
-      $(".record-ftime-"+recordNum).each( function() {
-        this.disabled=isChecked;
-      });
-      $('.record-ftime-'+recordNum).off('change')
-      .on('change',function(req){ recordEditFTime(this); });
-      $('.record-ftime-'+recordNum).off('keyup')
-      .on('keyup',function(req){
-        if(req.keyCode == 13) {
-        var these=$(this).attr("id").split("-");
-          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
-          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
-        }
-      });
+    var recordNum = $(this).attr("id").split("-")[1];
+    var isChecked=($("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true");
+    $(".record-ftime-"+recordNum).each( function() {
+      this.disabled=isChecked;
+    });
+    $('.record-ftime-'+recordNum).off('change')
+    .on('change',function(req){ recordEditFTime(this); });
+    $('.record-ftime-'+recordNum).off('keyup')
+    .on('keyup',function(req){
+      if(req.keyCode == 13) {
+      var these=$(this).attr("id").split("-");
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+      }
     });
   });
 
@@ -227,22 +223,20 @@ $(function(){
   //  時間編集可能ボタン
   //
   $('.btnRecordDTimeEditable').on('click',  function(){
-    $(".btnRecordDTimeEditable").each( function() {
-      var recordNum = $(this).attr("id").split("-")[1];
-      var isChecked=($("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true");
-      $(".record-dtime-"+recordNum).each( function() {
-        this.disabled=isChecked;
-      });
-      $('.record-dtime-'+recordNum).off('change')
-      .on('change',function(req){ recordEditDTime(this); });
-      $('.record-dtime-'+recordNum).off('keyup')
-      .on('keyup',function(req){
-        if(req.keyCode == 13) {
-        var these=$(this).attr("id").split("-");
-          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
-          $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
-        }
-      });
+    var recordNum = $(this).attr("id").split("-")[1];
+    var isChecked=($("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true");
+    $(".record-dtime-"+recordNum).each( function() {
+      this.disabled=isChecked;
+    });
+    $('.record-dtime-'+recordNum).off('change')
+    .on('change',function(req){ recordEditDTime(this); });
+    $('.record-dtime-'+recordNum).off('keyup')
+    .on('keyup',function(req){
+      if(req.keyCode == 13) {
+      var these=$(this).attr("id").split("-");
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).focus();
+        $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
+      }
     });
   });
 
