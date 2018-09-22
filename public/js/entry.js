@@ -453,6 +453,10 @@ $(function(){
 
       $('#modal-delete').off();
 
+      $("#modal-racenum").val($("#entry-racenum-"+id).text()||"");
+      $("#modal-cate").val($("#entry-cate-"+id).text()||"");
+      $("#modal-wave").val($("#entry-wave-"+id).text()||"");
+
       $("#modal-lname").val($("#entry-lname-"+id).text()||"");
       $("#modal-myouji").val($("#entry-myouji-"+id).text()||"");
       $("#modal-fname").val($("#entry-fname-"+id).text()||"");
