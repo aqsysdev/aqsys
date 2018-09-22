@@ -79,7 +79,7 @@ aqsysCoder = {
   decodeNamae,
   decodeBirthday,
   decodeGrade, encodeGrade,
-  decodeSex,
+  decodeSex, encodeSex,
   decodeZip1,
   decodeZip2,
   decodeAddress1,
@@ -282,6 +282,10 @@ function encodeGrade(gradeName) {
 
 function decodeSex(sex) {
   return(aqsysCoder.config.sex[(sex||"M")] || aqsysCoder.config.sex.M );
+}
+
+function encodeSex(sexKanji) {
+  return(Object.keys(aqsysCoder.config.sex).filter(function(key){return(aqsysCoder.config.sex[key] == sexKanji);})[0]);
 }
 
 function decodeZip1(zip1) {
