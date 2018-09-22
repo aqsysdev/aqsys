@@ -71,6 +71,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     waveList = wave.map(function(wave,wNum){
       return({wNum:wNum+1,waveName:wave});
     });
+    console.log(JSON.stringify(waveList));
 
     entrylist=entrylist.map(function(row){
       row.cateList=cateList;
