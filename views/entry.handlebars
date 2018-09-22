@@ -247,7 +247,32 @@
           <h4 class="modal-title" id="formAddEntryModalLabel">Add Entry</h4>
         </div>
         <div class="modal-body">
+          <div class="form-input">
+            <label>レース番号</label><br>
+            <textarea type="text" placeholder="001" name="racenum" id="modal-racenum"></textarea>
+          </div>
+          <div class="dropdown dropdown-cate" id="dropdown-cate-modal">
+            <label>カテゴリ</label><br>
+            <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="entry-cate-modal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
+            {{#if cate}}
+              {{cate}}
+            {{else}}
+              <a></a>
+            {{/if}}
+            </button>
+            <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-modal">
+              <li name=0><a><span class="caret"></span></a></li>
+              {{#each cateList}}
+              <li name={{cNum}}><a>{{cateName}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="form-input">
+            <label>wave</label><br>
+            <textarea type="text" placeholder="01" name="wave" id="modal-wave"></textarea>
+          </div>
 
+          <hr />
           <div class="input-group">
             <label>氏　　名</label><br>
             <textarea type="text" class="col-lg-6" placeholder="氏" name="modal-myouji" id="modal-myouji"></textarea>
