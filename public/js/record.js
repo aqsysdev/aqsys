@@ -179,9 +179,7 @@ $(function(){
 //
 //  レースナンバー編集可能ボタン
 //
-  $('.btnRecordNumEditable').on('click', function(){checkNumEditable();});
-
-  function checkNumEditable () {
+  $('.btnRecordNumEditable').on('click', function(){
     $(".btnRecordNumEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
       var isChecked=($("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
@@ -200,14 +198,12 @@ $(function(){
         }
       });
     });
-  }
+  });
 
   //
   //  フィニッシュ時刻編集可能ボタン
   //
-  $('.btnRecordFTimeEditable').on('click', function(){checkFTimeEditable();});
-
-  function checkFTimeEditable() {
+  $('.btnRecordFTimeEditable').on('click', function(){
     $(".btnRecordFTimeEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
       var isChecked=($("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true");
@@ -225,14 +221,12 @@ $(function(){
         }
       });
     });
-  }
+  });
 
   //
   //  時間編集可能ボタン
   //
-  $('.btnRecordDTimeEditable').on('click',  function(){checkDTimeEditable();});
-
-  function checkDTimeEditable() {
+  $('.btnRecordDTimeEditable').on('click',  function(){
     $(".btnRecordDTimeEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
       var isChecked=($("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true");
@@ -250,7 +244,7 @@ $(function(){
         }
       });
     });
-  }
+  });
 
   //////////////////////////////////////////////////////////////////////////
   //
