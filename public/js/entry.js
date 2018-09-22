@@ -464,10 +464,7 @@ $(function(){
       $("#modal-birthday").val($("#entry-birthday-"+id).text()||"");
       $("#modal-sex").text($("#entry-sex-"+id).text()||"");
 
-      alert($("#entry-grade-"+id).text()||"");
-//      $("#modal-grade").text(
-//        aqsysCoder.encodeGrade(aqsysCoder.decodeGrade($("#entry-grade-"+id).text()||""))
-//      );
+      $("#modal-grade").html($("#entry-grade-"+id).html()||"");
       $("#modal-zip").val(($("#entry-zip-"+id).text()||"").replace(/〒/,""));
       $("#modal-address1").val($("#entry-address1-"+id).text()||"");
       $("#modal-address2").val($("#entry-address2-"+id).text()||"");
