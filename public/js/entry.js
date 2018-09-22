@@ -618,6 +618,8 @@ function postEntryByModalForm() {
     delete row.birthday2;
   }
   row.disabled = false;
+
+  alert("here");
   if(err) {
     alert(err);
     $(this).off('submit');   //一旦submitをキャンセルして、
