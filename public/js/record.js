@@ -185,7 +185,7 @@ $(function(){
     $(".btnRecordNumEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
       var isChecked=($("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
-      
+
       $(".record-num-"+recordNum).each( function() {
         this.disabled=isChecked;
       });
@@ -769,9 +769,6 @@ $(function(){
       $("#record-num-4-"+seqnum).parent().addClass("show-edit");
     }
     setHidden();
-    checkNumEditable();
-    checkFTimeEditable();
-    checkDTimeEditable();
   };
 
   var setHidden = record.setHidden = function(){
