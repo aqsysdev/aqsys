@@ -184,7 +184,7 @@ $(function(){
   function checkNumEditable () {
     $(".btnRecordNumEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
-      var isChecked=$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true" ? false : "disabled" ;
+      var isChecked=$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") != "true" ?  "disabled" : false;
 
       $(".record-num-"+recordNum).each( function() {
         this.disabled=isChecked;
@@ -210,7 +210,7 @@ $(function(){
   function checkFTimeEditable() {
     $(".btnRecordFTimeEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
-      var isChecked=$("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true" ? false : "disabled" ;
+      var isChecked=$("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") != "true" ? "disabled" : false ;
       $(".record-ftime-"+recordNum).each( function() {
         this.disabled=isChecked;
       });
@@ -235,7 +235,7 @@ $(function(){
   function checkDTimeEditable() {
     $(".btnRecordDTimeEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
-      var isChecked=$("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true" ? false : "disabled" ;
+      var isChecked=$("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") != "true" ? "disabled" : false ;
       $(".record-dtime-"+recordNum).each( function() {
         this.disabled=isChecked;
       });
