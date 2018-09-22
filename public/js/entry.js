@@ -574,8 +574,7 @@ function postEntryByModalForm() {
     err=err+"性別を入れてください。\n";
   }
   row.grade = aqsysCoder.encodeGrade($("#modal-grade").text() || "");
-  alert(row.grade);
-  if( row.grade < 0 && aqsysCoder.calcAge(row.birthday, null)<15){
+  if( row.grade <= 0 && aqsysCoder.calcAge(row.birthday, null)<15){
     err=err+"学年を入力してください。\n";
   }
 //  alert(row.grade);
