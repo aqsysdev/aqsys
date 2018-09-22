@@ -74,6 +74,48 @@ $(function(){
 
   ////////////////////////////////////////////////////////////////////
   //
+  // カテゴリー検索
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $('.dropdown-cate-search li').on('click', function(ev){
+    var table = $("#prizelist").DataTable();
+    // #testhoge をクリックすると table の 2列目から 728を検索して返す
+    // 列は 0 列目から始まる。
+    //alert($(this).text().split(":")[0]);
+    if($(this).text()) {
+      table.column(1).search("cate"+$(this).text().split(":")[0]).draw();
+    }else{
+      table.column(1).search("").draw();
+    }
+    $('#prize-cate-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
+  });
+  $('#prize-cate-search').html(($("#entrylist").DataTable().column(2).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
+
+
+  ////////////////////////////////////////////////////////////////////
+  //
+  // ウェーブ検索
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $('.dropdown-wave-search li').on('click', function(ev){
+    var table = $("#prizelist").DataTable();
+    // #testhoge をクリックすると table の 2列目から 728を検索して返す
+    // 列は 0 列目から始まる。
+    //alert($(this).text().split(":")[0]);
+    $(this).parent().prev().html($(this).html());
+    if($(this).text()) {
+      table.column(2).search("wave"+$(this).text()).draw();
+    }else{
+      table.column(2).search("").draw();
+    }
+    $('#prize-wave-search').html(($("#entrylist").DataTable().column(3).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
+  });
+  $('#prize-wave-search').html(($("#entrylist").DataTable().column(3).search() || '<a><span class="caret"></span></a>').replace(/^wave/,""));
+
+  ////////////////////////////////////////////////////////////////////
+  //
   // トータルタイム編集
   //
   ////////////////////////////////////////////////////////////////////
@@ -116,7 +158,11 @@ $(function(){
     autoFillTtime();
   });
 
+  ////////////////////////////////////////////////////////////////////
+  //
   // prize 編集
+  //
+  ////////////////////////////////////////////////////////////////////
 
   for(var i=1; i < 4 ; i++) {
     $(document).on('click', '#prize-'+i+'-editable', function () {
@@ -215,9 +261,11 @@ function autoFillTtime() {
     alert("wave 情報の取得に失敗しました。");
   });
 }
+////////////////////////////////////////////////////////////////////
 //
 //  トータル時間編集
 //
+////////////////////////////////////////////////////////////////////
 function changeTtime(that) {
   $(that).addClass("unconfirmed");
   var value=$(that).val();
@@ -253,10 +301,11 @@ function changeTtime(that) {
     $(that).val(data.ttime);
   });
 }
-
+////////////////////////////////////////////////////////////////////
 //
 //  順位編集
 //
+////////////////////////////////////////////////////////////////////
 function changePrize(that) {
   $(that).addClass("unconfirmed");
   var value=$(that).val();
