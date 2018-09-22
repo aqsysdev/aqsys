@@ -251,14 +251,20 @@
             <label>レース番号</label><br>
             <textarea type="text" placeholder="001" name="racenum" id="modal-racenum"></textarea>
           </div>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              男
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-sex">
+              <li><a>男</a></li>
+              <li><a>女</a></li>
+            </ul>
+          </div>
+
           <div class="dropdown dropdown-cate" id="dropdown-cate-modal">
             <label>カテゴリ</label><br>
             <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="entry-cate-modal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
-            {{#if cate}}
-              {{cate}}
-            {{else}}
               <a></a>
-            {{/if}}
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-modal">
               <li name=0><a><span class="caret"></span></a></li>
