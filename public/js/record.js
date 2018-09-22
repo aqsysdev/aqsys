@@ -146,7 +146,7 @@ $(function(){
   //
   //num 選択ラジオボタン
   //
-  $(document).on('click', '.record-num-radio', function(){
+  $('.record-num-radio').on('click',  function(){
     $('.record-num-radio').removeClass("active");
     $(this).addClass("active");
     var id = $(this).eq(0).attr("id").split("-");
@@ -156,7 +156,7 @@ $(function(){
   //
   //ftime 選択ラジオボタン
   //
-  $(document).on('click', '.record-ftime-radio', function(){
+  $('.record-ftime-radio').on('click', function(){
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
     $(this).addClass("active");
@@ -167,7 +167,7 @@ $(function(){
   //
   //dtime 選択ラジオボタン
   //
-  $(document).on('click', '.record-dtime-radio', function(){
+  $('.record-dtime-radio').on('click',  function(){
     $('.record-ftime-radio').removeClass("active");
     $('.record-dtime-radio').removeClass("active");
     $(this).addClass("active");
@@ -179,7 +179,7 @@ $(function(){
 //
 //  レースナンバー編集可能ボタン
 //
-  $(document).on('click', '.btnRecordNumEditable', function(){checkNumEditable();});
+  $('.btnRecordNumEditable').on('click', function(){checkNumEditable();});
 
   function checkNumEditable () {
     $(".btnRecordNumEditable").each( function() {
@@ -204,7 +204,7 @@ $(function(){
   //
   //  フィニッシュ時刻編集可能ボタン
   //
-  $(document).on('click', '.btnRecordFTimeEditable', function(){checkFTimeEditable();});
+  $('.btnRecordFTimeEditable').on('click', function(){checkFTimeEditable();});
 
   function checkFTimeEditable() {
     $(".btnRecordFTimeEditable").each( function() {
@@ -229,7 +229,7 @@ $(function(){
   //
   //  時間編集可能ボタン
   //
-  $(document).on('click', '.btnRecordDTimeEditable', function(){checkDTimeEditable();});
+  $('.btnRecordDTimeEditable').on('click',  function(){checkDTimeEditable();});
 
   function checkDTimeEditable() {
     $(".btnRecordDTimeEditable").each( function() {

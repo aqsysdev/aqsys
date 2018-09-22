@@ -44,6 +44,12 @@ var aqsysCoder = {};
           "B:低学年リレー",
           "C:高学年リレー"
         ],
+        localZips: [
+          "143",
+          "144",
+          "145",
+          "146"
+        ],
         months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
         sex: {M:"男",F:"女"}
   };

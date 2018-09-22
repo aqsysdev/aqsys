@@ -15,7 +15,7 @@ $(function(){
       //scrollX: false,
       //scrollY: false,
       order: [
-        [1,"asc"],[2,"asc"],[6,"asc"],[0,"asc"]
+        [11,"asc"],[1,"asc"],[2,"asc"],[6,"asc"],[0,"asc"]
       ]
     }
   );
@@ -120,10 +120,10 @@ $(function(){
   //
   ////////////////////////////////////////////////////////////////////
 
-  $(document).on('click', '#prize-ttime-editable', function () {
+  $('#prize-ttime-editable').on('click', function () {
     var btn;
     var btns;
-    var editable=$(this).prop("editable") == true ? false : true;
+    var editable=($(this).prop("editable") == true);
     $(this).prop("editable",editable);
     btns=$(".prize-ttime");
     for(btn of btns) {
@@ -135,7 +135,7 @@ $(function(){
     });
     //location.reload();
   });
-  $(document).on('click', '#prize-ttime-caret', function () {
+  $('#prize-ttime-caret').on('click',  function () {
     var btn;
     var btns;
     $(this).prop("editable",false);
@@ -144,7 +144,7 @@ $(function(){
       btn.disabled="disabled";
     }
   });
-  $(document).on('click', '#prize-ttime-remove', function () {
+  $('#prize-ttime-remove').on('click',  function () {
     var btn;
     var btns;
     $(this).prop("editable",false);
@@ -165,7 +165,7 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   for(var i=1; i < 4 ; i++) {
-    $(document).on('click', '#prize-'+i+'-editable', function () {
+    $('#prize-'+i+'-editable').on('click', function () {
       var these = $(this).prop("id").split(/-/);
       var btn;
       var btns;
@@ -180,7 +180,7 @@ $(function(){
         });
       }
     });
-    $(document).on('click', '#prize-'+i+'-caret', function () {
+    $('#prize-'+i+'-caret').on('click',  function () {
       var these = $(this).prop("id").split(/-/);
       var btn;
       var btns;
@@ -190,7 +190,7 @@ $(function(){
         btn.disabled="disabled";
       }
     });
-    $(document).on('click', '#prize-'+i+'-remove', function () {
+    $('#prize-'+i+'-remove').on('click', function () {
       var these = $(this).prop("id").split(/-/);
       var btn;
       var btns;
@@ -204,26 +204,87 @@ $(function(){
         }
       }
     });
-    $(document).on('click', '#prize-'+i+'-autofill', function () {
-      var these = $(this).prop("id").split(/-/);
-      var btn;
-      var btns;
-      var prevNum=0;
-      $(this).prop("editable",false);
-      btns=$("."+these[0]+"-"+these[1]);
-      for(btn of btns) {
-        var those = $(btn).prop("name").split(/-/);
-        if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
-          if($(btn).val()=="") {
-            $(btn).val(++prevNum);
-          }else if(!isNaN($(btn).val())) {
-            prevNum = $(btn).val();
-          }
-        }
-        changePrize($(btn));
-      }
-    });
   }
+
+  ////////////////////////////////////////////////////////////////////
+  //
+  // カテゴリー順位
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $(document).on('click', '#prize-1-autofill', function () {
+    var these = $(this).prop("id").split(/-/);
+    var btn;
+    var btns;
+    var prevNum=0;
+    $(this).prop("editable",false);
+    btns=$("."+these[0]+"-"+these[1]);
+    for(btn of btns) {
+      var those = $(btn).prop("name").split(/-/);
+      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+        if($(btn).val()=="") {
+          $(btn).val(++prevNum);
+        }else if(!isNaN($(btn).val())) {
+          prevNum = $(btn).val();
+        }
+      }
+      changePrize($(btn));
+    }
+  });
+
+
+  ////////////////////////////////////////////////////////////////////
+  //
+  // 年齢別順位
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $(document).on('click', '#prize-2-autofill', function () {
+    var these = $(this).prop("id").split(/-/);
+    var btn;
+    var btns;
+    var prevNum=0;
+    $(this).prop("editable",false);
+    btns=$("."+these[0]+"-"+these[1]);
+    for(btn of btns) {
+      var those = $(btn).prop("name").split(/-/);
+      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+        if($(btn).val()=="") {
+          $(btn).val(++prevNum);
+        }else if(!isNaN($(btn).val())) {
+          prevNum = $(btn).val();
+        }
+      }
+      changePrize($(btn));
+    }
+  });
+
+  ////////////////////////////////////////////////////////////////////
+  //
+  // 大田区賞
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $(document).on('click', '#prize-3-autofill', function () {
+    var these = $(this).prop("id").split(/-/);
+    var btn;
+    var btns;
+    var prevNum=0;
+    $(this).prop("editable",false);
+    btns=$("."+these[0]+"-"+these[1]);
+    for(btn of btns) {
+      var those = $(btn).prop("name").split(/-/);
+      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+        if($(btn).val()=="") {
+          $(btn).val(++prevNum);
+        }else if(!isNaN($(btn).val())) {
+          prevNum = $(btn).val();
+        }
+      }
+      changePrize($(btn));
+    }
+  });
+
 });
 
 var waves = [];
