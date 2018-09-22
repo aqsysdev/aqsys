@@ -274,7 +274,7 @@ function decodeBirthday(argBirthday) {
 }
 
 function decodeGrade(grade,birthday) {
-  return((grade && aqsysCoder.config.grades[grade-1]) ? aqsysCoder.config.grades[grade-1] : calcAge(birthday, aqsysCoder.config.basedate)+ "才");
+  return((grade && aqsysCoder.config.grades[grade-1]) ? aqsysCoder.config.grades[grade-1] : calcAge(birthday, false)+ "才");
 }
 
 function encodeGrade(gradeName) {
