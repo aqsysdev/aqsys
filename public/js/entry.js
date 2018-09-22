@@ -258,6 +258,7 @@ $(function(){
       if($(this).text()) {
         table.column(2).search("wave"+$(this).text()).draw();
       }else{
+        
         table.column(2).search("").draw();
       }
     });
