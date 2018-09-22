@@ -574,6 +574,7 @@ function postEntryByModalForm() {
     err=err+"性別を入れてください。\n";
   }
   row.grade = aqsysCoder.encodeGrade($("#modal-grade").text() || "");
+  alert(row.grade);
   if( row.grade < 0 && aqsysCoder.calcAge(row.birthday, null)<15){
     err=err+"学年を入力してください。\n";
   }
@@ -619,7 +620,6 @@ function postEntryByModalForm() {
   }
   row.disabled = false;
 
-  alert("here");
   if(err) {
     alert(err);
     $(this).off('submit');   //一旦submitをキャンセルして、
