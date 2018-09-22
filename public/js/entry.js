@@ -568,7 +568,7 @@ function postEntryByModalForm() {
   if(!aqsysCoder.checkDate(row.birthday)) {
     err=err+"誕生日は YYYY/MM/DD の形式で入れてください。\n";
   }
-  row.sex = aqsysCoder.sex($("#modal-sex").text());
+  row.sex = aqsysCoder.encodeSex($("#modal-sex").text());
   //  alert(row.sex);
   if( row.sex != "M" && row.sex != "F"){
     err=err+"性別を入れてください。\n";
@@ -596,7 +596,7 @@ function postEntryByModalForm() {
   row.namae2  = $("#modal-namae2").val().trim();
   row.birthday2 = ($("#modal-birthday2").val()+"").trim();
   if(row.lname2 || row.myouji2 || row.fname2 || row.namae2 ) {
-    row.sex2 = aqsysCoder.sex($("#modal-sex2").text());
+    row.sex2 = aqsysCoder.encodeSex($("#modal-sex2").text());
     if(!aqsysCoder.checkDate(row.birthday2)) {
       err=err+"子の誕生日を YYYY/MM/DD の形式で入れてください。\n";
     }
