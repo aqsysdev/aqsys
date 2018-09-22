@@ -182,6 +182,7 @@ $(function(){
   $('.btnRecordNumEditable').on('click', function(){checkNumEditable();});
 
   function checkNumEditable () {
+    alert("here")
     $(".btnRecordNumEditable").each( function() {
       var recordNum = $(this).attr("id").split("-")[1];
       var isChecked=$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true" ? false : "disabled" ;
