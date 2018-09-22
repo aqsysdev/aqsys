@@ -511,10 +511,10 @@ $(function(){
     });
     ////////////////////////////////////////////////////////////////////
     //
-    //　modalカテゴリー変更
+    //　modal dropdown
     //
     ////////////////////////////////////////////////////////////////////
-    $('#modal-dropdown-cate li').on('click', function(){
+    $('.modal-dropdown li').on('click', function(){
       $(this).parent().prev().html($(this).html());
     });
 
