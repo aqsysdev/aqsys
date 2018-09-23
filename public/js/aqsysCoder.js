@@ -166,16 +166,16 @@ function calcAge(birthdate, targetdate) {
   	return (Math.floor((tdate - bdate) / 10000));
 }
 
-function calcTime(fromTime, toTime) {
+var calcTime = aqsysCoder.calcTime = function(fromTime, toTime) {
     return(centisecTime(toTime)-centisecTime(fromTime));
-}
+};
 
 
-function addTime(fromTime, toTime) {
+var addTime = aqsysCoder.addTime = function(fromTime, toTime) {
     return(formTime(centisecTime(fromTime)+centisecTime(toTime)));
-}
+};
 
-function formTime(ms) {
+var formTime = aqsysCoder.formTime = function(ms) {
     var milisec=new Decimal(ms);
     return(
       ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
@@ -183,9 +183,9 @@ function formTime(ms) {
       ("00"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
       ("00"+parseInt(milisec%100,0)).slice(-2)
     );
-}
+};
 
-function reformTime(ft) {
+var reformTime = aqsysCoder.reformTime = function(ft) {
   if(ft){
     if(ft.indexOf(".")<0){
       ft="00"+ft+".00";
@@ -209,10 +209,9 @@ function reformTime(ft) {
   } else {
     return(ft);
   }
-}
+};
 
-
-function centisecTime(time) {
+var centisecTime = aqsysConder.centisecTime = function(time) {
   var ft=time;
   if(ft.indexOf(".")<0){
     ft="00"+ft+".00";
@@ -224,7 +223,7 @@ function centisecTime(time) {
     (timeSplit[2]||0)*100+
     (timeSplit[3]||0)*1
   );
-}
+};
 
 function encodeDateTime(time) {
   return(
