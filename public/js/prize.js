@@ -5,6 +5,8 @@
 //
 
 $(function(){
+   alert(JSON.stringify(aqsysCoder));
+
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
 
   $("#prizelist").DataTable(
