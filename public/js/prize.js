@@ -310,8 +310,6 @@ $(function(){
 //          alert(JSON.stringify(record));
           var stime0 = waves.find(function(elm){return(elm.wid==1);}).stime;
           var ftime0 = record.find(function(elm){return(elm.rid==1);}).ftime;
-          alert(stime0);
-          alert(ftime0);
           var ttimeBtns = $('.prize-ttime');
           for(btn of ttimeBtns) {
             if( !$(btn).val() || $(btn).val() == "DNF" ) {
@@ -334,6 +332,7 @@ $(function(){
               changeTtime($(btn));
             }
           }
+          location.reload();
         },
         function(){
           alert("タイム記録の取得に失敗しました。");
