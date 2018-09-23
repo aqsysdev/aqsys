@@ -385,12 +385,17 @@ function changePrize(that,resolve,reject) {
     var btn;
     var btns;
     var prevNum=0;
+    alert("here");
+
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
+    alert("here");
     var promises=[];
     for(btn of btns) {
+      alert("here");
       var those = $(btn).prop("name").split(/-/);
-      if($("#prize-ttime-"+id).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+      alert("here");
+      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
         if($(btn).val()=="") {
           $(btn).val(++prevNum);
         }
