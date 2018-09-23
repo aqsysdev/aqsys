@@ -5,6 +5,7 @@
 //
 
 var aqsysCoder = {};
+var Decimal = (typeof require === 'undefined') ? Decimal : require("../js/decimal.js");
 
 (function() {
 
@@ -14,8 +15,6 @@ var aqsysCoder = {};
   // 規定値設定
   //
   //////////////////////////////////////////////////////////
-
-  var Decimal = (typeof require === 'undefined') ? Decimal : require("../js/decimal.js");
   var config = {
         schemaname: 'aqsyssample',
         basedate: '2017/12/31',
