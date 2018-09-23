@@ -344,14 +344,16 @@ $(function(){
   function changeTtime(that) {
     $(that).addClass("unconfirmed");
     var value=$(that).val();
-    var id=$(that).parent().parent().children().last().text().trim();
+    var id=$(that).prop("id").split("-")[2];
   //  alert("id:"+id+" value:"+value);
     //
     //  編集
     //
     var data = {};
     if(!value) {
-      data.DNF = true;
+      data.DNF = false;
+    }else if(value=="DNF"){
+      data.DNF = true;     
     }else{
       data.ttime=aqsysCoder.reformTime(value);
       data.DNF = false;
