@@ -75,7 +75,7 @@ aqsysCoder = {
   hiraganaToKatakana,
   calcAge,
   calcTime,
-  diffTime,
+//  diffTime,
   addTime,
   formTime,
   reformTime,
@@ -161,7 +161,7 @@ function calcTime(fromTime, toTime) {
     return(centisecTime(toTime)-centisecTime(fromTime));
 }
 
-function diffTime(fromTime, toTime) {
+var diffTime = aqsysCoder.diffTime = function(fromTime, toTime) {
   var diffCentisec;
   diffCentisec = calcTime(fromTime,toTime);
   if(diffCentisec>=0) {
@@ -169,7 +169,7 @@ function diffTime(fromTime, toTime) {
   }else{
     return(formTime(diffCentisec+centisecTime("24:00:00.00")));
   }
-}
+};
 
 function addTime(fromTime, toTime) {
     return(formTime(centisecTime(fromTime)+centisecTime(toTime)));
