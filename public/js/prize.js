@@ -250,8 +250,8 @@ function autoFillTtime(that) {
             }else{
               $(btn).val("DNF");
             }
-            promises.push(new Promise( function() {
-              changeTtime($(btn));
+            promises.push(new Promise( function(resolve,reject) {
+              changeTtime($(btn),resolve,reject);
             }));
           }
         }
@@ -278,7 +278,7 @@ function autoFillTtime(that) {
 //  トータル時間編集
 //
 ////////////////////////////////////////////////////////////////////
-function changeTtime(that) {
+function changeTtime(that,resolve,reject) {
   $(that).addClass("unconfirmed");
   var value=$(that).val();
   var id=$(that).prop("id").split("-")[2];
