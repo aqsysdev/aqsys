@@ -317,7 +317,7 @@ $(function(){
 //              var id=$(btn).parent().parent().children().last().text().trim();
 //              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
 //              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
-//              alert("id:"+id+" racenum:"+racenum+" wid:"+wid);
+              alert("id:"+id+" racenum:"+racenum+" wid:"+wid);
               var stimeObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
               var ftimeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
               alert(JSON.stringify(stimeObj));
