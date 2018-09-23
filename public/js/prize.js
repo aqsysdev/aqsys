@@ -311,6 +311,7 @@ $(function(){
           var stime0 = waves.find(function(elm){return(elm.wid==1);}).stime;
           var ftime0 = record.find(function(elm){return(elm.rid==1);}).ftime;
           var ttimeBtns = $('.prize-ttime');
+          var promises=[];
           for(btn of ttimeBtns) {
             if( !$(btn).val() || $(btn).val() == "DNF" ) {
               var id=$(btn).prop("id").split(/-/)[2];
@@ -329,10 +330,14 @@ $(function(){
               }else{
                 $(btn).val("DNF");
               }
-              changeTtime($(btn));
+              promises.push(new Promise( function() {
+                changeTtime($(btn));
+              }));
             }
           }
-          location.reload();
+          Promise.all(promises).then( function() {
+            location.reload();
+          });
         },
         function(){
           alert("タイム記録の取得に失敗しました。");
