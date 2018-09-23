@@ -323,9 +323,10 @@ $(function(){
               alert(JSON.stringify(stimeObj));
               alert(JSON.stringify(ftimeObj));
               if(stimeObj && stimeObj.stime && ftimeObj && ftimeObj.ftime) {
+                alert(aqsysCoder.diffTime(stimeObj.stime,ftimeObj.ftime));
                 $(btn).val(aqsysCoder.diffTime(stimeObj.stime,ftimeObj.ftime));
               }else{
-                $(btn).val("");
+                $(btn).val("DNF");
               }
               changeTtime($(btn));
             }
