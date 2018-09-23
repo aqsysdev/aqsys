@@ -431,7 +431,7 @@ function changePrize(that,resolve,reject) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
         alert("here");
-        var gradeName = $("#prize-grade-"+id+" a").text();
+        var gradeName = $("#prize-grade-"+those[2]+" a").text();
         alert(gradeName);
         if( aqsysCoder.getConfig().gradeList.idexOf[gradeName]<0 ) {
           gradeName = gradeName.split("")[0] + "0才代";
