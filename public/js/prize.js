@@ -383,16 +383,20 @@ function changePrize(that,resolve,reject) {
     var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
-    var prevNum=0;
-
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
     var promises=[];
+    var prevNums={};
+
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+        var gradeName = $("#prize-cate-"+those[2]).find("a").text();
+        if(!prevNums[gradeName]) {
+          prevNums[gradeName]=0;
+        }
         if($(btn).val()=="") {
-          $(btn).val(++prevNum);
+          $(btn).val(++prevNums[gradeName]);
         }
       }
       promises.push(new Promise( function(resolve,reject) {
@@ -427,9 +431,7 @@ function changePrize(that,resolve,reject) {
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
-        alert("here");
         var gradeName = $("#prize-grade-"+those[2]).find("a").text();
-        alert(gradeName);
         if( aqsysCoder.getConfig().grades.indexOf(gradeName)<0 ) {
           gradeName = gradeName.split("")[0] + "0才代";
         }
