@@ -233,7 +233,7 @@ function autoFillTtime(that) {
         var ttimeBtns = $('.prize-ttime');
         var promises=[];
         for(btn of ttimeBtns) {
-          if( !$(btn).val() || $(btn).val() == "DNF" ) {
+//          if( !$(btn).val() || $(btn).val() == "DNF" ) {
             var id=$(btn).prop("id").split(/-/)[2];
             var racenum=($(btn).parents("tr").find(".prize-race-num").val()||0)*1;
             var wid=($(btn).parents("tr").find(".prize-wave").val()||0)*1;
@@ -253,12 +253,9 @@ function autoFillTtime(that) {
             promises.push(new Promise( function(resolve,reject) {
               changeTtime($(btn),resolve,reject);
             }));
-          }
+//          }
         }
-        alert(promises.length);
-        alert(JSON.stringify(promises));
         Promise.all(promises).then( function() {
-          alert("promise");
           location.reload();
         }).catch( function() {
           alert("タイムの集計結果の記録に失敗しました。");
