@@ -430,7 +430,7 @@ function changePrize(that,resolve,reject) {
         alert("here");
         var gradeName = $("#prize-grade-"+those[2]).find("a").text();
         alert(gradeName);
-        if( aqsysCoder.getConfig().gradeList.indexOf(gradeName)<0 ) {
+        if( aqsysCoder.getConfig().grades.indexOf(gradeName)<0 ) {
           gradeName = gradeName.split("")[0] + "0才代";
         }
         if(!prevNums[gradeName]) {
