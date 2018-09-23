@@ -165,6 +165,195 @@ $(function(){
 
   ////////////////////////////////////////////////////////////////////
   //
+  // トータルタイム編集
+  //
+  ////////////////////////////////////////////////////////////////////
+
+  $('#prize-ttime-editable').on('click', function () {
+    var btn;
+    var btns;
+    $(this).prop("editable",true);
+    var editable=($(this).prop("editable"));
+    btns=$(".prize-ttime");
+    for(btn of btns) {
+      btn.disabled=(editable?false:"disabled");
+    }
+    $('.prize-ttime').off('change');
+    $('.prize-ttime').on('change',function(){
+      btn.disabled=(editable?false:"disabled");
+      $(btn).off('change');
+      $(btn).on('change',function(){
+        changeTtime(this);
+      });
+    });
+    //location.reload();
+  });
+
+  $('#prize-ttime-caret').on('click',  function () {
+    var btn;
+    var btns;
+    $(this).prop("editable",false);
+    btns=$(".prize-ttime");
+    for(btn of btns) {
+      btn.disabled="disabled";
+    }
+  });
+  $('#prize-ttime-remove').on('click',  function () {
+    var btn;
+    var btns;
+    $(this).prop("editable",false);
+    btns=$(".prize-ttime");
+    for(btn of btns) {
+      $(btn).val("");
+      changeTtime($(btn));
+    }
+  });
+  $('#prize-ttime-autofill').on('click',  function () {
+    autoFillTtime(this);
+  });
+
+////////////////////////////////////////////////////////////////////
+//
+// 自動集計
+//
+////////////////////////////////////////////////////////////////////
+
+var waves = [];
+var record = [];
+
+function autoFillTtime(that) {
+  $.getW("", waves,
+  function(waves,stat) {
+//      alert(JSON.stringify(waves));
+    $.getR("", record,
+      function(record,stat){
+//          alert(JSON.stringify(record));
+        var stime0 = waves.find(function(elm){return(elm.wid==1);}).stime;
+        var ftime0 = record.find(function(elm){return(elm.rid==1);}).ftime;
+        var ttimeBtns = $('.prize-ttime');
+        var promises=[];
+        for(btn of ttimeBtns) {
+          if( !$(btn).val() || $(btn).val() == "DNF" ) {
+            var id=$(btn).prop("id").split(/-/)[2];
+            var racenum=($(btn).parents("tr").find(".prize-race-num").val()||0)*1;
+            var wid=($(btn).parents("tr").find(".prize-wave").val()||0)*1;
+//              var id=$(btn).parent().parent().children().last().text().trim();
+//              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
+//              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
+            var waveObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
+            var recodeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
+            if(waveObj && waveObj.stime && recodeObj && recodeObj.ftime) {
+              $(btn).val(aqsysCoder.diffTime(
+                aqsysCoder.diffTime(stime0,waveObj.stime),
+                aqsysCoder.diffTime(ftime0,recodeObj.ftime)
+              ));
+            }else{
+              $(btn).val("DNF");
+            }
+            promises.push(new Promise( function() {
+              changeTtime($(btn));
+            }));
+          }
+        }
+        alert(promises.length);
+        alert(JSON.stringify(promises));
+        Promise.all(promises).then( function() {
+          alert("promise");
+          location.reload();
+        }).catch( function() {
+          alert("タイムの集計結果の記録に失敗しました。");
+        });
+      },
+      function(){
+        alert("タイム記録の取得に失敗しました。");
+      }
+    );
+  },
+  function(req,stat,err){
+    alert("wave 情報の取得に失敗しました。");
+  });
+}
+////////////////////////////////////////////////////////////////////
+//
+//  トータル時間編集
+//
+////////////////////////////////////////////////////////////////////
+function changeTtime(that) {
+  $(that).addClass("unconfirmed");
+  var value=$(that).val();
+  var id=$(that).prop("id").split("-")[2];
+//  alert("id:"+id+" value:"+value);
+  //
+  //  編集
+  //
+  var data = {};
+  if(!value) {
+    data.DNF = true;
+  }else if(value=="DNF"){
+    data.DNF = true;
+  }else{
+    data.ttime=aqsysCoder.reformTime(value);
+    data.DNF = false;
+  }
+  $.putE(id,data,
+  function(data,stat){
+    $.getE(data.id, data,
+    function(data,stat) {
+      if(data.DNF){
+        $(that).val("DNF");
+      }else{
+        $(that).val(data.ttime);
+      }
+      $(that).removeClass("unconfirmed");
+      resolve();
+    },
+    function(req,stat,err){
+      alert("記録の確認に失敗しました。");
+      reject();
+    });
+  },
+  function(req,stat,err){
+    alert("記録の書き込みに失敗しました。");
+    $(that).val(data.ttime);
+    reject();
+  });
+}
+////////////////////////////////////////////////////////////////////
+//
+//  順位編集
+//
+////////////////////////////////////////////////////////////////////
+function changePrize(that) {
+  $(that).addClass("unconfirmed");
+  var value=$(that).val();
+  var those=$(that).prop("name").split(/-/);
+  var index=those[0]+those[1];
+  var id=$(that).parent().parent().children().last().text().trim();
+//  alert("id:"+id+" value:"+value);
+    //
+    //  編集
+    //
+  var data={};
+  data[index]=aqsysCoder.encodePrize(value);
+  $.putE(id,data,
+  function(data,stat){
+    $.getE(data.id, data,
+    function(data,stat) {
+      $(that).val(aqsysCoder.decodePrize(data[index]));
+      $(that).removeClass("unconfirmed");
+    },
+    function(req,stat,err){
+      alert("記録の確認に失敗しました。");
+    });
+  },
+  function(req,stat,err){
+    alert("記録の書き込みに失敗しました。");
+    $(that).val(data.ttime);
+  });
+}
+
+  ////////////////////////////////////////////////////////////////////
+  //
   // カテゴリー順位
   //
   ////////////////////////////////////////////////////////////////////
@@ -242,192 +431,5 @@ $(function(){
     }
   });
 
-
-    ////////////////////////////////////////////////////////////////////
-    //
-    // トータルタイム編集
-    //
-    ////////////////////////////////////////////////////////////////////
-
-    $('#prize-ttime-editable').on('click', function () {
-      var btn;
-      var btns;
-      $(this).prop("editable",true);
-      var editable=($(this).prop("editable"));
-      btns=$(".prize-ttime");
-      for(btn of btns) {
-        btn.disabled=(editable?false:"disabled");
-      }
-      $('.prize-ttime').off('change');
-      $('.prize-ttime').on('change',function(){
-        btn.disabled=(editable?false:"disabled");
-        $(btn).off('change');
-        $(btn).on('change',function(){
-          changeTtime(this);
-        });
-      });
-      //location.reload();
-    });
-
-    $('#prize-ttime-caret').on('click',  function () {
-      var btn;
-      var btns;
-      $(this).prop("editable",false);
-      btns=$(".prize-ttime");
-      for(btn of btns) {
-        btn.disabled="disabled";
-      }
-    });
-    $('#prize-ttime-remove').on('click',  function () {
-      var btn;
-      var btns;
-      $(this).prop("editable",false);
-      btns=$(".prize-ttime");
-      for(btn of btns) {
-        $(btn).val("");
-        changeTtime($(btn));
-      }
-    });
-    $('#prize-ttime-autofill').on('click',  function () {
-      autoFillTtime(this);
-    });
-
-  ////////////////////////////////////////////////////////////////////
-  //
-  // 自動集計
-  //
-  ////////////////////////////////////////////////////////////////////
-
-  var waves = [];
-  var record = [];
-
-  function autoFillTtime(that) {
-    $.getW("", waves,
-    function(waves,stat) {
-//      alert(JSON.stringify(waves));
-      $.getR("", record,
-        function(record,stat){
-//          alert(JSON.stringify(record));
-          var stime0 = waves.find(function(elm){return(elm.wid==1);}).stime;
-          var ftime0 = record.find(function(elm){return(elm.rid==1);}).ftime;
-          var ttimeBtns = $('.prize-ttime');
-          var promises=[];
-          for(btn of ttimeBtns) {
-            if( !$(btn).val() || $(btn).val() == "DNF" ) {
-              var id=$(btn).prop("id").split(/-/)[2];
-              var racenum=($(btn).parents("tr").find(".prize-race-num").val()||0)*1;
-              var wid=($(btn).parents("tr").find(".prize-wave").val()||0)*1;
-//              var id=$(btn).parent().parent().children().last().text().trim();
-//              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
-//              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
-              var waveObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
-              var recodeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
-              if(waveObj && waveObj.stime && recodeObj && recodeObj.ftime) {
-                $(btn).val(aqsysCoder.diffTime(
-                  aqsysCoder.diffTime(stime0,waveObj.stime),
-                  aqsysCoder.diffTime(ftime0,recodeObj.ftime)
-                ));
-              }else{
-                $(btn).val("DNF");
-              }
-              promises.push(new Promise( function() {
-                changeTtime($(btn));
-              }));
-            }
-          }
-          Promise.all(promises).then( function() {
-            alert("promise");
-            location.reload();
-          }).catch( function() {
-            alert("タイムの集計結果の記録に失敗しました。");            
-          });
-        },
-        function(){
-          alert("タイム記録の取得に失敗しました。");
-        }
-      );
-    },
-    function(req,stat,err){
-      alert("wave 情報の取得に失敗しました。");
-    });
-  }
-  ////////////////////////////////////////////////////////////////////
-  //
-  //  トータル時間編集
-  //
-  ////////////////////////////////////////////////////////////////////
-  function changeTtime(that) {
-    $(that).addClass("unconfirmed");
-    var value=$(that).val();
-    var id=$(that).prop("id").split("-")[2];
-  //  alert("id:"+id+" value:"+value);
-    //
-    //  編集
-    //
-    var data = {};
-    if(!value) {
-      data.DNF = true;
-    }else if(value=="DNF"){
-      data.DNF = true;
-    }else{
-      data.ttime=aqsysCoder.reformTime(value);
-      data.DNF = false;
-    }
-    $.putE(id,data,
-    function(data,stat){
-      $.getE(data.id, data,
-      function(data,stat) {
-        if(data.DNF){
-          $(that).val("DNF");
-        }else{
-          $(that).val(data.ttime);
-        }
-        $(that).removeClass("unconfirmed");
-        resolve();
-      },
-      function(req,stat,err){
-        alert("記録の確認に失敗しました。");
-        reject();
-      });
-    },
-    function(req,stat,err){
-      alert("記録の書き込みに失敗しました。");
-      $(that).val(data.ttime);
-      reject();
-    });
-  }
-  ////////////////////////////////////////////////////////////////////
-  //
-  //  順位編集
-  //
-  ////////////////////////////////////////////////////////////////////
-  function changePrize(that) {
-    $(that).addClass("unconfirmed");
-    var value=$(that).val();
-    var those=$(that).prop("name").split(/-/);
-    var index=those[0]+those[1];
-    var id=$(that).parent().parent().children().last().text().trim();
-  //  alert("id:"+id+" value:"+value);
-      //
-      //  編集
-      //
-    var data={};
-    data[index]=aqsysCoder.encodePrize(value);
-    $.putE(id,data,
-    function(data,stat){
-      $.getE(data.id, data,
-      function(data,stat) {
-        $(that).val(aqsysCoder.decodePrize(data[index]));
-        $(that).removeClass("unconfirmed");
-      },
-      function(req,stat,err){
-        alert("記録の確認に失敗しました。");
-      });
-    },
-    function(req,stat,err){
-      alert("記録の書き込みに失敗しました。");
-      $(that).val(data.ttime);
-    });
-  }
 
 });
