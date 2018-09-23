@@ -9,6 +9,7 @@ $(function(){
   alert(JSON.stringify(aqsysCoder));
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
   alert(JSON.stringify(aqsysCoder));
+  alert(JSON.stringify(aqsysCoder.getConfig()));
 
   $("#prizelist").DataTable(
     {
