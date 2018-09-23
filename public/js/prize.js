@@ -336,7 +336,7 @@ $(function(){
             }
           }
           Promise.all(promises).then( function() {
-            alert("here");
+            alert("promise");
             location.reload();
           });
         },
