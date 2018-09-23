@@ -380,21 +380,16 @@ function changePrize(that,resolve,reject) {
   ////////////////////////////////////////////////////////////////////
 
   $(document).on('click', '#prize-1-autofill', function () {
-    alert("here");
     var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
     var prevNum=0;
-    alert("here");
 
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
-    alert("here");
     var promises=[];
     for(btn of btns) {
-      alert("here");
       var those = $(btn).prop("name").split(/-/);
-      alert("here");
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
         if($(btn).val()=="") {
           $(btn).val(++prevNum);
@@ -431,10 +426,10 @@ function changePrize(that,resolve,reject) {
 
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
-      if($("#prize-ttime-"+id).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
         var gradeName = $("#prize-grade-"+id+" a").text();
         if( aqsysCoder.getConfig().gradeList.idexOf[gradeName]<0 ) {
-          gradeName = gradeName.split("")[0] + "0才台";
+          gradeName = gradeName.split("")[0] + "0才代";
         }
         if(!prevNums[gradeName]) {
           prevNums[gradeName]=0;
