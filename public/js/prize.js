@@ -308,8 +308,8 @@ $(function(){
       $.getR("", record,
         function(record,stat){
 //          alert(JSON.stringify(record));
-          var stime0 = waves[0].stime;
-          var ftime0 = record[0].ftime;
+          var stime0 = waves.find(function(elm){return(elm.wid==1);}).stime;
+          var ftime0 = record.find(function(elm){return(elm.rid==1);}).ftime;
           alert(stime0);
           alert(ftime0);
           var ttimeBtns = $('.prize-ttime');
