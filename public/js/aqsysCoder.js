@@ -119,10 +119,13 @@ var diffTime = aqsysCoder.diffTime = function(fromTime, toTime) {
   alert("here");
   var diffCentisec;
   diffCentisec = calcTime(fromTime,toTime);
+  alert("here");
   if(diffCentisec>=0) {
     return(formTime(diffCentisec));
+    alert("here");
   }else{
     return(formTime(diffCentisec+centisecTime("24:00:00.00")));
+    alert("here");
   }
 };
 
