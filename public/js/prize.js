@@ -151,15 +151,23 @@ $(function(){
       var these = $(this).prop("id").split(/-/);
       var btn;
       var btns;
-      var yes=confirm('データを消去します。この操作は取り消しができません。');
-      if( yes ) {
+      //      var yes=confirm('データを消去します。この操作は取り消しができません。');
+      //if( yes ) {
         $(this).prop("editable",false);
         btns=$("."+these[0]+"-"+these[1]);
+        var promises = [];
         for(btn of btns) {
           $(btn).val("");
-          changePrize($(btn));
+          promises.push(new Promise( function(resolve,reject) {
+            changePrize($(btn),resolve,reject);
+          }));
         }
-      }
+        Promise.all(promises).then( function() {
+          location.reload();
+        }).catch( function() {
+          alert("順位データの消去に失敗しました。");
+        });
+      //}
     });
   }
 
@@ -333,7 +341,7 @@ function changeTtime(that,resolve,reject) {
 //  順位編集
 //
 ////////////////////////////////////////////////////////////////////
-function changePrize(that) {
+function changePrize(that,resolve,reject) {
   $(that).addClass("unconfirmed");
   var value=$(that).val();
   var those=$(that).prop("name").split(/-/);
@@ -351,20 +359,23 @@ function changePrize(that) {
     function(data,stat) {
       $(that).val(aqsysCoder.decodePrize(data[index]));
       $(that).removeClass("unconfirmed");
+      resolve();
     },
     function(req,stat,err){
       alert("記録の確認に失敗しました。");
     });
+    reject();
   },
   function(req,stat,err){
     alert("記録の書き込みに失敗しました。");
     $(that).val(data.ttime);
+    reject();
   });
 }
 
   ////////////////////////////////////////////////////////////////////
   //
-  // カテゴリー順位
+  // カテゴリー順位自動集計
   //
   ////////////////////////////////////////////////////////////////////
 
@@ -391,7 +402,7 @@ function changePrize(that) {
 
   ////////////////////////////////////////////////////////////////////
   //
-  // 年齢別順位
+  // 年齢別順位自動集計
   //
   ////////////////////////////////////////////////////////////////////
 
@@ -417,7 +428,7 @@ function changePrize(that) {
 
   ////////////////////////////////////////////////////////////////////
   //
-  // 大田区賞
+  // 大田区賞自動集計
   //
   ////////////////////////////////////////////////////////////////////
 
