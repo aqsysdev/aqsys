@@ -389,13 +389,13 @@ function changePrize(that,resolve,reject) {
     var promises=[];
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
-//      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
         if($(btn).val()=="") {
           $(btn).val(++prevNum);
         }else if(!isNaN($(btn).val())) {
           prevNum = $(btn).val();
         }
-//      }
+      }
       promises.push(new Promise( function(resolve,reject) {
         changePrize($(btn),resolve,reject);
       }));
@@ -415,6 +415,7 @@ function changePrize(that,resolve,reject) {
   //
   ////////////////////////////////////////////////////////////////////
 
+
   $(document).on('click', '#prize-2-autofill', function () {
     var these = $(this).prop("id").split(/-/);
     var btn;
@@ -422,6 +423,7 @@ function changePrize(that,resolve,reject) {
     var prevNum=0;
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
+    var promises=[];
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
@@ -431,15 +433,25 @@ function changePrize(that,resolve,reject) {
           prevNum = $(btn).val();
         }
       }
-      changePrize($(btn));
+      promises.push(new Promise( function(resolve,reject) {
+        changePrize($(btn),resolve,reject);
+      }));
+      //          }
     }
+    Promise.all(promises).then( function() {
+      location.reload();
+    }).catch( function() {
+      alert("順位の記録に失敗しました。");
+    });
   });
+
 
   ////////////////////////////////////////////////////////////////////
   //
   // 大田区賞自動集計
   //
   ////////////////////////////////////////////////////////////////////
+
 
   $(document).on('click', '#prize-3-autofill', function () {
     var these = $(this).prop("id").split(/-/);
@@ -448,6 +460,7 @@ function changePrize(that,resolve,reject) {
     var prevNum=0;
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
+    var promises=[];
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
@@ -457,8 +470,16 @@ function changePrize(that,resolve,reject) {
           prevNum = $(btn).val();
         }
       }
-      changePrize($(btn));
+      promises.push(new Promise( function(resolve,reject) {
+        changePrize($(btn),resolve,reject);
+      }));
+      //          }
     }
+    Promise.all(promises).then( function() {
+      location.reload();
+    }).catch( function() {
+      alert("順位の記録に失敗しました。");
+    });
   });
 
 
