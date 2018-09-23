@@ -380,7 +380,6 @@ function changePrize(that,resolve,reject) {
   ////////////////////////////////////////////////////////////////////
 
   $(document).on('click', '#prize-1-autofill', function () {
-    var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
     var prevNum=0;
@@ -388,8 +387,8 @@ function changePrize(that,resolve,reject) {
     btns=$("."+these[0]+"-"+these[1]);
     var promises=[];
     for(btn of btns) {
-      var those = $(btn).prop("name").split(/-/);
-      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+      var id = $(btn).prop("name").split(/-/)[2];
+      if($("#prize-ttime-"+id).val()!="" && $("#prize-ttime-"+id).val()!="DNF" ) {
         if($(btn).val()=="") {
           $(btn).val(++prevNum);
         }else if(!isNaN($(btn).val())) {
@@ -417,20 +416,27 @@ function changePrize(that,resolve,reject) {
 
 
   $(document).on('click', '#prize-2-autofill', function () {
-    var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
-    var prevNum=0;
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
     var promises=[];
+    var prevNums={};
+
     for(btn of btns) {
-      var those = $(btn).prop("name").split(/-/);
-      if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+      var id = $(btn).prop("name").split(/-/)[2];
+      if($("#prize-ttime-"+id).val()!="" && $("#prize-ttime-"+id).val()!="DNF" ) {
+        var gradeName = $("#prize-grade-"+id+" a").text();
+        if( aqsysCoder.getConfig().gradeList.idexOf[gradeName]<0 ) {
+          gradeName = gradeName.split("")[0] + "0才台";
+        }
+        if(!prevNums[gradeName]) {
+          prevNums[gradeName]=0;
+        }
         if($(btn).val()=="") {
-          $(btn).val(++prevNum);
+          $(btn).val(++prevNums[gradeName]);
         }else if(!isNaN($(btn).val())) {
-          prevNum = $(btn).val();
+          prevNums[gradeName] = $(btn).val();
         }
       }
       promises.push(new Promise( function(resolve,reject) {
