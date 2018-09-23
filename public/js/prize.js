@@ -304,8 +304,10 @@ $(function(){
     alert("autoFillTtime()");
     $.getW("", waves,
     function(waves,stat) {
+      alert(JSON.stringify(waves));
       $.getR("", record,
         function(record,stat){
+          alert(JSON.stringify(record));
           var ttimeBtns = $('.prize-ttime');
           for(btn of ttimeBtns) {
             if( !$(btn).val() || $(btn).val() == "DNF" ) {
@@ -315,7 +317,7 @@ $(function(){
 //              var id=$(btn).parent().parent().children().last().text().trim();
 //              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
 //              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
-              alert("id:"+id+" racenum:"+racenum+" wid:"+wid);
+//              alert("id:"+id+" racenum:"+racenum+" wid:"+wid);
               var stimeObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
               var ftimeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
               if(stimeObj && stimeObj.stime && ftimeObj && ftimeObj.ftime) {
@@ -353,7 +355,7 @@ $(function(){
     if(!value) {
       data.DNF = false;
     }else if(value=="DNF"){
-      data.DNF = true;     
+      data.DNF = true;
     }else{
       data.ttime=aqsysCoder.reformTime(value);
       data.DNF = false;
