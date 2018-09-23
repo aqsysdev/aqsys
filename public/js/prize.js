@@ -256,6 +256,7 @@ function autoFillTtime(that) {
 //          }
         }
         Promise.all(promises).then( function() {
+          alert("promise all");
           location.reload();
         }).catch( function() {
           alert("タイムの集計結果の記録に失敗しました。");
