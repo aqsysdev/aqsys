@@ -251,18 +251,23 @@ $(function(){
     $('#prize-ttime-editable').on('click', function () {
       var btn;
       var btns;
-      var editable=($(this).prop("editable") == true);
-      $(this).prop("editable",editable);
+      $(this).prop("editable",true);
+      var editable=($(this).prop("editable"));
       btns=$(".prize-ttime");
       for(btn of btns) {
         btn.disabled=(editable?false:"disabled");
       }
       $('.prize-ttime').off('change');
       $('.prize-ttime').on('change',function(){
+        btn.disabled=(editable?false:"disabled");
+        $(btn).off('change');
+        $(btn).on('change',function(){
           changeTtime(this);
+        });
       });
       //location.reload();
     });
+
     $('#prize-ttime-caret').on('click',  function () {
       var btn;
       var btns;
@@ -282,7 +287,7 @@ $(function(){
         changeTtime($(btn));
       }
     });
-    $(document).on('click', '#prize-ttime-autofill', function () {
+    $('#prize-ttime-autofill').on('click',  function () {
       autoFillTtime();
     });
 
