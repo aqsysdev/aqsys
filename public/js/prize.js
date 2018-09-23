@@ -309,9 +309,9 @@ $(function(){
           var ttimeBtns = $('.prize-ttime');
           for(btn of ttimeBtns) {
             if( !$(btn).val() || $(btn).val() == "DNF" ) {
-              var id=$(btn).prop("id").split(/-/)[1];
-              var racenum=($(btn).parents("tr").find(".praize-race-num").val()||0)*1;
-              var wid=($(btn).parents("tr").find(".praize-wave").val()||0)*1;
+              var id=$(btn).prop("id").split(/-/)[2];
+              var racenum=($(btn).parents("tr").find(".prize-race-num").val()||0)*1;
+              var wid=($(btn).parents("tr").find(".prize-wave").val()||0)*1;
 //              var id=$(btn).parent().parent().children().last().text().trim();
 //              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
 //              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
