@@ -323,6 +323,7 @@ $(function(){
               alert(JSON.stringify(stimeObj));
               alert(JSON.stringify(ftimeObj));
               if(stimeObj && stimeObj.stime && ftimeObj && ftimeObj.ftime) {
+                alert(JSON.aqsysCoder);
                 alert(aqsysCoder.diffTime(stimeObj.stime,ftimeObj.ftime));
                 $(btn).val(aqsysCoder.diffTime(stimeObj.stime,ftimeObj.ftime));
               }else{
