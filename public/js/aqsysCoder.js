@@ -115,16 +115,12 @@ aqsysCoder = {
 };
 
 var diffTime = aqsysCoder.diffTime = function(fromTime, toTime) {
-  alert("here");
   var diffCentisec;
   diffCentisec = calcTime(fromTime,toTime);
-  alert("here");
   if(diffCentisec>=0) {
     return(formTime(diffCentisec));
-    alert("here");
   }else{
     return(formTime(diffCentisec+centisecTime("24:00:00.00")));
-    alert("here");
   }
 };
 
@@ -147,14 +143,14 @@ var katakanaToHiragana=aqsysCoder.katakanaToHiragana = function(src) {
  * @returns {String} - カタカナ
  */
 
-function hiraganaToKatakana(src) {
+var hiraganaToKatakana=aqsysCoder.hiraganaToKatakana = function(src) {
 	return src.replace(/[\u3041-\u3096]/g, function(match) {
 		var chr = match.charCodeAt(0) + 0x60;
 		return String.fromCharCode(chr);
 	});
-}
+};
 
-function calcAge(birthdate, targetdate) {
+var calcAge = aqsysCoder.calcAge = function(birthdate, targetdate) {
     var tdate= targetdate;
   	var bdate = birthdate.replace(/[/-]/g, "");
   	if (tdate) {
@@ -166,7 +162,7 @@ function calcAge(birthdate, targetdate) {
   		tdate = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
   	}
   	return (Math.floor((tdate - bdate) / 10000));
-}
+};
 
 var calcTime = aqsysCoder.calcTime = function(fromTime, toTime) {
     return(centisecTime(toTime)-centisecTime(fromTime));
@@ -178,9 +174,7 @@ var addTime = aqsysCoder.addTime = function(fromTime, toTime) {
 };
 
 var formTime = aqsysCoder.formTime = function(ms) {
-    alert("there");
     var milisec=new Decimal(ms);
-    alert("there");
     return(
       ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
       ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
@@ -229,7 +223,7 @@ var centisecTime = aqsysCoder.centisecTime = function(time) {
   );
 };
 
-function encodeDateTime(time) {
+var encodeDateTime = aqsysCoder.encodeDateTime = function(time) {
   return(
     ("0000"+(time.getFullYear()||0)).slice(-4)+"/"+
     ("00" + (time.getMonth()+1)).slice(-2)+"/"+
@@ -239,19 +233,19 @@ function encodeDateTime(time) {
     ("00" + (time.getSeconds()||0)).slice(-2)+"."+
     ("00" + (time.getTime()||0)).slice(-2)
   );
-}
+};
 
-function encodeTime(time) {
+var encodeTime = aqsysCoder.encodeTime = function(time) {
   return(
     ("00" + (time.getHours()||0)).slice(-2)+":"+
     ("00" + (time.getMinutes()||0)).slice(-2)+":"+
     ("00" + (time.getSeconds()||0)).slice(-2)+"."+
     ("00" + (time.getTime()||0)).slice(-2)
   );
-}
+};
 
 
-function decodePrize(prize) {
+var decodePrize = aqsysCoder.decodePrize = function(prize) {
   if( prize == null ) {
     return(null);
   }else if( prize=="" || isNaN(prize) || prize==0){
@@ -261,9 +255,9 @@ function decodePrize(prize) {
   }else{
     return(prize);
   }
-}
+};
 
-function encodePrize(prize) {
+var encodePrize = aqsysCoder.encodePrize = function(prize) {
   if(prize == null || prize == "") {
     return(0);
   }else if(!isNaN(prize) && prize>=0){
@@ -271,9 +265,9 @@ function encodePrize(prize) {
   }else{
     return(-1);
   }
-}
+};
 
-function decodeRow(row) {
+var decodeRow = aqsysCoder.decodeRow = function(row) {
 //    console.log("decodeRow:"+JSON.stringify(row));
 //    console.log("config:"+JSON.stringify(config));
     row.lname  = decodeLname(row.lname);
@@ -304,144 +298,144 @@ function decodeRow(row) {
     row.prize1= decodePrize(row.prize1);
     row.prize2= decodePrize(row.prize2);
     row.prize3= decodePrize(row.prize3);
-}
+};
 
-function decodeLname(lname) {
+var decodeLname = aqsysCoder.decodeLname = function(lname) {
   return(katakanaToHiragana((lname||"").replace(/　/g," ").trim().split(" ")[0]));
-}
+};
 
-function decodeMyouji(myouji) {
+var decodeMyouji = aqsysCoder.decodeMyouji = function(myouji) {
   return((myouji||"").replace(/　/g," ").trim().split(" ")[0]);
-}
+};
 
-function decodeFname(fname) {
+var decodeFname = aqsysCoder.decodeFname = function(fname) {
   return(katakanaToHiragana((fname||"").replace(/　/g," ").trim().split(" ").pop()));
-}
+};
 
-function decodeNamae(namae) {
+var decodeNamae = aqsysCoder.decodeNamae = function(namae) {
   return((namae||"").replace(/　/g," ").trim().split(" ").pop());
-}
+};
 
-function decodeBirthday(argBirthday) {
+var decodeBirthday = aqsysCoder.decodeBirthday = function(argBirthday) {
   var birthday = argBirthday.toString().split(" ");
   return(
     ('0000'+birthday[3]).slice(-4)+"/"+
     ('00'+(aqsysCoder.config.months.indexOf(birthday[1],0)+1)).slice(-2)+"/"+
     ('00'+birthday[2]).slice(-2)
   );
-}
+};
 
-function decodeGrade(grade,birthday) {
+var decodeGrade = aqsysCoder.decodeGrade = function(grade,birthday) {
   return((grade && aqsysCoder.config.grades[grade-1]) ? aqsysCoder.config.grades[grade-1] : calcAge(birthday, false)+ "才");
-}
+};
 
-function encodeGrade(gradeName) {
+var encodeGrade = aqsysCoder.encodeGrade = function(gradeName) {
   return(aqsysCoder.config.grades.indexOf(gradeName)+1);
-}
+};
 
-function decodeSex(sex) {
+var decodeSex = aqsysCoder.decodeSex = function(sex) {
   return(aqsysCoder.config.sex[(sex||"M")] || aqsysCoder.config.sex.M );
-}
+};
 
-function encodeSex(sexKanji) {
+var encodeSex = aqsysCoder.encodeSex = function(sexKanji) {
   return(Object.keys(aqsysCoder.config.sex).filter(function(key){return(aqsysCoder.config.sex[key] == sexKanji);})[0]);
-}
+};
 
-function decodeZip1(zip1) {
+var decodeZip1 = aqsysCoder.decodeZip1 = function(zip1) {
   return(('000'+(zip1)).slice(-3));
-}
+};
 
-function decodeZip2(zip2) {
+var decodeZip2 = aqsysCoder.decodeZip2 = function(zip2) {
   return(('0000'+(zip2)).slice(-4));
-}
+};
 
-function decodeAddress1(address1) {
+var decodeAddress1 = aqsysCoder.decodeAddress1 = function(address1) {
   return((address1||"").trim());
-}
+};
 
-function decodeAddress2(address2) {
+var decodeAddress2 = aqsysCoder.decodeAddress2 = function(address2) {
   return((address2||"").trim());
-}
+};
 
-function decodeEmail(email) {
+var decodeEmail = aqsysCoder.decodeEmail = function(email) {
   return((email||"").trim() || "dummy@domain.com");
-}
+};
 
-function decodeLname2(lname2) {
+var decodeLname2 = aqsysCoder.decodeLname2 = function(lname2) {
   return(katakanaToHiragana((lname2||"").replace(/　/g," ").trim().split(" ")[0]));
-}
+};
 
-function decodeMyouji2(myouji2) {
+var decodeMyouji2 = aqsysCoder.decodeMyouji2 = function(myouji2) {
   return((myouji2||"").replace(/　/g," ").trim().split(" ")[0]);
-}
+};
 
-function decodeFname2(fname2) {
+var decodeFname2 = aqsysCoder.decodeFname2 = function(fname2) {
   return( katakanaToHiragana((fname2||"").replace(/　/g," ").trim().split(" ").pop()));
-}
+};
 
-function decodeNamae2(namae2) {
+var decodeNamae2 = aqsysCoder.decodeNamae2 = function(namae2) {
   return((namae2||"").replace(/　/g," ").trim().split(" ").pop());
-}
+};
 
-function decodeBirthday2(argBirthday2) {
+var decodeBirthday2 = aqsysCoder.decodeBirthday2 = function(argBirthday2) {
   var birthday2 = (argBirthday2||"").toString().split(" ");
   return(
     argBirthday2 && ('0000'+birthday2[3]).slice(-4)+"/"+
     ('00'+(aqsysCoder.config.months.indexOf(birthday2[1],0)+1)).slice(-2)+"/"+
     ('00'+birthday2[2]).slice(-2)
   );
-}
+};
 
-function decodeSex2(sex2) {
+var decodeSex2 = aqsysCoder.decodeSex2 = function(sex2) {
   return(sex2 && aqsysCoder.config.sex[(sex2||"M")]);
-}
+};
 
-function decodeRegist(regist) {
+var decodeRegist = aqsysCoder.decodeRegist = function(regist) {
   return(regist == true ? "checked" : "");
-}
+};
 
-function decodeStart( start ) {
+var decodeStart = aqsysCoder.decodeStart = function( start ) {
   return(start == true ? "checked" : "") ;
-}
+};
 
-function decodeConfirmation( confirmation ) {
+var decodeConfirmation = aqsysCoder.decodeConfirmation = function( confirmation ) {
   return(confirmation == true ? "checked" : "");
-}
+};
 
-function decodeCate(cate) {
+var decodeCate = aqsysCoder.decodeCate = function(cate) {
   return((cate&&aqsysCoder.config.cate[cate-1])?aqsysCoder.config.cate[cate-1]:"");
-}
+};
 
-function encodeCate(cateName) {
+var encodeCate = aqsysCoder.encodeCate = function(cateName) {
   return(aqsysCoder.config.cate.indexOf(cateName)+1);
-}
+};
 
-function decodeWave(wave) {
+var decodeWave = aqsysCoder.decodeWave = function(wave) {
   return((!wave || isNaN(wave) || wave*1 == 0 )? "" : ('00'+wave*1).slice(-2));
-}
+};
 
-function encodeWave(wave) {
+var encodeWave = aqsysCoder.decodeWave = function(wave) {
   return((!wave || isNaN(wave) || wave*1==0 )? 0 : ('00'+wave*1).slice(-2));
-}
+};
 
-function decodeRacenum(racenum) {
+var decodeRacenum = aqsysCoder.decodeRacenum = function(racenum) {
   return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
-}
+};
 
-function encodeRacenum(racenum) {
+var encodeRacenum = aqsysCoder.encodeRacenum = function(racenum) {
   return((!racenum || isNaN(racenum) || racenum*1==0 )? 0 : ('000'+racenum*1).slice(-3));
-}
+};
 
-function decodeTtime(DNF,ttime) {
+var decodeTtime = aqsysCoder.decodeTtime = function(DNF,ttime) {
   if( DNF ) {
     return("DNF");
   }else{
     return(reformTime(ttime));
   }
-}
+};
 
 
-function checkMail( mail ) {
+var checkMail = aqsysCoder.checkMail = function( mail ) {
     var mail_regex1 = new RegExp( '(?:[-!#-\'*+/-9=?A-Z^-~]+\.?(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*|"(?:[!#-\[\]-~]|\\\\[\x09 -~])*")@[-!#-\'*+/-9=?A-Z^-~]+(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*' );
     var mail_regex2 = new RegExp( '^[^\@]+\@[^\@]+$' );
     if( mail.match( mail_regex1 ) && mail.match( mail_regex2 ) ) {
@@ -453,10 +447,10 @@ function checkMail( mail ) {
     } else {
         return false;
     }
-}
+};
 
 
-function checkDate( datestr ) {
+var checkDate = aqsysCoder.checkDate = function( datestr ) {
 	// 正規表現による書式チェック
 	if(!datestr.match(/^\d{4}\/\d{2}\/\d{2}$/)){
 		return false;
