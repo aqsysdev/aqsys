@@ -352,8 +352,7 @@ $(function(){
     //
     var data = {};
     if(!value) {
-      data.DNF = false;
-      data.ttime="";
+      data.DNF = true;
     }else if(value=="DNF"){
       data.DNF = true;
     }else{
