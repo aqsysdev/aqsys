@@ -342,12 +342,13 @@ $(function(){
   //
   ////////////////////////////////////////////////////////////////////
   function changePrize(that,resolve,reject) {
+    alert("here");
     $(that).addClass("unconfirmed");
     var value=$(that).val();
     var those=$(that).prop("name").split(/-/);
     var index=those[0]+those[1];
     var id=those[2];
-    alert("id:"+id+" value:"+value);
+    //alert("id:"+id+" value:"+value);
       //
       //  編集
       //
