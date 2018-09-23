@@ -73,7 +73,12 @@ aqsysCoder = {
   katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
+  calcTime,
+  diffTime,
+  addTime,
   formTime,
+  reformTime,
+  centisecTime,
   reformTime,
   encodeDateTime,
   encodeTime,
@@ -104,7 +109,6 @@ aqsysCoder = {
   decodeWave, encodeWave,
   decodeRacenum,  encodeRacenum,
   decodeTtime,
-  decodePrize,
   checkMail,
   checkDate
 };
@@ -151,6 +155,24 @@ function calcAge(birthdate, targetdate) {
   	return (Math.floor((tdate - bdate) / 10000));
 }
 
+function calcTime(fromTime, toTime) {
+    return(centisecTime(toTime)-centisecTime(fromTime));
+}
+
+function diffTime(fromTime, toTime) {
+  var diffCentisec;
+  diffCentisec = calcTime(fromTime,toTime);
+  if(diffCentisec>=0) {
+    return(formTime(diffCentisec));
+  }else{
+    return(formTime(diffCentisec+centisecTime("24:00:00.00")));
+  }
+}
+
+function addTime(fromTime, toTime) {
+    return(formTime(centisecTime(fromTime)+centisecTime(toTime)));
+}
+
 function formTime(ms) {
     var milisec=new Decimal(ms);
     return(
@@ -163,18 +185,43 @@ function formTime(ms) {
 
 function reformTime(ft) {
   if(ft){
-    var ftime=ft.split(/[-:]/).reverse();
-    var sec=parseInt(ftime[0]||0);
-    var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
-    return(
-      ("00"+(ftime[2]||0)).slice(-2)+":"+
-      ("00"+(ftime[1]||0)).slice(-2)+":"+
-      ("00"+(sec||0)).slice(-2)+"."+
-      ("00"+(parseInt((milisec||0),0))).slice(-2)
-    );
+    if(ft.indexOf(".")<0){
+      ft="00"+ft+".00";
+    }
+    var ftime = (""+ft).split(/\D/);
+    if(ftime[0].length>=6&&ftime[1]&&!ftime[3]) {
+      return(reformTime(
+        ftime[0].substr(-6,2)+":"+
+        ftime[0].substr(-4,2)+":"+
+        ftime[0].substr(-2,2)+"."+
+        ftime[1].substr(0,2)
+      ));
+    }else{
+      return(
+        ("00"+(""+(ftime[0]||0))).slice(-2)+":"+
+        ("00"+(""+(ftime[1]||0))).slice(-2)+":"+
+        ("00"+(""+(ftime[2]||0))).slice(-2)+"."+
+        (((ftime[3]||0)+"00").substring(0,2))
+      );
+    }
   } else {
     return(ft);
   }
+}
+
+
+function centisecTime(time) {
+  var ft=time;
+  if(ft.indexOf(".")<0){
+    ft="00"+ft+".00";
+  }
+  var timeSplit = (ft+"").split(/\D/);
+  return(
+    (timeSplit[0]||0)*100*60*60+
+    (timeSplit[1]||0)*100*60+
+    (timeSplit[2]||0)*100+
+    (timeSplit[3]||0)*1
+  );
 }
 
 function encodeDateTime(time) {
@@ -389,7 +436,22 @@ function decodeTtime(DNF,ttime) {
 }
 
 
-function checkDate(datestr) {
+function checkMail( mail ) {
+    var mail_regex1 = new RegExp( '(?:[-!#-\'*+/-9=?A-Z^-~]+\.?(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*|"(?:[!#-\[\]-~]|\\\\[\x09 -~])*")@[-!#-\'*+/-9=?A-Z^-~]+(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*' );
+    var mail_regex2 = new RegExp( '^[^\@]+\@[^\@]+$' );
+    if( mail.match( mail_regex1 ) && mail.match( mail_regex2 ) ) {
+        // 全角チェック
+        if( mail.match( /[^a-zA-Z0-9\!\"\#\$\%\&\'\(\)\=\~\|\-\^\\\@\[\;\:\]\,\.\/\\\<\>\?\_\`\{\+\*\} ]/ ) ) { return false; }
+        // 末尾TLDチェック（〜.co,jpなどの末尾ミスチェック用）
+        if( !mail.match( /\.[a-z]+$/ ) ) { return false; }
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+function checkDate( datestr ) {
 	// 正規表現による書式チェック
 	if(!datestr.match(/^\d{4}\/\d{2}\/\d{2}$/)){
 		return false;
@@ -413,20 +475,6 @@ function checkDate(datestr) {
 	}else{
 		return false;
 	}
-}
-
-function checkMail( mail ) {
-    var mail_regex1 = new RegExp( '(?:[-!#-\'*+/-9=?A-Z^-~]+\.?(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*|"(?:[!#-\[\]-~]|\\\\[\x09 -~])*")@[-!#-\'*+/-9=?A-Z^-~]+(?:\.[-!#-\'*+/-9=?A-Z^-~]+)*' );
-    var mail_regex2 = new RegExp( '^[^\@]+\@[^\@]+$' );
-    if( mail.match( mail_regex1 ) && mail.match( mail_regex2 ) ) {
-        // 全角チェック
-        if( mail.match( /[^a-zA-Z0-9\!\"\#\$\%\&\'\(\)\=\~\|\-\^\\\@\[\;\:\]\,\.\/\\\<\>\?\_\`\{\+\*\} ]/ ) ) { return false; }
-        // 末尾TLDチェック（〜.co,jpなどの末尾ミスチェック用）
-        if( !mail.match( /\.[a-z]+$/ ) ) { return false; }
-        return true;
-    } else {
-        return false;
-    }
 }
 
 
