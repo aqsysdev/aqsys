@@ -310,6 +310,8 @@ $(function(){
 //          alert(JSON.stringify(record));
           var stime0 = waves[0].stime;
           var ftime0 = record[0].ftime;
+          alert(stime0);
+          alert(ftime0);
           var ttimeBtns = $('.prize-ttime');
           for(btn of ttimeBtns) {
             if( !$(btn).val() || $(btn).val() == "DNF" ) {
