@@ -6,11 +6,7 @@
 
 $(function(){
 
-  alert(JSON.stringify(aqsysCoder));
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
-  alert(JSON.stringify(aqsysCoder));
-  alert(JSON.stringify(aqsysCoder.getConfig()));
-  alert(JSON.stringify(aqsysCoder.diffTime("00:00:00.10","00:00:10.20")));
 
   $("#prizelist").DataTable(
     {
@@ -306,7 +302,6 @@ $(function(){
   var record = [];
 
   function autoFillTtime(that) {
-    alert("autoFillTtime()");
     $.getW("", waves,
     function(waves,stat) {
 //      alert(JSON.stringify(waves));
@@ -322,14 +317,9 @@ $(function(){
 //              var id=$(btn).parent().parent().children().last().text().trim();
 //              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
 //              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
-              alert("id:"+id+" racenum:"+racenum+" wid:"+wid);
               var stimeObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
               var ftimeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
-              alert(JSON.stringify(stimeObj));
-              alert(JSON.stringify(ftimeObj));
               if(stimeObj && stimeObj.stime && ftimeObj && ftimeObj.ftime) {
-                alert(JSON.aqsysCoder);
-                alert(aqsysCoder.diffTime(stimeObj.stime,ftimeObj.ftime));
                 $(btn).val(aqsysCoder.diffTime(stimeObj.stime,ftimeObj.ftime));
               }else{
                 $(btn).val("DNF");
