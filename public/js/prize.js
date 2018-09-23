@@ -416,17 +416,21 @@ function changePrize(that,resolve,reject) {
 
 
   $(document).on('click', '#prize-2-autofill', function () {
+    alert("here");
     var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
+    alert("here");
     var promises=[];
     var prevNums={};
+    alert("here");
 
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
+        alert("here");
         var gradeName = $("#prize-grade-"+id+" a").text();
         alert(gradeName);
         if( aqsysCoder.getConfig().gradeList.idexOf[gradeName]<0 ) {
