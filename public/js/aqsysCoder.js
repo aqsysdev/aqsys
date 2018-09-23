@@ -179,7 +179,9 @@ var addTime = aqsysCoder.addTime = function(fromTime, toTime) {
 };
 
 var formTime = aqsysCoder.formTime = function(ms) {
+    alert("there");
     var milisec=new Decimal(ms);
+    alert("there");
     return(
       ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
       ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
