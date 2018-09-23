@@ -356,6 +356,7 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
   function changeTtime(that) {
     $(that).addClass("unconfirmed");
+    alert("changeTtime");
     var value=$(that).val();
     var id=$(that).prop("id").split("-")[2];
   //  alert("id:"+id+" value:"+value);
@@ -381,14 +382,17 @@ $(function(){
           $(that).val(data.ttime);
         }
         $(that).removeClass("unconfirmed");
+        resolve();
       },
       function(req,stat,err){
-      //  alert("記録の確認に失敗しました。");
+        alert("記録の確認に失敗しました。");
+        reject();
       });
     },
     function(req,stat,err){
-    //  alert("記録の書き込みに失敗しました。");
+      alert("記録の書き込みに失敗しました。");
       $(that).val(data.ttime);
+      reject();
     });
   }
   ////////////////////////////////////////////////////////////////////
