@@ -353,14 +353,12 @@ $(function(){
     var data = {};
     if(!value) {
       data.DNF = false;
-      data.disabled = true;
+      data.ttime="";
     }else if(value=="DNF"){
       data.DNF = true;
-      data.disabled = false;
     }else{
       data.ttime=aqsysCoder.reformTime(value);
       data.DNF = false;
-      data.disabled = false;
     }
     $.putE(id,data,
     function(data,stat){
