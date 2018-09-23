@@ -363,8 +363,8 @@ function changePrize(that,resolve,reject) {
     },
     function(req,stat,err){
       alert("記録の確認に失敗しました。");
+      reject();
     });
-    reject();
   },
   function(req,stat,err){
     alert("記録の書き込みに失敗しました。");
