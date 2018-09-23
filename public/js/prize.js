@@ -380,11 +380,11 @@ function changePrize(that,resolve,reject) {
   ////////////////////////////////////////////////////////////////////
 
   $(document).on('click', '#prize-1-autofill', function () {
+    alert("here");
     var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
     var prevNum=0;
-    alert(here);
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
     var promises=[];
