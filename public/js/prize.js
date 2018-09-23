@@ -416,16 +416,13 @@ function changePrize(that,resolve,reject) {
 
 
   $(document).on('click', '#prize-2-autofill', function () {
-    alert("here");
     var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
-    alert("here");
     var promises=[];
     var prevNums={};
-    alert("here");
 
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
@@ -433,7 +430,7 @@ function changePrize(that,resolve,reject) {
         alert("here");
         var gradeName = $("#prize-grade-"+those[2]).find("a").text();
         alert(gradeName);
-        if( aqsysCoder.getConfig().gradeList.idexOf(gradeName)<0 ) {
+        if( aqsysCoder.getConfig().gradeList.indexOf(gradeName)<0 ) {
           gradeName = gradeName.split("")[0] + "0才代";
         }
         if(!prevNums[gradeName]) {
