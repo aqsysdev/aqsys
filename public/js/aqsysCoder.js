@@ -69,7 +69,8 @@ aqsysCoder = {
   getConfig() {
     console.log("aqsysCoder getConfig:"+JSON.stringify(aqsysCoder.config));
     return(aqsysCoder.config);
-  },
+  }
+  /*,
   katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
@@ -111,6 +112,7 @@ aqsysCoder = {
   decodeTtime,
   checkMail,
   checkDate
+  */
 };
 
 module.exports  = aqsysCoder;
@@ -121,12 +123,12 @@ console.log("js/aqsysCoder.js 1");
  * @returns {String} - ひらがな
  */
 
-function katakanaToHiragana(src) {
+var katakanaToHiragana=aqsysCoder.katakanaToHiragana = function(src) {
 	return src.replace(/[\u30a1-\u30f6]/g, function(match) {
 		var chr = match.charCodeAt(0) - 0x60;
 		return String.fromCharCode(chr);
 	});
-}
+};
 
 
 /** ひらがなをカタカナに変換する関数
