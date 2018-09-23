@@ -211,7 +211,7 @@ var reformTime = aqsysCoder.reformTime = function(ft) {
   }
 };
 
-var centisecTime = aqsysConder.centisecTime = function(time) {
+var centisecTime = aqsysCoder.centisecTime = function(time) {
   var ft=time;
   if(ft.indexOf(".")<0){
     ft="00"+ft+".00";
