@@ -391,8 +391,6 @@ function changePrize(that,resolve,reject) {
       if($("#prize-ttime-"+id).val()!="" && $("#prize-ttime-"+id).val()!="DNF" ) {
         if($(btn).val()=="") {
           $(btn).val(++prevNum);
-        }else if(!isNaN($(btn).val())) {
-          prevNum = $(btn).val();
         }
       }
       promises.push(new Promise( function(resolve,reject) {
@@ -435,8 +433,6 @@ function changePrize(that,resolve,reject) {
         }
         if($(btn).val()=="") {
           $(btn).val(++prevNums[gradeName]);
-        }else if(!isNaN($(btn).val())) {
-          prevNums[gradeName] = $(btn).val();
         }
       }
       promises.push(new Promise( function(resolve,reject) {
