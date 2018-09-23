@@ -115,7 +115,16 @@ aqsysCoder = {
 
 };
 
-module.exports  = aqsysCoder;
+var diffTime = aqsysCoder.diffTime = function(fromTime, toTime) {
+  alert("here");
+  var diffCentisec;
+  diffCentisec = calcTime(fromTime,toTime);
+  if(diffCentisec>=0) {
+    return(formTime(diffCentisec));
+  }else{
+    return(formTime(diffCentisec+centisecTime("24:00:00.00")));
+  }
+};
 
 console.log("js/aqsysCoder.js 1");
 /** カタカナをひらがなに変換する関数
@@ -161,15 +170,6 @@ function calcTime(fromTime, toTime) {
     return(centisecTime(toTime)-centisecTime(fromTime));
 }
 
-var diffTime = aqsysCoder.diffTime = function(fromTime, toTime) {
-  var diffCentisec;
-  diffCentisec = calcTime(fromTime,toTime);
-  if(diffCentisec>=0) {
-    return(formTime(diffCentisec));
-  }else{
-    return(formTime(diffCentisec+centisecTime("24:00:00.00")));
-  }
-};
 
 function addTime(fromTime, toTime) {
     return(formTime(centisecTime(fromTime)+centisecTime(toTime)));
@@ -467,9 +467,7 @@ function checkDate( datestr ) {
 		var vDt = new Date(vYear, vMonth, vDay);
 		if(isNaN(vDt)){
 			return false;
-		}else if(vDt.getFullYear() == vYear
-		 && vDt.getMonth() == vMonth
-		 && vDt.getDate() == vDay){
+		}else if(vDt.getFullYear() == vYear && vDt.getMonth() == vMonth	&& vDt.getDate() == vDay){
 			return true;
 		}else{
 			return false;
@@ -478,6 +476,8 @@ function checkDate( datestr ) {
 		return false;
 	}
 }
+
+module.exports  = aqsysCoder;
 
 
 console.log("js/aqsysCoder.js end");

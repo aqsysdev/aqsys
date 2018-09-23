@@ -10,7 +10,7 @@ $(function(){
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
   alert(JSON.stringify(aqsysCoder));
   alert(JSON.stringify(aqsysCoder.getConfig()));
-  alert(JSON.stringify(aqsysCoder.diffTime));
+  alert(JSON.stringify(aqsysCoder.diffTime()));
 
   $("#prizelist").DataTable(
     {
