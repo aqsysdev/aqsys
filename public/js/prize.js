@@ -308,6 +308,8 @@ $(function(){
       $.getR("", record,
         function(record,stat){
 //          alert(JSON.stringify(record));
+          var stime0 = waves[0].stime;
+          var ftime0 = record[0].ftime;
           var ttimeBtns = $('.prize-ttime');
           for(btn of ttimeBtns) {
             if( !$(btn).val() || $(btn).val() == "DNF" ) {
@@ -317,10 +319,13 @@ $(function(){
 //              var id=$(btn).parent().parent().children().last().text().trim();
 //              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
 //              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
-              var stimeObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
-              var ftimeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
-              if(stimeObj && stimeObj.stime && ftimeObj && ftimeObj.ftime) {
-                $(btn).val(aqsysCoder.diffTime(stimeObj.stime,ftimeObj.ftime));
+              var waveObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
+              var recodeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
+              if(waveObj && waveObj.stime && recodeObj && recodeObj.ftime) {
+                $(btn).val(aqsysCoder.diffTime(
+                  aqsysCoder.diffTime(stime0,waveObj.stime),
+                  aqsysCoder.diffTime(ftime0,recodeObj.ftime)
+                ));
               }else{
                 $(btn).val("DNF");
               }
