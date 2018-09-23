@@ -288,7 +288,7 @@ $(function(){
       }
     });
     $('#prize-ttime-autofill').on('click',  function () {
-      autoFillTtime();
+      autoFillTtime(this);
     });
 
   ////////////////////////////////////////////////////////////////////
@@ -300,7 +300,7 @@ $(function(){
   var waves = [];
   var record = [];
 
-  function autoFillTtime() {
+  function autoFillTtime(that) {
     alert("autoFillTtime()");
     $.getW("", waves,
     function(waves,stat) {
@@ -309,10 +309,13 @@ $(function(){
           var ttimeBtns = $('.prize-ttime');
           for(btn of ttimeBtns) {
             if( !$(btn).val() || $(btn).val() == "DNF" ) {
-              var id=$(btn).parent().parent().children().last().text().trim();
-              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
-              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
-              //alert("id:"+id+" racenum:"+racenum+" wid:"+wid);
+              var id=$(btn).prop("id").split(/-/)[1];
+              var racenum=($(btn).parents("tr").find(".praize-race-num").val()||0)*1;
+              var wid=($(btn).parents("tr").find(".praize-wave").val()||0)*1;
+//              var id=$(btn).parent().parent().children().last().text().trim();
+//              var racenum=$(btn).parent().parent().children().first().children().next().val()*1;
+//              var wid=$(btn).parent().parent().children().next().next().children().next().val()*1;
+              alert("id:"+id+" racenum:"+racenum+" wid:"+wid);
               var stimeObj=waves.find(function(elm){return((elm.wid)*1==wid && !elm.disabled);});
               var ftimeObj=record.find(function(elm){return((elm.racenum)*1==racenum && !elm.disabled );});
               if(stimeObj && stimeObj.stime && ftimeObj && ftimeObj.ftime) {
