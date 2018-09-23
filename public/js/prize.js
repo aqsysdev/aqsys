@@ -183,7 +183,12 @@ $(function(){
       btn.disabled=(editable?false:"disabled");
       $(btn).off('change');
       $(btn).on('change',function(){
-        changeTtime(this);
+        var promise=new Promise( function(resolve,reject) {
+          changeTtime(this,resolve,reject);
+        });
+        promise.then(function(){
+          location.reload();
+        });
       });
     });
     //location.reload();
@@ -203,10 +208,18 @@ $(function(){
     var btns;
     $(this).prop("editable",false);
     btns=$(".prize-ttime");
+    var promises=[];
     for(btn of btns) {
       $(btn).val("");
-      changeTtime($(btn));
+      promises.push(new Promise( function(resolve,reject) {
+        changeTtime($(btn),resolve,reject);
+      }));
     }
+    Promise.all(promises).then( function() {
+      location.reload();
+    }).catch( function() {
+      alert("タイムの集計結果の消去に失敗しました。");
+    });
   });
   $('#prize-ttime-autofill').on('click',  function () {
     autoFillTtime(this);
@@ -256,7 +269,6 @@ function autoFillTtime(that) {
 //          }
         }
         Promise.all(promises).then( function() {
-          alert("promise all");
           location.reload();
         }).catch( function() {
           alert("タイムの集計結果の記録に失敗しました。");
