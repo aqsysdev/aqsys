@@ -391,12 +391,12 @@ function changePrize(that,resolve,reject) {
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
-        var gradeName = $("#prize-cate-"+those[2]).find("a").text();
-        if(!prevNums[gradeName]) {
-          prevNums[gradeName]=0;
+        var cateName = $("#prize-cate-"+those[2]).text();
+        if(!prevNums[cateName]) {
+          prevNums[cateName]=0;
         }
         if($(btn).val()=="") {
-          $(btn).val(++prevNums[gradeName]);
+          $(btn).val(++prevNums[cateName]);
         }
       }
       promises.push(new Promise( function(resolve,reject) {

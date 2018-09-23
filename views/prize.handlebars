@@ -70,8 +70,8 @@
           </td>
           <td align="center">
             <div class="hidden no-csv-output">cate{{cate}}</div>
-            <div class="dropdown">
-              <button class="btn btn-default btn-xs dropdown-toggle prize-cate" type="button" id="prize-cate-{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
+            <div class="dropdown" id="prize-cate-{{id}}">
+              <button class="btn btn-default btn-xs dropdown-toggle prize-cate" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
               {{#if cate}}
                 {{cate}}
               {{else}}
@@ -107,8 +107,7 @@
           <td class="hidden-xs">
             <div id="prize-zip-{{id}}">
               <div class="no-csv-output">〒</div>
-              <a>{{zip1}}</a>
-            </div>
+              <a>{{zip1}}</a></div>
           </td>
           <td class="hidden hidden-xs hidden-sm">
             <div id="prize-address1-{{id}}">{{address1}}</div><div class="hidden">","</div><div id="prize-address2-{{id}}">{{address2}}</div>
