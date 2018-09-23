@@ -69,9 +69,9 @@ aqsysCoder = {
   getConfig() {
     console.log("aqsysCoder getConfig:"+JSON.stringify(aqsysCoder.config));
     return(aqsysCoder.config);
-  }
-  /*,
-  katakanaToHiragana,
+  },
+
+//  katakanaToHiragana,
   hiraganaToKatakana,
   calcAge,
   calcTime,
@@ -112,7 +112,7 @@ aqsysCoder = {
   decodeTtime,
   checkMail,
   checkDate
-  */
+
 };
 
 module.exports  = aqsysCoder;
