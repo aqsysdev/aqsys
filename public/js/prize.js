@@ -338,6 +338,8 @@ $(function(){
           Promise.all(promises).then( function() {
             alert("promise");
             location.reload();
+          }).catch( function() {
+            alert("タイムの集計結果の記録に失敗しました。");            
           });
         },
         function(){
@@ -356,7 +358,6 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
   function changeTtime(that) {
     $(that).addClass("unconfirmed");
-    alert("changeTtime");
     var value=$(that).val();
     var id=$(that).prop("id").split("-")[2];
   //  alert("id:"+id+" value:"+value);
