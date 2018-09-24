@@ -81,11 +81,11 @@ $(function() {
     }, 500);
   }
 
-  alert("here"):
+  alert("here");
   $("#cameraStart").on( "click", function(){
     cameraStart();
   });
-  alert("here"):
+  alert("here");
 
   $("#readImage").on( "click", function(){
     readImage();
