@@ -7,7 +7,7 @@
 //alert("websocket begin");
 var HOST;
 var ws=false;
-
+alert("here");
 $(function() {
 
   function openWebSocket() {
