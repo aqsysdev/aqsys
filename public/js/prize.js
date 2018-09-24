@@ -441,7 +441,7 @@ $(function(){
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
-        if($("prise-fname-"+those[2]).text()==""){
+        if($("#prize-fname2-"+those[2]).text()==""){
           var cateName  = $("#prize-cate-"+those[2]).text();
           var gradeName = $("#prize-grade-"+those[2]).find("a").text();
           var sex       = $("#prize-sex-"+those[2]).find("a").text();
