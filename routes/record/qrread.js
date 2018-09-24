@@ -75,7 +75,7 @@ router.get('/:tnum(\\d+)', user.ensureAuthenticated, function(req, res){
     });
     seqnum = recordlist.length;
     console.log(seqnum);
-    res.render('record/punch',{
+    res.render('record/qrread',{
       tnum: req.params.tnum,
       recordlist: recordlist,
       seqnum: seqnum
