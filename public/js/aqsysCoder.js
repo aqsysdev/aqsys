@@ -68,50 +68,7 @@ aqsysCoder = {
   getConfig() {
     console.log("aqsysCoder getConfig:"+JSON.stringify(aqsysCoder.config));
     return(aqsysCoder.config);
-  },
-
-//  katakanaToHiragana,
-  hiraganaToKatakana,
-  calcAge,
-  calcTime,
-//  diffTime,
-  addTime,
-  formTime,
-  reformTime,
-  centisecTime,
-  reformTime,
-  encodeDateTime,
-  encodeTime,
-  decodePrize, encodePrize,
-  decodeRow,
-  decodeLname,
-  decodeMyouji,
-  decodeFname,
-  decodeNamae,
-  decodeBirthday,
-  decodeGrade, encodeGrade,
-  decodeSex, encodeSex,
-  decodeZip1,
-  decodeZip2,
-  decodeAddress1,
-  decodeAddress2,
-  decodeEmail,
-  decodeLname2,
-  decodeMyouji2,
-  decodeFname2,
-  decodeNamae2,
-  decodeBirthday2,
-  decodeSex2,
-  decodeRegist,
-  decodeStart,
-  decodeConfirmation,
-  decodeCate, encodeCate,
-  decodeWave, encodeWave,
-  decodeRacenum,  encodeRacenum,
-  decodeTtime,
-  checkMail,
-  checkDate
-
+  }
 };
 
 var diffTime = aqsysCoder.diffTime = function(fromTime, toTime) {
@@ -414,7 +371,7 @@ var decodeWave = aqsysCoder.decodeWave = function(wave) {
   return((!wave || isNaN(wave) || wave*1 == 0 )? "" : ('00'+wave*1).slice(-2));
 };
 
-var encodeWave = aqsysCoder.decodeWave = function(wave) {
+var encodeWave = aqsysCoder.encodeWave = function(wave) {
   return((!wave || isNaN(wave) || wave*1==0 )? 0 : ('00'+wave*1).slice(-2));
 };
 
