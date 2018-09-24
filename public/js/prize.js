@@ -441,7 +441,9 @@ $(function(){
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
-        if($("#prize-fname2-"+those[2]).text()==""){
+        if($("#prize-fname2-"+those[2]).text()=="" &&
+        ["1", "-"].indexOf($("#prize-1-"+those[2]).text()) < 0
+      ){
           var cateName  = $("#prize-cate-"+those[2]).text();
           var gradeName = $("#prize-grade-"+those[2]).find("a").text();
           var sex       = $("#prize-sex-"+those[2]).find("a").text();
@@ -484,11 +486,14 @@ $(function(){
     btns=$("."+these[0]+"-"+these[1]);
     var promises=[];
     var prevNums={};
-
+    alert(aqsysCoder.getConfig().localZips);
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
-        if($("#prise-fname-"+those[2]).text()=="" && $("#prize-1-"+those[2]).text() != "1" && ["1", "-"].indexOf($("#prize-2-"+those[2]).text()) < 0 && aqsysCoder.getConfig().localZips.indexOf($("#prize-zip1-"+those[2]).find("a").text()) >= 0
+        if($("#prise-fname-"+those[2]).text()=="" &&
+          ["1", "-"].indexOf($("#prize-1-"+those[2]).text()) < 0 &&
+          ["1", "-"].indexOf($("#prize-2-"+those[2]).text()) < 0 &&
+          aqsysCoder.getConfig().localZips.indexOf($("#prize-zip1-"+those[2]).find("a").text()) >= 0
       ){
           var cateName = $("#prize-cate-"+those[2]).text();
           if(!prevNums[cateName]) {
