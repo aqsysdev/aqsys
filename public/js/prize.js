@@ -382,7 +382,7 @@ $(function(){
   //
   ////////////////////////////////////////////////////////////////////
 
-  $(document).on('click', '#prize-1-autofill', function () {
+  $('#prize-1-autofill').on('click', function () {
     var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
@@ -429,7 +429,7 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
 
-  $(document).on('click', '#prize-2-autofill', function () {
+  $('#prize-2-autofill').on('click', function () {
     var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
@@ -476,23 +476,27 @@ $(function(){
   // 大田区賞自動集計
   //
   ////////////////////////////////////////////////////////////////////
-
-
-  $(document).on('click', '#prize-3-autofill', function () {
+  $('#prize-3-autofill').on('click', function () {
     var these = $(this).prop("id").split(/-/);
     var btn;
     var btns;
-    var prevNum=0;
     $(this).prop("editable",false);
     btns=$("."+these[0]+"-"+these[1]);
     var promises=[];
+    var prevNums={};
+
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
-        if($(btn).val()=="") {
-          $(btn).val(++prevNum);
-        }else if(!isNaN($(btn).val())) {
-          prevNum = $(btn).val();
+        if($("#prise-fname-"+those[2]).text()=="" && $("#prize-1-"+those[2]).text() != "1" && ["1", "-"].indexOf($("#prize-2-"+those[2]).text()) < 0 && aqsysCoder.getConfig().localZips.indexOf($("#prize-zip1-"+those[2]).find("a").text()) >= 0
+      ){
+          var cateName = $("#prize-cate-"+those[2]).text();
+          if(!prevNums[cateName]) {
+            prevNums[cateName]=0;
+          }
+          if($(btn).val()=="") {
+            $(btn).val(++prevNums[cateName]);
+          }
         }
       }
       promises.push(new Promise( function(resolve,reject) {
@@ -506,6 +510,7 @@ $(function(){
       alert("順位の記録に失敗しました。");
     });
   });
+
 
 
 });
