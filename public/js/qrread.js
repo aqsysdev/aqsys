@@ -46,6 +46,7 @@ $(function() {
   showCurrentTime();
 
   function cameraStart() {
+    alert("here");
     const p = navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
@@ -60,6 +61,7 @@ $(function() {
   }
 
   function readImage() {
+    alert("here");
     const video = document.querySelector("video");
     const canv = document.createElement("canvas");
     canv.height = 500;
@@ -79,13 +81,16 @@ $(function() {
     }, 500);
   }
 
+  alert("here"):
   $("#cameraStart").on( "click", function(){
     cameraStart();
   });
+  alert("here"):
 
   $("#readImage").on( "click", function(){
     readImage();
   });
+  alert("here"):
 
 });
 
