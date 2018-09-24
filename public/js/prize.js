@@ -133,7 +133,7 @@ $(function(){
         btn.disabled=(editable?false:"disabled");
         $(btn).off('change');
         $(btn).on('change',new Promise(function(resolve,reject){
-            changePrize($(bit),resolve,reject);
+            changePrize($(btn),resolve,reject);
         }));
       }
     });
@@ -399,6 +399,12 @@ $(function(){
         if($(btn).val()=="") {
           $(btn).val(++prevNums[cateName]);
         }
+        if($(btn).val()=="-" || $(btn).val() == "1") {
+          $("#prize-2-"+those[2]).val("-");
+          promises.push(new Promise( function(resolve,reject) {
+            changePrize($("#prize-2-"+those[2]),resolve,reject);
+          }));
+        }          
       }
       promises.push(new Promise( function(resolve,reject) {
         changePrize($(btn),resolve,reject);
