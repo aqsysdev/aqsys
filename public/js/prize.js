@@ -8,7 +8,7 @@ $(function(){
 
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
 
-/*
+
   $("#prizelist").DataTable(
     {
       lengthMenu: [ 10, 20, 50, 100, 500 ],
@@ -16,13 +16,11 @@ $(function(){
       stateSave: true,
       //scrollX: false,
       //scrollY: false,
-      order: [[1,"asc"]]
-      //order: [
-      //  [11,"asc"],[1,"asc"],[2,"asc"],[6,"asc"],[0,"asc"]
-      //]
+      order: [
+        [11,"asc"],[1,"asc"],[2,"asc"],[6,"asc"],[0,"asc"]
+      ]
     }
   );
-*/
   alert("here");
 
   // CRUD 関数定義
