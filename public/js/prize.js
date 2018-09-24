@@ -8,7 +8,7 @@ $(function(){
 
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
 
-
+/*
   $("#prizelist").DataTable(
     {
       lengthMenu: [ 10, 20, 50, 100, 500 ],
@@ -22,7 +22,7 @@ $(function(){
       //]
     }
   );
-
+*/
   alert("here");
 
   // CRUD 関数定義
