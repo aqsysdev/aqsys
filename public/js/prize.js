@@ -441,18 +441,21 @@ $(function(){
     for(btn of btns) {
       var those = $(btn).prop("name").split(/-/);
       if($("#prize-ttime-"+those[2]).val()!="" && $("#prize-ttime-"+those[2]).val()!="DNF" ) {
-        var cateName = $("#prize-cate-"+those[2]).text();
-        var gradeName = $("#prize-grade-"+those[2]).find("a").text();
-        if( aqsysCoder.getConfig().grades.indexOf(gradeName)<0 ) {
-          gradeName = cateName + "-" + gradeName.split("")[0] + "0才代";
-        }else{
-          gradeName = cateName + "-" + gradeName;
-        }
-        if(!prevNums[gradeName]) {
-          prevNums[gradeName]=0;
-        }
-        if($(btn).val()=="") {
-          $(btn).val(++prevNums[gradeName]);
+        if($("prise-fname-"+those[2]).text()==""){
+          var cateName  = $("#prize-cate-"+those[2]).text();
+          var gradeName = $("#prize-grade-"+those[2]).find("a").text();
+          var sex       = $("#prize-sex-"+those[2]).find("a").text();
+          if( aqsysCoder.getConfig().grades.indexOf(gradeName)<0 ) {
+            gradeName = cateName + "-" + gradeName.split("")[0] + "0才代";
+          }else{
+            gradeName = cateName + "-" + gradeName + "-" + sex;
+          }
+          if(!prevNums[gradeName]) {
+            prevNums[gradeName]=0;
+          }
+          if($(btn).val()=="") {
+            $(btn).val(++prevNums[gradeName]);
+          }
         }
       }
       promises.push(new Promise( function(resolve,reject) {
