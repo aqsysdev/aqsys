@@ -72,8 +72,8 @@
         <td class="hidden-xs hidden-sm hidden"></td>
         <td align="center"></td>
         <td align="center"></td>
-        <td class="hidden-xs"></th>
-        <td class="hidden-xs hidden-sm hidden"></th>
+        <td class="hidden-xs"></td>
+        <td class="hidden-xs hidden-sm hidden"></td>
         <td align="center">
           <div class="dropup">
             <button class="btn btn-default dropdown-toggle" type="button" id="prize-ttime-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -127,24 +127,25 @@
           </div>
         </td>
       </tr>
-      <td align="center"><a><span class="caret"></span></a></td>
-      <td align="center"></td>
-      <td align="center"></td>
-      <td align="center"></td>
-      <td align="center"></td>
-      <td class="hidden-xs"></td>
-      <td align="center"></td>
-      <td class="hidden-xs" align="center"></td>
-      <td class="hidden-xs hidden-sm hidden"></td>
-      <td align="center"></td>
-      <td align="center"></td>
-      <td class="hidden-xs"></th>
-      <td class="hidden-xs hidden-sm hidden"></th>
-      <td align="center"></td>
-      <td align="center"></td>
-      <td align="center"></td>
-      <td align="center"></td>
-    </tr>
+      <tr>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs"></td>
+        <td align="center"></td>
+        <td class="hidden-xs" align="center"></td>
+        <td class="hidden-xs hidden-sm hidden"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs"></td>
+        <td class="hidden-xs hidden-sm hidden"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+      </tr>
     </thead>
     <tbody id="prize-list-tbody">
       {{#each prizelist}}
@@ -210,7 +211,8 @@
           </td>
           <td align="center">
             <div class="hidden" id="ttime-{{id}}">
-              <div class="no-csv-output">t</div>{{ttime}}
+              <div class="no-csv-output">t</div>
+              <a>{{ttime}}</a>
             </div>
             <input class="prize-ttime" type="text" id="prize-ttime-{{id}}" name="ttime-{{id}}" value="{{ttime}}" size="11" disabled/>
           </td>

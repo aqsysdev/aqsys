@@ -300,7 +300,7 @@ $(function(){
     $(that).addClass("unconfirmed");
     var value=$(that).val();
     var id=$(that).prop("id").split("-")[2];
-    $("#ttime-"+id).text(value);
+    $(that).parents("td").find("a").text(value);
   //  alert("id:"+id+" value:"+value);
     //
     //  編集
@@ -320,10 +320,10 @@ $(function(){
       function(data,stat) {
         if(data.DNF){
           $(that).val("DNF");
-          $("#ttime-"+id).text("DNF");
+          $(that).parents("td").find("a").text("DNF");
         }else{
           $(that).val(data.ttime);
-          $("#ttime-"+id).text(data.ttime);
+          $(that).parents("td").find("a").text(data.ttime);
         }
         $(that).removeClass("unconfirmed");
         resolve();
