@@ -210,11 +210,12 @@ $(function(){
     //
     ////////////////////////////////////////////////////////////////////
 
-    $('.entry-wave').on('change',function(req){
+    $('.entry-wave').on('change',function(req) {
       $(this).addClass("unconfirmed");
       var wave=aqsysCoder.encodeWave($(this).val());
       $(this).val(aqsysCoder.decodeWave(wave));
-      $(this).parents("td").find("a").text(wave);
+      $(this).parents("td").find("a").text(aqsysCoder.decodeWave(wave));
+      alert(wave);
       var id=$(this).attr("id").split('-')[2];
       var that=this;
       $.put("/api/entry/"+id, {wave: wave},
