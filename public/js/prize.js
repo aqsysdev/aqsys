@@ -93,6 +93,7 @@ $(function(){
   });
   $('#prize-cate-search').html(($("#prizelist").DataTable().column(1).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
 
+  alert("here");
 
   ////////////////////////////////////////////////////////////////////
   //
@@ -232,6 +233,7 @@ $(function(){
   $('#prize-ttime-autofill').on('click',  function () {
     autoFillTtime(this);
   });
+  alert("here");
 
   ////////////////////////////////////////////////////////////////////
   //
