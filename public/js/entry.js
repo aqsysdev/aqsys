@@ -175,6 +175,7 @@ $(function(){
       $(this).addClass("unconfirmed");
       var racenum=aqsysCoder.encodeRacenum($(this).val());
       $(this).val(aqsysCoder.decodeRacenum(racenum));
+      $(this).parents("td").find("a").text(aqsysCoder.decodeRacenum(racenum));
       var id=$(this).attr("id").split('-')[2];
       var that=this;
       $.put("/api/entry/"+id, {racenum: racenum},
@@ -182,28 +183,24 @@ $(function(){
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(aqsysCoder.decodeRacenum(data.racenum)==racenum){
             $(that).removeClass("unconfirmed");
-          }
-        },
-        function(req,stat,err){
-          $(that).val("");
-        });
-      },
-      function(req,stat,err){
-        $.get("/api/entry/"+id, data, function(data,stat) {
-          if(aqsysCoder.decodeRecenum(data.racenum)==racenum){
-            $(that).removeClass("unconfirmed");
           }else{
             $(that).val(aqsysCoder.decodeRacenum(data.racenum));
+            $(that).parents("td").find("a").text(aqsysCoder.decodeRacenum(data.racenum));
           }
         },
         function(req,stat,err){
           $.get("/api/entry/"+id, data, function(data,stat) {
-            $(that).val(aqsysCoder.decodeRacenum(data.racenum));
+            var racenum=aqsysCoder.decodeRacenum(data.racenum);
+            $(that).val(racenum);
+            $(that).parents("td").find("a").text(racenum);
           },
           function(req,stat,err){
             $(that).val("");
+            $(that).parents("td").find("a").text("");
           });
         });
+      },
+      function(req,stat,err){
       });
     });
 
@@ -217,27 +214,29 @@ $(function(){
       $(this).addClass("unconfirmed");
       var wave=aqsysCoder.encodeWave($(this).val());
       $(this).val(aqsysCoder.decodeWave(wave));
+      $(this).parents("td").find("a").text(wave);
       var id=$(this).attr("id").split('-')[2];
       var that=this;
       $.put("/api/entry/"+id, {wave: wave},
       function(data,stat){
         $.get("/api/entry/"+id, data, function(data,stat) {
-          if(aqsysCoder.decodeWave(data.wave)==wave){
-            $(that).removeClass("unconfirmed");
-          }else{
-            $(that).val(aqsysCoder.decodeWave(data.wave));
-          }
+          var wave=aqsysCoder.decodeWave(data.wave);
+          $(that).removeClass("unconfirmed");
+          $(that).val(wave);
+          $(that).parents("td").find("a").text(wave);
         },
         function(req,stat,err){
-          $(that).val("");
         });
       },
       function(req,stat,err){
         $.get("/api/entry/"+id, data, function(data,stat) {
-          $(that).val(aqsysCoder.decodeWave(data.wave));
+          var wave=aqsysCoder.decodeWave(data.wave);
+          $(that).val(wave);
+          $(that).parents("td").find("a").text(wave);
         },
         function(req,stat,err){
           $(that).val("");
+          $(that).parents("td").find("a").text("");
         });
       });
     });
