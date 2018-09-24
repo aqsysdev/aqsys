@@ -21,8 +21,7 @@ $(function(){
       ]
     }
   );
-  alert("here");
-
+  
   // CRUD 関数定義
   $.extend({
     "getE" : function (id, data, success, error) {
