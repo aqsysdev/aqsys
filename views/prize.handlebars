@@ -60,6 +60,73 @@
         <th aligin="center">大田区賞:R</th>
         <th class="hidden-xs hidden-sm hidden">id</th>
       </tr>
+      <tr>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs"></td>
+        <td align="center"></td>
+        <td class="hidden-xs" align="center"></td>
+        <td class="hidden-xs hidden-sm hidden"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs"></th>
+        <td class="hidden-xs hidden-sm hidden"></th>
+        <td align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="prize-ttime-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a id="prize-ttime-caret"><span class="caret"></span></a></li>
+              <li><a id="prize-ttime-editable">編集</a></li>
+              <li><a id="prize-ttime-autofill">自動評価</a></li>
+              <li><a id="prize-ttime-remove">消去</a></li>
+            </ul>
+          </div>
+        </td>
+        <td align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="prize-1-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a id="prize-1-caret"><span class="caret"></span></a></li>
+              <li><a id="prize-1-editable">編集</a></li>
+              <li><a id="prize-1-autofill">自動評価</a></li>
+              <li><a id="prize-1-remove">消去</a></li>
+            </ul>
+          </div>
+        </td>
+        <td align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="prize-2-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a id="prize-2-caret"><span class="caret"></span></a></li>
+              <li><a id="prize-2-editable">編集</a></li>
+              <li><a id="prize-2-autofill">自動評価</a></li>
+              <li><a id="prize-2-remove">消去</a></li>
+            </ul>
+          </div>
+        </td>
+        <td align="center">
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="prize-3-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="modal-grade">
+              <li><a id="prize-3-caret"><span class="caret"></span></a></li>
+              <li><a id="prize-3-editable">編集</a></li>
+              <li><a id="prize-3-autofill">自動評価</a></li>
+              <li><a id="prize-3-remove">消去</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
     </thead>
     <tbody id="prize-list-tbody">
       {{#each prizelist}}
@@ -160,73 +227,6 @@
       {{/each }}
     </tbody>
     <tfoot>
-      <tr>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td class="hidden-xs"></td>
-        <td align="center"></td>
-        <td class="hidden-xs" align="center"></td>
-        <td class="hidden-xs hidden-sm hidden"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td class="hidden-xs"></th>
-        <td class="hidden-xs hidden-sm hidden"></th>
-        <td align="center">
-          <div class="dropup">
-            <button class="btn btn-default dropdown-toggle" type="button" id="prize-ttime-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="modal-grade">
-              <li><a id="prize-ttime-caret"><span class="caret"></span></a></li>
-              <li><a id="prize-ttime-editable">編集</a></li>
-              <li><a id="prize-ttime-autofill">自動評価</a></li>
-              <li><a id="prize-ttime-remove">消去</a></li>
-            </ul>
-          </div>
-        </td>
-        <td align="center">
-          <div class="dropup">
-            <button class="btn btn-default dropdown-toggle" type="button" id="prize-1-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="modal-grade">
-              <li><a id="prize-1-caret"><span class="caret"></span></a></li>
-              <li><a id="prize-1-editable">編集</a></li>
-              <li><a id="prize-1-autofill">自動評価</a></li>
-              <li><a id="prize-1-remove">消去</a></li>
-            </ul>
-          </div>
-        </td>
-        <td align="center">
-          <div class="dropup">
-            <button class="btn btn-default dropdown-toggle" type="button" id="prize-2-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="modal-grade">
-              <li><a id="prize-2-caret"><span class="caret"></span></a></li>
-              <li><a id="prize-2-editable">編集</a></li>
-              <li><a id="prize-2-autofill">自動評価</a></li>
-              <li><a id="prize-2-remove">消去</a></li>
-            </ul>
-          </div>
-        </td>
-        <td align="center">
-          <div class="dropup">
-            <button class="btn btn-default dropdown-toggle" type="button" id="prize-3-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="modal-grade">
-              <li><a id="prize-3-caret"><span class="caret"></span></a></li>
-              <li><a id="prize-3-editable">編集</a></li>
-              <li><a id="prize-3-autofill">自動評価</a></li>
-              <li><a id="prize-3-remove">消去</a></li>
-            </ul>
-          </div>
-        </td>
-      </tr>
     </tfoot>
   </table>
 </div>
