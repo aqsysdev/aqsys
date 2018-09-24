@@ -300,6 +300,7 @@ $(function(){
     $(that).addClass("unconfirmed");
     var value=$(that).val();
     var id=$(that).prop("id").split("-")[2];
+    $("#prize-ttime-"+id).find("a").text=value;
   //  alert("id:"+id+" value:"+value);
     //
     //  編集
@@ -319,8 +320,10 @@ $(function(){
       function(data,stat) {
         if(data.DNF){
           $(that).val("DNF");
+          $("#prize-ttime-"+id).find("a").text="DNF";
         }else{
           $(that).val(data.ttime);
+          $("#prize-ttime-"+id).find("a").text=data.ttime;
         }
         $(that).removeClass("unconfirmed");
         resolve();
@@ -332,7 +335,6 @@ $(function(){
     },
     function(req,stat,err){
       alert("記録の書き込みに失敗しました。");
-      $(that).val(data.ttime);
       reject();
     });
   }
@@ -347,6 +349,7 @@ $(function(){
     var those=$(that).prop("name").split(/-/);
     var index=those[0]+those[1];
     var id=those[2];
+    $($(that).prop("name")).find("a").text(value);
     //alert("id:"+id+" value:"+value);
       //
       //  編集
@@ -358,6 +361,7 @@ $(function(){
       $.getE(data.id, data,
       function(data,stat) {
         $(that).val(aqsysCoder.decodePrize(data[index]));
+        $($(that).prop("name")).find("a").text(aqsysCoder.decodePrize(data[index]));
         $(that).removeClass("unconfirmed");
         resolve();
       },
@@ -368,7 +372,6 @@ $(function(){
     },
     function(req,stat,err){
       alert("記録の書き込みに失敗しました。");
-      $(that).val(data.ttime);
       reject();
     });
   }
