@@ -63,6 +63,56 @@
         <th class="hidden-xs">子の性別</th>
         <th class="hidden-xs hidden-sm">id</th>
       </tr>
+      <tr>
+        <td align="center" class="hidden-xs">
+          <button type="button" class="btn btn-default btn-xs edit-entrylist" data-toggle="modal" data-target="#formEditEntryModal" data-id="0" id="edit-entry-modal-0">
+          <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryRaceNumEditable" >
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryCateEditable">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryWaveEditable">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryConfirmationEditable">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button" autocomplete="on" id="btnEntryRegistEditable">
+            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center">
+          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryStartEditable">
+          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs hidden-sm"></td>
+        <td align="center"></td>
+        <td class="hidden-xs" align="center"></td>
+        <td class="hidden-xs hidden-sm"></td>
+        <td class="visible-lg"></td>
+        <td class="hidden-xs hidden-sm hidden-mid"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td class="hidden-xs hidden-sm"></td>
+        <td class="hidden-xs" align="center"></td>
+        <td class="hidden-xs hidden-sm" align="center"></td>
+      </tr>
     </thead>
     <tbody id="entry-list-tbody">
     {{#each entrylist}}
@@ -170,56 +220,6 @@
     {{/each }}
     </tbody>
     <tfoot>
-      <tr>
-        <td align="center" class="hidden-xs">
-          <button type="button" class="btn btn-default btn-xs edit-entrylist" data-toggle="modal" data-target="#formEditEntryModal" data-id="0" id="edit-entry-modal-0">
-          <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-          </button>
-        </td>
-        <td align="center">
-          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryRaceNumEditable" >
-          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
-          </button>
-        </td>
-        <td align="center">
-          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryCateEditable">
-          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
-          </button>
-        </td>
-        <td align="center">
-          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryWaveEditable">
-          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
-          </button>
-        </td>
-        <td align="center">
-          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryConfirmationEditable">
-          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
-          </button>
-        </td>
-        <td align="center">
-          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button" autocomplete="on" id="btnEntryRegistEditable">
-            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
-          </button>
-        </td>
-        <td align="center">
-          <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryStartEditable">
-          <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
-          </button>
-        </td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td class="hidden-xs hidden-sm"></td>
-        <td align="center"></td>
-        <td class="hidden-xs" align="center"></td>
-        <td class="hidden-xs hidden-sm"></td>
-        <td class="visible-lg"></td>
-        <td class="hidden-xs hidden-sm hidden-mid"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td class="hidden-xs hidden-sm"></td>
-        <td class="hidden-xs" align="center"></td>
-        <td class="hidden-xs hidden-sm" align="center"></td>
-      </tr>
     </tfoot>
   </table>
 </div>
