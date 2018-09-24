@@ -13,9 +13,10 @@ $(function(){
     {
       lengthMenu: [ 10, 20, 50, 100, 500 ],
       displayLength: 50,
-      stateSave: true
+      stateSave: true,
       //scrollX: false,
       //scrollY: false,
+      order: [[11,"asc"]]
       //order: [
       //  [11,"asc"],[1,"asc"],[2,"asc"],[6,"asc"],[0,"asc"]
       //]
