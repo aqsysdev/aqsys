@@ -7,7 +7,7 @@
 $(function(){
   alert("here");
 
-//  aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
+  aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
 
   alert("here");
 
@@ -23,6 +23,8 @@ $(function(){
       ]
     }
   );
+
+  alert("here");
 
   // CRUD 関数定義
   $.extend({
@@ -75,6 +77,7 @@ $(function(){
       });
     }
   });
+
   alert("here");
 
   ////////////////////////////////////////////////////////////////////
