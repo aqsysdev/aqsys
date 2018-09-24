@@ -132,9 +132,9 @@ $(function(){
       for(btn of btns) {
         btn.disabled=(editable?false:"disabled");
         $(btn).off('change');
-        $(btn).on('change',function(){
-            changePrize($(bit));
-        });
+        $(btn).on('change',new Promise(function(resolve,reject){
+            changePrize($(bit),resolve,reject);
+        }));
       }
     });
     $('#prize-'+i+'-caret').on('click',  function () {
