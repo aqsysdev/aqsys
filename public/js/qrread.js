@@ -60,6 +60,7 @@ $(function() {
     });
   }
 
+  alert("here");
   function readImage() {
     alert("here");
     const video = document.querySelector("video");
