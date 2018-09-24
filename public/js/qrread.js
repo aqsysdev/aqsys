@@ -9,6 +9,7 @@ var HOST;
 var ws=false;
 var QRread;
 
+alert("here");
 $(function() {
 
   function openWebSocket() {
