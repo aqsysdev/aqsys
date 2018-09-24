@@ -20,21 +20,21 @@
   <table class="table table-condensed" id="entrylist">
     <thead>
       <tr align="center">
-        <th class="hidden-xs">編集</th>
+        <th class="hidden-xs hidden-sm">編集</th>
         <th >#<br></th>
         <th>cate<br/>
-        <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">
-          <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          </button>
-          <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
-            <li name=0><a><span class="caret"></span></a></li>
-            {{#each cateList}}
-            <li name={{cNum}}><a>{{cateName}}</a></li>
-            {{/each}}
-          </ul>
-        </div>
+          <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">
+            <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            </button>
+            <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
+              <li name=0><a><span class="caret"></span></a></li>
+              {{#each cateList}}
+              <li name={{cNum}}><a>{{cateName}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
         </th>
-        <th><div class="hidden-xs">wave<br/></div>
+        <th>wave<br/>
           <div class="dropdown dropdown-wave-search" id="dropdown-wave-search">
             <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-wave-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             </button>
@@ -49,12 +49,12 @@
         <th data-toggle="false">誓約書</th>
         <th data-toggle="false">受付</th>
         <th data-toggle="false">召集</th>
-        <th><div class="hidden">みょうじ","</div>氏</th>
-        <th><div class="hidden">なまえ","</div>名</th>
+        <th>氏</th>
+        <th>名</th>
         <th class="hidden-xs hidden-sm">誕生日</th>
-        <th class="center">年齢<br>学年</th>
-        <th class="hidden-xs">性別</th>
-        <th class="hidden-xs">〒</th>
+        <th align="center">年齢<br>学年</th>
+        <th align="center">性別</th>
+        <th class="hidden-xs hidden-sm" align="center">〒</th>
         <th class="visible-lg col-lg-3">住所<div class="hidden">1","住所2</div></th>
         <th class="hidden-xs hidden-sm">e-mail</th>
         <th>子の氏</th>
@@ -104,7 +104,7 @@
         <td class="hidden-xs hidden-sm"></td>
         <td align="center"></td>
         <td align="center"></td>
-        <td align="center"></td>
+        <td class="hidden-xs hidden-sm" align="center"></td>
         <td class="visible-lg"></td>
         <td class="hidden-xs hidden-sm"></td>
         <td align="center"></td>
@@ -126,7 +126,7 @@
         <td class="hidden-xs hidden-sm"></td>
         <td align="center"></td>
         <td align="center"></td>
-        <td align="center"></td>
+        <td class="hidden-xs hidden-sm" align="center"></td>
         <td class="visible-lg"></td>
         <td class="hidden-xs hidden-sm"></td>
         <td align="center"></td>
