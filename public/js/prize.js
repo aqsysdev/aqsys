@@ -301,6 +301,7 @@ $(function(){
     var value=$(that).val();
     var id=$(that).prop("id").split("-")[2];
     $("#prize-ttime-"+id).find("a").text(value);
+    alert($("#prize-ttime-"+id).find("a").text());
   //  alert("id:"+id+" value:"+value);
     //
     //  編集
