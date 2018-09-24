@@ -342,7 +342,6 @@ $(function(){
   //
   ////////////////////////////////////////////////////////////////////
   function changePrize(that,resolve,reject) {
-    alert("here");
     $(that).addClass("unconfirmed");
     var value=$(that).val();
     var those=$(that).prop("name").split(/-/);
@@ -404,7 +403,7 @@ $(function(){
           promises.push(new Promise( function(resolve,reject) {
             changePrize($("#prize-2-"+those[2]),resolve,reject);
           }));
-        }          
+        }
       }
       promises.push(new Promise( function(resolve,reject) {
         changePrize($(btn),resolve,reject);
