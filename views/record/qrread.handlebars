@@ -3,16 +3,114 @@
 QR read テンプレート
 
 -->
+<!--
+
+打刻テンプレート
+
+-->
 <script type="text/javascript">
   var tnum={{tnum}};
   var seqnum={{seqnum}};
 </script>
-<h2 class="page-header">QR read Time {{tnum}}</h2>
-<div id="msg_list" style="height:140px; overflow:scroll;"></div>
+<h2 class="hidden page-header" id="page-header-1">レース＃システム入力</h2>
+<h2 class="hidden page-header" id="page-header-2">打刻システム入力</h2>
+<h2 class="hidden page-header" id="page-header-3">レース＃手入力</h2>
+<h2 class="hidden page-header" id="page-header-4">時刻手入力</h2>
+<h2 class="hidden page-header" id="page-header-5">{{tnum}}</h2>
+<div>
+  <table>
+    <tr>
+      <th style="width:40px">順番</th>
+      <th style="width:80px">レース番号</th>
+      <th style="width:100px">打刻時刻</th>
+    </tr>
+  </table>
+</div>
+<div id="msg_list" style="height:280px; overflow:scroll;">
+  <table id="recordlist">
+  {{#each recordlist}}
+    {{#if seqnum}}
+    <tr class='record'>
+      <td style="width:40px" align="center" class='seqnum' id="seqnum-{{seqnum}}">{{seqnum}}</td>
+      <td style="width:80px" align="center" class='racenum' id="racenum-{{seqnum}}">{{racenum}}</td>
+      <td style="width:100px" align="center" class='ftime' id="ftime-{{seqnum}}">{{ftime}}</td>
+    </tr>
+    {{else}}
+    <tr id="startTime">
+      <th style="width:40px"></th>
+      <th style="width:80px">start time</th>
+      <th style="width:100px">{{ftime}}</th>
+    </tr>
+    {{/if}}
+  {{/each }}
+</table>
+</div>
+<div>
+<table>
+  <tr>
+    <td style="width:40px" align="center"></td>
+    <td style="width:80px" align="center"></td>
+    <td style="width:100px" align="center" id="currentTime">00:00:00.00</td>
+  </tr>
+</table>
+</div>
  <form action="" method="put" onsubmit="return false;">
    <input type="text" class="text" style="width:72px; padding:10px"
    id="message" value=""/>
-   <input type="submit" class="button" style="padding:10px" onclick="QRreadTime({{tnum}});" value="送信" />
+   <input type="submit" class="button btn-primary btn-lg" style="padding:10px" onclick="punchTime({{tnum}});" value="送信" />
  </form>
 </div>
-<script type="text/javascript" src="/js/qrread.js"></script>
+
+<div>
+  <section>
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <b-message
+            :active.sync="isReadQr"
+            title="読み取り内容">
+            {{ json }}
+          </b-message>
+          {{ isReadQr }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hero is-medium has-text-centered">
+    <div class="hero-body hero-body-hp-main">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <button
+              class="button"
+              @click="cameraStart">カメラスタート</button>
+          </div>
+          <div class="column">
+            <button
+              class="button"
+              @click="readImage">読み取りスタート</button>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <video
+              :width="width"
+              :height="height"
+              autoplay/>
+          </div>
+          <div class="column">
+            <div :style="{ width: width + 'px', height: height+ 'px' }">
+              <!-- canvasなしでも仮想DOMを作成して描画 -->
+              <!-- <canvas
+                :width="width"
+                :height="height"
+              /> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="text/javascript" src="/js/prread.js"></script>
