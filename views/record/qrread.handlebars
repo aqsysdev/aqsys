@@ -54,58 +54,12 @@ QR read テンプレート
   </tr>
 </table>
 </div>
- <form action="" method="put" onsubmit="return false;">
+<form action="" method="put" onsubmit="return false;">
    <input type="text" class="text" style="width:72px; padding:10px"
    id="message" value=""/>
    <input type="submit" class="button btn-primary btn-lg" style="padding:10px" onclick="punchTime({{tnum}});" value="送信" />
- </form>
-</div>
-
-<div>
-  <section>
-    <div class="container">
-      <div class="columns">
-        <div class="column">
-          <b-message
-            :active.sync="isReadQr"
-            title="読み取り内容">
-            {{ json }}
-          </b-message>
-          {{ isReadQr }}
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="hero is-medium has-text-centered">
-    <div class="hero-body hero-body-hp-main">
-      <div class="container">
-        <div class="columns">
-          <div class="column">
-            <button class="button btn-primary btn-lg" id="cameraStart">カメラ</button>
-          </div>  <div class="column">
-            <button class="button" id="readImage">読み取り</button>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column">
-            <video
-              :width="width"
-              :height="height"
-              autoplay/>
-          </div>
-          <div class="column">
-            <div :style="{ width: width + 'px', height: height+ 'px' }">
-              <!-- canvasなしでも仮想DOMを作成して描画 -->
-              <!-- <canvas
-                :width="width"
-                :height="height"
-              /> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
+   <button class="button btn-primary btn-lg" id="cameraStart">カメラ</button>
+   <button class="button btn-primary btn-lg" id="readImage">読み取り</button>
+</form>
+<video style="width: 500px; height:500px" atoplay />
 <script type="text/javascript" src="/js/prread.js"></script>
