@@ -5,11 +5,9 @@
 //
 
 $(function(){
-  alert("here");
 
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
 
-  alert("here");
 
   $("#prizelist").DataTable(
     {
@@ -78,8 +76,6 @@ $(function(){
     }
   });
 
-  alert("here");
-
   ////////////////////////////////////////////////////////////////////
   //
   // カテゴリー検索
@@ -99,8 +95,6 @@ $(function(){
     $('#prize-cate-search').html(($("#prizelist").DataTable().column(1).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
   });
   $('#prize-cate-search').html(($("#prizelist").DataTable().column(1).search() || '<a><span class="caret"></span></a>').replace(/^cate/,""));
-
-  alert("here");
 
   ////////////////////////////////////////////////////////////////////
   //
@@ -240,7 +234,6 @@ $(function(){
   $('#prize-ttime-autofill').on('click',  function () {
     autoFillTtime(this);
   });
-  alert("here");
 
   ////////////////////////////////////////////////////////////////////
   //
@@ -523,7 +516,6 @@ $(function(){
       alert("順位の記録に失敗しました。");
     });
   });
-  alert("here");
 
 
 });
