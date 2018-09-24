@@ -402,7 +402,7 @@ $(function(){
           $(btn).val(++prevNums[cateName]);
         }
         if($(btn).val()=="-" || $(btn).val() == "1") {
-          var btn2 = $("#prize-2-"+those[2]).find("input");
+          var btn2 = $("#prize-2-"+those[2]).parents("td").find("input");
           $(btn2).val("-");
           promises.push(new Promise( function(resolve,reject) {
             changePrize($(btn2),resolve,reject);
