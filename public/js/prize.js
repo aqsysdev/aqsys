@@ -402,9 +402,10 @@ $(function(){
           $(btn).val(++prevNums[cateName]);
         }
         if($(btn).val()=="-" || $(btn).val() == "1") {
-          $("#prize-2-"+those[2]).val("-");
+          var btn2 = $("#prize-2-"+those[2]).find("input");
+          $(btn2).val("-");
           promises.push(new Promise( function(resolve,reject) {
-            changePrize($("#prize-2-"+those[2]),resolve,reject);
+            changePrize($(btn2),resolve,reject);
           }));
         }
       }
