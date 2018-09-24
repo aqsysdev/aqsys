@@ -5,6 +5,7 @@
 //
 
 $(function(){
+  alert("here");
 
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
 
