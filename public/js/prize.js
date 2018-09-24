@@ -300,7 +300,7 @@ $(function(){
     $(that).addClass("unconfirmed");
     var value=$(that).val();
     var id=$(that).prop("id").split("-")[2];
-    $("#prize-ttime-"+id).find("a").text=value;
+    $("#prize-ttime-"+id).find("a").text(value);
   //  alert("id:"+id+" value:"+value);
     //
     //  編集
@@ -320,10 +320,10 @@ $(function(){
       function(data,stat) {
         if(data.DNF){
           $(that).val("DNF");
-          $("#prize-ttime-"+id).find("a").text="DNF";
+          $("#prize-ttime-"+id).find("a").text("DNF");
         }else{
           $(that).val(data.ttime);
-          $("#prize-ttime-"+id).find("a").text=data.ttime;
+          $("#prize-ttime-"+id).find("a").text(data.ttime);
         }
         $(that).removeClass("unconfirmed");
         resolve();
