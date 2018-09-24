@@ -7,7 +7,8 @@
 //alert("websocket begin");
 var HOST;
 var ws=false;
-alert("here");
+var QRread;
+
 $(function() {
 
   function openWebSocket() {
@@ -43,6 +44,48 @@ $(function() {
   $("#page-header-"+tnum).removeClass("hidden");
   setInterval(showCurrentTime,1000);
   showCurrentTime();
+
+  function cameraStart() {
+    const p = navigator.mediaDevices.getUserMedia({
+      audio: false,
+      video: {
+        width: 500,
+        height: 500,
+        frameRate: { ideal: 5, max: 15 }
+      }
+    });
+    p.then(function(mediaStream) {
+      document.querySelector("video").srcObject = mediaStream;
+    });
+  }
+
+  function readImage() {
+    const video = document.querySelector("video");
+    const canv = document.createElement("canvas");
+    canv.height = 500;
+    canv.width = 500;
+
+    const context = canv.getContext("2d");
+
+    setInterval(() => {
+      console.log("search .....");
+      context.drawImage(video, 0, 0, 500, 500);
+      const imageData = context.getImageData(0, 0, 500, 500);
+      const code = jsQR(imageData.data, imageData.width, imageData.height);
+      if (code) {
+        console.log("Found QR code", code, code.data);
+        alert(JSON.stringify( code.data);
+      }
+    }, 500);
+  }
+
+  $("#cameraStart").on( "click", function(){
+    cameraStart();
+  });
+
+  $("#readImage").on( "click", function(){
+    readImage();
+  });
 
 });
 
