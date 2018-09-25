@@ -41,6 +41,10 @@ $(function() {
   $("#message").each(function(){
       $(this).bind('keyup', zen2han(this));
   });
+  $("#submit").on("click" , function() {
+    punchTime(tnum);
+  });
+
   $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
 
   $(".page-header").addClass("hidden");
@@ -96,6 +100,72 @@ $(function() {
   });
   alert("here"):
 */
+
+  function punchConnect(tnum) {
+  //  alert("punchConnect");
+    var msg = $("#message").val(); //取得
+    $("#message").val("");
+    var data = {
+      type: "punchConnect",
+      tnum: tnum
+    };
+    ws.send(JSON.stringify(data)); // サーバへ送信
+  //  alert("end");
+  }
+
+  function punchTime(tnum) {
+    var racenum = decodeRacenum($("#message").val());
+    var ftime = encodeTime(new Date());
+    var seqnum = $("#recordlist > tbody").children().length;
+    $.post("/api/record/"+tnum,
+    {
+      ftime: ftime,
+      racenum: racenum
+    });
+    $("#message").val("");
+    ws.send(JSON.stringify({
+        type: "punch",
+        seqnum: seqnum,
+        tnum: tnum,
+        racenum: racenum,
+        ftime: ftime
+    })); // サーバへ送信
+
+  }
+
+
+  function punchBreath(tnum) {
+  //  alert("punchBreath");
+    var msg = $("#message").val(); //取得
+    var data = {
+      type: "punchBreath",
+      tnum: tnum
+    };
+    ws.send(JSON.stringify(data)); // サーバへ送信
+  //  alert("end");
+  }
+
+  //jqueryでメッセージを追加
+  function addPunch(event) {
+    var data=JSON.parse(event.data);
+    var table=$("#recordlist");
+    var tr;
+    var td;
+    if(data.type=="punch") {
+      if($("#seqnum-"+data.seqnum).length==0) {
+        $(table).append(
+          "<tr id='record'>"+
+            "<td style='width:40px' align='center' class='seqnum' id='seqnum-"+data.seqnum+"'>"+data.seqnum+"</td>"+
+            "<td style='width:80px' align='center' class='recenum' id='racenum-"+data.seqnum+"'>"+data.racenum+"</td>"+
+            "<td style='width:100px' align='center' class='ftime' id='ftime-"+data.seqnum+"'>"+data.ftime+"</td>"+
+          "</tr>");
+        $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
+      }
+    }else if(data.type=="punchBreath") {
+    }
+  }
+  //alert("websocket end");
+
 });
 
 
@@ -119,71 +189,6 @@ function initRecordList(event) {
 
 
   //クライアントからイベント送信（イベント名は自由に設定できます）
-
-function punchConnect(tnum) {
-//  alert("punchConnect");
-  var msg = $("#message").val(); //取得
-  $("#message").val("");
-  var data = {
-    type: "punchConnect",
-    tnum: tnum
-  };
-  ws.send(JSON.stringify(data)); // サーバへ送信
-//  alert("end");
-}
-
-function punchTime(tnum) {
-  var racenum = decodeRacenum($("#message").val());
-  var ftime = encodeTime(new Date());
-  var seqnum = $("#recordlist > tbody").children().length;
-  $.post("/api/record/"+tnum,
-  {
-    ftime: ftime,
-    racenum: racenum
-  });
-  $("#message").val("");
-  ws.send(JSON.stringify({
-      type: "punch",
-      seqnum: seqnum,
-      tnum: tnum,
-      racenum: racenum,
-      ftime: ftime
-  })); // サーバへ送信
-
-}
-
-
-function punchBreath(tnum) {
-//  alert("punchBreath");
-  var msg = $("#message").val(); //取得
-  var data = {
-    type: "punchBreath",
-    tnum: tnum
-  };
-  ws.send(JSON.stringify(data)); // サーバへ送信
-//  alert("end");
-}
-
-//jqueryでメッセージを追加
-function addPunch(event) {
-  var data=JSON.parse(event.data);
-  var table=$("#recordlist");
-  var tr;
-  var td;
-  if(data.type=="punch") {
-    if($("#seqnum-"+data.seqnum).length==0) {
-      $(table).append(
-        "<tr id='record'>"+
-          "<td style='width:40px' align='center' class='seqnum' id='seqnum-"+data.seqnum+"'>"+data.seqnum+"</td>"+
-          "<td style='width:80px' align='center' class='recenum' id='racenum-"+data.seqnum+"'>"+data.racenum+"</td>"+
-          "<td style='width:100px' align='center' class='ftime' id='ftime-"+data.seqnum+"'>"+data.ftime+"</td>"+
-        "</tr>");
-      $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
-    }
-  }else if(data.type=="punchBreath") {
-  }
-}
-//alert("websocket end");
 
 function encodeTime(time) {
   return(
