@@ -195,7 +195,7 @@ $(function() {
         frameRate: { ideal: 5, max: 15 }
       }
     });
-    alert("here");
+    alert("here"+JSON.stringify(p));
     p.then(function(mediaStream) {
       document.querySelector("video").srcObject = mediaStream;
     });
