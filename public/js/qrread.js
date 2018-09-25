@@ -190,8 +190,8 @@ $(function() {
     const promise = navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        width: "500px",
-        height: "500px",
+        width: 500,
+        height: 500,
         frameRate: { ideal: 5, max: 15 }
       }
     });
@@ -205,7 +205,7 @@ $(function() {
   alert("here");
   function readImage(tnum) {
     alert("here");
-    /*
+
     const video = document.querySelector("video");
     const canv = document.createElement("canvas");
     canv.height = 500;
@@ -223,6 +223,5 @@ $(function() {
         alert(JSON.stringify( code.data);
       }
     }, 500);
-    */
   }
 });
