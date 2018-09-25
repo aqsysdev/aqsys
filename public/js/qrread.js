@@ -182,6 +182,8 @@ $(function() {
   function showCurrentTime() {
     $("#currentTime").html(encodeTime(new Date()));
   }
+
+
   function cameraStart(tnum) {
     alert("here");
     const p = navigator.mediaDevices.getUserMedia({
@@ -216,29 +218,6 @@ $(function() {
         alert(JSON.stringify( code.data);
       }
     }, 500);
-  }
-
-  alert("here");
-  $("#cameraStart").on( "click", function(){
-    cameraStart();
-  });
-  alert("here");
-
-  $("#readImage").on( "click", function(){
-    readImage();
-  });
-  alert("here");
-
-  function punchConnect(tnum) {
-  //  alert("punchConnect");
-    var msg = $("#message").val(); //取得
-    $("#message").val("");
-    var data = {
-      type: "punchConnect",
-      tnum: tnum
-    };
-    ws.send(JSON.stringify(data)); // サーバへ送信
-  //  alert("end");
   }
 
 });
