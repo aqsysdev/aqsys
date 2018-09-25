@@ -187,16 +187,16 @@ $(function() {
   function cameraStart(tnum) {
     alert("here");
 
-    const p = navigator.mediaDevices.getUserMedia({
+    const promise = navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        width: 500,
-        height: 500,
+        width: "500px",
+        height: "500px",
         frameRate: { ideal: 5, max: 15 }
       }
     });
     alert("here"+JSON.stringify(p));
-    p.then(function(mediaStream) {
+    promise.then(function(mediaStream) {
       alert("there");
       document.querySelector("video").srcObject = mediaStream;
     });
