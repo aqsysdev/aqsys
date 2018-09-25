@@ -186,7 +186,7 @@ $(function() {
 
   function cameraStart(tnum) {
     alert("here");
-    /*
+
     const p = navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
@@ -195,10 +195,11 @@ $(function() {
         frameRate: { ideal: 5, max: 15 }
       }
     });
+    alert("here");
     p.then(function(mediaStream) {
       document.querySelector("video").srcObject = mediaStream;
     });
-    */
+    alert("here");
   }
   alert("here");
   function readImage(tnum) {
