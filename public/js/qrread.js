@@ -47,9 +47,8 @@ $(function() {
   $("#page-header-"+tnum).removeClass("hidden");
   setInterval(showCurrentTime,1000);
   showCurrentTime();
-});
-  /*
 
+/*
   function cameraStart() {
     alert("here");
     const p = navigator.mediaDevices.getUserMedia({
@@ -96,7 +95,7 @@ $(function() {
     readImage();
   });
   alert("here"):
-
+*/
 });
 
 
