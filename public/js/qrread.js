@@ -13,6 +13,7 @@ alert("here");
 
 
 $(function() {
+  aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
 
   function openWebSocket() {
     if(ws==false) {
@@ -114,8 +115,8 @@ $(function() {
   }
 
   function punchTime(tnum) {
-    var racenum = decodeRacenum($("#message").val());
-    var ftime = encodeTime(new Date());
+    var racenum = aqsysCoder.decodeRacenum($("#message").val());
+    var ftime = aqsysCoder.encodeTime(new Date());
     var seqnum = $("#recordlist > tbody").children().length;
     $.post("/api/record/"+tnum,
     {
@@ -166,69 +167,70 @@ $(function() {
   }
   //alert("websocket end");
 
-});
 
 
-function zen2han(e) {
-  var v, old = e.value;
-  return function(){
-      if( old != ( v = e.value ) ){
-          old = v;
-          var str = $(this).val();
-          str = str.replace( /[Ａ-Ｚａ-ｚ０-９－！”＃＄％＆’（）＝＜＞，．？＿［］｛｝＠＾～￥]/g, function(s) {
-              return String.fromCharCode(s.charCodeAt(0) - 65248);
-          });
-          $(this).val(str);
-      }
-  };
-}
 
-function initRecordList(event) {
-}
-//alert("websocket end");
-
-
-  //クライアントからイベント送信（イベント名は自由に設定できます）
-
-function encodeTime(time) {
-  return(
-    ("00" + (time.getHours()||0)).slice(-2)+":"+
-    ("00" + (time.getMinutes()||0)).slice(-2)+":"+
-    ("00" + (time.getSeconds()||0)).slice(-2)+"."+
-    ("00" + (time.getTime()||0)).slice(-2)
-  );
-}
-
-function formTime(ms) {
-    var milisec=new Decimal(ms);
-    return(
-      ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
-      ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
-      ("00"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
-      ("00"+parseInt(milisec%100,0)).slice(-2)
-    );
-}
-
-function reformTime(ft) {
-  if(ft){
-    var ftime=ft.split(/[-:]/).reverse();
-    var sec=parseInt(ftime[0]||0);
-    var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
-    return(
-      ("00"+(ftime[2]||0)).slice(-2)+":"+
-      ("00"+(ftime[1]||0)).slice(-2)+":"+
-      ("00"+(sec||0)).slice(-2)+"."+
-      ("00"+(parseInt((milisec||0),0))).slice(-2)
-    );
-  } else {
-    return(ft);
+  function zen2han(e) {
+    var v, old = e.value;
+    return function(){
+        if( old != ( v = e.value ) ){
+            old = v;
+            var str = $(this).val();
+            str = str.replace( /[Ａ-Ｚａ-ｚ０-９－！”＃＄％＆’（）＝＜＞，．？＿［］｛｝＠＾～￥]/g, function(s) {
+                return String.fromCharCode(s.charCodeAt(0) - 65248);
+            });
+            $(this).val(str);
+        }
+    };
   }
-}
 
-function decodeRacenum(racenum) {
-  return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
-}
+  function initRecordList(event) {
+  }
+  //alert("websocket end");
 
-function showCurrentTime() {
-  $("#currentTime").html(encodeTime(new Date()));
-}
+
+    //クライアントからイベント送信（イベント名は自由に設定できます）
+
+  function encodeTime(time) {
+    return(
+      ("00" + (time.getHours()||0)).slice(-2)+":"+
+      ("00" + (time.getMinutes()||0)).slice(-2)+":"+
+      ("00" + (time.getSeconds()||0)).slice(-2)+"."+
+      ("00" + (time.getTime()||0)).slice(-2)
+    );
+  }
+
+  function formTime(ms) {
+      var milisec=new Decimal(ms);
+      return(
+        ("00"+parseInt(milisec.div(60*60*100),0)%24).slice(-2)+":"+
+        ("00"+parseInt(milisec.div(60*100),0)%60).slice(-2)+":"+
+        ("00"+parseInt(milisec.div(100),0)%60).slice(-2)+"."+
+        ("00"+parseInt(milisec%100,0)).slice(-2)
+      );
+  }
+
+  function reformTime(ft) {
+    if(ft){
+      var ftime=ft.split(/[-:]/).reverse();
+      var sec=parseInt(ftime[0]||0);
+      var milisec=parseInt(Decimal.mul(ftime[0]||0,100)-sec*100);
+      return(
+        ("00"+(ftime[2]||0)).slice(-2)+":"+
+        ("00"+(ftime[1]||0)).slice(-2)+":"+
+        ("00"+(sec||0)).slice(-2)+"."+
+        ("00"+(parseInt((milisec||0),0))).slice(-2)
+      );
+    } else {
+      return(ft);
+    }
+  }
+
+  function decodeRacenum(racenum) {
+    return((!racenum || isNaN(racenum) || racenum*1 == 0 )? "" : ('000'+racenum*1).slice(-3));
+  }
+
+  function showCurrentTime() {
+    $("#currentTime").html(encodeTime(new Date()));
+  }
+});
