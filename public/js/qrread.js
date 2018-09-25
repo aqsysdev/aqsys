@@ -213,19 +213,26 @@ $(function() {
     canv.width = 500;
     alert("here");
 
-/*
-    const context = canv.getContext("2d");
 
-    setInterval(() => {
+    const context = canv.getContext("2d");
+    alert("here");
+
+
+    setInterval(takeQRcode,500);
+
+    function takeQRcode() {
       console.log("search .....");
       context.drawImage(video, 0, 0, 500, 500);
       const imageData = context.getImageData(0, 0, 500, 500);
       const code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
         console.log("Found QR code", code, code.data);
-        alert(JSON.stringify( code.data);
+        alert(JSON.stringify( code.data));
       }
-    }, 500);
-    */
+    }
+    
+    alert("here");
+    takeQRcode();
+    alert("here");
   }
 });
