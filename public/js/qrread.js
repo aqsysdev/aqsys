@@ -122,8 +122,8 @@ $(function() {
   */
 
   function punchTime(tnum) {
-    var racenum = aqsysCoder.decodeRacenum($("#message").val());
-    var ftime = aqsysCoder.encodeTime(new Date());
+    var racenum = decodeRacenum($("#message").val());
+    var ftime = encodeTime(new Date());
     var seqnum = $("#recordlist > tbody").children().length;
     $.post("/api/record/"+tnum,
     {
