@@ -122,6 +122,7 @@ $(function() {
   */
 
   function punchTime(tnum) {
+    alert("here"+tnum);
     var racenum = decodeRacenum($("#message").val());
     var ftime = encodeTime(new Date());
     var seqnum = $("#recordlist > tbody").children().length;
