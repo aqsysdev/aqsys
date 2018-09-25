@@ -37,10 +37,16 @@ $(function() {
   $("#message").each(function(){
       $(this).bind('keyup', zen2han(this));
   });
+  $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
   $("#submit").on("click", function(){
     punchTime(tnum);
   });
-  $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
+  $("#cameraStart").on("click", function(){
+    cameraStart(tnum);
+  });
+  $("#readImage").on("click", function(){
+    readImage(tnum);
+  });
 
   $(".page-header").addClass("hidden");
   $("#page-header-"+tnum).removeClass("hidden");
@@ -176,13 +182,7 @@ $(function() {
   function showCurrentTime() {
     $("#currentTime").html(encodeTime(new Date()));
   }
-
-});
-
-
-
-/*
-  function cameraStart() {
+  function cameraStart(tnum) {
     alert("here");
     const p = navigator.mediaDevices.getUserMedia({
       audio: false,
@@ -197,7 +197,7 @@ $(function() {
     });
   }
   alert("here");
-  function readImage() {
+  function readImage(tnum) {
     alert("here");
     const video = document.querySelector("video");
     const canv = document.createElement("canvas");
@@ -240,4 +240,5 @@ $(function() {
     ws.send(JSON.stringify(data)); // サーバへ送信
   //  alert("end");
   }
-  */
+
+});
