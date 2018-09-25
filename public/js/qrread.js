@@ -13,7 +13,6 @@ alert("here");
 
 
 $(function() {
-  aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
 
   function openWebSocket() {
     if(ws==false) {
