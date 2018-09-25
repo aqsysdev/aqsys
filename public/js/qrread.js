@@ -190,12 +190,12 @@ $(function() {
     const promise = navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        width: 500,
-        height: 500,
+        width: "500px",
+        height: "500px",
         frameRate: { ideal: 5, max: 15 }
       }
     });
-    alert("here"+JSON.stringify(p));
+    alert("here"+JSON.stringify(promise));
     promise.then(function(mediaStream) {
       alert("there");
       document.querySelector("video").srcObject = mediaStream;
