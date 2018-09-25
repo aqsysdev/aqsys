@@ -11,7 +11,7 @@ var QRread;
 
 alert("here");
 
-/*
+
 $(function() {
 
   function openWebSocket() {
@@ -47,6 +47,8 @@ $(function() {
   $("#page-header-"+tnum).removeClass("hidden");
   setInterval(showCurrentTime,1000);
   showCurrentTime();
+});
+  /*
 
   function cameraStart() {
     alert("here");
@@ -62,7 +64,6 @@ $(function() {
       document.querySelector("video").srcObject = mediaStream;
     });
   }
-
   alert("here");
   function readImage() {
     alert("here");
