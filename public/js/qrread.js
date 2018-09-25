@@ -207,6 +207,7 @@ $(function() {
     alert("here");
 
     const video = document.querySelector("video");
+    /*
     const canv = document.createElement("canvas");
     canv.height = 500;
     canv.width = 500;
@@ -223,5 +224,6 @@ $(function() {
         alert(JSON.stringify( code.data);
       }
     }, 500);
+    */
   }
 });
