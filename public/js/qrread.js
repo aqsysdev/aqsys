@@ -211,6 +211,8 @@ $(function() {
     const canv = document.createElement("canvas");
     canv.height = 500;
     canv.width = 500;
+    alert("here");
+
 /*
     const context = canv.getContext("2d");
 
