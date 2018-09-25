@@ -37,7 +37,7 @@ $(function() {
   $("#message").each(function(){
       $(this).bind('keyup', zen2han(this));
   });
-  $("#ubmit").on("click", function(){
+  $("#submit").on("click", function(){
     punchTime(tnum);
   });
   $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
