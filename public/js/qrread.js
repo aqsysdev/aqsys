@@ -221,6 +221,7 @@ $(function() {
     setInterval(takeQRcode,500);
 
     function takeQRcode() {
+      alert("there");
       console.log("search .....");
       context.drawImage(video, 0, 0, 500, 500);
       const imageData = context.getImageData(0, 0, 500, 500);
@@ -230,7 +231,7 @@ $(function() {
         alert(JSON.stringify( code.data));
       }
     }
-    
+
     alert("here");
     takeQRcode();
     alert("here");
