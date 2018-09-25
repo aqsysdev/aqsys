@@ -227,4 +227,3 @@ function decodeRacenum(racenum) {
 function showCurrentTime() {
   $("#currentTime").html(encodeTime(new Date()));
 }
-*/
