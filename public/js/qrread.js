@@ -207,11 +207,11 @@ $(function() {
     alert("here");
 
     const video = document.querySelector("video");
-    /*
+
     const canv = document.createElement("canvas");
     canv.height = 500;
     canv.width = 500;
-
+/*
     const context = canv.getContext("2d");
 
     setInterval(() => {
