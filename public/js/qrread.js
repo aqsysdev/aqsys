@@ -190,8 +190,8 @@ $(function() {
     const promise = navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        width: "500px",
-        height: "500px",
+        width: 500,
+        height: 500,
         frameRate: { ideal: 5, max: 15 }
       }
     });
