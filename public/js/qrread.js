@@ -197,6 +197,7 @@ $(function() {
     });
     alert("here"+JSON.stringify(p));
     p.then(function(mediaStream) {
+      alert("there");
       document.querySelector("video").srcObject = mediaStream;
     });
     alert("here");
