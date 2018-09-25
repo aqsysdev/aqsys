@@ -44,12 +44,14 @@ $(function() {
   $("#submit").on("click" , function() {
     punchTime(tnum);
   });
+  /*
   $("#cameraStart").on("click" , function() {
     cameraStart();
   });
   $("#readImage").on("click" , function() {
     readImage();
   });
+  */
 
   $("#msg_list").scrollTop($("#msg_list")[0].scrollHeight);
 
@@ -58,7 +60,7 @@ $(function() {
   setInterval(showCurrentTime,1000);
   showCurrentTime();
 
-
+/*
   function cameraStart() {
     alert("here");
     const p = navigator.mediaDevices.getUserMedia({
@@ -117,6 +119,7 @@ $(function() {
     ws.send(JSON.stringify(data)); // サーバへ送信
   //  alert("end");
   }
+  */
 
   function punchTime(tnum) {
     var racenum = aqsysCoder.decodeRacenum($("#message").val());
