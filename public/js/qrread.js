@@ -42,6 +42,7 @@ $(function() {
       $(this).bind('keyup', zen2han(this));
   });
   $("#submit").on("click" , function() {
+    alert("here"+tnum);
     punchTime(tnum);
   });
   /*
