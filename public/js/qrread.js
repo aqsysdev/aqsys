@@ -9,7 +9,7 @@ var HOST;
 var ws=false;
 var QRread;
 
-alert("here");
+alert("there");
 
 
 $(function() {
@@ -42,7 +42,6 @@ $(function() {
       $(this).bind('keyup', zen2han(this));
   });
   $("#submit").on("click" , function() {
-    alert("here"+tnum);
     punchTime(tnum);
   });
   /*
