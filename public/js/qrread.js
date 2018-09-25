@@ -185,8 +185,8 @@ $(function() {
 
 
   function cameraStart(tnum) {
-    /*
     alert("here");
+    /*
     const p = navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
@@ -202,8 +202,8 @@ $(function() {
   }
   alert("here");
   function readImage(tnum) {
-  /*
     alert("here");
+    /*
     const video = document.querySelector("video");
     const canv = document.createElement("canvas");
     canv.height = 500;
