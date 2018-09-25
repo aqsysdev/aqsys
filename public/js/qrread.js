@@ -122,7 +122,6 @@ $(function() {
   }
   */
 
-
   function punchTime(tnum) {
     alert("here"+tnum);
     var racenum = decodeRacenum($("#message").val());
