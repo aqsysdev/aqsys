@@ -10,6 +10,8 @@ var ws=false;
 var QRread;
 
 alert("here");
+
+/*
 $(function() {
 
   function openWebSocket() {
@@ -225,3 +227,4 @@ function decodeRacenum(racenum) {
 function showCurrentTime() {
   $("#currentTime").html(encodeTime(new Date()));
 }
+*/
