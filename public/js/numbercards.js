@@ -27,7 +27,7 @@ $(function(){
   }
   */
   $.each($(".qrcode"),function(index,value) {
-    alert($(value).attr("name"));
+
     var code=$(value).attr("name");
     $(value).qrcode({width: 64, height: 64, text: code});
   });
