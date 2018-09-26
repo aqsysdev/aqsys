@@ -189,7 +189,7 @@ $(function() {
     if($(this).hasClass("active")){
       $(this).removeClass("active");
       clearInterval(takeQRcodeInterval);
-      video.srcObject.stop();
+      localStream.stop();
       location.reload();
     } else {
       $(this).addClass("active");
