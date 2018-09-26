@@ -183,7 +183,7 @@ $(function() {
     $("#currentTime").html(encodeTime(new Date()));
   }
 
-
+/*
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
   window.URL = window.URL || window.webkitURL;
 
@@ -205,12 +205,16 @@ $(function() {
       alert(err);
     }
   );
+  */
 
   function decodeImageFromBase64(data, callback){
       qrcode.callback = callback;
       qrcode.decode(data);
   }
 
+  $("#action").on("click" , function() {
+      readImage();
+  });
 
   function cameraStart(tnum) {
     alert("here");
@@ -256,7 +260,8 @@ $(function() {
   alert("here");
 
 
-  function readImage(tnum) {
+  function readImage() {
+    var localStream = null;
     alert("here");
 
     const medias = {
@@ -273,7 +278,7 @@ $(function() {
     navigator.getUserMedia(medias, successCallback, errorCallback);
 
     function successCallback(stream) {
-        video.srcObject = stream;
+        localStream = video.srcObject = stream;
     }
 
     function errorCallback(err) {
@@ -281,15 +286,15 @@ $(function() {
     }
 
     const canv = document.createElement("canvas");
-    canv.height = 500;
-    canv.width = 500;
+    canv.height = 300;
+    canv.width = 300;
     alert("here");
 
 
     const context = canv.getContext("2d");
     alert("here");
 
-
+/*
     setInterval(takeQRcode,500);
 
     function takeQRcode() {
@@ -302,10 +307,10 @@ $(function() {
         alert(JSON.stringify( code.data));
       }
     }
-
     alert("here");
     takeQRcode();
     alert("here");
+    */
 
   }
 });
