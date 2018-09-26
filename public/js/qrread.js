@@ -264,7 +264,7 @@ $(function() {
     var localStream = null;
     alert("here");
 
-    const medias = {
+    var medias = {
       audio : false,
       video : {
         facingMode : {
@@ -272,7 +272,7 @@ $(function() {
         }
       }
     };
-    const video  = document.getElementById("video");
+    var video  = document.getElementById("video");
 
 
     navigator.getUserMedia(medias, successCallback, errorCallback);
@@ -285,32 +285,30 @@ $(function() {
       alert(err);
     }
 
-    const canv = document.createElement("canvas");
+    var canv = document.createElement("canvas");
     canv.height = 300;
     canv.width = 300;
     alert("here");
 
 
-    const context = canv.getContext("2d");
+    var context = canv.getContext("2d");
     alert("here");
 
-/*
+
     setInterval(takeQRcode,500);
 
     function takeQRcode() {
-      console.log("search .....");
-      context.drawImage(video, 0, 0, 500, 500);
-      const imageData = context.getImageData(0, 0, 500, 500);
-      const code = jsQR(imageData.data, imageData.width, imageData.height);
+      context.drawImage(video, 0, 0, 300, 300);
+      var imageData = context.getImageData(0, 0, 300, 300);
+      var code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
         console.log("Found QR code", code, code.data);
         alert(JSON.stringify( code.data));
       }
     }
     alert("here");
-    takeQRcode();
+//    takeQRcode();
     alert("here");
-    */
 
   }
 });
