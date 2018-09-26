@@ -88,7 +88,9 @@ $(function() {
   }
 
   function punchTime(tnum,racenum) {
-    if(!racenum) {
+    if(racenum) {
+      racenum = decodeRacenum(racenum);
+    }else{
       racenum = decodeRacenum($("#message").val());
     }
     var ftime = encodeTime(new Date());
@@ -230,7 +232,7 @@ $(function() {
     canv.height = 300;
     canv.width = 300;
     var context = canv.getContext("2d");
-    takeQRcodeInterval = setInterval(takeQRcode,500);
+    takeQRcodeInterval = setInterval(takeQRcode,250);
     var lastMessage=false;
     function takeQRcode() {
       context.drawImage(video, 0, 0, 300, 300);
@@ -240,7 +242,7 @@ $(function() {
         var message = JSON.stringify( code.data);
         if(lastMessage!=message) {
           beep();
-          $("#message").val(""+message);
+  //        $("#message").val(message);
           lastMessage=message;
           punchTime(tnum,message);
   //        navigator.vibrate( 1000 );
