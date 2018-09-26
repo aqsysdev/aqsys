@@ -184,7 +184,7 @@ $(function() {
   }
 
   var localStream = null;
-  var getImageInterval = null;
+  var takeQRcodeInterval = null;
   $("#action").on("click" , function() {
     if($(this).attr("aria-pressed") == "true"){
       lacalStream.stop();
@@ -221,12 +221,17 @@ $(function() {
       alert(err);
     }
 
+    alert("here");
     var canv = document.createElement("canvas");
     canv.height = 300;
     canv.width = 300;
+    alert("here");
     var context = canv.getContext("2d");
+    alert("here");
     takeQRcodeInterval = setInterval(takeQRcode,500);
+    alert("here");
     var lastMessage=false;
+    alert("here");
     function takeQRcode() {
       context.drawImage(video, 0, 0, 300, 300);
       var imageData = context.getImageData(0, 0, 300, 300);
