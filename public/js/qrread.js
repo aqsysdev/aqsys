@@ -267,8 +267,8 @@ $(function() {
     var medias = {
       audio : false,
       video : {
-        width: "300px",
-        height: "300px",
+  //      width: "300px",
+  //      height: "300px",
         frameRate: { ideal: 5, max: 15 },
         facingMode : {
           exact : "environment" // リアカメラにアクセス
