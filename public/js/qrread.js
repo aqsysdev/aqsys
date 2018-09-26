@@ -269,7 +269,7 @@ $(function() {
       video : {
         width: 300,
         height: 300,
-        frameRate: { ideal: 5, max: 15 },
+//        frameRate: { ideal: 5, max: 15 },
         facingMode : {
           exact : "environment" // リアカメラにアクセス
         }
