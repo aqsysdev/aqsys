@@ -267,6 +267,9 @@ $(function() {
     var medias = {
       audio : false,
       video : {
+        width: 300,
+        height: 300,
+        frameRate: { ideal: 5, max: 15 },
         facingMode : {
           exact : "environment" // リアカメラにアクセス
         }
@@ -302,7 +305,7 @@ $(function() {
       var imageData = context.getImageData(0, 0, 300, 300);
       var code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
-        console.log("Found QR code", code, code.data);
+//        console.log("Found QR code", code, code.data);
         alert(JSON.stringify( code.data));
       }
     }
