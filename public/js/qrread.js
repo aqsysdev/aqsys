@@ -187,7 +187,7 @@ $(function() {
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
   window.URL = window.URL || window.webkitURL;
 
-  var video = document.getElementById('myVideo');
+  var video = document.getElementById('video');
   var localStream = null;
   navigator.getUserMedia({
     audio : false,
