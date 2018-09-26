@@ -310,10 +310,7 @@
         <th style="width:120px" class="show-dtime">
            <input class="record-dtime-4" type="text" id="record-dtime-4-{{seqnum}}" name="number" value="{{dtime4}}" size="11" disabled/><div class="hidden">{{dtime4}}</div>
         </th>
-      </tr></thead>
-      {{/if}}
-    {{/each}}
-    <tfoot>
+      </tr>
 
       <tr class="show-edit hidden">
         <th style="width:60px"><div></div></th>
@@ -429,7 +426,11 @@
             </ul>
           </div>
         </th>
-        </tr>
+      </tr>
+    </thead>
+      {{/if}}
+    {{/each}}
+    <tfoot>
     </tfoot>
   </table>
 
