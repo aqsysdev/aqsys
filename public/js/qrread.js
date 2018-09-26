@@ -184,6 +184,34 @@ $(function() {
   }
 
 
+  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
+  window.URL = window.URL || window.webkitURL;
+
+  var video = document.getElementById('myVideo');
+  var localStream = null;
+  navigator.getUserMedia({
+    audio : false,
+      video : {
+        facingMode : {
+          exact : "environment" // リアカメラにアクセス
+        }
+      }
+    },
+    function(stream) {
+     video.src = window.URL.createObjectURL(stream);
+     localStream = stream;
+    },
+    function(err) {
+      alert(err);
+    }
+  );
+
+  function decodeImageFromBase64(data, callback){
+      qrcode.callback = callback;
+      qrcode.decode(data);
+  }
+
+
   function cameraStart(tnum) {
     alert("here");
 
