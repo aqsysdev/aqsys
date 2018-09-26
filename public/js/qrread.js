@@ -197,7 +197,7 @@ $(function() {
   function activateCamera() {
     beep();
     alert("here");
-    navigator.vibrate( 1000 );
+//    navigator.vibrate( 1000 );
     alert("here");
     var medias = {
       audio : false,
@@ -248,7 +248,7 @@ $(function() {
           lastMessage=message;
           punchTime(tnum);
           beep();
-          navigator.vibrate( 1000 );
+  //        navigator.vibrate( 1000 );
         }
       }
     }
