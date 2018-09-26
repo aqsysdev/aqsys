@@ -88,6 +88,7 @@ $(function() {
   }
 
   function punchTime(tnum) {
+    alert("here");
 //    if(!racenum) {
 //      racenum = encodeRacenum(racenum);
 //    }else{
