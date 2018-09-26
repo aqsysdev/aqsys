@@ -91,7 +91,7 @@ $(function() {
 //    if(!racenum) {
 //      racenum = encodeRacenum(racenum);
 //    }else{
-      racenum = encodeRacenum($("#message").val());
+    var racenum = encodeRacenum($("#message").val());
 //    }
     var ftime = encodeTime(new Date());
     var seqnum = $("#recordlist > tbody").children().length;
