@@ -206,8 +206,24 @@ $(function() {
   function readImage(tnum) {
     alert("here");
 
-    const video = document.querySelector("video");
+    const medias = {audio : false, video : {
+        facingMode : {
+          exact : "environment" // リアカメラにアクセス
+        }
+      }};
+    const video  = document.getElementById("video");
 
+    navigator.getUserMedia(medias, successCallback, errorCallback);
+
+    function successCallback(stream) {
+        video.srcObject = stream;
+    }
+
+    function errorCallback(err) {
+      alert(err);
+    }
+
+/*
     const canv = document.createElement("canvas");
     canv.height = 500;
     canv.width = 500;
@@ -221,7 +237,6 @@ $(function() {
     setInterval(takeQRcode,500);
 
     function takeQRcode() {
-      alert("there");
       console.log("search .....");
       context.drawImage(video, 0, 0, 500, 500);
       const imageData = context.getImageData(0, 0, 500, 500);
@@ -235,5 +250,6 @@ $(function() {
     alert("here");
     takeQRcode();
     alert("here");
+    */
   }
 });
