@@ -93,6 +93,7 @@ $(function() {
     }else{
       racenum = decodeRacenum($("#message").val());
     }
+    alert(racenum);
     var ftime = encodeTime(new Date());
     var seqnum = $("#recordlist > tbody").children().length;
     $.post("/api/record/"+tnum,
