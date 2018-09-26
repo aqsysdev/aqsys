@@ -203,6 +203,8 @@ $(function() {
     alert("here");
   }
   alert("here");
+
+
   function readImage(tnum) {
     alert("here");
 
@@ -213,6 +215,7 @@ $(function() {
       }};
     const video  = document.getElementById("video");
 
+/*
     navigator.getUserMedia(medias, successCallback, errorCallback);
 
     function successCallback(stream) {
@@ -222,8 +225,8 @@ $(function() {
     function errorCallback(err) {
       alert(err);
     }
+    */
 
-/*
     const canv = document.createElement("canvas");
     canv.height = 500;
     canv.width = 500;
@@ -250,6 +253,6 @@ $(function() {
     alert("here");
     takeQRcode();
     alert("here");
-    */
+    
   }
 });
