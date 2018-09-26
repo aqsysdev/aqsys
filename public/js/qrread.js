@@ -187,11 +187,11 @@ $(function() {
   var takeQRcodeInterval = null;
   $("#action").on("click" , function() {
     if($(this).hasClass("active")){
-      $(this).removeClass="active";
+      $(this).removeClass("active");
       lacalStream.stop();
       clearInterval(takeQRcodeInterval);
     } else {
-      $(this).addClass="active";
+      $(this).addClass("active");
       activateCamera();
     }
   });
