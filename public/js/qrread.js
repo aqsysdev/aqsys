@@ -183,87 +183,12 @@ $(function() {
     $("#currentTime").html(encodeTime(new Date()));
   }
 
-/*
-  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
-  window.URL = window.URL || window.webkitURL;
-
-  var video = document.getElementById('video');
-  var localStream = null;
-  navigator.getUserMedia({
-    audio : false,
-      video : {
-        facingMode : {
-          exact : "environment" // リアカメラにアクセス
-        }
-      }
-    },
-    function(stream) {
-      localStream = video.srcObject = stream;
-      //   video.src = window.URL.createObjectURL(stream);
-    },
-    function(err) {
-      alert(err);
-    }
-  );
-  */
-
-  function decodeImageFromBase64(data, callback){
-      qrcode.callback = callback;
-      qrcode.decode(data);
-  }
-
   $("#action").on("click" , function() {
-      readImage();
+      activateCamera();
   });
 
-  function cameraStart(tnum) {
-    alert("here");
-
-    const medias = {
-      audio : false,
-      video : {
-        facingMode : {
-          exact : "environment" // リアカメラにアクセス
-        }
-      }
-    };
-    const video  = document.getElementById("video");
-
-    navigator.getUserMedia(medias, successCallback, errorCallback);
-
-    function successCallback(stream) {
-        video.srcObject = stream;
-    }
-
-    function errorCallback(err) {
-      alert(err);
-    }
-
-/*
-    const promise = navigator.mediaDevices.getUserMedia({
-      audio: false,
-      video: {
-        width: 500,
-        height: 500,
-        frameRate: { ideal: 5, max: 15 }
-      }
-    });
-    alert("here"+JSON.stringify(promise));
-    promise.then(function(mediaStream) {
-      alert("there");
-      document.querySelector("video").srcObject = mediaStream;
-    });
-    alert("here");
-    */
-
-  }
-  alert("here");
-
-
-  function readImage() {
+  function activateCamera() {
     var localStream = null;
-    alert("here");
-
     var medias = {
       audio : false,
       video : {
@@ -291,15 +216,8 @@ $(function() {
     var canv = document.createElement("canvas");
     canv.height = 300;
     canv.width = 300;
-    alert("here");
-
-
     var context = canv.getContext("2d");
-    alert("here");
-
-
     setInterval(takeQRcode,500);
-
     function takeQRcode() {
       context.drawImage(video, 0, 0, 300, 300);
       var imageData = context.getImageData(0, 0, 300, 300);
@@ -309,9 +227,5 @@ $(function() {
         alert(JSON.stringify( code.data));
       }
     }
-    alert("here");
-//    takeQRcode();
-    alert("here");
-
   }
 });
