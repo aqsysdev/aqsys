@@ -241,7 +241,7 @@ $(function() {
     };
     const video  = document.getElementById("video");
 
-/*
+
     navigator.getUserMedia(medias, successCallback, errorCallback);
 
     function successCallback(stream) {
@@ -251,7 +251,6 @@ $(function() {
     function errorCallback(err) {
       alert(err);
     }
-    */
 
     const canv = document.createElement("canvas");
     canv.height = 500;
