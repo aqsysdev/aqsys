@@ -88,13 +88,11 @@ $(function() {
   }
 
   function punchTime(tnum,racenum) {
-    alert(racenum);
     if(racenum) {
       racenum = decodeRacenum(racenum);
     }else{
       racenum = decodeRacenum($("#message").val());
     }
-    alert(racenum);
     var ftime = encodeTime(new Date());
     var seqnum = $("#recordlist > tbody").children().length;
     $.post("/api/record/"+tnum,
@@ -246,7 +244,7 @@ $(function() {
           beep();
   //      $("#message").val(message);
           lastMessage=message;
-          punchTime(tnum,message);
+          punchTime(tnum,1*message);
   //        navigator.vibrate( 1000 );
         }
       }
