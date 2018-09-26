@@ -218,13 +218,18 @@ $(function() {
     canv.width = 300;
     var context = canv.getContext("2d");
     setInterval(takeQRcode,500);
+    var lastMessage=false;
     function takeQRcode() {
       context.drawImage(video, 0, 0, 300, 300);
       var imageData = context.getImageData(0, 0, 300, 300);
       var code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
-//        console.log("Found QR code", code, code.data);
-        alert(JSON.stringify( code.data));
+        var message = JSON.stringify( code.data);
+        if(lastMessage!=message) {
+          $("#message").val(message);
+          lastMassage=message;
+          punchTime(tnum);
+        }
       }
     }
   }
