@@ -190,6 +190,7 @@ $(function() {
       $(this).removeClass("active");
       clearInterval(takeQRcodeInterval);
       video.srcObject.stop();
+      location.reload();
     } else {
       $(this).addClass("active");
       activateCamera();
