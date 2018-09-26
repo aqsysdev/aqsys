@@ -239,12 +239,12 @@ $(function() {
       var imageData = context.getImageData(0, 0, 300, 300);
       var code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
-        var message = JSON.stringify( code.data);
+        var message = code.data;
         if(lastMessage!=message) {
           beep();
   //      $("#message").val(message);
           lastMessage=message;
-          punchTime(tnum,1*message);
+          punchTime(tnum,message);
   //        navigator.vibrate( 1000 );
         }
       }
