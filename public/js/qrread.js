@@ -196,7 +196,9 @@ $(function() {
 
   function activateCamera() {
     beep();
+    alert("here");
     navigator.vibrate( 1000 );
+    alert("here");
     var medias = {
       audio : false,
       video : {
@@ -208,10 +210,13 @@ $(function() {
         }
       }
     };
+    alert("here");
     var video  = document.getElementById("video");
+    alert("here");
 
 
     navigator.getUserMedia(medias, successCallback, errorCallback);
+    alert("here");
 
     function successCallback(stream) {
         localStream = video.srcObject = stream;
