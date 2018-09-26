@@ -238,6 +238,7 @@ $(function() {
         var message = JSON.stringify( code.data);
         if(lastMessage!=message) {
           beep();
+          alert(message);
           $("#message").val(message);
           lastMessage=message;
           punchTime(tnum);
