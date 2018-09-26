@@ -188,7 +188,7 @@ $(function() {
   $("#action").on("click" , function() {
     if($(this).hasClass("active")){
       $(this).removeClass("active");
-      lacalStream.stop();
+      localStream.stop();
       clearInterval(takeQRcodeInterval);
     } else {
       $(this).addClass("active");
@@ -236,10 +236,10 @@ $(function() {
       if (code) {
         var message = JSON.stringify( code.data);
         if(lastMessage!=message) {
+          beep();
           $("#message").val(message);
           lastMessage=message;
           punchTime(tnum);
-          beep();
   //        navigator.vibrate( 1000 );
         }
       }
