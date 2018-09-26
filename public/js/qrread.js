@@ -239,7 +239,7 @@ $(function() {
         if(lastMessage!=message) {
           beep();
           alert(message);
-          $("#message").val(message);
+          $("#message").val(""+message);
           lastMessage=message;
           punchTime(tnum);
   //        navigator.vibrate( 1000 );
