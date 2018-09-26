@@ -198,8 +198,8 @@ $(function() {
       }
     },
     function(stream) {
-     video.src = window.URL.createObjectURL(stream);
-     localStream = stream;
+      localStream = video.srcObject = stream;
+      //   video.src = window.URL.createObjectURL(stream);
     },
     function(err) {
       alert(err);
