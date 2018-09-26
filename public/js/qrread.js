@@ -230,7 +230,8 @@ $(function() {
           $("#message").val(message);
           lastMessage=message;
           punchTime(tnum);
-          beep();
+//          beep();
+          navigator.vibrate( 500 );
         }
       }
     }
