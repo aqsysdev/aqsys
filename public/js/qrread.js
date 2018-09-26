@@ -188,6 +188,7 @@ $(function() {
   });
 
   function activateCamera() {
+    beep();
     var localStream = null;
     var medias = {
       audio : false,
