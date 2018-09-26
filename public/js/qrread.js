@@ -88,6 +88,7 @@ $(function() {
   }
 
   function punchTime(tnum,racenum) {
+    alert(racenum);
     if(racenum) {
       racenum = decodeRacenum(racenum);
     }else{
