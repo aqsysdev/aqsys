@@ -187,6 +187,27 @@ $(function() {
   function cameraStart(tnum) {
     alert("here");
 
+    const medias = {
+      audio : false,
+      video : {
+        facingMode : {
+          exact : "environment" // リアカメラにアクセス
+        }
+      }
+    };
+    const video  = document.getElementById("video");
+
+    navigator.getUserMedia(medias, successCallback, errorCallback);
+
+    function successCallback(stream) {
+        video.srcObject = stream;
+    }
+
+    function errorCallback(err) {
+      alert(err);
+    }
+
+/*
     const promise = navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
@@ -201,6 +222,8 @@ $(function() {
       document.querySelector("video").srcObject = mediaStream;
     });
     alert("here");
+    */
+
   }
   alert("here");
 
@@ -208,11 +231,14 @@ $(function() {
   function readImage(tnum) {
     alert("here");
 
-    const medias = {audio : false, video : {
+    const medias = {
+      audio : false,
+      video : {
         facingMode : {
           exact : "environment" // リアカメラにアクセス
         }
-      }};
+      }
+    };
     const video  = document.getElementById("video");
 
 /*
@@ -253,6 +279,6 @@ $(function() {
     alert("here");
     takeQRcode();
     alert("here");
-    
+
   }
 });
