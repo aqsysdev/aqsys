@@ -7,8 +7,8 @@ wave 登録テンプレート
 <body class="A5 landscape">
 <!--
 <script type="text/javascript" src="/js/jquery-barcode.js"></script>
--->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+-->
 <script src="/js/jquery.qrcode.min.js"></script>
 
 {{#each numbercards}}
@@ -25,10 +25,7 @@ wave 登録テンプレート
   <!--
   <div class="bcTarget" id="bcTarget{{racenum}}" name="{{racenum}}" style="position:absolute; bottom:120px; right:50px;"></div>
   -->
-  <div id="qrcode-{{racenum}}" name="{{racenum}}" style="position:absolute; bottom:120px; right:50px;"></div>
-  <script>
-  jquery('#qrcode-{{racenum}}').qrcode({width: 64, height: 64, text: '{{racenum}}'});
-  </script>
+  <div id="qrcode-{{racenum}}" class="qrcode" name="{{racenum}}" style="position:absolute; bottom:120px; right:50px;"></div>
 </section>
 {{/each}}
 <script type="text/javascript" src="/js/numbercards.js"></script>

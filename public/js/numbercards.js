@@ -7,6 +7,7 @@
 //alert("/js/numbercards 0");
 
 $(function(){
+  /*
   $.each($(".bcTarget"),function(index,value) {
     var code=$(value).attr("name");
     $(value).barcode(code+getDigit(code),"codabar",{output:"svg"});
@@ -24,4 +25,10 @@ $(function(){
     }
     return(table.charAt((16 - (sum % 16)) % 16));
   }
+  */
+  $.each($(".qrcode"),function(index,value) {
+    var code=$(value).attr("name");
+    $(value).qrcode({width: 64, height: 64, text: code});
+  });
+
 });
