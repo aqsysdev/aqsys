@@ -227,7 +227,7 @@ $(function() {
         var message = JSON.stringify( code.data);
         if(lastMessage!=message) {
           $("#message").val(message);
-          lastMassage=message;
+          lastMessage=message;
           punchTime(tnum);
         }
       }
