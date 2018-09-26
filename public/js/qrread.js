@@ -188,8 +188,8 @@ $(function() {
   $("#action").on("click" , function() {
     if($(this).hasClass("active")){
       $(this).removeClass("active");
-      localStream.stop();
       clearInterval(takeQRcodeInterval);
+      video.srcObject.stop();
     } else {
       $(this).addClass("active");
       activateCamera();
