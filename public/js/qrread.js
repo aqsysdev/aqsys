@@ -88,10 +88,10 @@ $(function() {
   }
 
   function punchTime(tnum,racenum) {
-    if(racenum) {
-      racenum = decodeRacenum(racenum);
+    if(!racenum) {
+      racenum = encodeRacenum(racenum);
     }else{
-      racenum = decodeRacenum($("#message").val());
+      racenum = encodeRacenum($("#message").val());
     }
     var ftime = encodeTime(new Date());
     var seqnum = $("#recordlist > tbody").children().length;
