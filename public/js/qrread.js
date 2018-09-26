@@ -87,8 +87,10 @@ $(function() {
   //  alert("end");
   }
 
-  function punchTime(tnum) {
-    var racenum = decodeRacenum($("#message").val());
+  function punchTime(tnum,racenum) {
+    if(!racenum) {
+      racenum = decodeRacenum($("#message").val());
+    }
     var ftime = encodeTime(new Date());
     var seqnum = $("#recordlist > tbody").children().length;
     $.post("/api/record/"+tnum,
@@ -238,10 +240,9 @@ $(function() {
         var message = JSON.stringify( code.data);
         if(lastMessage!=message) {
           beep();
-          alert(message);
           $("#message").val(""+message);
           lastMessage=message;
-          punchTime(tnum);
+          punchTime(tnum,message);
   //        navigator.vibrate( 1000 );
         }
       }
