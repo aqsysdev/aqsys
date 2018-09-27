@@ -29,7 +29,7 @@ $(function(){
   $.each($(".qrcode"),function(index,value) {
 
     var code=$(value).attr("name");
-    $(value).qrcode({width: 4, height: 4, text: code});
+    $(value).qrcode({width: 8, height: 8, text: code});
   });
 
 });
