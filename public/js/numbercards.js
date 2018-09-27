@@ -29,7 +29,7 @@ $(function(){
   $.each($(".qrcode"),function(index,value) {
 
     var code=$(value).attr("name");
-    $(value).qrcode({width: 128, height: 128, text: "mukashimukashiarutokoroniojiisanntoobaasnngaottasounaojiisannwashibakariniobaasannhasenntakuniittasouna"});
+    $(value).qrcode({width: 80, height: 80, text: code});
   });
 
 });
