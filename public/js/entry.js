@@ -518,8 +518,6 @@ $(function(){
     $('.modal-dropdown li').on('click', function(){
       $(this).parent().prev().html($(this).html());
     });
-
-
 });
 
 
