@@ -287,7 +287,7 @@ var decodeGrade = aqsysCoder.decodeGrade = function(grade,birthday) {
 };
 
 var encodeGrade = aqsysCoder.encodeGrade = function(gradeName) {
-  return(aqsysCoder.config.grades.indexOf(gradeName)+1);
+  return(aqsysCoder.config.grades.indexOf(gradeName.trim())+1);
 };
 
 var decodeSex = aqsysCoder.decodeSex = function(sex) {
@@ -364,7 +364,7 @@ var decodeCate = aqsysCoder.decodeCate = function(cate) {
 };
 
 var encodeCate = aqsysCoder.encodeCate = function(cateName) {
-  return(aqsysCoder.config.cate.indexOf(cateName)+1);
+  return(aqsysCoder.config.cate.indexOf(cateName.trim())+1);
 };
 
 var decodeWave = aqsysCoder.decodeWave = function(wave) {
