@@ -99,10 +99,10 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
 .certificatename {
   font-family: "YuMincho";
   letter-spacing: 18px;
-  font-size: 32pt;
+  font-size: 34pt;
   position:absolute;
-  top:8cm;
-  right:5cm;
+  top:10.5cm;
+  right:4cm;
 }
 
 
