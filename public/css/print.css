@@ -101,7 +101,7 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
   letter-spacing: 18px;
   font-size: 34pt;
   position:absolute;
-  top:10.5cm;
+  top:11.5cm;
   right:4cm;
 }
 
@@ -110,7 +110,7 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
   font-family: "YuMincho";
   font-size: 14pt;
   position:absolute;
-  top:9cm;
+  top:12.5cm;
   left:5cm;
 }
 
