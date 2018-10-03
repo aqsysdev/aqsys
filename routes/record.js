@@ -41,6 +41,16 @@ router.get('/', user.ensureAuthenticated, function(req, res){
   Promise.all( [0,1,2,3,4].map(function(recordNum){
     return(record.getAll(recordNum)
     .then( function(recordlist) {
+      if(recordlist.length==0) {
+        router.create(recordNum,{
+          racenum: -1,
+          ftime: "00:00:00.00"
+        }).then(function(recordlist) {
+          $.post("/record");
+        }).catch(function(err) {
+          console.log("create recodelist the first row error:"+err);
+        });
+      }
       for(var row of recordlist){
         record.decodeRow(row);
       }
