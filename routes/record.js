@@ -42,11 +42,14 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     return(record.getAll(recordNum)
     .then( function(recordlist) {
       if(recordlist.length==0) {
+        console.log("init the first row");
         router.create(recordNum,{
           racenum: -1,
           ftime: "00:00:00.00"
         }).then(function(recordlist) {
-          $.post("/record");
+          app.get('/record', function (req, res) {
+            res.send('/record');
+          });
         }).catch(function(err) {
           console.log("create recodelist the first row error:"+err);
         });
