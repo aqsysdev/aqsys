@@ -61,6 +61,10 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
           writing-mode: vertical-rl;
 }
 
+/*
+ * 縦書き
+ */
+/*
 .certificatename {
   font-family: "YuMincho";
   letter-spacing: 18px;
@@ -70,15 +74,54 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
   right:8cm;
 }
 
+.certificatename2 {
+  font-family: "YuMincho";
+  letter-spacing: 18px;
+  font-size: 32pt;
+  position:absolute;
+  bottom:7.5cm;
+  right:10.2cm;
+}
+
 .certificatetime {
   font-family: "YuMincho";
   font-size: 14pt;
   line-height: 1.5em;
   position:absolute;
   top:11cm;
-  right:10.2cm;
+  right:12.4cm;
+}
+*/
+
+/*
+ * 縦書き
+ */
+.certificatename {
+  font-family: "YuMincho";
+  letter-spacing: 18px;
+  font-size: 32pt;
+  position:absolute;
+  up:5.5cm;
+  left:5cm;
 }
 
+.certificatename2 {
+  font-family: "YuMincho";
+  letter-spacing: 18px;
+  font-size: 32pt;
+  position:absolute;
+  up:7.5cm;
+  left:5cm;
+}
+
+.certificatetime {
+  font-family: "YuMincho";
+  font-size: 14pt;
+  line-height: 1.5em;
+  position:absolute;
+  top:9.5cm;
+  left:8cm;
+}
 
 h2 {
   font-size: 28pt;

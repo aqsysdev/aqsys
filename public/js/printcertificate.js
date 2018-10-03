@@ -14,6 +14,8 @@ $(function(){
         return({
           myouji:$(elm).parent().parent().find(".prize-myouji").text(),
           namae:$(elm).parent().parent().find(".prize-namae").text(),
+          myouji2:$(elm).parent().parent().find(".prize-myouji2").text(),
+          namae2:$(elm).parent().parent().find(".prize-namae2").text(),
           tminute: ttime[1],
           tsec: ttime[2],
           tmilisec: ttime[3]
