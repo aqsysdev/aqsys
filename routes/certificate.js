@@ -48,6 +48,8 @@ router.post('/', function(req, res){
           return({
             myouji: elm.myouji,
             namae: elm.namae,
+            myouji2: elm.myouji2,
+            namae2: elm.namae2,
             tminute: elm.tminute,
             tsec: elm.tsec,
             tmilisec: elm.tmilisec
