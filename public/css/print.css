@@ -101,7 +101,7 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
   letter-spacing: 18px;
   font-size: 32pt;
   position:absolute;
-  up:5.5cm;
+  top:5.5cm;
   left:5cm;
 }
 
@@ -110,14 +110,13 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
   letter-spacing: 18px;
   font-size: 32pt;
   position:absolute;
-  up:7.5cm;
+  top:7.5cm;
   left:5cm;
 }
 
 .certificatetime {
   font-family: "YuMincho";
   font-size: 14pt;
-  line-height: 1.5em;
   position:absolute;
   top:9.5cm;
   left:8cm;
