@@ -43,7 +43,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     .then( function(recordlist) {
       if(recordlist.length==0) {
         console.log("init the first row");
-        router.create(recordNum,{
+        record.create(recordNum,{
           racenum: -1,
           ftime: "00:00:00.00"
         }).then(function(recordlist) {
