@@ -34,8 +34,8 @@ body.A5.landscape .sheet { width: 210mm; height: 147mm }
 
 /** Fix for Chrome issue #273306 **/
 @media print {
-           body.A3.landscape { width: 420mm }
-  body.A3, body.A4.landscape { width: 297mm }
+           body.A3.landscape { width: 419mm }
+  body.A3, body.A4.landscape { width: 296mm }
   body.A4, body.A5.landscape { width: 210mm }
   body.A5                    { width: 148mm }
 }
