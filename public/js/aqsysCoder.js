@@ -210,7 +210,7 @@ var decodePrize = aqsysCoder.decodePrize = function(prize) {
   }else if( prize<0 ){
     return("-");
   }else{
-    return(prize);
+    return(prize.trim());
   }
 };
 
