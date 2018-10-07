@@ -720,7 +720,7 @@ $(function(){
   };
 
   var addRow = record.addRow = function(){
-    alert("addRow");
+    //alert("addRow");
     if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
       //alert("addRow:"+$("#recordTimeTbody").children().last().find(".record-rid-nz").text());
       var seqnum=$("#recordTimeTbody").children().length+1;
