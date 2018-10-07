@@ -798,8 +798,8 @@ $(function(){
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
   setHidden();
   for(var recordNum in [0,1,2,3,4]) {
-    recordNumEditable(recordNum,false);
-    recordFTimeEditable(recordNum,false);
-    recordDTimeEditable(recordNum,false);
+    recordNumEditable(recordNum,true);
+    recordFTimeEditable(recordNum,true);
+    recordDTimeEditable(recordNum,true);
   }
 });
