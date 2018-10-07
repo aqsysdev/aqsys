@@ -183,7 +183,10 @@ $(function(){
   $('.btnRecordNumEditable').on('click', function(){
     var recordNum = $(this).attr("id").split("-")[1];
     var isChecked=($("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
+    recordNumEditable(recordNum,isChecked);
+  });
 
+  function recordNumEditable(recordNum,isChecked) {
     $(".record-num-"+recordNum).each( function() {
       this.disabled=isChecked;
     });
@@ -197,7 +200,7 @@ $(function(){
         $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
       }
     });
-  });
+  }
 
   //
   //  フィニッシュ時刻編集可能ボタン
@@ -205,6 +208,10 @@ $(function(){
   $('.btnRecordFTimeEditable').on('click', function(){
     var recordNum = $(this).attr("id").split("-")[1];
     var isChecked=($("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true");
+    recordFTimeEditable(recordNum,isChecked);
+  });
+
+  function recordFTimeEditable(recordNum,isChecked) {
     $(".record-ftime-"+recordNum).each( function() {
       this.disabled=isChecked;
     });
@@ -218,14 +225,18 @@ $(function(){
         $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
       }
     });
-  });
+  }
 
   //
   //  時間編集可能ボタン
   //
-  $('.btnRecordDTimeEditable').on('click',  function(){
+  $('.btnRecordDTimeEditable').on('click',  function() {
     var recordNum = $(this).attr("id").split("-")[1];
     var isChecked=($("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true");
+    recordDTimeEditable(recordNum,isChecked);
+  });
+
+  function recordDTimeEditable(recordNum,isChecked){
     $(".record-dtime-"+recordNum).each( function() {
       this.disabled=isChecked;
     });
@@ -239,7 +250,7 @@ $(function(){
         $("#"+these[0]+"-"+these[1]+"-"+these[2]+"-"+(1+1*these[3])).select();
       }
     });
-  });
+  }
 
   //////////////////////////////////////////////////////////////////////////
   //
@@ -750,6 +761,10 @@ $(function(){
             <input class="record-dtime-${recordNum}" type="text" id="record-dtime-${recordNum}-${seqnum}" name="dtime${recordNum}-${seqnum}" value="" size="11" ${dtimeEditable} /><div class="hidden"></div>
           </td>
         `);
+
+        recordNumEditable(recordNum,$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
+        recordFTimeEditable(recordNum,$("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true");
+        recordDTimeEditable(recordNum,$("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true");
       }
       $("#record-rid-0-"+seqnum).text(seqnum+1);
       $("#record-ftime-1-"+seqnum).parent().addClass("show-edit");
@@ -781,8 +796,5 @@ $(function(){
     }
   };
 
-  if(!($("#recordTable").find("tbody").length)){
-    $("#recordTable").html("<tbody></tbody>");
-  }
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
 });
