@@ -737,6 +737,7 @@ $(function(){
         }else{
           recordRidNz="record-rid-nz";
         }
+        alert("recordRidNz:"+recordRidNz+" recordNum:"+recordNum);
         $(newRow).children().last().append(`
           <td class="hidden record-rid-${recordNum} record-rid ${recordRidNz}" id="record-rid-${recordNum}-${seqnum}"></td>
           <td  style="width:60px">
