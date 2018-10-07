@@ -722,14 +722,14 @@ $(function(){
   var addRow = record.addRow = function(){
     //alert("addRow");
     if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
-      alert("addRow:"+$("#recordTimeTbody").children().last().find(".record-rid-nz").text());
+      //alert("addRow:"+$("#recordTimeTbody").children().last().find(".record-rid-nz").text());
       var seqnum=$("#recordTimeTbody").children().length+1;
       var newRow = $("#recordTimeTbody").append(`
         <tr align="center" valign="middle">
            <td style="width:60px" class="record-seqnum" id="record-seqnum-${seqnum}">${seqnum}</td>
         </tr>
       `);
-      alert("seqnum:"+seqnum+" newRow:"+newRow);
+      //alert("seqnum:"+seqnum+" newRow:"+newRow);
       for(var recordNum in [0,1,2,3,4]) {
         var numEditable=$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true" ? "" : "disabled" ;
         var ftimeEditable=$("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true" ? "" : "disabled" ;
@@ -748,7 +748,7 @@ $(function(){
         }else{
           recordRidNz="record-rid-nz";
         }
-        alert("recordRidNz:"+recordRidNz+" recordNum:"+recordNum);
+        //alert("recordRidNz:"+recordRidNz+" recordNum:"+recordNum);
         $(newRow).children().last().append(`
           <td class="hidden record-rid-${recordNum} record-rid ${recordRidNz}" id="record-rid-${recordNum}-${seqnum}"></td>
           <td  style="width:60px">
