@@ -710,10 +710,10 @@ $(function(){
 
   var addRow = record.addRow = function(){
     //alert("addRow");
-    if( $("#recordTimeTbody").children().length == 0  || $("#recordTimeTbody").children().last().find(".record-rid-nz").text() ) {
-      alert("addRow:"+$("#recordTimeTbody").children().last().find(".record-rid-nz").text());
-      var seqnum=$("#recordTimeTbody").children().length+1;
-      var newRow = $("#recordTimeTbody").append(`
+    if( $("#recordTime").find("tbody").children().length == 0  || $("#recordTime").find("tbody").children().last().find(".record-rid-nz").text() ) {
+      alert("addRow:"+$("#recordTime").find("tbody").children().last().find(".record-rid-nz").text());
+      var seqnum=$("#recordTime").find("tbody").children().length+1;
+      var newRow = ($("#recordTime").find("tbody") || $("#recordTime")).append(`
         <tr align="center" valign="middle">
            <td style="width:60px" class="record-seqnum" id="record-seqnum-${seqnum}">${seqnum}</td>
         </tr>
@@ -781,6 +781,4 @@ $(function(){
     }
   };
 
-  $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
-  addRow();
 });
