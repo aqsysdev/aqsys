@@ -126,6 +126,28 @@ var waveslist = require('./api/waves');
 app.use(flash());
 
 
+/* force ridirect https */
+app.use(express.static(__dirname + '/public'));
+
+function forceHttps(req, res, next){
+  if (!process.env.PORT) {
+    return next();
+  }
+
+  if (req.headers['x-forwarded-proto'] && req.headers['x-forwarded-proto'] === "http") {
+    res.redirect('https://' + req.headers.host + req.url);
+  }else {
+    return next();
+  }
+}
+
+app.all('*', forceHttps);
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/public/index1.html');
+});
+
+
 // Connect Flash
 
 // Global Vars
