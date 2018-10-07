@@ -143,10 +143,11 @@ function forceHttps(req, res, next){
 
 app.all('*', forceHttps);
 
+/*
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index1.html');
 });
-
+*/
 
 // Connect Flash
 
