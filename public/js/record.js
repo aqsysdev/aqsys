@@ -796,7 +796,7 @@ $(function(){
     }
   };
   if($("#recordTable").find("tbody").length==0) {
-    $("#recordTable").find("thead").after("<tbody></tbody>");
+    $("#recordTable").find("tfoot").before("<tbody></tbody>");
   }
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
   alert($("#recordTimeTbody").attr('id'));
