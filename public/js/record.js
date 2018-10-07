@@ -718,6 +718,7 @@ $(function(){
            <td style="width:60px" class="record-seqnum" id="record-seqnum-${seqnum}">${seqnum}</td>
         </tr>
       `);
+      alert("seqnum:"+seqnum+" newRow:"+newRow);
       for(var recordNum in [0,1,2,3,4]) {
         var numEditable=$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true" ? "" : "disabled" ;
         var ftimeEditable=$("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true" ? "" : "disabled" ;
