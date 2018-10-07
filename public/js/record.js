@@ -141,6 +141,7 @@ $(function(){
     if($("#diffTime.active").length) {
       $(".show-ftime").addClass("hidden");
     }
+    addRow();
   });
 
   //
