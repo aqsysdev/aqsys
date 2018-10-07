@@ -781,7 +781,7 @@ $(function(){
     }
   };
 
-  if(!($("#recordTable").find("tbody"))){
+  if(!($("#recordTable").find("tbody").length)){
     $("#recordTable").html("<tbody></tbody>");
   }
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
