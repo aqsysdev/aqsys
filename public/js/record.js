@@ -795,6 +795,6 @@ $(function(){
       $(".show-ftime").addClass("hidden");
     }
   };
-
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
+  setHidden();
 });
