@@ -762,9 +762,9 @@ $(function(){
           </td>
         `);
 
-        recordNumEditable(recordNum,numEditable);
-        recordFTimeEditable(recordNum,ftimeEditable);
-        recordDTimeEditable(recordNum,dtimeEditable);
+        recordNumEditable(recordNum,$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
+        recordFTimeEditable(recordNum,$("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true");
+        recordDTimeEditable(recordNum,$("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true");
       }
       $("#record-rid-0-"+seqnum).text(seqnum+1);
       $("#record-ftime-1-"+seqnum).parent().addClass("show-edit");
@@ -795,5 +795,6 @@ $(function(){
       $(".show-ftime").addClass("hidden");
     }
   };
+
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
 });
