@@ -795,7 +795,9 @@ $(function(){
       $(".show-ftime").addClass("hidden");
     }
   };
+  alert($("#recordTable").find("tbody"));
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
+  alert($("#recordTimeTbody").attr('id'));
   setHidden();
   for(var recordNum in [0,1,2,3,4]) {
     recordNumEditable(recordNum,true);
