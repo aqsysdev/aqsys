@@ -795,7 +795,9 @@ $(function(){
       $(".show-ftime").addClass("hidden");
     }
   };
-  alert($("#recordTable").find("tbody"));
+  if($("#recordTable").find("tbody").length==0) {
+    $("#recordTable").find("thead").after("<tbody></tbody>");
+  }
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
   alert($("#recordTimeTbody").attr('id'));
   setHidden();
