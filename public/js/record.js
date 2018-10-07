@@ -183,12 +183,12 @@ $(function(){
   $('.btnRecordNumEditable').on('click', function(){
     var recordNum = $(this).attr("id").split("-")[1];
     var isChecked=($("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
-    recordNumEditable(recordNum,isChecked);
+    recordNumEditable(recordNum,!isChecked);
   });
 
-  function recordNumEditable(recordNum,isChecked) {
+  function recordNumEditable(recordNum,enable) {
     $(".record-num-"+recordNum).each( function() {
-      this.disabled=isChecked;
+      this.disabled=!enable;
     });
     $('.record-num-'+recordNum).off('change')
     .on('change',function(req){ recordEditNum(this); });
@@ -208,12 +208,12 @@ $(function(){
   $('.btnRecordFTimeEditable').on('click', function(){
     var recordNum = $(this).attr("id").split("-")[1];
     var isChecked=($("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true");
-    recordFTimeEditable(recordNum,isChecked);
+    recordFTimeEditable(recordNum,!isChecked);
   });
 
-  function recordFTimeEditable(recordNum,isChecked) {
+  function recordFTimeEditable(recordNum,enable) {
     $(".record-ftime-"+recordNum).each( function() {
-      this.disabled=isChecked;
+      this.disabled=!enable;
     });
     $('.record-ftime-'+recordNum).off('change')
     .on('change',function(req){ recordEditFTime(this); });
@@ -233,12 +233,12 @@ $(function(){
   $('.btnRecordDTimeEditable').on('click',  function() {
     var recordNum = $(this).attr("id").split("-")[1];
     var isChecked=($("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true");
-    recordDTimeEditable(recordNum,isChecked);
+    recordDTimeEditable(recordNum,!isChecked);
   });
 
-  function recordDTimeEditable(recordNum,isChecked){
+  function recordDTimeEditable(recordNum,enable){
     $(".record-dtime-"+recordNum).each( function() {
-      this.disabled=isChecked;
+      this.disabled=!enable;
     });
     $('.record-dtime-'+recordNum).off('change')
     .on('change',function(req){ recordEditDTime(this); });
@@ -762,9 +762,9 @@ $(function(){
           </td>
         `);
 
-        recordNumEditable(recordNum,$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") != "true");
-        recordFTimeEditable(recordNum,$("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") != "true");
-        recordDTimeEditable(recordNum,$("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") != "true");
+        recordNumEditable(recordNum,$("#btnRecordNumEditable-"+recordNum).attr("aria-pressed") == "true");
+        recordFTimeEditable(recordNum,$("#btnRecordFTimeEditable-"+recordNum).attr("aria-pressed") == "true");
+        recordDTimeEditable(recordNum,$("#btnRecordDTimeEditable-"+recordNum).attr("aria-pressed") == "true");
       }
       $("#record-rid-0-"+seqnum).text(seqnum+1);
       $("#record-ftime-1-"+seqnum).parent().addClass("show-edit");
@@ -799,11 +799,10 @@ $(function(){
     $("#recordTable").find("tfoot").before("<tbody></tbody>");
   }
   $("#recordTable").find("tbody").attr('id', "recordTimeTbody");
-  alert($("#recordTimeTbody").attr('id'));
   setHidden();
   for(var recordNum in [0,1,2,3,4]) {
-    recordNumEditable(recordNum,true);
-    recordFTimeEditable(recordNum,true);
-    recordDTimeEditable(recordNum,true);
+    recordNumEditable(recordNum,false);
+    recordFTimeEditable(recordNum,false);
+    recordDTimeEditable(recordNum,false);
   }
 });
