@@ -1,5 +1,5 @@
 {
-  "name": "aqsyssample",
+  "name": "aqsys",
   "version": "1.0.0",
   "main": "app.js",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
@@ -15,7 +15,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "bootstrap": "^3.4.0",
-    "bufferutil": "3.0.2",
+    "bufferutil": "4.0.1",
     "cdnjs": "^0.3.2",
     "connect-flash": "^0.1.1",
     "consolidate": "^0.14.5",
