@@ -601,7 +601,7 @@ $(function(){
 
       function successCallback(stream) {
           video.srcObject = stream;
-          vido.play();
+          video.play();
 //          requestAnimationFrame(drawImage);
       }
 
@@ -619,7 +619,7 @@ $(function(){
       var lastMessage = false;
 
       function takeQRcode() {
-        drawImage();
+  //      drawImage();
         var imageData = context.getImageData(0, 0, 300, 300);
         var code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
