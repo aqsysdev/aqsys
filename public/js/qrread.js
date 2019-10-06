@@ -216,7 +216,7 @@ $(function() {
       }
     };
     var video  = document.getElementById("video");
-
+    alert(''+video);
 
     navigator.getUserMedia(medias, successCallback, errorCallback);
 
