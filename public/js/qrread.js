@@ -239,7 +239,7 @@ $(function() {
     var lastMessage = false;
 
     function takeQRcode() {
-//      context.drawImage(video, 0, 0, 300, 300);
+      context.drawImage(video, 0, 0, 300, 300);
       var imageData = context.getImageData(0, 0, 300, 300);
       var code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
