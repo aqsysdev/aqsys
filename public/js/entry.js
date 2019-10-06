@@ -529,7 +529,7 @@ $(function(){
       if($(this).hasClass("active")){
       //  $(this).removeClass("active");
         clearInterval(confQRcodeInterval);
-      //  location.reload();
+        location.reload();
       } else {
       //  $(this).addClass("active");
         activateCamera();
@@ -546,7 +546,7 @@ $(function(){
       if($(this).hasClass("active")){
       //  $(this).removeClass("active");
         clearInterval(registQRcodeInterval);
-      //  location.reload();
+        location.reload();
       } else {
       //  $(this).addClass("active");
         activateCamera();
@@ -563,7 +563,7 @@ $(function(){
       if($(this).hasClass("active")){
       //  $(this).removeClass("active");
         clearInterval(startQRcodeInterval);
-      //  location.reload();
+        location.reload();
       } else {
       //  $(this).addClass("active");
         activateCamera();
@@ -585,7 +585,7 @@ $(function(){
         //  height: "300px",
           frameRate: { ideal: 5, max: 15 },
           facingMode : {
-            exact : "user" // user 洗濯
+            exact : "user" // フロントを洗濯
           }
         }
       };
