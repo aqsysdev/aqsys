@@ -222,14 +222,14 @@ $(function() {
 
     function successCallback(stream) {
         video.srcObject = stream;
-        requestAnimationFrame(draw);
+        requestAnimationFrame(drawImage);
     }
 
     function errorCallback(err) {
       alert(err);
     }
 
-    function draw() {
+    function drawImage() {
       context.drawImage(video,0,0,300,300);
     }
 
@@ -239,7 +239,7 @@ $(function() {
     var lastMessage = false;
 
     function takeQRcode() {
-      context.drawImage(video, 0, 0, 300, 300);
+      drawImage();
       var imageData = context.getImageData(0, 0, 300, 300);
       var code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
