@@ -594,7 +594,7 @@ $(function(){
       var canv = document.createElement("canvas");
       var context = canv.getContext("2d");
       context.scale(-1,1);
-      context.translate(-300,0);
+      context.translate(300,0);
       var promise = navigator.mediaDevices.getUserMedia(medias);
 
       promise.then(successCallback).catch(errorCallback);
