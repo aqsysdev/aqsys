@@ -582,8 +582,8 @@ $(function(){
       var medias = {
         audio : false,
         video : {
-        //  width: "300px",
-        //  height: "300px",
+          width: "300px",
+          height: "300px",
           frameRate: { ideal: 5, max: 15 },
           facingMode : {
             exact : "user" // フロントを洗濯
@@ -593,8 +593,8 @@ $(function(){
       var video  = document.getElementById("video");
       var canv = document.createElement("canvas");
       var context = canv.getContext("2d");
-      context.scale(-1,1);
-      context.translate(300,0);
+//      context.scale(-1,1);
+//      context.translate(-300,0);
       var promise = navigator.mediaDevices.getUserMedia(medias);
 
       promise.then(successCallback).catch(errorCallback);
