@@ -593,16 +593,15 @@ $(function(){
       var video  = document.getElementById("video");
       var canv = document.createElement("canvas");
       var context = canv.getContext("2d");
-      context.translate(300,0);
       context.scale(-1,1);
+      context.translate(-300,0);
       var promise = navigator.mediaDevices.getUserMedia(medias);
 
       promise.then(successCallback).catch(errorCallback);
 
       function successCallback(stream) {
           video.srcObject = stream;
-          video.play();
-//          requestAnimationFrame(drawImage);
+          requestAnimationFrame(drawImage);
       }
 
       function errorCallback(err) {
