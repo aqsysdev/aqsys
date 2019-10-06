@@ -601,7 +601,8 @@ $(function(){
 
       function successCallback(stream) {
           video.srcObject = stream;
-          requestAnimationFrame(drawImage);
+          vido.play();
+//          requestAnimationFrame(drawImage);
       }
 
       function errorCallback(err) {
