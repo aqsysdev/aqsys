@@ -527,11 +527,11 @@ $(function(){
     var confQRcodeInterval = null;
     $("#btnEntryConfiermationReadQR").on("click" , function() {
       if($(this).hasClass("active")){
-        $(this).removeClass("active");
+      //  $(this).removeClass("active");
         clearInterval(confQRcodeInterval);
-        location.reload();
+      //  location.reload();
       } else {
-        $(this).addClass("active");
+      //  $(this).addClass("active");
         activateCamera();
       }
     });
@@ -544,11 +544,11 @@ $(function(){
     var registQRcodeInterval = null;
     $("#btnEntryRegistReadQR").on("click" , function() {
       if($(this).hasClass("active")){
-        $(this).removeClass("active");
+      //  $(this).removeClass("active");
         clearInterval(registQRcodeInterval);
-        location.reload();
+      //  location.reload();
       } else {
-        $(this).addClass("active");
+      //  $(this).addClass("active");
         activateCamera();
       }
     });
@@ -559,13 +559,13 @@ $(function(){
     //
     ////////////////////////////////////////////////////////////////////
     var startQRcodeInterval = null;
-    $("#btnEntryRegistReadQR").on("click" , function() {
+    $("#btnEntryStartReadQR").on("click" , function() {
       if($(this).hasClass("active")){
-        $(this).removeClass("active");
+      //  $(this).removeClass("active");
         clearInterval(startQRcodeInterval);
-        location.reload();
+      //  location.reload();
       } else {
-        $(this).addClass("active");
+      //  $(this).addClass("active");
         activateCamera();
       }
     });
