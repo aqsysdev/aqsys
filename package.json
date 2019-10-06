@@ -9,6 +9,7 @@
     "dev": "nodemon",
     "test": "(dropdb --if-exists entry && createdb entry) && NODE_ENV=testDevelopment mocha"
   },
+  
   "author": "",
   "license": "ISC",
   "dependencies": {
