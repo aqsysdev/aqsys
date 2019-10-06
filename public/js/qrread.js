@@ -230,17 +230,16 @@ $(function() {
     }
 
     function draw() {
-      canv.width = 300;
-      canv.height =300;
-      context.drawImage(video,0,0);
+      context.drawImage(video,0,0,300,300);
     }
 
     canv.height = 300;
     canv.width = 300;
     takeQRcodeInterval = setInterval(takeQRcode,250);
     var lastMessage = false;
+
     function takeQRcode() {
-      context.drawImage(video, 0, 0, 300, 300);
+//      context.drawImage(video, 0, 0, 300, 300);
       var imageData = context.getImageData(0, 0, 300, 300);
       var code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
