@@ -207,8 +207,8 @@ $(function() {
     var medias = {
       audio : false,
       video : {
-        width: "300px",
-        height: "300px",
+      //  width: "300px",
+      //  height: "300px",
         frameRate: { ideal: 5, max: 15 },
         facingMode : {
           exact : "environment" // リアカメラにアクセス
@@ -216,9 +216,8 @@ $(function() {
       }
     };
     var video  = document.getElementById("video");
-    alert(''+video);
 
-    navigator.getUserMedia(medias, successCallback, errorCallback);
+    navigator.mediaDevices.getUserMedia(medias, successCallback, errorCallback);
 
     function successCallback(stream) {
         localStream = video.srcObject = stream;
