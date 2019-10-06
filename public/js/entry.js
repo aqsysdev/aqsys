@@ -593,6 +593,8 @@ $(function(){
       var video  = document.getElementById("video");
       var canv = document.createElement("canvas");
       var context = canv.getContext("2d");
+      context.translate(300,0);
+      context.scale(-1,1);
       var promise = navigator.mediaDevices.getUserMedia(medias);
 
       promise.then(successCallback).catch(errorCallback);
@@ -607,7 +609,6 @@ $(function(){
       }
 
       function drawImage() {
-        context.transform(-1,0,0,1,0,0);
         context.drawImage(video,0,0,300,300);
       }
 
