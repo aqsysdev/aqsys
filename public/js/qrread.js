@@ -13,7 +13,7 @@ $(function() {
   function openWebSocket() {
     if(ws==false) {
       var HOST = location.origin.replace(/^http/, 'ws');
-      alert(HOST);
+      //alert(HOST);
       ws = new WebSocket(HOST);
       //サーバから受け取るイベント
       ws.onopen = function () {
@@ -207,8 +207,8 @@ $(function() {
     var medias = {
       audio : false,
       video : {
-  //      width: "300px",
-  //      height: "300px",
+        width: "300px",
+        height: "300px",
         frameRate: { ideal: 5, max: 15 },
         facingMode : {
           exact : "environment" // リアカメラにアクセス
