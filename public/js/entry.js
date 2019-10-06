@@ -585,7 +585,7 @@ $(function(){
         //  height: "300px",
           frameRate: { ideal: 5, max: 15 },
           facingMode : {
-            exact : "user" // user 洗濯
+            exact : "environment" // user 洗濯
           }
         }
       };
