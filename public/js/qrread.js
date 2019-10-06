@@ -187,13 +187,11 @@ $(function() {
     $("#currentTime").html(encodeTime(new Date()));
   }
 
-  var localStream = null;
   var takeQRcodeInterval = null;
   $("#action").on("click" , function() {
     if($(this).hasClass("active")){
       $(this).removeClass("active");
       clearInterval(takeQRcodeInterval);
-//      localStream.stop();
       location.reload();
     } else {
       $(this).addClass("active");
@@ -216,23 +214,31 @@ $(function() {
       }
     };
     var video  = document.getElementById("video");
+    var canv = document.createElement("canvas");
+    var context = canv.getContext("2d");
+    var promise = navigator.mediaDevices.getUserMedia(medias);
 
-    navigator.mediaDevices.getUserMedia(medias, successCallback, errorCallback);
+    promise.then(successCallback).catch(errorCallback);
 
     function successCallback(stream) {
-        localStream = video.srcObject = stream;
+        video.srcObject = stream;
+        requestAnimationFrame(draw);
     }
 
     function errorCallback(err) {
       alert(err);
     }
 
-    var canv = document.createElement("canvas");
+    function draw() {
+      canv.width = 300;
+      canv.height =300;
+      context.drawImage(video,0,0);
+    }
+
     canv.height = 300;
     canv.width = 300;
-    var context = canv.getContext("2d");
     takeQRcodeInterval = setInterval(takeQRcode,250);
-    var lastMessage=false;
+    var lastMessage = false;
     function takeQRcode() {
       context.drawImage(video, 0, 0, 300, 300);
       var imageData = context.getImageData(0, 0, 300, 300);
