@@ -607,6 +607,7 @@ $(function(){
       }
 
       function drawImage() {
+        context.transform(-1,0,0,1,0,0);
         context.drawImage(video,0,0,300,300);
       }
 
@@ -625,7 +626,7 @@ $(function(){
             beep();
     //      $("#message").val(message);
             lastMessage=message;
-            punchTime(tnum,message);
+    //        punchTime(tnum,message);
     //        navigator.vibrate( 1000 );
           }
         }
