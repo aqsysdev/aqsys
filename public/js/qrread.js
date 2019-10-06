@@ -13,7 +13,7 @@ $(function() {
   function openWebSocket() {
     if(ws==false) {
       var HOST = location.origin.replace(/^http/, 'ws');
-      //alert(HOST);
+      alert(HOST);
       ws = new WebSocket(HOST);
       //サーバから受け取るイベント
       ws.onopen = function () {
