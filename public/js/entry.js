@@ -550,6 +550,7 @@ $(function(){
       } else {
       //  $(this).addClass("active");
         activateCamera();
+        $("#entrylist").DataTable.displayLength = 1;
       }
     });
 
