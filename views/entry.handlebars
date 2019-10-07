@@ -19,6 +19,7 @@
 <div class="well table-responsive" width="100%">
   <table class="table table-condensed" id="entrylist">
     <thead>
+      <!--
       <tr align="center">
         <th class="hidden-xs no-csv-output">編集</th>
         <th>#<br/></th>
@@ -148,12 +149,13 @@
         <td class="hidden-xs hidden-sm" align="center"></td>
         <td class="hidden-xs hidden-sm" align="center"></td>
       </tr>
+    -->
     </thead>
     <tbody id="entry-list-tbody">
     {{#each entrylist}}
-      <tr valign="middle">
       <!-- Button trigger modal -->
       <!--
+      <tr valign="middle">
 
         <td align="center" class="hidden-xs">
           <button type="button" class="btn btn-default btn-xs edit-entrylist" data-toggle="modal" data-target="#formEditEntryModal" data-id="{{id}}" id="edit-entry-modal-{{id}}">
@@ -250,8 +252,8 @@
         <td class="hidden-xs hidden-sm" align="center">
           <div id="entry-id-{{id}}">{{id}}<div>
         </td>
-      -->
       </tr>
+      -->
     {{/each }}
     </tbody>
     <tfoot>
