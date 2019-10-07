@@ -549,8 +549,7 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     function QRentry(rnum) {
-      alert(rnum);
-      alert($("#entrylist_filter").find("input")[0]);
+      $("#entrylist_filter").find("input")[0].value="#"+rnum;
     }
     ////////////////////////////////////////////////////////////////////
     //
@@ -593,7 +592,6 @@ $(function(){
         var imageData = context.getImageData(0, 0, 300, 300);
         var code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
-          alert(code);
           var message = code.data;
           if(lastMessage!=message) {
             beep();
