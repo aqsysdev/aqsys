@@ -561,10 +561,12 @@ $(function(){
       } else {
       //  $(this).addClass("active");
         var select = $("#entrylist_length").find("select")[0];
-        alert(select.selectedIndex);
         select.options[select.selectedIndex].selected = false;
         select.options[0].selected = true;
-        alert(select.selectedIndex);
+        var filter = $("#entrylist_filter").find("input")[0];
+        alert(filter.value);
+        filter.value="#";
+        alert(filter.value);
         activateCamera();
       }
     });
