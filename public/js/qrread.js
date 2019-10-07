@@ -229,6 +229,7 @@ $(function() {
       alert(err);
     }
     context.drawImage(video, 0, 0, 300, 300);
+
     takeQRcodeInterval = setInterval(takeQRcode,250);
     var lastMessage=false;
     function takeQRcode() {
