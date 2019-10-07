@@ -78,7 +78,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       return(row);
     });
 
-    res.render('entry',{
+    res.render('qrentry',{
       entrylist: entrylist,
       gradeList: gradeList,
       cateList: cateList,
@@ -90,4 +90,4 @@ router.get('/', user.ensureAuthenticated, function(req, res){
 
 
 module.exports = router;
-console.log("routes/entry end");
+console.log("routes/qrentry end");

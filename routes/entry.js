@@ -37,19 +37,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-console.log("routes/entry2");
+console.log("routes/qrentry2");
 
 router.get('/', user.ensureAuthenticated, function(req, res){
-  console.log('entry3');
+  console.log('qrentry3');
   entry.getAll().then( function(entrylist) {
-    console.log('entry4');
+    console.log('qrentry4');
     entrylist = entrylist.filter(function(row){
       return(!row.disabled);
     });
-    console.log('entry5');
+    console.log('qrentry5');
     for(var row of entrylist){
       aqsysCoder.decodeRow(row);
     }
+    console.log('qrentry6');
 //    console.log(JSON.stringify(entry.getConfig().grades));
 //    console.log(JSON.stringify(entry.getConfig().cate));
     var grades=aqsysCoder.getConfig().grades;
@@ -77,8 +78,6 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       return(row);
     });
 
-    console.log(entryDataTableConfig);
-
     res.render('entry',{
       entrylist: entrylist,
       gradeList: gradeList,
@@ -91,4 +90,4 @@ router.get('/', user.ensureAuthenticated, function(req, res){
 
 
 module.exports = router;
-console.log("routes/entry end");
+console.log("routes/qrentry end");
