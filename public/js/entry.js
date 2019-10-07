@@ -17,9 +17,12 @@ $(function(){
   //  Entry Table のパラメータ定義
   //
   ///////////////////////////////////////////////////////////////////////////
-  /*
+
   $("#entrylist").DataTable(
     {
+          "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Japanese.json"
+          },
           lengthMenu: [[10, 20 ,50, 100, -1], [10, 20, 50, 100, "全件"]],
           displayLength: 50,
           stateSave: true,
@@ -31,7 +34,7 @@ $(function(){
     //      columnDefs: [{ "orderable": false, "targets": 2 }]
     }
   );
-*/
+
   //alert("public/entry.js end");
 
 

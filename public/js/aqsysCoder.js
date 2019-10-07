@@ -50,19 +50,7 @@ var Decimal = (typeof require === 'undefined') ? Decimal : require("../js/decima
           "146"
         ],
         months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-        sex: {M:"男",F:"女"},
-        entryDataTableConfig: {
-              lengthMenu: [[10, 20 ,50, 100, -1], [10, 20, 50, 100, "全件"]],
-              displayLength: 50,
-              stateSave: true,
-              //,scrollX: false
-              //,scrollY: false
-              order: [
-                [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
-              ]
-        //      columnDefs: [{ "orderable": false, "targets": 2 }]
-        }
-
+        sex: {M:"男",F:"女"}
   };
 
 
