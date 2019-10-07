@@ -215,12 +215,6 @@ $(function() {
         }
       }
     };
-    var video  = document.getElementById("video");
-    var canvas = document.createElement("canvas");
-    var context = canvas.getContext("2d");
-//    canvas.height = 300;
-//    canvas.width = 300;
-    context.drawImage(video, 0, 0, 300, 300);
 
     navigator.getUserMedia(medias, successCallback, errorCallback);
 
@@ -231,6 +225,12 @@ $(function() {
       alert(err);
     }
 
+    var video  = document.getElementById("video");
+    var canvas = document.createElement("canvas");
+    var context = canvas.getContext("2d");
+//    canvas.height = 300;
+//    canvas.width = 300;
+    context.drawImage(video, 0, 0, 300, 300);
     takeQRcodeInterval = setInterval(takeQRcode,250);
     var lastMessage=false;
     function takeQRcode() {
