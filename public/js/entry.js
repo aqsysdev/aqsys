@@ -17,6 +17,7 @@ $(function(){
   //  Entry Table のパラメータ定義
   //
   ///////////////////////////////////////////////////////////////////////////
+  /*
   $("#entrylist").DataTable(
     {
           lengthMenu: [[10, 20 ,50, 100, -1], [10, 20, 50, 100, "全件"]],
@@ -29,9 +30,8 @@ $(function(){
           ]
     //      columnDefs: [{ "orderable": false, "targets": 2 }]
     }
-
   );
-
+*/
   //alert("public/entry.js end");
 
 

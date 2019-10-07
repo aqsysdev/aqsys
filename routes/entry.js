@@ -72,6 +72,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     var waveList = wave.map(function(wave,wNum){
       return({wNum:wNum+1,waveName:wave});
     });
+    var entryDataTableConfig = aqsysCoder.getConfig().entryDataTableConfig;
 
     entrylist=entrylist.map(function(row){
       row.cateList=cateList;
@@ -82,7 +83,8 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       entrylist: entrylist,
       gradeList: gradeList,
       cateList: cateList,
-      waveList: waveList
+      waveList: waveList,
+      entryDataTableConfig: entryDataTableConfig
     });
 //    done();
   });
