@@ -150,10 +150,8 @@
     <tbody id="entry-list-tbody">
     {{#each entrylist}}
       <!-- Button trigger modal -->
-
       <tr valign="middle">
-
-        <td align="center" class="hidden-xs">
+        <td align="center" class="hidden-xs no-csv-output">
           <button type="button" class="btn btn-default btn-xs edit-entrylist" data-toggle="modal" data-target="#formEditEntryModal" data-id="{{id}}" id="edit-entry-modal-{{id}}">
           <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
           </button>
@@ -188,21 +186,21 @@
           </div>
           <input class="entry-wave" type="text" id="entry-wave-{{id}}"  name="wave-{{id}}" value="{{wave}}" size="3" disabled/>
         </td>
-        <td align="center">
+        <td align="center" class="no-csv-output">
           <div class="hidden"><div class="no-csv-output">f</div>{{confirmation}}</div>
           <label>
             <input type="checkbox" name="confirmation-{{id}}" id="entry-confirmation-{{id}}" class="checkbox01-input entry-confirmation confirmed" {{confirmation}} disabled>
             <span class="checkbox01-parts"></span>
           </label>
         </td>
-        <td align="center" valign="middle">
+        <td align="center" valign="middle" class="no-csv-output">
           <div class="hidden"><div class="no-csv-output">r</div>{{regist}}</div>
           <label>
             <input type="checkbox" name="regist-{{id}}" id="entry-regist-{{id}}" class="checkbox01-input entry-regist confirmed" {{regist}} disabled>
             <span class="checkbox01-parts"></span>
           </label>
         </td>
-        <td align="center">
+        <td align="center" class="no-csv-output">
           <div class="hidden"><div class="no-csv-output">s</div>{{start}}</div>
           <label>
             <input type="checkbox" name="start-{{id}}" id="entry-start-{{id}}" class="checkbox01-input entry-start confirmed" {{start}} disabled>
@@ -249,7 +247,6 @@
           <div id="entry-id-{{id}}">{{id}}<div>
         </td>
       </tr>
-      
     {{/each }}
     </tbody>
     <tfoot>
