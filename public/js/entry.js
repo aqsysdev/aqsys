@@ -560,7 +560,11 @@ $(function(){
         location.reload();
       } else {
       //  $(this).addClass("active");
-        $("#entrylist_length").find("select").options[0].selected = true;
+        var select = $("#entrylist_length").find("select");
+        alert(select.selectedIndex);
+        select.options[select.selectedIndex].selected = false;
+        select.options[0].selected = true;
+        alert(select.selectedIndex);
         activateCamera();
       }
     });
