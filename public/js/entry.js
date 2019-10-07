@@ -6,10 +6,20 @@
 
 
 $(function(){
+
+  //
+  // パラメータの受け取り
+  //
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
+
+  ///////////////////////////////////////////////////////////////////////////
+  //
+  //  Entry Table のパラメータ定義
+  //
+  ///////////////////////////////////////////////////////////////////////////
   $("#entrylist").DataTable(
     {
-      lengthMenu: [ 1, 10, 20, 50, 100, 500 ],
+      lengthMenu: [[1, 10, 20 ,50, 100, -1], [1, 10, 20, 50, 100, "全権"]],
       displayLength: 50,
       stateSave: true,
       //,scrollX: false
@@ -525,7 +535,7 @@ $(function(){
     //
     ////////////////////////////////////////////////////////////////////
     var confQRcodeInterval = null;
-    $("#btnEntryConfiermationReadQR").on("click" , function() {
+    $("#btnEntryConfirmationReadQR").on("click" , function() {
       if($(this).hasClass("active")){
       //  $(this).removeClass("active");
         clearInterval(confQRcodeInterval);
@@ -551,7 +561,6 @@ $(function(){
       } else {
       //  $(this).addClass("active");
         $("#entrylist").DataTable.displayLength = 1;
-        location.reload();
         activateCamera();
       }
     });
