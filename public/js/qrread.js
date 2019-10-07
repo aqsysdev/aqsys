@@ -223,13 +223,12 @@ $(function() {
     canvas.width = 300;
     navigator.mediaDevices.getUserMedia(medias, successCallback, errorCallback);
     function successCallback(stream) {
-      context.drawImage(video, 0, 0, 480, 270);      
       video.srcObject = stream;
     }
     function errorCallback(err) {
       alert(err);
     }
-
+    context.drawImage(video, 0, 0, 300, 300);
     takeQRcodeInterval = setInterval(takeQRcode,250);
     var lastMessage=false;
     function takeQRcode() {
