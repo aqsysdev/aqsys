@@ -24,8 +24,6 @@ var user = require('../db/user');
 var entry = require('../db/entry');
 var aqsysCoder = require('../public/js/aqsysCoder');
 
-
-
 // View Engine
 
 app.set('views', path.join(__dirname, 'views'));
@@ -52,7 +50,7 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     for(var row of entrylist){
       aqsysCoder.decodeRow(row);
     }
-    console.log('entry6');
+    console.log;
 //    console.log(JSON.stringify(entry.getConfig().grades));
 //    console.log(JSON.stringify(entry.getConfig().cate));
     var grades=aqsysCoder.getConfig().grades;
