@@ -17,8 +17,20 @@ $(function(){
   //  Entry Table のパラメータ定義
   //
   ///////////////////////////////////////////////////////////////////////////
-  alert(aqsysCoder.entryDataTableConfig);
-  $("#entrylist").DataTable(aqsysCoder.entryDataTableConfig);
+  $("#entrylist").DataTable(
+    {
+          lengthMenu: [[10, 20 ,50, 100, -1], [10, 20, 50, 100, "全件"]],
+          displayLength: 50,
+          stateSave: true,
+          //,scrollX: false
+          //,scrollY: false
+          order: [
+            [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
+          ]
+    //      columnDefs: [{ "orderable": false, "targets": 2 }]
+    }
+
+  );
 
   //alert("public/entry.js end");
 
