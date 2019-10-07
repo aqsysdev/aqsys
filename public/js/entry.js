@@ -533,6 +533,7 @@ $(function(){
       } else {
       //  $(this).addClass("active");
         activateCamera();
+        location.reload();
       }
     });
 
@@ -551,6 +552,7 @@ $(function(){
       //  $(this).addClass("active");
         activateCamera();
         $("#entrylist").DataTable.displayLength = 1;
+        location.reload();
       }
     });
 
@@ -568,6 +570,7 @@ $(function(){
       } else {
       //  $(this).addClass("active");
         activateCamera();
+        location.reload();
       }
     });
 
