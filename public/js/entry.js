@@ -564,9 +564,8 @@ $(function(){
         select.options[select.selectedIndex].selected = false;
         select.options[0].selected = true;
         var filter = $("#entrylist_filter").find("input")[0];
-        alert(filter.value);
         filter.value="#";
-        alert(filter.value);
+        _fnDraw();
         activateCamera();
       }
     });
