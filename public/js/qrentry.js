@@ -544,6 +544,16 @@ $(function(){
 
     ////////////////////////////////////////////////////////////////////
     //
+    //　 QR 受付
+    //
+    ////////////////////////////////////////////////////////////////////
+
+    function QRentry(rnum) {
+      alert(rnum);
+      alert($("#entrylist_filter").find("input")[0]);
+    }
+    ////////////////////////////////////////////////////////////////////
+    //
     //　カメラ起動
     //
     ////////////////////////////////////////////////////////////////////
@@ -588,7 +598,7 @@ $(function(){
             beep();
     //      $("#message").val(message);
             lastMessage=message;
-            punchTime(tnum,message);
+            QRentry(message);
     //        navigator.vibrate( 1000 );
           }
         }
@@ -600,9 +610,7 @@ $(function(){
       snd.play();
     }
 
-        alert("here 1");
-        activateCamera();
-        alert("here 2");
+    activateCamera();
 
 });
 
