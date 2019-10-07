@@ -223,13 +223,11 @@ $(function() {
     navigator.getUserMedia(medias, successCallback, errorCallback);
 
     function successCallback(stream) {
-        localStream = video.srcObject = stream;
+      context.drawImage(video, 0, 0, 300, 300);
     }
-
     function errorCallback(err) {
       alert(err);
     }
-    context.drawImage(video, 0, 0, 300, 300);
 
     takeQRcodeInterval = setInterval(takeQRcode,250);
     var lastMessage=false;
