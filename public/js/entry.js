@@ -561,7 +561,7 @@ $(function(){
       } else {
       //  $(this).addClass("active");
         var select = $("#entrylist_length");
-        alert(select.selectedIndex);
+        alert(select);
         select.options[select.selectedIndex].selected = false;
         select.options[0].selected = true;
         alert(select.selectedIndex);
