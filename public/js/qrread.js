@@ -222,8 +222,8 @@ $(function() {
     canvas.height = 300;
     canvas.width = 300;
     navigator.mediaDevices.getUserMedia(medias, successCallback, errorCallback);
-
     function successCallback(stream) {
+      context.drawImage(video, 0, 0, 480, 270);      
       video.srcObject = stream;
     }
     function errorCallback(err) {
