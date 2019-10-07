@@ -547,7 +547,10 @@ $(function(){
     //　カメラ起動
     //
     ////////////////////////////////////////////////////////////////////
+
+    alert("here 1");
     activateCamera();
+    alert("here 2");
 
     function activateCamera() {
       beep();
