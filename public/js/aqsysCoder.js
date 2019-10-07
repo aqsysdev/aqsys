@@ -429,7 +429,7 @@ var checkDate = aqsysCoder.checkDate = function( datestr ) {
 	}else{
 		return false;
 	}
-}
+};
 
 module.exports  = aqsysCoder;
 
