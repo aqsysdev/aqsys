@@ -111,6 +111,7 @@ var aqsysCoder = require('./public/js/aqsysCoder');
 var routes = require('./routes/index');
 var users  = require('./routes/users');
 var entry  = require('./routes/entry');
+var qrentry= require('./routes/qrentry');
 var waves = require('./routes/waves');
 var record = require('./routes/record');
 var punch  = require('./routes/record/punch');
@@ -214,6 +215,7 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/entry', entry);
+app.use('/qrentry', qrentry);
 app.use('/waves', waves);
 app.use('/record', record);
 app.use('/record/punch', punch);
