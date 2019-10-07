@@ -221,9 +221,7 @@ $(function() {
     var context = canvas.getContext("2d");
     canvas.height = 300;
     canvas.width = 300;
-    alert("here");
     var mediaPromise = navigator.mediaDevices.getUserMedia(medias);
-    alert("here");
     mediaPromise.then(function(stream) {
       video.srcObject = stream;
       context.drawImage(video, 0, 0, 300, 300);
@@ -231,7 +229,6 @@ $(function() {
     .catch(function(err) {
       alert(err);
     });
-    alert("here");
     takeQRcodeInterval = setInterval(takeQRcode,250);
     var lastMessage=false;
     function takeQRcode() {
