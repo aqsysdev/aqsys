@@ -216,14 +216,16 @@ $(function() {
       }
     };
     var video  = document.getElementById("video");
-    var canv = document.createElement("canvas");
-    var context = canv.getContext("2d");
-    canv.height = 300;
-    canv.width = 300;
+    var canvas = document.createElement("canvas");
+    var context = canvas.getContext("2d");
+//    canvas.height = 300;
+//    canvas.width = 300;
+    context.drawImage(video, 0, 0, 300, 300);
+
     navigator.getUserMedia(medias, successCallback, errorCallback);
 
     function successCallback(stream) {
-      context.drawImage(video, 0, 0, 300, 300);
+      video.srcObject = stream;
     }
     function errorCallback(err) {
       alert(err);
