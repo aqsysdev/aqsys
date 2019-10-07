@@ -50,7 +50,6 @@ router.get('/', user.ensureAuthenticated, function(req, res){
     for(var row of entrylist){
       aqsysCoder.decodeRow(row);
     }
-    console.log;
 //    console.log(JSON.stringify(entry.getConfig().grades));
 //    console.log(JSON.stringify(entry.getConfig().cate));
     var grades=aqsysCoder.getConfig().grades;
@@ -79,12 +78,14 @@ router.get('/', user.ensureAuthenticated, function(req, res){
       return(row);
     });
 
+    console.log(entryDataTableConfig);
+
     res.render('entry',{
       entrylist: entrylist,
       gradeList: gradeList,
       cateList: cateList,
       waveList: waveList,
-      entryDataTableConfig: entryDataTableConfig
+      dataTableConfig: entryDataTableConfig
     });
 //    done();
   });
