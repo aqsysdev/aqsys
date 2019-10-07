@@ -17,6 +17,7 @@ $(function(){
   //  Entry Table のパラメータ定義
   //
   ///////////////////////////////////////////////////////////////////////////
+  alart(aqsysCoder.entryDataTableConfig);
   $("#entrylist").DataTable(aqsysCoder.entryDataTableConfig);
 
   //alert("public/entry.js end");
