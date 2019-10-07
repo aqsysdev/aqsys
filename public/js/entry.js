@@ -550,9 +550,9 @@ $(function(){
         location.reload();
       } else {
       //  $(this).addClass("active");
-        activateCamera();
         $("#entrylist").DataTable.displayLength = 1;
         location.reload();
+        activateCamera();
       }
     });
 
