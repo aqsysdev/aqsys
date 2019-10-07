@@ -548,10 +548,6 @@ $(function(){
     //
     ////////////////////////////////////////////////////////////////////
 
-    alert("here 1");
-    activateCamera();
-    alert("here 2");
-
     function activateCamera() {
       beep();
   //    navigator.vibrate( 1000 );
@@ -603,6 +599,10 @@ $(function(){
     function beep() {
       snd.play();
     }
+
+        alert("here 1");
+        activateCamera();
+        alert("here 2");
 
 });
 
