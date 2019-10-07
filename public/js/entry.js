@@ -560,7 +560,7 @@ $(function(){
         location.reload();
       } else {
       //  $(this).addClass("active");
-        var select = $("#entrylist_length");
+        var select = $("#entrylist_length").find("select");
         alert(select);
         select.options[select.selectedIndex].selected = false;
         select.options[0].selected = true;
