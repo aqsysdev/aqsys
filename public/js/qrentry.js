@@ -593,6 +593,7 @@ $(function(){
         var imageData = context.getImageData(0, 0, 300, 300);
         var code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
+          alert(code);
           var message = code.data;
           if(lastMessage!=message) {
             beep();
