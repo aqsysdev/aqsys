@@ -20,8 +20,8 @@
   <table class="table table-condensed" id="entrylist">
     <thead>
       <tr align="center">
-        <th class="hidden-xs">編集</th>
-        <th>#<br></th>
+        <th class="hidden-xs no-csv-output">編集</th>
+        <th>#<br/></th>
         <th>cate<br/>
           <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">
             <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -46,33 +46,37 @@
             </ul>
           </div>
         </th>
-        <th data-toggle="false">誓約書<br />
+        <th data-toggle="false" class="no-csv-output">誓約書<br />
           <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryConfirmationReadQR">QR
         </button>
         </th>
-        <th data-toggle="false">受付<br />
+        <th data-toggle="false" class="no-csv-output">受付<br />
           <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button" autocomplete="on" id="btnEntryRegistReadQR">QR
           </button>
         </th>
-        <th data-toggle="false">召集<br />
+        <th data-toggle="false" class="no-csv-output">召集<br />
           <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button"  autocomplete="on" id="btnEntryStartReadQR">QR
           </button>
         </th>
-        <th>氏</th>
+        <th>姓</th>
+        <th class="hidden">セイ</th>
         <th>名</th>
+        <th class="hidden">メイ</th>
         <th class="hidden-xs hidden-sm">誕生日</th>
         <th align="center">年齢<br>学年</th>
         <th align="center">性別</th>
         <th class="hidden-xs hidden-sm" align="center">〒</th>
-        <th class="visible-lg col-lg-3">住所<div class="hidden">1","住所2</div></th>
-        <th class="hidden-xs hidden-sm">e-mail</th>
-        <th>親の氏</th>
+        <th class="visible-lg col-lg-3 no-csv-output">住所<div class="hidden">1","住所2</div></th>
+        <th class="hidden-xs hidden-sm no-csv-output">e-mail</th>
+        <th>親の姓</th>
+        <th class="hidden">セイ</th>
         <th>親の名</th>
-        <th class="hidden-xs hidden-sm">親の誕生日</th>
+        <th class="hidden">メイ</th>
+        <th class="hidden-xs hidden-sm no-csv-output">親の誕生日</th>
         <th class="hidden-xs hidden-sm">親の性別</th>
         <th class="hidden-xs hidden-sm">id</th>
       </tr>
-      <tr>
+      <tr class="no-csv-output">
         <td align="center" class="hidden-xs">
           <button type="button" class="btn btn-default btn-xs edit-entrylist" data-toggle="modal" data-target="#formEditEntryModal" data-id="0" id="edit-entry-modal-0">
           <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
@@ -122,7 +126,7 @@
         <td class="hidden-xs hidden-sm" align="center"></td>
         <td class="hidden-xs hidden-sm" align="center"></td>
       </tr>
-      <tr>
+      <tr class="no-csv-output">
         <td class="hidden-xs" align="center"></td>
         <td align="center"><a><span class="caret"></span></a></td>
         <td align="center"></td>
@@ -222,12 +226,12 @@
           <div id="entry-sex-{{id}}">{{sex}}</div>
         </td>
         <td class="hidden-xs hidden-sm">
-          <div id="entry-zip-{{id}}"><div class="no-csv-output">〒</div>{{zip1}}-{{zip2}}</div>
+          <div id="entry-zip-{{id}}"><div class="no-csv-output">〒</div>{{zip1}}<div class="no-csv-output">-{{zip2}}</div></div>
         </td>
-        <td class="visible-lg">
+        <td class="visible-lg no-csv-output">
           <div id="entry-address1-{{id}}">{{address1}}</div><div class="hidden">","</div><div id="entry-address2-{{id}}">{{address2}}</div>
         </td>
-        <td class="hidden-xs hidden-sm">
+        <td class="hidden-xs hidden-sm no-csv-output">
           <div id="entry-email-{{id}}">{{email}}</div>
         </td>
         <td align="center">
@@ -236,7 +240,7 @@
         <td align="center">
           <div id="entry-fname2-{{id}}">{{fname2}}</div><div class="hidden">","</div><div id="entry-namae2-{{id}}">{{namae2}}</div>
         </td>
-        <td class="hidden-xs hidden-sm">
+        <td class="hidden-xs hidden-sm no-csv-output">
           <div id="entry-birthday2-{{id}}">{{birthday2}}</div>
         </td>
         <td class="hidden-xs hidden-sm entry-sex2" align="center">

@@ -9,7 +9,7 @@ $(function(){
   aqsysCoder.setConfig(JSON.parse($("#variable-handler").val()));
   $("#entrylist").DataTable(
     {
-      lengthMenu: [ 1, 20, 50, 100, 500 ],
+      lengthMenu: [ 1, 10, 20, 50, 100, 500 ],
       displayLength: 50,
       stateSave: true,
       //,scrollX: false
