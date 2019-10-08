@@ -283,3 +283,11 @@ div.invisible
 input[type="text"][disabled] {
    color: blue;
 }
+
+.flip-horizontal {
+    transform: rotate(180deg);
+}
+
+.flip-vertical {
+    transform: scale(1, -1);
+}
