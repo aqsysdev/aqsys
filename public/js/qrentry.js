@@ -553,6 +553,8 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     function QRentry(rnum) {
+
+
       var entryList = $('.entryrow');
       entryList.addClass("hidden");
       entryList.each(function(){
@@ -648,7 +650,9 @@ $(function(){
     function beep() {
       snd2.play();
     }
-
+    $(".entry-start").prop("disabled",true);
+    $(".entry-regist").prop("disabled",false);
+    $(".entry-confirmation").prop("disabled",true);
     QRentry("");
     beep();
     activateCamera();
