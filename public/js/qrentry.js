@@ -557,14 +557,13 @@ $(function(){
       entryList.addClass("hidden");
       alert(entryList);
       entryList.each(function(){
-        if(rnum!="" && $(this).find(".entry-race-num")[0].val()==""+rnum ) {
-          $(this).removeClass("hidden");
-          var that = $(this).find(".entry-regist")[0];
-          var isChecked=$(that).prop("checked");
+        if(rnum!="" && this.find(".entry-race-num")[0].val()==""+rnum ) {
+          this.removeClass("hidden");
+          var that = this.find(".entry-regist")[0];
           alert(that);
-
-          $(that).removeClass("confirmed");
-          var id=$(this).attr("id").split('-')[2];
+          var isChecked=$(that).prop("checked");
+          that.removeClass("confirmed");
+          var id=that.attr("id").split('-')[2];
           $.put("/api/entry/"+id, {regist: true},
           function(data,stat){
             $.get("/api/entry/"+id, data, function(data,stat) {
