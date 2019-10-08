@@ -617,6 +617,10 @@ $(function(){
       snd.play();
     }
 
+    alert("here");
+    beep();
+    alert("here");
+
 });
 
 
