@@ -555,7 +555,6 @@ $(function(){
     function QRentry(rnum) {
       var entryList = $('.entryrow');
       entryList.addClass("hidden");
-      alert(entryList);
       entryList.each(function(){
         alert($(this).find(".entry-race-num").val());
         if(rnum!="" && $(this).find(".entry-race-num").val()==""+rnum ) {
