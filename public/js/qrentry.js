@@ -556,7 +556,6 @@ $(function(){
       var entryList = $('.entryrow');
       entryList.addClass("hidden");
       entryList.each(function(){
-        alert($(this).find(".entry-race-num").val());
         if(rnum!="" && $(this).find(".entry-race-num").val()==""+rnum ) {
           $(this).removeClass("hidden");
           var that = $(this).find(".entry-regist");
