@@ -574,7 +574,7 @@ $(function(){
     //      height: "300px",
           frameRate: { ideal: 5, max: 15 },
           facingMode : {
-            exact : "environment" // リアカメラにアクセス
+            exact : "user" // フロントカメラにアクセス
           }
         }
       };
