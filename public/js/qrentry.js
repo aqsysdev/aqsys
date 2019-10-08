@@ -558,6 +558,38 @@ $(function(){
       numList.each(function(){
         if($(this).val()==""+rnum ) {
           $(this).parent().parent().removeClass("hidden");
+          var that = $(this).find(".entry-regist")[0];
+          var isChecked=$(that).prop("checked");
+
+          $(that).removeClass("confirmed");
+          var id=$(this).attr("id").split('-')[2];
+          $.put("/api/entry/"+id, {regist: true},
+          function(data,stat){
+            $.get("/api/entry/"+id, data, function(data,stat) {
+              if(data.id==id){
+                $(that).addClass("confirmed");
+                $(that).prop("checked",data.regist);
+              }else{
+                $(that).prop("checked",true);
+              }
+            },
+            function(req,stat,err){
+              $(that).prop("checked",true);
+            });
+          },
+          function(req,stat,err){
+            $.get("/api/entry/"+id, data, function(data,stat) {
+              if(data.id==id){
+                $(that).addClass("confirmed");
+                $(that).prop("checked".data.regist);
+              }else{
+                $(that).prop("checked",true);
+              }
+            },
+            function(req,stat,err){
+              $(that).prop("checked",true);
+            });
+          });
         }
       });
     }
