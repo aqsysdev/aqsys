@@ -622,12 +622,10 @@ $(function(){
 
     $("#beepSwitch").on("click" , function() {
       if($(this).hasClass("active")){
-//        $(this).removeClass("active");
+        $(this).removeClass("active");
       } else {
         $(this).addClass("active");
-        const emptySource = ctx.createBufferSource();
-        emptySource.start();
-        emptySource.stop();
+        beep2();
       }
     });
 
