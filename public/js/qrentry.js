@@ -555,7 +555,7 @@ $(function(){
     function QRentry(rnum) {
       var numList = $('input.entry-race-mum');
       alert(numList);
-      numList.parent().parent().addClass("hidden");
+      $('input.entry-race-mum').parent().parent().addClass("hidden");
       alert(numList.find("[value="+rnum+']'));
       numList.find("[value="+rnum+']').parent().parent().removeClass("hidden");
     }
