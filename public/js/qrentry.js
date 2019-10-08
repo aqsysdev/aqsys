@@ -664,7 +664,19 @@ $(function(){
       snd2.play();
     }
 
-    alert("here");
+    //////////////////////////////////////////////////////////
+    //
+    //  work around for auto play
+    //  https://qiita.com/zprodev/items/7fcd8335d7e8e613a01f
+    //
+    //////////////////////////////////////////////////////////
+    document.addEventListener('touchstart', initAudioContext);
+    function initAudioContext(){
+      document.removeEventListener('touchstart', initAudioContext);
+      // wake up AudioContext
+      snd2.createBufferSource().start();
+    }
+
     $('#btnEntryConfirmationEditable').removeClass("active");
     $('#btnEntryRegistEditable').addClass("active");
     $('#btnEntryStartEditable').removeClass("active");
