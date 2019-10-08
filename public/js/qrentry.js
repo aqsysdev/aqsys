@@ -602,9 +602,33 @@ $(function(){
 
     var localStream = null;
     var takeQRcodeInterval = null;
+
+    ////////////////////////////////////////////////////////////////////
+    //
+    //　QR entry 終了
+    //
+    ////////////////////////////////////////////////////////////////////
+
     $("#btnEntryRegistReadQR").on("click" , function() {
         clearInterval(takeQRcodeInterval);
         history.back();
+    });
+
+    ////////////////////////////////////////////////////////////////////
+    //
+    //　beep 音スイッチ
+    //
+    ////////////////////////////////////////////////////////////////////
+
+    $("#beepSwitch").on("click" , function() {
+      if($(this).hasClass("active")){
+//        $(this).removeClass("active");
+      } else {
+        $(this).addClass("active");
+        const emptySource = ctx.createBufferSource();
+        emptySource.start();
+        emptySource.stop();
+      }
     });
 
     ////////////////////////////////////////////////////////////////////
@@ -664,20 +688,6 @@ $(function(){
       snd2.play();
     }
 
-    //////////////////////////////////////////////////////////
-    //
-    //  work around for auto play
-    //  https://qiita.com/zprodev/items/7fcd8335d7e8e613a01f
-    //
-    //////////////////////////////////////////////////////////
-    document.addEventListener('touchstart', initAudioContext);
-    function initAudioContext(){
-      document.removeEventListener('touchstart', initAudioContext);
-      // wake up AudioContext
-      const emptySource = ctx.createBufferSource();
-      emptySource.start();
-      emptySource.stop();
-    }
     $('#btnEntryConfirmationEditable').removeClass("active");
     $('#btnEntryRegistEditable').addClass("active");
     $('#btnEntryStartEditable').removeClass("active");
