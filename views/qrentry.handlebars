@@ -121,7 +121,7 @@
         <td class="hidden-xs hidden-sm" align="center"></td>
       </tr>
 
-      <tr class="no-csv-output">
+      <tr class="no-csv-output hidden">
         <td class="hidden-xs" align="center"></td>
         <td align="center"><a><span class="caret"></span></a></td>
         <td align="center"></td>
@@ -206,7 +206,7 @@
           </label>
         </td>
         <td align="center">
-          <div id="entry-lname-{{id}}">{{lname}}</div><div class="hidden">","</div><div id="entry-myouji-{{id}}">{{myouji}}</div>
+          <div id="entry-lname-{{id}}">{{lname}}</div><div class="hidden">","</div><div id="entry-myouji-{{id}}">{{myouji}}</divz>
         </td>
         <td align="center">
           <div id="entry-fname-{{id}}">{{fname}}</div><div class="hidden">","</div><div id="entry-namae-{{id}}">{{namae}}</div>
@@ -255,26 +255,7 @@
 <center>
 <video id="video" width="300" height="300" autoplay playsinline></video>
 </center>
-<p>
-  <button id="dl" class="btn btn-primary">Download CSV</button>
-  <button id="printCard" class="btn btn-primary">Print Number Card</button>
-</p>
 
-<script>
-	$("#dl").click(function(){
-    var noCSV=$(".no-csv-output").detach();
-	  $("#entrylist").table2csv({
-      filename:'entrylist.csv',
-      separator: ',',
-  		newline: '\n',
-  		quoteFields: true,
-  		excludeColumns: '',
-  		excludeRows: ''
-    });
-    noCSV=null;
-    location.reload();
-	});
-</script>
 
 <!-- Modal -->
 
