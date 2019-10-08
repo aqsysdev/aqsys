@@ -553,12 +553,11 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     function QRentry(rnum) {
-      var numList = $('input.entry-race-num');
-      numList.parent().parent().addClass("hidden");
-      alert(rnum);
-      numList.each(function(){
-        if(""+rnum!="" && $(this).val()==""+rnum ) {
-          $(this).parent().parent().removeClass("hidden");
+      var entryList = $('entryrow');
+      entryList.addClass("hidden");
+      entryList.each(function(){
+        if(rnum!="" && $(this).find("input.entry-race-num")[0].val()==""+rnum ) {
+          $(this).removeClass("hidden");
           var that = $(this).find(".entry-regist")[0];
           var isChecked=$(that).prop("checked");
           alert(that);
@@ -652,7 +651,7 @@ $(function(){
       snd2.play();
     }
 
-    QRentry("~");
+    QRentry("");
     beep();
     activateCamera();
 
