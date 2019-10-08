@@ -553,8 +553,8 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     function QRentry(rnum) {
-      $('.entryrow').addClass("hidden");
-      $('#entry-racenum-'+rnum).parent().parent().removeClass("hidden");
+      $('input.entry-race-num').parent().parent().addClass("hidden");
+      $('input.entry-race-num[value='+rnum+']').parent().parent().removeClass("hidden");
     }
     ////////////////////////////////////////////////////////////////////
     //
