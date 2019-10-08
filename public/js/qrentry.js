@@ -553,8 +553,10 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     function QRentry(rnum) {
-      $('input.entry-race-num').parent().parent().addClass("hidden");
-      $('input.entry-race-num[value='+rnum+']').parent().parent().removeClass("hidden");
+      var numList = $('input.entry-race-mum');
+      numList.parent().parent().addClass("hidden");
+      alert(numList.find("[value="+rnum+']'));
+      numList.find("[value="+rnum+']').parent().parent().removeClass("hidden");
     }
     ////////////////////////////////////////////////////////////////////
     //
