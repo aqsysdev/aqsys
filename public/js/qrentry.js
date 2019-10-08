@@ -558,13 +558,12 @@ $(function(){
       alert(entryList);
       entryList.each(function(){
         alert($(this).find(".entry-race-num").val());
-        if(rnum!="" && $(this).find(".entry-race-num")[0].val()==""+rnum ) {
+        if(rnum!="" && $(this).find(".entry-race-num").val()==""+rnum ) {
           $(this).removeClass("hidden");
-          var that = $(this).find(".entry-regist")[0];
-          alert(that);
+          var that = $(this).find(".entry-regist");
           var isChecked=$(that).prop("checked");
-          that.removeClass("confirmed");
-          var id=that.attr("id").split('-')[2];
+          $(that).removeClass("confirmed");
+          var id=$(that).attr("id").split('-')[2];
           $.put("/api/entry/"+id, {regist: true},
           function(data,stat){
             $.get("/api/entry/"+id, data, function(data,stat) {
