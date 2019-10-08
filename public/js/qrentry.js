@@ -557,6 +557,7 @@ $(function(){
       entryList.addClass("hidden");
       alert(entryList);
       entryList.each(function(){
+        alert(this.find(".entry-race-num"));
         if(rnum!="" && this.find(".entry-race-num")[0].val()==""+rnum ) {
           this.removeClass("hidden");
           var that = this.find(".entry-regist")[0];
