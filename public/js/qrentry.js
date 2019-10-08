@@ -652,9 +652,9 @@ $(function(){
     }
     isChecked=$('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? true : false;
 
-    $('#btnEntryConfirmationEditable').attr("aria-pressed","false");
-    $('#btnEntryRegistEditable').attr("aria-pressed","true");
-    $('#btnEntryStartEditable').attr("aria-pressed","false");
+    $('#btnEntryConfirmationEditable').removeClass("active");
+    $('#btnEntryRegistEditable').addClass("active");
+    $('#btnEntryStartEditable').removeClass("active");
     $(".entry-start").prop("disabled",true);
     $(".entry-regist").prop("disabled",false);
     $(".entry-confirmation").prop("disabled",true);
