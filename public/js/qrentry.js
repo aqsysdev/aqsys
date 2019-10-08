@@ -602,6 +602,17 @@ $(function(){
 
     var localStream = null;
     var takeQRcodeInterval = null;
+    $("#btnEntryRegistReadQR").on("click" , function() {
+      if($(this).hasClass("active")){
+        $(this).removeClass("active");
+        clearInterval(takeQRcodeInterval);
+    //      localStream.stop();
+        location.reload();
+      } else {
+        $(this).addClass("active");
+        activateCamera();
+      }
+    });
 
     ////////////////////////////////////////////////////////////////////
     //
@@ -659,7 +670,6 @@ $(function(){
     function beep() {
       snd2.play();
     }
-    isChecked=$('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? true : false;
 
     $('#btnEntryConfirmationEditable').removeClass("active");
     $('#btnEntryRegistEditable').addClass("active");
@@ -668,7 +678,6 @@ $(function(){
     $(".entry-regist").prop("disabled",false);
     $(".entry-confirmation").prop("disabled",true);
     QRentry("");
-    beep();
     activateCamera();
 
 });
