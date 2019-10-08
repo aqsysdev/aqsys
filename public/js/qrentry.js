@@ -553,7 +553,7 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     function QRentry(rnum) {
-      var entryList = $('entryrow');
+      var entryList = $('.entryrow');
       entryList.addClass("hidden");
       entryList.each(function(){
         if(rnum!="" && $(this).find("input.entry-race-num")[0].val()==""+rnum ) {
