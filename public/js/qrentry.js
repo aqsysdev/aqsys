@@ -614,7 +614,6 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     function activateCamera() {
-      beep2();
   //    navigator.vibrate( 1000 );
       var medias = {
         audio : false,
