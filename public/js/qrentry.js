@@ -674,9 +674,10 @@ $(function(){
     function initAudioContext(){
       document.removeEventListener('touchstart', initAudioContext);
       // wake up AudioContext
-      snd2.createBufferSource().start();
+      const emptySource = ctx.createBufferSource();
+      emptySource.start();
+      emptySource.stop();
     }
-
     $('#btnEntryConfirmationEditable').removeClass("active");
     $('#btnEntryRegistEditable').addClass("active");
     $('#btnEntryStartEditable').removeClass("active");
