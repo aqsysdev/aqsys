@@ -555,11 +555,13 @@ $(function(){
     function QRentry(rnum) {
       var numList = $('input.entry-race-num');
       numList.parent().parent().addClass("hidden");
+      alert(rnum);
       numList.each(function(){
-        if($(this).val()==""+rnum ) {
+        if(""+rnum!="" && $(this).val()==""+rnum ) {
           $(this).parent().parent().removeClass("hidden");
           var that = $(this).find(".entry-regist")[0];
           var isChecked=$(that).prop("checked");
+          alert(that);
 
           $(that).removeClass("confirmed");
           var id=$(this).attr("id").split('-')[2];
