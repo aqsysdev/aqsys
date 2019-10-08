@@ -285,7 +285,7 @@ input[type="text"][disabled] {
 }
 
 .flip-horizontal {
-    transform: rotate(180deg);
+    transform: scale(-1, 1);
 }
 
 .flip-vertical {
