@@ -21,14 +21,18 @@ $(function(){
   $("#entrylist").DataTable(
     {
 //       "language": {"url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Japanese.json"},
-          lengthMenu: [1],
-          displayLength: 1,
-          stateSave: true,
-          //,scrollX: false
-          //,scrollY: false
+          lengthMenu: [-1],
+          displayLength: -1,
+          stateSave: false,
+          scrollX: false,
+          scrollY: false,
           order: [
-            [3,"asc"],[2,"asc"],[1,"asc"],[17,"asc"],[11,"desc"],[10,"asc"],[7,"asc"],[8,"asc"]
-          ]
+          ],
+          lengthChange: false,
+          searching: false,
+          ordering: false,
+          info: false,
+          pageing: false
     //      columnDefs: [{ "orderable": false, "targets": 2 }]
     }
   );
@@ -550,6 +554,7 @@ $(function(){
 
     function QRentry(rnum) {
       $("#entrylist_filter").find("input")[0].value="#"+rnum;
+
     }
     ////////////////////////////////////////////////////////////////////
     //
