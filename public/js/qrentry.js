@@ -556,7 +556,7 @@ $(function(){
       var numList = $('input.entry-race-num');
       numList.parent().parent().addClass("hidden");
       numList.each(function(){
-        if($(this).value==""+rnum ) {
+        if($(this).val()==""+rnum ) {
           $(this).parent().parent().removeClass("hidden");
         }
       });
