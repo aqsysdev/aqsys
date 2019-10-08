@@ -650,6 +650,11 @@ $(function(){
     function beep() {
       snd2.play();
     }
+    isChecked=$('#btnEntryConfirmationEditable').attr("aria-pressed") == "true" ? true : false;
+
+    $('#btnEntryConfirmationEditable').attr("aria-pressed",false);
+    $('#btnEntryEntryEditable').attr("aria-pressed",true);
+    $('#btnEntryStartEditable').attr("aria-pressed",false);
     $(".entry-start").prop("disabled",true);
     $(".entry-regist").prop("disabled",false);
     $(".entry-confirmation").prop("disabled",true);
