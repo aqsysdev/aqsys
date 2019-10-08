@@ -553,7 +553,9 @@ $(function(){
     ////////////////////////////////////////////////////////////////////
 
     function QRentry(rnum) {
-      $("#entrylist_filter").find("input")[0].value="#"+rnum;
+      $('.entryrow').addClass("hidden");
+      alert(rnum);
+      $('#entry-racenum-'+rrum).parent().parent().removeClass("hidden");
 
     }
     ////////////////////////////////////////////////////////////////////
@@ -600,10 +602,8 @@ $(function(){
           var message = code.data;
           if(lastMessage!=message) {
             beep();
-    //      $("#message").val(message);
             lastMessage=message;
             QRentry(message);
-    //        navigator.vibrate( 1000 );
           }
         }
       }
