@@ -27,21 +27,21 @@
             <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
-              <li name=0><a href=""><span class="caret"></span></a></li>
+              <li name=0><a style="cursor: pointer;"><span class="caret"></span></a></li>
               {{#each cateList}}
-              <li name={{cNum}}><a href="">{{cateName}}</a></li>
+              <li name={{cNum}}><a style="cursor: pointer;">{{cateName}}</a></li>
               {{/each}}
             </ul>
           </div>
-        </th>
+         </th>
         <th>wave<br/>
           <div class="dropdown dropdown-wave-search" id="dropdown-wave-search">
             <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-wave-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
-              <li name=0><a href=""><span class="caret"></span></a></li>
+              <li name=0><a style="cursor: pointer;"><span class="caret"></span></a></li>
               {{#each waveList}}
-              <li name={{wNum}}><a href="">{{waveName}}</a></li>
+              <li name={{wNum}}><a style="cursor: pointer;">{{waveName}}</a></li>
               {{/each}}
             </ul>
           </div>
@@ -123,7 +123,7 @@
 
       <tr class="no-csv-output">
         <td class="hidden-xs" align="center"></td>
-        <td align="center"><a href=""><span class="caret"></span></a></td>
+        <td align="center"><a style="cursor: pointer;"><span class="caret"></span></a></td>
         <td align="center"></td>
         <td align="center"></td>
         <td align="center"></td>
@@ -156,7 +156,7 @@
         </td>
         <td>
            <div class="hidden">
-             <div class="no-csv-output">#</div><a href="">{{racenum}}</a>
+             <div class="no-csv-output">#</div><a style="cursor: pointer;">{{racenum}}</a>
            </div>
            <input class="entry-race-num" type="text" id="entry-racenum-{{id}}" name="racenum-{{id}}" value="{{racenum}}" size="4" disabled/>
         </td>
@@ -165,22 +165,22 @@
           <div class="dropdown dropdown-cate" id="dropdown-cate-{{id}}">
             <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="entry-cate-{{id}}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
             {{#if cate}}
-              <a href="">{{cate}}</a>
+              <a style="cursor: pointer;">{{cate}}</a>
             {{else}}
-              <a href=""></a>
+              <a style="cursor: pointer;"></a>
             {{/if}}
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-{{id}}">
-              <li name=0><a href=""><span class="caret"></span></a></li>
+              <li name=0><a style="cursor: pointer;"><span class="caret"></span></a></li>
               {{#each cateList}}
-              <li name={{cNum}}><a href="">{{cateName}}</a></li>
+              <li name={{cNum}}><a style="cursor: pointer;">{{cateName}}</a></li>
               {{/each}}
             </ul>
           </div>
         </td>
         <td align="center">
           <div class="hidden">
-            <div class="no-csv-output">wave</div><a href="">{{wave}}</a>
+            <div class="no-csv-output">wave</div><a style="cursor: pointer;">{{wave}}</a>
           </div>
           <input class="entry-wave" type="text" id="entry-wave-{{id}}"  name="wave-{{id}}" value="{{wave}}" size="3" disabled/>
         </td>
@@ -296,12 +296,12 @@
             <div class="dropdown modal-dropdown col-lg-4" id="modal-dropdown-cate">
               <label>カテゴリ</label><br>
               <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="modal-cate" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <a href=""></a>
+                <a style="cursor: pointer;"></a>
               </button>
               <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-modal">
-                <li name=0><a href=""><span class="caret"></span></a></li>
+                <li name=0><a style="cursor: pointer;"><span class="caret"></span></a></li>
                 {{#each cateList}}
-                <li name={{cNum}}><a href="">{{cateName}}</a></li>
+                <li name={{cNum}}><a style="cursor: pointer;">{{cateName}}</a></li>
                 {{/each}}
               </ul>
             </div>
@@ -335,8 +335,8 @@
                   男
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-sex">
-                  <li><a href="">男</a></li>
-                  <li><a href="">女</a></li>
+                  <li><a style="cursor: pointer;">男</a></li>
+                  <li><a style="cursor: pointer;">女</a></li>
                 </ul>
               </div>
             </div>
@@ -346,9 +346,9 @@
                 <button class="btn btn-default dropdown-toggle" type="button" id="modal-grade" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-grade">
-                  <li><a href="">-</a></li>
+                  <li><a style="cursor: pointer;">-</a></li>
                   {{#each gradeList}}
-                  <li><a href="">{{gradeName}}</a></li>
+                  <li><a style="cursor: pointer;">{{gradeName}}</a></li>
                   {{/each}}
                 </ul>
               </div>
@@ -400,9 +400,9 @@
                 男
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-sex2">
-                <li><a href="">-</a></li>
-                <li><a href="">男</a></li>
-                <li><a href="">女</a></li>
+                <li><a style="cursor: pointer;">-</a></li>
+                <li><a style="cursor: pointer;">男</a></li>
+                <li><a style="cursor: pointer;">女</a></li>
                 </ul>
               </div>
             </div>
