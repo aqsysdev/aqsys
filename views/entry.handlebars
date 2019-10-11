@@ -24,15 +24,15 @@
         <th>#<br/></th>
         <th>cate<br/>
             <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">
-            <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            </button>
-            <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
-              <li role="presentation" name=0><a role="menuitem"><span class="caret"></span></a></li>
+              <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              </button>
+              <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
+                <li name=0><a><span class="caret"></span></a></li>
               {{#each cateList}}
-              <li role="presentation" name={{cNum}}><a role="menuitem">{{cateName}}</a></li>
+                <li name={{cNum}}><a>{{cateName}}</a></li>
               {{/each}}
-            </ul>
-          </div>
+              </ul>
+            </div>
           </th>
         <th>wave<br/>
           <div class="dropdown dropdown-wave-search" id="dropdown-wave-search">
@@ -167,13 +167,13 @@
             {{#if cate}}
               <a href="#">{{cate}}</a>
             {{else}}
-              <a></a>
+              <a href="#"></a>
             {{/if}}
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-{{id}}">
-              <li role="presentation" name=0><a role="menuitem"><span class="caret"></span></a></li>
+              <li name=0><a><span class="caret"></span></a></li>
               {{#each cateList}}
-              <li role="presentation" name={{cNum}}><a role="menuitem">{{cateName}}</a></li>
+              <li name={{cNum}}><a>{{cateName}}</a></li>
               {{/each}}
             </ul>
           </div>
