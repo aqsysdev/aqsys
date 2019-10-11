@@ -23,17 +23,6 @@
         <th class="hidden-xs no-csv-output">編集</th>
         <th>#<br/></th>
         <th>cate<br/>
-          <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">
-          <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown">
-          </button>
-          <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
-            <li name=0><a href="#"><span class="caret"></span></a></li>
-            {{#each cateList}}
-            <li name={{cNum}}><a href="#">{{cateName}}</a></li>
-            {{/each}}
-          </ul>
-        </div>
-          <!--
             <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">
             <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             </button>
@@ -44,7 +33,6 @@
               {{/each}}
             </ul>
           </div>
-        -->
         </th>
         <th>wave<br/>
           <div class="dropdown dropdown-wave-search" id="dropdown-wave-search">
@@ -177,9 +165,9 @@
           <div class="dropdown dropdown-cate" id="dropdown-cate-{{id}}">
             <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="entry-cate-{{id}}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
             {{#if cate}}
-              <a>{{cate}}</a>
+              <a href="#">{{cate}}</a>
             {{else}}
-              <a></a>
+              <a href="#"></a>
             {{/if}}
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-{{id}}">
