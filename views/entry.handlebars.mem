@@ -7,7 +7,6 @@
 
 <script type="text/javascript" src="/js/printcard.js"></script>
 <script type="text/javascript" src="/js/table2csv.js"></script>
-<script type="text/javascript" src="/js/table2csv.js"></script>
 <script type="text/javascript" src="/js/jquery.redirect.js"></script>
 <script type="text/javascript" src="/js/decimal.min.js"></script>
 <script type="text/javascript" src="/js/aqsysCoder.js" ></script>
@@ -25,7 +24,7 @@
         <th>#<br/></th>
         <th>cate<br/>
             <div class="dropdown dropdown-cate-search" id="dropdown-cate-search">
-            <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" aria-haspopup="true" aria-expanded="true">
+            <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-cate-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
               <li name=0><a><span class="caret"></span></a></li>
@@ -37,7 +36,7 @@
           </th>
         <th>wave<br/>
           <div class="dropdown dropdown-wave-search" id="dropdown-wave-search">
-            <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-wave-search" aria-haspopup="true" aria-expanded="true">
+            <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="entry-wave-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             </button>
             <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-search">
               <li name=0><a><span class="caret"></span></a></li>
@@ -164,7 +163,7 @@
         <td align="center">
           <div class="hidden no-csv-output">cate{{cate}}</div>
           <div class="dropdown dropdown-cate" id="dropdown-cate-{{id}}">
-            <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="entry-cate-{{id}}" type="button" aria-haspopup="true" aria-expanded="true" disabled>
+            <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="entry-cate-{{id}}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
             {{#if cate}}
               <a>{{cate}}</a>
             {{else}}
@@ -296,7 +295,7 @@
 
             <div class="dropdown modal-dropdown col-lg-4" id="modal-dropdown-cate">
               <label>カテゴリ</label><br>
-              <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="modal-cate" type="button" aria-haspopup="true" aria-expanded="true">
+              <button class="btn btn-default btn-xs dropdown-toggle entry-cate" id="modal-cate" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <a href="#"></a>
               </button>
               <ul class="dropdown-menu no-csv-output" aria-labelledby="entry-cate-modal">
@@ -332,7 +331,7 @@
             <div class="form-group col-lg-2">
               <label>性別</label>
               <div class="dropdown modal-dropdown" id="modal-dropdown-sex">
-                <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex"  aria-haspopup="true" aria-expanded="true">
+                <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   <a href="#">男</a>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-sex">
@@ -344,7 +343,7 @@
             <div class="form-group col-lg-6">
               <label>学年（親子リレーも含む）</label>
               <div class="dropdown modal-dropdown" id="modal-dropdown-grade">
-                <button class="btn btn-default dropdown-toggle" type="button" id="modal-grade" aria-haspopup="true" aria-expanded="true">
+                <button class="btn btn-default dropdown-toggle" type="button" id="modal-grade" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-grade">
                   <li><a>-</a></li>
@@ -397,7 +396,7 @@
             <div class="form-group col-lg-2">
               <div class="dropdown modal-dropdown" id="modal-dropdown-sex2">
                 <label>性別</label><br>
-                <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex2"   aria-haspopup="true" aria-expanded="true" name="sex2">
+                <button class="btn btn-default dropdown-toggle" type="button" id="modal-sex2"   data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" name="sex2">
                 男
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="modal-sex2">
