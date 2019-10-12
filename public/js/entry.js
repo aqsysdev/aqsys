@@ -129,16 +129,11 @@ $(function(){
   ////////////////////////////////////////////////////////////////////
 
   $('.dropdown-cate li').on('click', function(){
-    alert($(this).html());
     var dropdown=$(this).parents(".dropdown-cate")[0];
-    alert(dropdown);
     var button = $(dropdown).find(".entry-cate")[0];
-    alert(button);
     if($(this).html()!=$(button).html()){
       $(button).addClass("unconfirmed");
-      alert($(button).html());
       $(button).html($(this).html());
-      alert($(button).html());
       var num=$(this).attr('name');
       var id=$(dropdown).attr("id").split('-')[2];
       var that=this;
@@ -534,7 +529,9 @@ $(function(){
     //
     ////////////////////////////////////////////////////////////////////
     $('.modal-dropdown li').on('click', function(){
-      $(this).parent().prev().html($(this).html());
+      var dropdown=$(this).parents(".dropdown")[0];
+      var button = $(dropdown).find(".dropdown-toggle")[0];
+      $(button).html($(this).html());
     });
 
 
