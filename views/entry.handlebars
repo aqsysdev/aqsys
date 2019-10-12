@@ -49,11 +49,11 @@
         <th data-toggle="false" class="no-csv-output">誓約書<br />
         </button>
         </th>
-        <th data-toggle="false" class="no-csv-output">受付<br />
+        <th data-toggle="false" class="">受付<br />
           <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="button" autocomplete="on" id="btnEntryRegistReadQR" onclick="location.href='./qrentry'">QR
           </button>
         </th>
-        <th data-toggle="false" class="no-csv-output">召集<br />
+        <th data-toggle="false" class="">召集<br />
           </button>
         </th>
         <th>姓<div class="hidden csv-output">","セイ</div></th>
@@ -189,14 +189,14 @@
             <span class="checkbox01-parts"></span>
           </label>
         </td>
-        <td align="center" valign="middle" class="no-csv-output">
+        <td align="center" valign="middle" class="">
           <div class="hidden"><div class="no-csv-output">r</div>{{regist}}</div>
           <label>
             <input type="checkbox" name="regist-{{id}}" id="entry-regist-{{id}}" class="checkbox01-input entry-regist confirmed" {{regist}} disabled>
             <span class="checkbox01-parts"></span>
           </label>
         </td>
-        <td align="center" class="no-csv-output">
+        <td align="center" class="">
           <div class="hidden"><div class="no-csv-output">s</div>{{start}}</div>
           <label>
             <input type="checkbox" name="start-{{id}}" id="entry-start-{{id}}" class="checkbox01-input entry-start confirmed" {{start}} disabled>
