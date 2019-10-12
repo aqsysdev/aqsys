@@ -132,9 +132,9 @@ $(function(){
     alert($(this).html());
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).parent().prev().addClass("unconfirmed");
-      alert($(this).parent().prev().html());
-      $(this).parent().prev().html($(this).html());
-      alert($(this).parent().prev().html());
+      alert($(this).parent().parent().find("button")[0].html());
+      $(this).parent().parent().find("button")[0].html($(this).html());
+      alert($(this).parent().parent().find("button")[0].html());
       var num=$(this).attr('name');
       var id=$(this).parents('.dropdown-cate').attr("id").split('-')[2];
       var that=this;
