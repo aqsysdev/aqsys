@@ -132,19 +132,20 @@ $(function(){
   // カテゴリー変更
   //
   ////////////////////////////////////////////////////////////////////
-
   $('.dropdown-cate li').on('click', function(){
-    if($(this).html()!=$(this).parent().prev().html()){
-      $(this).parent().prev().addClass("unconfirmed");
-      $(this).parent().prev().html($(this).html());
+    var dropdown=$(this).parents(".dropdown-cate")[0];
+    var button = $(dropdown).find(".entry-cate")[0];
+    if($(this).html()!=$(button).html()){
+      $(button).addClass("unconfirmed");
+      $(button).html($(this).html());
       var num=$(this).attr('name');
-      var id=$(this).parents('.dropdown-cate').attr("id").split('-')[2];
+      var id=$(dropdown).attr("id").split('-')[2];
       var that=this;
       $.put("/api/entry/"+id, {cate: num},
       function(data,stat){
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
-            $(that).parent().prev().removeClass("unconfirmed");
+            $(button).removeClass("unconfirmed");
           }
         },
         function(req,stat,err){
@@ -153,7 +154,7 @@ $(function(){
       function(req,stat,err){
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
-            $(that).removeClass("unconfirmed");
+            $(button).removeClass("unconfirmed");
           }
         },
         function(req,stat,err){
@@ -532,7 +533,9 @@ $(function(){
     //
     ////////////////////////////////////////////////////////////////////
     $('.modal-dropdown li').on('click', function(){
-      $(this).parent().prev().html($(this).html());
+      var dropdown=$(this).parents(".dropdown")[0];
+      var button = $(dropdown).find(".dropdown-toggle")[0];
+      $(button).html($(this).html());
     });
     ////////////////////////////////////////////////////////////////////
     //
