@@ -130,6 +130,8 @@ $(function(){
 
   $('.dropdown-cate li').on('click', function(){
     alert($(this).html());
+    var dropdown=$(this).parents(".dropdown-cate")[0];
+    alert(dropdown);
     if($(this).html()!=$(this).parent().prev().html()){
       $(this).parent().prev().addClass("unconfirmed");
       alert($(this).parent().parent().find("button")[0].html());
