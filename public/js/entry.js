@@ -132,7 +132,7 @@ $(function(){
     alert($(this).html());
     var dropdown=$(this).parents(".dropdown-cate")[0];
     alert(dropdown);
-    var button = $(drowpdown).find(".entry-cate")[0];
+    var button = $(dropdown).find(".entry-cate")[0];
     alert(button);
     if($(this).html()!=$(button).html()){
       $(button).addClass("unconfirmed");
