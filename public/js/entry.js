@@ -132,19 +132,21 @@ $(function(){
     alert($(this).html());
     var dropdown=$(this).parents(".dropdown-cate")[0];
     alert(dropdown);
-    if($(this).html()!=$(this).parent().prev().html()){
-      $(this).parent().prev().addClass("unconfirmed");
-      alert($(this).parent().parent().find("button")[0].html());
-      $(this).parent().parent().find("button")[0].html($(this).html());
-      alert($(this).parent().parent().find("button")[0].html());
+    var button = $(drowpdown).find(".entry cate")[0];
+    alert(button);
+    if($(this).html()!=$(button).html()){
+      $(button).addClass("unconfirmed");
+      alert($(button).html());
+      $(button).html($(this).html());
+      alert($(button).html());
       var num=$(this).attr('name');
-      var id=$(this).parents('.dropdown-cate').attr("id").split('-')[2];
+      var id=$(dropdown).attr("id").split('-')[2];
       var that=this;
       $.put("/api/entry/"+id, {cate: num},
       function(data,stat){
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
-            $(that).parent().prev().removeClass("unconfirmed");
+            $(button).removeClass("unconfirmed");
           }
         },
         function(req,stat,err){
@@ -153,7 +155,7 @@ $(function(){
       function(req,stat,err){
         $.get("/api/entry/"+id, data, function(data,stat) {
           if(data.id==id){
-            $(that).removeClass("unconfirmed");
+            $(button).removeClass("unconfirmed");
           }
         },
         function(req,stat,err){
