@@ -43,7 +43,7 @@
     "quagga": "^0.12.1",
     "requirejs": "^2.3.6",
     "serve-favicon": "^2.5.0",
-    "ws": "^7.1.2"
+    "ws": "^7.4.6"
   },
   "devDependencies": {
     "chai": "^4.2.0",
