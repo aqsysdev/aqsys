@@ -23,7 +23,7 @@
     "decimal": "0.0.2",
     "dust": "^0.3.0",
     "dustjs-helpers": "^1.7.4",
-    "dustjs-linkedin": "^2.7.5",
+    "dustjs-linkedin": "^3.0.0",
     "es5-shim": "^4.5.13",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
